@@ -1,0 +1,14 @@
+<template class="mdc-form-field" bindable="id">
+	<div class="mdc-radio">
+		<input class="mdc-radio__native-control" type="radio" id="radio--${id}" checked.bind="checked" change.delegate="handleChange($event)" name="${name}">
+		<div class="mdc-radio__background">
+			<div class="mdc-radio__outer-circle"></div>
+			<div class="mdc-radio__inner-circle"></div>
+		</div>
+	</div>
+	<label if.bind="secondarylabel && label" class="mdc-list-item__text au-target" au-target-id="63" for="radio--${id}">
+		${label}
+		<span class="mdc-list-item__secondary-text">${secondarylabel}</span>
+	</label>
+	<label if.bind="!secondarylabel && label" for="radio--${id}">${label}</label>
+</template>

@@ -1,0 +1,9 @@
+﻿<template>
+	<div class="mdc-switch ${disabled ? 'mdc-switch--disabled' : ''}">
+		<input type="checkbox" id="basic-switch" class="mdc-switch__native-control" checked.bind="active" disabled.bind="disabled" />
+		<div class="mdc-switch__background">
+			<div class="mdc-switch__knob"></div>
+		</div>
+	</div>
+	<label for="basic-switch" class="mdc-switch-label">${label}</label>
+</template>
