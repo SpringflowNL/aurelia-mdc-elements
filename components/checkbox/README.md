@@ -3,9 +3,9 @@
 ## Usage
 ```html
 <mdc-checkbox label="CheckboxName" 
-	      id="demo-checkbox--${id}" 
-	      checked.bind="true" 
-	      disabled.bind="false">
+	      id="checkboxID" 
+	      checked="false" 
+	      disabled="true">
 </mdc-checkbox>
 ```
 ## Parameters
@@ -16,3 +16,4 @@
 | checked | The value which has to be true/false	| X |				|
 | disabled| Disable the checkbox									|		| False |
 | secondarylabel | Creates an two-list instead of a single label | | |
+| model | Needs to return multiple values (models) | | |

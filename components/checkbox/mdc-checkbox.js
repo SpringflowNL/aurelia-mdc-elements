@@ -9,6 +9,7 @@ export class MdcCheckbox {
     @bindable disabled = false;
 	@bindable id;
 	@bindable label;
+	@bindable model;
 	@bindable secondarylabel;
     mdcCheckbox;
 
@@ -27,7 +28,6 @@ export class MdcCheckbox {
     }
 
     checkedChanged(newValue) {
-        this.indeterminate = false;
         const event = new CustomEvent('change', { bubbles: true, detail: { value: newValue }});
         this.element.dispatchEvent(event);
     }

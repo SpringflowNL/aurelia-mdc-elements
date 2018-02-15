@@ -6,6 +6,8 @@ Recent changes can be found [Here](./CHANGELOG.md)
 ## Installation
 bla
 
+[![NPM](https://nodei.co/npm/aurelia-mdc-elements.png?compact=true)](https://nodei.co/npm/aurelia-mdc-elements/)
+
 ## Components
 
  - [Checkbox](components/checkbox/README.md)
