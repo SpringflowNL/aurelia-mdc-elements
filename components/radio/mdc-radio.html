@@ -1,10 +1,14 @@
-<template class="mdc-form-field" bindable="id">
+<template class="mdc-form-field">
 	<div class="mdc-radio ${disabled ? 'mdc-radio--disabled' : ''}">
-		<input class="mdc-radio__native-control" type="radio" id="${id}" checked.bind="checked" disabled.bind="disabled" change.delegate="handleChange($event)" name="${name}" model.bind="key">
+		<input class="mdc-radio__native-control" type="radio" id="radio--${id}" disabled.bind="disabled" checked.bind="checked" change.delegate="handleChange($event)" name="${name}" model.bind="model">
 		<div class="mdc-radio__background">
 			<div class="mdc-radio__outer-circle"></div>
 			<div class="mdc-radio__inner-circle"></div>
 		</div>
 	</div>
-	<label for="${id}" if.bind="label">${label}</label>
+	<label if.bind="secondarylabel && label" class="mdc-list-item__text au-target" au-target-id="63" for="radio--${id}">
+		${label}
+		<span class="mdc-list-item__secondary-text">${secondarylabel}</span>
+	</label>
+	<label if.bind="!secondarylabel && label" for="radio--${id}">${label}</label>
 </template>

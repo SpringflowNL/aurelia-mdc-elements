@@ -17,3 +17,4 @@
 | disabled| Disable the radio									|		| False |
 | secondarylabel | Creates an two-list instead of a single label | | |
 | name | Give the same names to create a radio list | | |
+| model | Give models as values for the radios | | |

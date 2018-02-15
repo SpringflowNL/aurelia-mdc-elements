@@ -6,12 +6,12 @@ const { MDCRadio } = mdcRadio;
 @inject(Element)
 export class MdcRadio {
     @bindable({ defaultBindingMode: bindingMode.twoWay }) checked = false;
-    @bindable({ defaultBindingMode: bindingMode.twoWay }) indeterminate = false;
     @bindable disabled = false;
 	@bindable id;
 	@bindable label;
 	@bindable secondarylabel;
 	@bindable name;
+	@bindable model;
     mdcRadio;
 
     constructor( element) {
@@ -20,7 +20,6 @@ export class MdcRadio {
 
     bind() {
 		this.mdcRadio = new MDCRadio(this.element);
-	    this.mdcRadio.disabled = this.disabled;
     }
 
     handleChange(e) {
@@ -29,16 +28,11 @@ export class MdcRadio {
     }
 
     checkedChanged(newValue) {
-        this.indeterminate = false;
         const event = new CustomEvent('change', { bubbles: true, detail: { value: newValue }});
         this.element.dispatchEvent(event);
     }
 
     disabledChanged(newValue) {
     	this.mdcRadio.disabled = !!newValue;
-    }
-
-    indeterminateChanged(newValue) {
-    	this.mdcRadio.indeterminate = !!newValue;
     }
 }
