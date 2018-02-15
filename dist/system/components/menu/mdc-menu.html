@@ -1,0 +1,10 @@
+<template click.delegate="toggleMenu()" class="mdc-menu-anchor">
+	<i if.bind="icon" class="material-icons">${icon}</i>
+	<span if.bind="title" class="faceted-navigation__title">${label}</span>
+	
+	<div ref="menuElement" class="mdc-menu" tabindex="-1">
+		<ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true">
+			<slot name="data"></slot>
+		</ul>
+	</div>
+</template>

@@ -1,0 +1,15 @@
+<template class="mdc-select" role="listbox">
+	<div class="mdc-select__surface" tabindex="0">
+		<div ref="selectLabel" class="mdc-select__label">${label}</div>
+		<div class="mdc-select__selected-text"></div>
+		<div class="mdc-select__bottom-line"></div>
+	</div>
+	<div class="mdc-menu mdc-select__menu">
+		<ul class="mdc-list mdc-menu__items">
+			<li class="mdc-list-item" role="option" tabindex="0"></li>
+			<li class="mdc-list-item" role="option" tabindex="0" data-id.bind="item[key]" repeat.for="item of data">
+				${item[value]}
+			</li>
+		</ul>
+	</div>
+</template>
