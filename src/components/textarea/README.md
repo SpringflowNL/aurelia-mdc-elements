@@ -2,11 +2,11 @@
 
 ## Usage
 ```html
-<mdc-textarea label="Titel" value.bind="_Name" disabled.bind="IsReadonly"></mdc-textarea>
+<mdc-textarea label="Title" value.bind="Name" disabled.bind="true"></mdc-textarea>
 ```
 
 ## Parameters
-Paramters that can be given to the message are:
+Parameters that can be given to the message are:
 
 | Option | Description | Required | Default |
 |--|--|:--:|:--:|
