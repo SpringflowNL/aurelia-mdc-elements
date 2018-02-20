@@ -1,5 +1,5 @@
 {
-  "name": "aurelia-mdc-testproject",
+  "name": "aurelia-mdc-elements",
   "version": "0.30.0",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "main": "dist/commonjs/index.js",
@@ -66,5 +66,8 @@
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0"
     }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
