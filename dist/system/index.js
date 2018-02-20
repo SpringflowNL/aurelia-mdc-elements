@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-pal'], function (_export, _context) {
+System.register(['aurelia-framework'], function (_export, _context) {
 	"use strict";
 
 	var PLATFORM;
@@ -12,8 +12,8 @@ System.register(['aurelia-pal'], function (_export, _context) {
 	_export('configure', configure);
 
 	return {
-		setters: [function (_aureliaPal) {
-			PLATFORM = _aureliaPal.PLATFORM;
+		setters: [function (_aureliaFramework) {
+			PLATFORM = _aureliaFramework.PLATFORM;
 		}],
 		execute: function () {}
 	};

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/SpringflowNL/aurelia-mdc-elements#readme",
   "dependencies": {
+    "aurelia-event-aggregator": "^1.0.1",
     "aurelia-framework": "^1.1.5",
     "material-components-web": "^0.30.0"
   },
@@ -49,12 +50,6 @@
     "isparta": "^4.0.0",
     "istanbul": "^1.0.0-alpha.2",
     "jasmine-core": "^2.5.2",
-    "karma": "^2.0.0",
-    "karma-babel-preprocessor": "^7.0.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-jspm": "2.2.3",
     "object.assign": "^4.0.4",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",

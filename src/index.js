@@ -1,4 +1,4 @@
-import {PLATFORM} from 'aurelia-pal';
+import {PLATFORM} from 'aurelia-framework';
 
 export function configure(config) {
 	const components = [
