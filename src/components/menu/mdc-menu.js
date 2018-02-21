@@ -1,5 +1,4 @@
-﻿/*MDC 0.30.0*/
-import { bindable, customElement, inject, DOM } from 'aurelia-framework';
+﻿import { bindable, customElement, inject, DOM } from 'aurelia-framework';
 
 import { menu as mdcMenu } from 'material-components-web/dist/material-components-web';
 const { MDCMenu, MDCMenuFoundation } = mdcMenu;

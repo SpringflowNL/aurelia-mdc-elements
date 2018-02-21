@@ -1,5 +1,4 @@
-﻿/*MDC 0.29.0*/
-import { customElement, bindable, inject } from 'aurelia-framework';
+﻿import { customElement, bindable, inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { snackbar as mdcSnackbar } from 'material-components-web/dist/material-components-web';
 const  { MDCSnackbar } = mdcSnackbar;

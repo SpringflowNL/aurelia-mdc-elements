@@ -18,17 +18,17 @@ npm install aurelia-mdc-elements
 
 ## Components
 
- - [Checkbox](components/checkbox/README.md)
- - [Details](components/details/README.md)
- - [Menu](components/menu/README.md)
- - [Progress](components/progress/README.md)
- - [Radio](components/radio/README.md)
- - [Ripple](components/ripple/README.md)
- - [Select](components/select/README.md)
- - [Snackbar](components/snackbar/README.md)
- - [Text-field](components/textfield/README.md)
- - [Textarea](components/textarea/README.md)
+ - [Checkbox](components/checkbox)
+ - [Details](components/details)
+ - [Menu](components/menu)
+ - [Progress](components/progress)
+ - [Radio](components/radio)
+ - [Ripple](components/ripple)
+ - [Select](components/select)
+ - [Snackbar](components/snackbar)
+ - [Text-field](components/textfield)
+ - [Textarea](components/textarea)
 
 ## Styling
 
- - [Styling](components/styles/README.md)
+ - [Styling](components/styles)

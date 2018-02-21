@@ -1,4 +1,3 @@
-/*MDC 0.30.0*/
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
 import	{ textField as mdcTextField } from 'material-components-web/dist/material-components-web';
 const	{ MDCTextField } = mdcTextField;

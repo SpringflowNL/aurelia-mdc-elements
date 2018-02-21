@@ -1,4 +1,3 @@
-/*MDC 0.30.0*/
 import { inject, bindable, bindingMode, DOM } from 'aurelia-framework';
 import {checkbox as mdcCheckbox} from 'material-components-web/dist/material-components-web';
 const {MDCCheckbox} = mdcCheckbox;

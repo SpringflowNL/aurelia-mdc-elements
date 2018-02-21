@@ -1,5 +1,4 @@
-﻿/*MDC 0.30.0*/
-import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
+﻿import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
 import { select as mdcSelect } from 'material-components-web/dist/material-components-web';
 const { MDCSelect } = mdcSelect;
 

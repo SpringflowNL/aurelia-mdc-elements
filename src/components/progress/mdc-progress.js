@@ -1,4 +1,3 @@
-/*MDC 0.30.0*/
 import { inject, bindable, customElement, bindingMode, DOM } from 'aurelia-framework';
 
 @customElement('mdc-progress')
