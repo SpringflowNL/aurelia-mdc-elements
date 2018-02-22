@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MdcMenu = undefined;
 
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -68,6 +68,8 @@ var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('md
 
 		_initDefineProp(this, 'menuElement', _descriptor3, this);
 
+		_initDefineProp(this, 'slotname', _descriptor4, this);
+
 		this.element = element;
 	}
 
@@ -91,6 +93,9 @@ var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('md
 	enumerable: true,
 	initializer: null
 }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'menuElement', [_aureliaFramework.bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'slotname', [_aureliaFramework.bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);
