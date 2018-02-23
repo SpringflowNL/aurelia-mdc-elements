@@ -103,9 +103,9 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 				});
 				if (self.myMdcSelect.selectedIndex !== index) {
 					self.myMdcSelect.selectedIndex = index;
-
-					self.checkFloatingLabel(index, self.selected);
 				}
+
+				self.checkFloatingLabel(index, self.selected);
 			} catch (e) {}
 		}, 10);
 	};
