@@ -27,7 +27,9 @@ define(['exports', 'aurelia-framework', 'aurelia-event-aggregator', 'material-co
 			var _this = this;
 
 			this.subscriber = this.ea.subscribe('PostMessage.Snackbar', function (response) {
-				_this.showSnackbar(response.label, response.button - label, response.dismiss - on - action);
+				console.log('hier');
+				debugger;
+				_this.showSnackbar(response.label, response.buttonlabel, response.dismissonaction);
 			});
 		};
 

@@ -28,7 +28,9 @@ var MdcSnackbar = exports.MdcSnackbar = (_dec = (0, _aureliaFramework.customElem
 		var _this = this;
 
 		this.subscriber = this.ea.subscribe('PostMessage.Snackbar', function (response) {
-			_this.showSnackbar(response.label, response.button - label, response.dismiss - on - action);
+			console.log('hier');
+			debugger;
+			_this.showSnackbar(response.label, response.buttonlabel, response.dismissonaction);
 		});
 	};
 
