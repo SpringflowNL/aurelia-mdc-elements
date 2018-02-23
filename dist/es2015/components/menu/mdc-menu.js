@@ -1,4 +1,4 @@
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -57,8 +57,6 @@ export let MdcMenu = (_dec = customElement('mdc-menu'), _dec2 = inject(Element),
 
 		_initDefineProp(this, 'menuElement', _descriptor3, this);
 
-		_initDefineProp(this, 'slotname', _descriptor4, this);
-
 		this.element = element;
 	}
 
@@ -80,9 +78,6 @@ export let MdcMenu = (_dec = customElement('mdc-menu'), _dec2 = inject(Element),
 	enumerable: true,
 	initializer: null
 }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'menuElement', [bindable], {
-	enumerable: true,
-	initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'slotname', [bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);
