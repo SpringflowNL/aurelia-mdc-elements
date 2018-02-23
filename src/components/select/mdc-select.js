@@ -23,6 +23,7 @@ export class MdcSelect {
 		this.myMdcSelect.disabled = this.disabled;
 
 		this.myMdcSelect.listen('MDCSelect:change', () => {
+			debugger
 			this.selected = this.myMdcSelect.selectedOptions[0].dataset.id;
 			this.selectedChanged();
 		});
@@ -61,6 +62,7 @@ export class MdcSelect {
 	}
 
 	checkFloatingLabel(index, selected) {
+		debugger
 		if (index !== -1 && selected) {
 			this.selectLabel.classList.add('mdc-select__label--float-above');
 		}

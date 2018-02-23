@@ -85,6 +85,7 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 		this.myMdcSelect.disabled = this.disabled;
 
 		this.myMdcSelect.listen('MDCSelect:change', function () {
+			debugger;
 			_this.selected = _this.myMdcSelect.selectedOptions[0].dataset.id;
 			_this.selectedChanged();
 		});
@@ -123,6 +124,7 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 	};
 
 	MdcSelect.prototype.checkFloatingLabel = function checkFloatingLabel(index, selected) {
+		debugger;
 		if (index !== -1 && selected) {
 			this.selectLabel.classList.add('mdc-select__label--float-above');
 		} else {

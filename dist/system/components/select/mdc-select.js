@@ -95,6 +95,7 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 					this.myMdcSelect.disabled = this.disabled;
 
 					this.myMdcSelect.listen('MDCSelect:change', function () {
+						debugger;
 						_this.selected = _this.myMdcSelect.selectedOptions[0].dataset.id;
 						_this.selectedChanged();
 					});
@@ -133,6 +134,7 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 				};
 
 				MdcSelect.prototype.checkFloatingLabel = function checkFloatingLabel(index, selected) {
+					debugger;
 					if (index !== -1 && selected) {
 						this.selectLabel.classList.add('mdc-select__label--float-above');
 					} else {
