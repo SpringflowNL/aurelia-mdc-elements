@@ -36,7 +36,7 @@ System.register(['aurelia-framework', 'aurelia-event-aggregator', 'material-comp
 					var _this = this;
 
 					this.subscriber = this.ea.subscribe('PostMessage.Snackbar', function (response) {
-						_this.showSnackbar(response.label, response.button - label, response.dismiss - on - action);
+						_this.showSnackbar(response.label, response.buttonlabel, response.dismissonaction);
 					});
 				};
 

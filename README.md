@@ -23,7 +23,6 @@ npm install aurelia-mdc-elements
  - [Menu](src/components/menu)
  - [Progress](src/components/progress)
  - [Radio](src/components/radio)
- - [Ripple](src/components/ripple)
  - [Select](src/components/select)
  - [Snackbar](src/components/snackbar)
  - [Text-field](src/components/textfield)
