@@ -13,8 +13,6 @@ export let MdcSnackbar = (_dec = customElement('mdc-snackbar'), _dec2 = inject(E
 
 	attached() {
 		this.subscriber = this.ea.subscribe('PostMessage.Snackbar', response => {
-			console.log('hier');
-			debugger;
 			this.showSnackbar(response.label, response.buttonlabel, response.dismissonaction);
 		});
 	}
