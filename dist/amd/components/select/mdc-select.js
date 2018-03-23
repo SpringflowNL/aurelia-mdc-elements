@@ -104,9 +104,9 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 					});
 					if (self.myMdcSelect.selectedIndex !== index) {
 						self.myMdcSelect.selectedIndex = index;
-
-						self.checkFloatingLabel(index, self.selected);
 					}
+
+					self.checkFloatingLabel(index, self.selected);
 				} catch (e) {}
 			}, 10);
 		};
