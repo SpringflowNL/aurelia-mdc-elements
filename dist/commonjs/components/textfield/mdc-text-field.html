@@ -1,7 +1,7 @@
 <template>
 	<div class="mdc-text-field ${dense ? 'mdc-text-field--dense' : ''}">
 		<input type="${type}" id="text-field--${label}" class="mdc-text-field__input" value.bind="value">
-		<label class="mdc-text-field__label" for="text-field--${label}">${label}</label>
+		<label for="text-field--${label}" class="mdc-floating-label">${label}</label>
 		<div class="mdc-line-ripple"></div>
 	</div>
 	<p if.bind="secondarylabel" class="mdc-text-field-helper-text" aria-hidden="true">
