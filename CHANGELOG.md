@@ -1,10 +1,10 @@
 # [0.33.0] () (2018-03-23)
 ## Bugfixed
+- MDC textfield: RENAMED mdc-text-field__label to mdc-floating-label according to MDC
 
 ## Features
 
 ## Breaking changes
-- MDC textfield: RENAMED mdc-text-field__label to mdc-floating-label according to MDC
 
 # [0.31.2](https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.31.1...v0.31.2) (2018-02-23)
 ## Bugfixes
