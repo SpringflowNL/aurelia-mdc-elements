@@ -92,7 +92,7 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 
 				self.checkFloatingLabel(index, self.selected);
 			} catch (e) {}
-		}, 10);
+		}, 500);
 	}
 
 	dataChanged(newvalue) {
