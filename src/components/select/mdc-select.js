@@ -45,7 +45,7 @@ export class MdcSelect {
 				}
 				catch (e) {}
 			},
-			10);
+			500);
 	}
 
 	dataChanged(newvalue) {
