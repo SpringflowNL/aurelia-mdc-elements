@@ -107,7 +107,7 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 
 				self.checkFloatingLabel(index, self.selected);
 			} catch (e) {}
-		}, 10);
+		}, 500);
 	};
 
 	MdcSelect.prototype.dataChanged = function dataChanged(newvalue) {
