@@ -108,7 +108,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 					self.checkFloatingLabel(index, self.selected);
 				} catch (e) {}
-			}, 10);
+			}, 500);
 		};
 
 		MdcSelect.prototype.dataChanged = function dataChanged(newvalue) {
