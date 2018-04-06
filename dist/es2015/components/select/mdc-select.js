@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -62,7 +62,9 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 
 		_initDefineProp(this, 'disabled', _descriptor6, this);
 
-		_initDefineProp(this, 'selectLabel', _descriptor7, this);
+		_initDefineProp(this, 'required', _descriptor7, this);
+
+		_initDefineProp(this, 'selectLabel', _descriptor8, this);
 
 		this.element = element;
 	}
@@ -79,6 +81,7 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 			this.selected = this.myMdcSelect.value;
 		});
 	}
+
 	disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
 	}
@@ -108,7 +111,10 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'disabled', [bindable], {
 	enumerable: true,
 	initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'required', [bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);

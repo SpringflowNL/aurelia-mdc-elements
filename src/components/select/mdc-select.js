@@ -11,6 +11,7 @@ export class MdcSelect {
 	@bindable key;
 	@bindable({ defaultBindingMode: bindingMode.twoWay }) selected;
 	@bindable disabled;
+	@bindable required;
 	@bindable selectLabel;
 	myMdcSelect;
 
@@ -31,6 +32,7 @@ export class MdcSelect {
 			this.selected = this.myMdcSelect.value;
 		});
 	}
+
 	disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
 	}
