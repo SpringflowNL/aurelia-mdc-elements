@@ -30,6 +30,10 @@ export class MdcTextField {
 		this.myMdcTextfield.disabled = newvalue;
 	}
 
+	requiredChanged(newvalue) {
+		this.myMdcTextfield.required = newvalue;
+	}
+
     detached() 
     {
         this.myMdcTextfield.destroy();
