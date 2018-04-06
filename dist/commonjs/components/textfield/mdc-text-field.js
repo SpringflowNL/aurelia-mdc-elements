@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MdcTextField = undefined;
 
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -75,6 +75,12 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 
 		_initDefineProp(this, 'dense', _descriptor7, this);
 
+		_initDefineProp(this, 'step', _descriptor8, this);
+
+		_initDefineProp(this, 'min', _descriptor9, this);
+
+		_initDefineProp(this, 'max', _descriptor10, this);
+
 		this.element = element;
 	}
 
@@ -82,6 +88,10 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
 		this.myMdcTextfield.disabled = this.disabled;
 		this.myMdcTextfield.required = this.required;
+
+		this.step ? this.stepChanged(this.step) : '';
+		this.min ? this.minChanged(this.min) : '';
+		this.max ? this.maxChanged(this.max) : '';
 	};
 
 	MdcTextField.prototype.disabledChanged = function disabledChanged(newvalue) {
@@ -90,6 +100,26 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 
 	MdcTextField.prototype.requiredChanged = function requiredChanged(newvalue) {
 		this.myMdcTextfield.required = newvalue;
+	};
+
+	MdcTextField.prototype.stepChanged = function stepChanged(newvalue) {
+		this.myMdcTextfield.input_.setAttribute("step", newvalue);
+	};
+
+	MdcTextField.prototype.minChanged = function minChanged(newvalue) {
+		if (this.type === 'number') {
+			this.myMdcTextfield.input_.setAttribute("min", newvalue);
+		} else {
+			this.myMdcTextfield.input_.setAttribute("minlength", newvalue);
+		}
+	};
+
+	MdcTextField.prototype.maxChanged = function maxChanged(newvalue) {
+		if (this.type === 'number') {
+			this.myMdcTextfield.input_.setAttribute("max", newvalue);
+		} else {
+			this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
+		}
 	};
 
 	MdcTextField.prototype.detached = function detached() {
@@ -128,4 +158,13 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 	initializer: function initializer() {
 		return false;
 	}
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'step', [_aureliaFramework.bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'min', [_aureliaFramework.bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'max', [_aureliaFramework.bindable], {
+	enumerable: true,
+	initializer: null
 })), _class2)) || _class) || _class);

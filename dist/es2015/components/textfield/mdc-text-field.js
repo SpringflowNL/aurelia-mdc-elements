@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -64,6 +64,12 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 
 		_initDefineProp(this, 'dense', _descriptor7, this);
 
+		_initDefineProp(this, 'step', _descriptor8, this);
+
+		_initDefineProp(this, 'min', _descriptor9, this);
+
+		_initDefineProp(this, 'max', _descriptor10, this);
+
 		this.element = element;
 	}
 
@@ -71,6 +77,10 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
 		this.myMdcTextfield.disabled = this.disabled;
 		this.myMdcTextfield.required = this.required;
+
+		this.step ? this.stepChanged(this.step) : '';
+		this.min ? this.minChanged(this.min) : '';
+		this.max ? this.maxChanged(this.max) : '';
 	}
 
 	disabledChanged(newvalue) {
@@ -79,6 +89,26 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 
 	requiredChanged(newvalue) {
 		this.myMdcTextfield.required = newvalue;
+	}
+
+	stepChanged(newvalue) {
+		this.myMdcTextfield.input_.setAttribute("step", newvalue);
+	}
+
+	minChanged(newvalue) {
+		if (this.type === 'number') {
+			this.myMdcTextfield.input_.setAttribute("min", newvalue);
+		} else {
+			this.myMdcTextfield.input_.setAttribute("minlength", newvalue);
+		}
+	}
+
+	maxChanged(newvalue) {
+		if (this.type === 'number') {
+			this.myMdcTextfield.input_.setAttribute("max", newvalue);
+		} else {
+			this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
+		}
 	}
 
 	detached() {
@@ -115,4 +145,13 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 	initializer: function () {
 		return false;
 	}
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'step', [bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'min', [bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'max', [bindable], {
+	enumerable: true,
+	initializer: null
 })), _class2)) || _class) || _class);
