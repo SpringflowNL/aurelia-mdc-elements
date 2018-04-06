@@ -1,3 +1,12 @@
+# [0.34.0] () (2018-04-04)
+## Bugfixed
+
+## Features
+- Material Design Components: UPDATED 0.33.0 > 0.34.1
+- MDC select: ADDED new format as of 0.34.0 (with pure html selects)
+
+## Breaking changes
+
 # [0.33.0] () (2018-03-23)
 ## Bugfixed
 - MDC textfield: RENAMED mdc-text-field__label to mdc-floating-label according to MDC

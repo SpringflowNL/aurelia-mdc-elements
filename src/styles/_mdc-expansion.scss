@@ -61,13 +61,6 @@
 	}
 	&__content {
 		padding: 16px 0px !important;
-		/*.mdc-list {
-			padding: 0;
-			flex-direction: column;
-		}*/
-		> div {
-			line-height: 24px;
-		}
 		& + .mdl-expansion__actions {
 			border-top: 1px solid rgba(0, 0, 0, .12);
 		}

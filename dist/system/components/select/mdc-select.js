@@ -94,34 +94,13 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 					this.myMdcSelect = new MDCSelect(this.element);
 					this.myMdcSelect.disabled = this.disabled;
 
-					this.myMdcSelect.listen('MDCSelect:change', function () {
-						_this.selected = _this.myMdcSelect.selectedOptions[0].dataset.id;
-						_this.selectedChanged();
+					if (this.selected) {
+						this.addFloatingLabel();
+					}
+
+					this.myMdcSelect.listen('change', function () {
+						_this.selected = _this.myMdcSelect.value;
 					});
-				};
-
-				MdcSelect.prototype.attached = function attached() {
-					this.selectedChanged();
-				};
-
-				MdcSelect.prototype.selectedChanged = function selectedChanged() {
-					var self = this;
-					setTimeout(function () {
-						try {
-							var index = self.myMdcSelect.options.findIndex(function (item) {
-								return item.dataset.id == self.selected;
-							});
-							if (self.myMdcSelect.selectedIndex !== index) {
-								self.myMdcSelect.selectedIndex = index;
-							}
-
-							self.checkFloatingLabel(index, self.selected);
-						} catch (e) {}
-					}, 500);
-				};
-
-				MdcSelect.prototype.dataChanged = function dataChanged(newvalue) {
-					this.selectedChanged();
 				};
 
 				MdcSelect.prototype.disabledChanged = function disabledChanged(newvalue) {
@@ -132,12 +111,8 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 					this.myMdcSelect.destroy();
 				};
 
-				MdcSelect.prototype.checkFloatingLabel = function checkFloatingLabel(index, selected) {
-					if (index !== -1 && selected) {
-						this.selectLabel.classList.add('mdc-select__label--float-above');
-					} else {
-						this.selectLabel.classList.remove('mdc-select__label--float-above');
-					}
+				MdcSelect.prototype.addFloatingLabel = function addFloatingLabel() {
+					this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
 				};
 
 				return MdcSelect;
