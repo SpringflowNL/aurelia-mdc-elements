@@ -16,3 +16,4 @@ Paramters that can be given to the message are:
 | data | The key/value array which contains the list of the select.	| X |	|
 | selected | The chosen key of the list.	| X |	|
 | disabled | Option to disable the component	| | false	|
+| required | Option to require the component	| | false	|

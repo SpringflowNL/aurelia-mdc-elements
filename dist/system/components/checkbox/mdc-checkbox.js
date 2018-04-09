@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
     "use strict";
 
-    var inject, bindable, bindingMode, DOM, mdcCheckbox, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, MDCCheckbox, MdcCheckbox;
+    var inject, bindable, bindingMode, DOM, mdcCheckbox, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, MDCCheckbox, MdcCheckbox;
 
     function _initDefineProp(target, property, descriptor, context) {
         if (!descriptor) return;
@@ -74,13 +74,15 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 
                     _initDefineProp(this, 'disabled', _descriptor2, this);
 
-                    _initDefineProp(this, 'id', _descriptor3, this);
+                    _initDefineProp(this, 'required', _descriptor3, this);
 
-                    _initDefineProp(this, 'label', _descriptor4, this);
+                    _initDefineProp(this, 'id', _descriptor4, this);
 
-                    _initDefineProp(this, 'model', _descriptor5, this);
+                    _initDefineProp(this, 'label', _descriptor5, this);
 
-                    _initDefineProp(this, 'secondarylabel', _descriptor6, this);
+                    _initDefineProp(this, 'model', _descriptor6, this);
+
+                    _initDefineProp(this, 'secondarylabel', _descriptor7, this);
 
                     this.element = element;
                 }
@@ -90,13 +92,23 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
                     this.element.id = '_' + this.id;
                 };
 
-                MdcCheckbox.prototype.handleChange = function handleChange(e) {
-                    e.stopPropagation();
-                };
-
                 MdcCheckbox.prototype.checkedChanged = function checkedChanged(newValue) {
                     var event = new CustomEvent('change', { bubbles: true, detail: { value: newValue } });
                     this.element.dispatchEvent(event);
+
+                    if (!newValue && this.required) {
+                        this.requiredChanged(true);
+                    } else {
+                        this.requiredChanged(false);
+                    }
+                };
+
+                MdcCheckbox.prototype.requiredChanged = function requiredChanged(newValue) {
+                    if (newValue) {
+                        this.element.classList.add('mdc-checkbox--invalid');
+                    } else {
+                        this.element.classList.remove('mdc-checkbox--invalid');
+                    }
                 };
 
                 MdcCheckbox.prototype.disabledChanged = function disabledChanged(newValue) {
@@ -114,16 +126,21 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
                 initializer: function initializer() {
                     return false;
                 }
-            }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'id', [bindable], {
+            }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'required', [bindable], {
+                enumerable: true,
+                initializer: function initializer() {
+                    return false;
+                }
+            }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'id', [bindable], {
                 enumerable: true,
                 initializer: null
-            }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'label', [bindable], {
+            }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'label', [bindable], {
                 enumerable: true,
                 initializer: null
-            }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'model', [bindable], {
+            }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'model', [bindable], {
                 enumerable: true,
                 initializer: null
-            }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'secondarylabel', [bindable], {
+            }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'secondarylabel', [bindable], {
                 enumerable: true,
                 initializer: null
             })), _class2)) || _class));

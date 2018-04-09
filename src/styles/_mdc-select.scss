@@ -1,3 +1,24 @@
 ﻿.mdc-select {
 	width: 100%;
+
+	&__native-control:focus {
+		&:required ~ .mdc-select__label::after {
+			color: #d50000;
+		}
+	}
+
+	&__native-control:required + .mdc-select__label::after {
+		margin-left: 1px;
+		content: "*";
+	}
+
+	&.mdc-select--invalid {
+		&:not(.mdc-select--disabled) .mdc-select__label {
+			color: #d50000;
+		}
+
+		&:not(.mdc-select--disabled) .mdc-select__bottom-line {
+			background-color: #d50000;
+		}
+	}
 }

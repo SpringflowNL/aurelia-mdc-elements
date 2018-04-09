@@ -1,6 +1,6 @@
 {
   "name": "aurelia-mdc-elements",
-  "version": "0.33.2",
+  "version": "0.34.0",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "main": "dist/commonjs/index.js",
   "repository": {
@@ -16,7 +16,7 @@
   "author": "SpringflowNL",
   "license": "MIT",
   "peerDependencies": {
-    "material-components-web": "0.30.0"
+    "material-components-web": "0.34.1"
   },
   "bugs": {
     "url": "https://github.com/SpringflowNL/aurelia-mdc-elements/issues"
@@ -25,7 +25,7 @@
   "dependencies": {
     "aurelia-event-aggregator": "^1.0.1",
     "aurelia-framework": "^1.1.5",
-    "material-components-web": "^0.33.0"
+    "material-components-web": "^0.34.1"
   },
   "devDependencies": {
     "aurelia-tools": "^2.0.0",
