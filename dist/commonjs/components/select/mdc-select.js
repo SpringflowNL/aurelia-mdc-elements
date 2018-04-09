@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MdcSelect = undefined;
 
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -73,7 +73,9 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 
 		_initDefineProp(this, 'disabled', _descriptor6, this);
 
-		_initDefineProp(this, 'selectLabel', _descriptor7, this);
+		_initDefineProp(this, 'required', _descriptor7, this);
+
+		_initDefineProp(this, 'selectLabel', _descriptor8, this);
 
 		this.element = element;
 	}
@@ -84,50 +86,39 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 		this.myMdcSelect = new MDCSelect(this.element);
 		this.myMdcSelect.disabled = this.disabled;
 
-		this.myMdcSelect.listen('MDCSelect:change', function () {
-			_this.selected = _this.myMdcSelect.selectedOptions[0].dataset.id;
-			_this.selectedChanged();
+		if (this.selected) {
+			this.addFloatingLabel();
+		}
+
+		this.myMdcSelect.listen('change', function () {
+			_this.selected = _this.myMdcSelect.value;
+
+			if (!_this.myMdcSelect.value && _this.required) {
+				_this.requiredChanged(true);
+			} else {
+				_this.requiredChanged(false);
+			}
 		});
-	};
-
-	MdcSelect.prototype.attached = function attached() {
-		this.selectedChanged();
-	};
-
-	MdcSelect.prototype.selectedChanged = function selectedChanged() {
-		var self = this;
-		setTimeout(function () {
-			try {
-				var index = self.myMdcSelect.options.findIndex(function (item) {
-					return item.dataset.id == self.selected;
-				});
-				if (self.myMdcSelect.selectedIndex !== index) {
-					self.myMdcSelect.selectedIndex = index;
-				}
-
-				self.checkFloatingLabel(index, self.selected);
-			} catch (e) {}
-		}, 500);
-	};
-
-	MdcSelect.prototype.dataChanged = function dataChanged(newvalue) {
-		this.selectedChanged();
 	};
 
 	MdcSelect.prototype.disabledChanged = function disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
 	};
 
+	MdcSelect.prototype.requiredChanged = function requiredChanged(newvalue) {
+		if (newvalue) {
+			this.element.classList.add('mdc-select--invalid');
+		} else {
+			this.element.classList.remove('mdc-select--invalid');
+		}
+	};
+
 	MdcSelect.prototype.detached = function detached() {
 		this.myMdcSelect.destroy();
 	};
 
-	MdcSelect.prototype.checkFloatingLabel = function checkFloatingLabel(index, selected) {
-		if (index !== -1 && selected) {
-			this.selectLabel.classList.add('mdc-select__label--float-above');
-		} else {
-			this.selectLabel.classList.remove('mdc-select__label--float-above');
-		}
+	MdcSelect.prototype.addFloatingLabel = function addFloatingLabel() {
+		this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
 	};
 
 	return MdcSelect;
@@ -149,7 +140,10 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'disabled', [_aureliaFramework.bindable], {
 	enumerable: true,
 	initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [_aureliaFramework.bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'required', [_aureliaFramework.bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [_aureliaFramework.bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);

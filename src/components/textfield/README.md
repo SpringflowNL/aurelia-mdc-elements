@@ -16,4 +16,7 @@ Parameters that can be given to the message are:
 | required | Option to require the textfield. | | false |
 | type | Option to set the type of the textfield. | | 'text' |
 | dense | Option to set the densetype of the textfield. | | false |
-| secondarylabel | Used for showing a helpertext under the textfield.	| | |
+| secondarylabel | Used for showing a helpertext under the textfield.	| | null |
+| step | Used for steps in type = 'number'	| | |
+| min | Used for min in number, and minlength in text	| | |
+| max | Used for max in number, and maxlength in text	| | |

@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -62,7 +62,9 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 
 		_initDefineProp(this, 'disabled', _descriptor6, this);
 
-		_initDefineProp(this, 'selectLabel', _descriptor7, this);
+		_initDefineProp(this, 'required', _descriptor7, this);
+
+		_initDefineProp(this, 'selectLabel', _descriptor8, this);
 
 		this.element = element;
 	}
@@ -71,48 +73,39 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 		this.myMdcSelect = new MDCSelect(this.element);
 		this.myMdcSelect.disabled = this.disabled;
 
-		this.myMdcSelect.listen('MDCSelect:change', () => {
-			this.selected = this.myMdcSelect.selectedOptions[0].dataset.id;
-			this.selectedChanged();
+		if (this.selected) {
+			this.addFloatingLabel();
+		}
+
+		this.myMdcSelect.listen('change', () => {
+			this.selected = this.myMdcSelect.value;
+
+			if (!this.myMdcSelect.value && this.required) {
+				this.requiredChanged(true);
+			} else {
+				this.requiredChanged(false);
+			}
 		});
-	}
-
-	attached() {
-		this.selectedChanged();
-	}
-
-	selectedChanged() {
-		var self = this;
-		setTimeout(function () {
-			try {
-				const index = self.myMdcSelect.options.findIndex(item => item.dataset.id == self.selected);
-				if (self.myMdcSelect.selectedIndex !== index) {
-					self.myMdcSelect.selectedIndex = index;
-				}
-
-				self.checkFloatingLabel(index, self.selected);
-			} catch (e) {}
-		}, 500);
-	}
-
-	dataChanged(newvalue) {
-		this.selectedChanged();
 	}
 
 	disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
 	}
 
+	requiredChanged(newvalue) {
+		if (newvalue) {
+			this.element.classList.add('mdc-select--invalid');
+		} else {
+			this.element.classList.remove('mdc-select--invalid');
+		}
+	}
+
 	detached() {
 		this.myMdcSelect.destroy();
 	}
 
-	checkFloatingLabel(index, selected) {
-		if (index !== -1 && selected) {
-			this.selectLabel.classList.add('mdc-select__label--float-above');
-		} else {
-			this.selectLabel.classList.remove('mdc-select__label--float-above');
-		}
+	addFloatingLabel() {
+		this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
 	}
 }, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'label', [bindable], {
 	enumerable: true,
@@ -132,7 +125,10 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'disabled', [bindable], {
 	enumerable: true,
 	initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'required', [bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);

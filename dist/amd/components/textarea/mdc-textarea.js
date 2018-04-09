@@ -85,6 +85,10 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 			this.myMdcTextfield.disabled = newvalue;
 		};
 
+		MdcTextarea.prototype.requiredChanged = function requiredChanged(newvalue) {
+			this.myMdcTextfield.required = newvalue;
+		};
+
 		MdcTextarea.prototype.detached = function detached() {
 			this.myMdcTextfield.destroy();
 		};

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MdcCheckbox = undefined;
 
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -65,13 +65,15 @@ var MdcCheckbox = exports.MdcCheckbox = (_dec = (0, _aureliaFramework.inject)(El
 
         _initDefineProp(this, 'disabled', _descriptor2, this);
 
-        _initDefineProp(this, 'id', _descriptor3, this);
+        _initDefineProp(this, 'required', _descriptor3, this);
 
-        _initDefineProp(this, 'label', _descriptor4, this);
+        _initDefineProp(this, 'id', _descriptor4, this);
 
-        _initDefineProp(this, 'model', _descriptor5, this);
+        _initDefineProp(this, 'label', _descriptor5, this);
 
-        _initDefineProp(this, 'secondarylabel', _descriptor6, this);
+        _initDefineProp(this, 'model', _descriptor6, this);
+
+        _initDefineProp(this, 'secondarylabel', _descriptor7, this);
 
         this.element = element;
     }
@@ -81,13 +83,23 @@ var MdcCheckbox = exports.MdcCheckbox = (_dec = (0, _aureliaFramework.inject)(El
         this.element.id = '_' + this.id;
     };
 
-    MdcCheckbox.prototype.handleChange = function handleChange(e) {
-        e.stopPropagation();
-    };
-
     MdcCheckbox.prototype.checkedChanged = function checkedChanged(newValue) {
         var event = new CustomEvent('change', { bubbles: true, detail: { value: newValue } });
         this.element.dispatchEvent(event);
+
+        if (!newValue && this.required) {
+            this.requiredChanged(true);
+        } else {
+            this.requiredChanged(false);
+        }
+    };
+
+    MdcCheckbox.prototype.requiredChanged = function requiredChanged(newValue) {
+        if (newValue) {
+            this.element.classList.add('mdc-checkbox--invalid');
+        } else {
+            this.element.classList.remove('mdc-checkbox--invalid');
+        }
     };
 
     MdcCheckbox.prototype.disabledChanged = function disabledChanged(newValue) {
@@ -105,16 +117,21 @@ var MdcCheckbox = exports.MdcCheckbox = (_dec = (0, _aureliaFramework.inject)(El
     initializer: function initializer() {
         return false;
     }
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'id', [_aureliaFramework.bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'required', [_aureliaFramework.bindable], {
+    enumerable: true,
+    initializer: function initializer() {
+        return false;
+    }
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'id', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'label', [_aureliaFramework.bindable], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'label', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_aureliaFramework.bindable], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'model', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'secondarylabel', [_aureliaFramework.bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'secondarylabel', [_aureliaFramework.bindable], {
     enumerable: true,
     initializer: null
 })), _class2)) || _class);

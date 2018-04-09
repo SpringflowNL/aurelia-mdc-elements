@@ -84,6 +84,10 @@ var MdcTextarea = exports.MdcTextarea = (_dec = (0, _aureliaFramework.customElem
 		this.myMdcTextfield.disabled = newvalue;
 	};
 
+	MdcTextarea.prototype.requiredChanged = function requiredChanged(newvalue) {
+		this.myMdcTextfield.required = newvalue;
+	};
+
 	MdcTextarea.prototype.detached = function detached() {
 		this.myMdcTextfield.destroy();
 	};

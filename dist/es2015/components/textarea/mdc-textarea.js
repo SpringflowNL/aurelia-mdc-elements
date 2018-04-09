@@ -73,6 +73,10 @@ export let MdcTextarea = (_dec = customElement('mdc-textarea'), _dec2 = inject(E
 		this.myMdcTextfield.disabled = newvalue;
 	}
 
+	requiredChanged(newvalue) {
+		this.myMdcTextfield.required = newvalue;
+	}
+
 	detached() {
 		this.myMdcTextfield.destroy();
 	}

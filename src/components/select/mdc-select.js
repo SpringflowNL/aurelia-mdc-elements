@@ -11,6 +11,7 @@ export class MdcSelect {
 	@bindable key;
 	@bindable({ defaultBindingMode: bindingMode.twoWay }) selected;
 	@bindable disabled;
+	@bindable required;
 	@bindable selectLabel;
 	myMdcSelect;
 
@@ -22,50 +23,41 @@ export class MdcSelect {
 		this.myMdcSelect = new MDCSelect(this.element);
 		this.myMdcSelect.disabled = this.disabled;
 
-		this.myMdcSelect.listen('MDCSelect:change', () => {
-			this.selected = this.myMdcSelect.selectedOptions[0].dataset.id;
-			this.selectedChanged();
+		//TODO: Change this by better implementation of MDC
+		if(this.selected) {
+			this.addFloatingLabel();
+		}
+
+		this.myMdcSelect.listen('change', () => {
+			this.selected = this.myMdcSelect.value;
+
+			//Set invalid class after first change
+			if(!this.myMdcSelect.value && this.required) {
+				this.requiredChanged(true);
+			} else {
+				this.requiredChanged(false);
+			}
 		});
-	}
-
-	attached() {
-		this.selectedChanged();
-	}
-
-	selectedChanged() {
-		var self = this;
-		setTimeout(function() {
-				try {
-					const index = self.myMdcSelect.options.findIndex(item => item.dataset.id == self.selected);
-					if (self.myMdcSelect.selectedIndex !== index) {
-						self.myMdcSelect.selectedIndex = index;
-					}
-
-					self.checkFloatingLabel(index, self.selected);
-				}
-				catch (e) {}
-			},
-			500);
-	}
-
-	dataChanged(newvalue) {
-		this.selectedChanged();
 	}
 
 	disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
 	}
 
+	requiredChanged(newvalue) {
+		if(newvalue) {
+			this.element.classList.add('mdc-select--invalid');
+		}
+		else {
+			this.element.classList.remove('mdc-select--invalid');
+		}
+	}
+
 	detached() {
 		this.myMdcSelect.destroy();
 	}
 
-	checkFloatingLabel(index, selected) {
-		if (index !== -1 && selected) {
-			this.selectLabel.classList.add('mdc-select__label--float-above');
-		}
-		else {
-			this.selectLabel.classList.remove('mdc-select__label--float-above');
-		}
+	addFloatingLabel() {
+		this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
 	}
 }
