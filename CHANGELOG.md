@@ -3,7 +3,11 @@
 
 ## Features
 - Material Design Components: UPDATED 0.33.0 > 0.34.1
-- MDC select: ADDED new format as of 0.34.0 (with pure html selects)
+- MDCSelect: ADDED new format as of 0.34.0 (with pure html selects)
+- MDCTextfield: ADDED support for type="number"
+- MDCTextfield: ADDED support for min (number&text), max(number&text), step (number only)
+- MDCTextfield: dynamic required binding (can toggle on runtime)
+- MDCCheckbox: ADDED required binding
 
 ## Breaking changes
 
