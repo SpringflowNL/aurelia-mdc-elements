@@ -79,11 +79,25 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 
 		this.myMdcSelect.listen('change', () => {
 			this.selected = this.myMdcSelect.value;
+
+			if (!this.myMdcSelect.value && this.required) {
+				this.requiredChanged(true);
+			} else {
+				this.requiredChanged(false);
+			}
 		});
 	}
 
 	disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
+	}
+
+	requiredChanged(newvalue) {
+		if (newvalue) {
+			this.element.classList.add('mdc-select--invalid');
+		} else {
+			this.element.classList.remove('mdc-select--invalid');
+		}
 	}
 
 	detached() {

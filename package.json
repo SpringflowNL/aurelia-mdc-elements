@@ -16,7 +16,7 @@
   "author": "SpringflowNL",
   "license": "MIT",
   "peerDependencies": {
-    "material-components-web": "0.30.0"
+    "material-components-web": "0.34.1"
   },
   "bugs": {
     "url": "https://github.com/SpringflowNL/aurelia-mdc-elements/issues"

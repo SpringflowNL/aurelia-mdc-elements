@@ -6,6 +6,7 @@ const {MDCCheckbox} = mdcCheckbox;
 export class MdcCheckbox {
     @bindable({ defaultBindingMode: bindingMode.twoWay }) checked = false;
     @bindable disabled = false;
+    @bindable required = false;
 	@bindable id;
 	@bindable label;
 	@bindable model;
@@ -21,14 +22,25 @@ export class MdcCheckbox {
 		this.element.id = '_' + this.id; // anders heeft dit element zelfde id als input. Raakt label for="" in de war
     }
 
-    handleChange(e) {
-        // stop propagation so we're able to fire our own event when data-binding changes checked value
-        e.stopPropagation();
-    }
-
     checkedChanged(newValue) {
         const event = new CustomEvent('change', { bubbles: true, detail: { value: newValue }});
         this.element.dispatchEvent(event);
+        
+        //Set invalid class after first change
+        if(!newValue && this.required) {
+            this.requiredChanged(true);
+        } else {
+            this.requiredChanged(false);
+        }
+    }
+
+    requiredChanged(newValue) {
+        if(newValue) {
+			this.element.classList.add('mdc-checkbox--invalid');
+		}
+		else {
+			this.element.classList.remove('mdc-checkbox--invalid');
+		}
     }
 
     disabledChanged(newValue) {

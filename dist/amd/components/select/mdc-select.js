@@ -93,11 +93,25 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 			this.myMdcSelect.listen('change', function () {
 				_this.selected = _this.myMdcSelect.value;
+
+				if (!_this.myMdcSelect.value && _this.required) {
+					_this.requiredChanged(true);
+				} else {
+					_this.requiredChanged(false);
+				}
 			});
 		};
 
 		MdcSelect.prototype.disabledChanged = function disabledChanged(newvalue) {
 			this.myMdcSelect.disabled = newvalue;
+		};
+
+		MdcSelect.prototype.requiredChanged = function requiredChanged(newvalue) {
+			if (newvalue) {
+				this.element.classList.add('mdc-select--invalid');
+			} else {
+				this.element.classList.remove('mdc-select--invalid');
+			}
 		};
 
 		MdcSelect.prototype.detached = function detached() {

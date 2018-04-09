@@ -30,11 +30,27 @@ export class MdcSelect {
 
 		this.myMdcSelect.listen('change', () => {
 			this.selected = this.myMdcSelect.value;
+
+			//Set invalid class after first change
+			if(!this.myMdcSelect.value && this.required) {
+				this.requiredChanged(true);
+			} else {
+				this.requiredChanged(false);
+			}
 		});
 	}
 
 	disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
+	}
+
+	requiredChanged(newvalue) {
+		if(newvalue) {
+			this.element.classList.add('mdc-select--invalid');
+		}
+		else {
+			this.element.classList.remove('mdc-select--invalid');
+		}
 	}
 
 	detached() {
