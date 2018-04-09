@@ -1,9 +1,13 @@
 ﻿.mdc-select {
 	width: 100%;
 
-	&__native-control:focus {
-		&:required ~ .mdc-select__label::after {
-			color: #d50000;
+	&__native-control {
+		font-size: inherit;
+
+		&:focus {
+			&:required ~ .mdc-select__label::after {
+				color: #d50000;
+			}
 		}
 	}
 
@@ -13,12 +17,11 @@
 	}
 
 	&.mdc-select--invalid {
-		&:not(.mdc-select--disabled) .mdc-select__label {
-			color: #d50000;
-		}
-
-		&:not(.mdc-select--disabled) .mdc-select__bottom-line {
-			background-color: #d50000;
+		&:not(.mdc-select--disabled) {
+			.mdc-select__label,
+			.mdc-select__bottom-line {
+				color: #d50000;
+			}
 		}
 	}
 }

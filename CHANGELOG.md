@@ -1,4 +1,12 @@
-# [0.34.0] () (2018-04-04)
+# [0.34.1] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.34.0...v0.34.1) (2018-04-09)
+## Bugfixed
+- MDCSelect: CHANGED fix font-size (inherit)
+
+## Features
+
+## Breaking changes
+
+# [0.34.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.33.0...v0.34.0) (2018-04-04)
 ## Bugfixed
 
 ## Features
@@ -11,7 +19,7 @@
 
 ## Breaking changes
 
-# [0.33.0] () (2018-03-23)
+# [0.33.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.31.2...v0.33.0) (2018-03-23)
 ## Bugfixed
 - MDC textfield: RENAMED mdc-text-field__label to mdc-floating-label according to MDC
 
