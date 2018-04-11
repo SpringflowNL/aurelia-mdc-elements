@@ -19,7 +19,6 @@ export let DetailsIe = (_dec = customAttribute('details-ie'), _dec2 = inject(Ele
     attached() {
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf("Trident") + window.navigator.userAgent.indexOf("Edge") != -2;
-        debugger;
         if (msie) {
             this.element.children[0].addEventListener("click", this.handleClick);
         }

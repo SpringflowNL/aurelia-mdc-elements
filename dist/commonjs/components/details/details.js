@@ -31,7 +31,6 @@ var DetailsIe = exports.DetailsIe = (_dec = (0, _aureliaFramework.customAttribut
     DetailsIe.prototype.attached = function attached() {
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf("Trident") + window.navigator.userAgent.indexOf("Edge") != -2;
-        debugger;
         if (msie) {
             this.element.children[0].addEventListener("click", this.handleClick);
         }

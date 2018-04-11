@@ -20,7 +20,6 @@ export class DetailsIe {
     attached() {
         var ua = window.navigator.userAgent;
         var msie = (ua.indexOf("Trident") + window.navigator.userAgent.indexOf("Edge")!=-2);
-        debugger
         if (msie){
             this.element.children[0].addEventListener("click", this.handleClick);
         }
