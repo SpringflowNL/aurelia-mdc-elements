@@ -1,6 +1,6 @@
 {
   "name": "aurelia-mdc-elements",
-  "version": "0.34.2",
+  "version": "0.34.3",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "main": "dist/commonjs/index.js",
   "repository": {
