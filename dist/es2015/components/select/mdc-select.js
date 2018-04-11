@@ -76,7 +76,9 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 		if (this.selected) {
 			this.addFloatingLabel();
 		}
+	}
 
+	attached() {
 		this.myMdcSelect.listen('change', () => {
 			this.selected = this.myMdcSelect.value;
 
@@ -86,6 +88,10 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 				this.requiredChanged(false);
 			}
 		});
+	}
+
+	unbind() {
+		this.myMdcSelect.destroy();
 	}
 
 	disabledChanged(newvalue) {
@@ -98,10 +104,6 @@ export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Eleme
 		} else {
 			this.element.classList.remove('mdc-select--invalid');
 		}
-	}
-
-	detached() {
-		this.myMdcSelect.destroy();
 	}
 
 	addFloatingLabel() {

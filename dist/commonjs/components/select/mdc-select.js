@@ -81,14 +81,16 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 	}
 
 	MdcSelect.prototype.bind = function bind() {
-		var _this = this;
-
 		this.myMdcSelect = new MDCSelect(this.element);
 		this.myMdcSelect.disabled = this.disabled;
 
 		if (this.selected) {
 			this.addFloatingLabel();
 		}
+	};
+
+	MdcSelect.prototype.attached = function attached() {
+		var _this = this;
 
 		this.myMdcSelect.listen('change', function () {
 			_this.selected = _this.myMdcSelect.value;
@@ -101,6 +103,10 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 		});
 	};
 
+	MdcSelect.prototype.unbind = function unbind() {
+		this.myMdcSelect.destroy();
+	};
+
 	MdcSelect.prototype.disabledChanged = function disabledChanged(newvalue) {
 		this.myMdcSelect.disabled = newvalue;
 	};
@@ -111,10 +117,6 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 		} else {
 			this.element.classList.remove('mdc-select--invalid');
 		}
-	};
-
-	MdcSelect.prototype.detached = function detached() {
-		this.myMdcSelect.destroy();
 	};
 
 	MdcSelect.prototype.addFloatingLabel = function addFloatingLabel() {

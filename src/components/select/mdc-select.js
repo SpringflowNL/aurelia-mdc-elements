@@ -27,7 +27,9 @@ export class MdcSelect {
 		if(this.selected) {
 			this.addFloatingLabel();
 		}
+	}
 
+	attached() {
 		this.myMdcSelect.listen('change', () => {
 			this.selected = this.myMdcSelect.value;
 
@@ -38,6 +40,10 @@ export class MdcSelect {
 				this.requiredChanged(false);
 			}
 		});
+	}
+
+	unbind() {
+		this.myMdcSelect.destroy();
 	}
 
 	disabledChanged(newvalue) {
@@ -51,10 +57,6 @@ export class MdcSelect {
 		else {
 			this.element.classList.remove('mdc-select--invalid');
 		}
-	}
-
-	detached() {
-		this.myMdcSelect.destroy();
 	}
 
 	addFloatingLabel() {

@@ -1,3 +1,19 @@
+# [0.34.3] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.34.2...v0.34.3) (2018-04-11)
+## Bugfixed
+- Details: FIXED issue with click handlers
+
+## Features
+
+## Breaking changes
+
+# [0.34.2] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.34.1...v0.34.2) (2018-04-10)
+## Bugfixed
+- MDCSelect: FIXED issue with doubleclick for selectbox
+
+## Features
+
+## Breaking changes
+
 # [0.34.1] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.34.0...v0.34.1) (2018-04-09)
 ## Bugfixed
 - MDCSelect: CHANGED fix font-size (inherit)
