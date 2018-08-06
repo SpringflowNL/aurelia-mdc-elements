@@ -55,7 +55,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 	}
 
-	var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
+	var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
 
 	var MDCSelect = _materialComponentsWeb.select.MDCSelect;
 	var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)('mdc-select'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
@@ -77,6 +77,8 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 			_initDefineProp(this, 'required', _descriptor7, this);
 
 			_initDefineProp(this, 'selectLabel', _descriptor8, this);
+
+			_initDefineProp(this, 'myMdcSelect', _descriptor9, this);
 
 			this.element = element;
 		}
@@ -121,7 +123,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		};
 
 		MdcSelect.prototype.addFloatingLabel = function addFloatingLabel() {
-			this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
+			this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
 		};
 
 		return MdcSelect;
@@ -147,6 +149,9 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		enumerable: true,
 		initializer: null
 	}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [_aureliaFramework.bindable], {
+		enumerable: true,
+		initializer: null
+	}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'myMdcSelect', [_aureliaFramework.bindable], {
 		enumerable: true,
 		initializer: null
 	})), _class2)) || _class) || _class);

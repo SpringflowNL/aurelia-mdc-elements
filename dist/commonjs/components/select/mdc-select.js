@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MdcSelect = undefined;
 
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -77,6 +77,8 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 
 		_initDefineProp(this, 'selectLabel', _descriptor8, this);
 
+		_initDefineProp(this, 'myMdcSelect', _descriptor9, this);
+
 		this.element = element;
 	}
 
@@ -120,7 +122,7 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 	};
 
 	MdcSelect.prototype.addFloatingLabel = function addFloatingLabel() {
-		this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
+		this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
 	};
 
 	return MdcSelect;
@@ -146,6 +148,9 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 	enumerable: true,
 	initializer: null
 }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'selectLabel', [_aureliaFramework.bindable], {
+	enumerable: true,
+	initializer: null
+}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'myMdcSelect', [_aureliaFramework.bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);

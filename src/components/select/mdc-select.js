@@ -13,7 +13,7 @@ export class MdcSelect {
 	@bindable disabled;
 	@bindable required;
 	@bindable selectLabel;
-	myMdcSelect;
+	@bindable myMdcSelect;
 
 	constructor(element) {
 		this.element = element;
@@ -60,6 +60,6 @@ export class MdcSelect {
 	}
 
 	addFloatingLabel() {
-		this.myMdcSelect.label_.root_.classList.add('mdc-select__label--float-above');
+		this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
 	}
 }
