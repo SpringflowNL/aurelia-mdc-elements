@@ -73,6 +73,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 			_initDefineProp(this, 'dense', _descriptor5, this);
 
 			this.element = element;
+			this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 		}
 
 		MdcTextarea.prototype.bind = function bind() {

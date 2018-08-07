@@ -1,10 +1,10 @@
-<template class="mdc-select">
+<template class="mdc-select ${disabled ? 'mdc-select--disabled' : ''}">
 	<select class="mdc-select__native-control" required.bind="required">
 	  <option value="" selected.bind="!selected"></option>
 	  <option value.bind="item[key]" repeat.for="item of data" selected.bind="item[key] === selected">
 		${item[value]}
 	  </option>
 	</select>
-	<div class="mdc-select__label">${label}</div>
-	<div class="mdc-select__bottom-line"></div>
+	<div class="mdc-floating-label">${label}</div>
+	<div class="mdc-line-ripple"></div>
 </template>

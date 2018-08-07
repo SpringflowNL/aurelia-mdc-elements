@@ -61,6 +61,7 @@ export let MdcTextarea = (_dec = customElement('mdc-textarea'), _dec2 = inject(E
 		_initDefineProp(this, 'dense', _descriptor5, this);
 
 		this.element = element;
+		this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 	}
 
 	bind() {

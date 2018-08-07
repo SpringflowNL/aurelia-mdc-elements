@@ -1,6 +1,6 @@
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import	{ textField as mdcTextField } from 'material-components-web/dist/material-components-web';
-const	{ MDCTextField } = mdcTextField;
+import { textField as mdcTextField } from 'material-components-web/dist/material-components-web';
+const { MDCTextField } = mdcTextField;
 
 @customElement('mdc-textarea')
 @inject(Element)
@@ -13,7 +13,8 @@ export class MdcTextarea {
 
     constructor ( element) 
     {
-    	this.element = element;
+		this.element = element;
+		this.unique = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
 
     bind() 

@@ -1,3 +1,16 @@
+# [0.38.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.34.3...v0.38.0) (2018-08-06)
+## Bugfixed
+- Switch: Now using the MDC standard implementation
+- All: FIXED imports from the MDC component (import from @material instead of complete js file)
+- MDCSelect: ADDED disabled class
+- MDCTextField: FIXED label for (unique)
+
+## Features
+- Material Design Components: UPDATED 0.34.1 > 0.38.0
+- All: ADDED unique hashes for handling labels with inputs
+
+## Breaking changes
+
 # [0.34.3] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.34.2...v0.34.3) (2018-04-11)
 ## Bugfixed
 - Details: FIXED issue with click handlers
