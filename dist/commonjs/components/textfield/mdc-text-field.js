@@ -82,6 +82,7 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 		_initDefineProp(this, 'max', _descriptor10, this);
 
 		this.element = element;
+		this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 	}
 
 	MdcTextField.prototype.bind = function bind() {
