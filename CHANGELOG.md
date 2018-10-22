@@ -3,6 +3,7 @@
 - Switch: Now using the MDC standard implementation
 - All: FIXED imports from the MDC component (import from @material instead of complete js file)
 - MDCSelect: ADDED disabled class
+- MDCCheckbox: ADDED disabled class
 - MDCTextField: FIXED label for (unique)
 
 ## Features
