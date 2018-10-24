@@ -46,7 +46,7 @@ function _initializerWarningHelper(descriptor, context) {
 import { bindable, customElement, inject, DOM } from 'aurelia-framework';
 
 import { menu as mdcMenu } from 'material-components-web/dist/material-components-web';
-const { MDCMenu, MDCMenuFoundation } = mdcMenu;
+const { MDCMenu } = mdcMenu;
 
 export let MdcMenu = (_dec = customElement('mdc-menu'), _dec2 = inject(Element), _dec(_class = _dec2(_class = (_class2 = class MdcMenu {
 

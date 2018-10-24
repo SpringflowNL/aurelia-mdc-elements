@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'material-components-web/dist/material-components-web'], function (exports, _aureliaFramework, _materialComponentsWeb) {
+define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield', '@material/notched-outline/dist/mdc.notchedOutline'], function (exports, _aureliaFramework, _mdc, _mdc2) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -55,9 +55,8 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 	}
 
-	var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
+	var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
 
-	var MDCTextField = _materialComponentsWeb.textField.MDCTextField;
 	var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customElement)('mdc-text-field'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 		function MdcTextField(element) {
 			_classCallCheck(this, MdcTextField);
@@ -74,7 +73,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 			_initDefineProp(this, 'secondarylabel', _descriptor6, this);
 
-			_initDefineProp(this, 'dense', _descriptor7, this);
+			_initDefineProp(this, 'modifier', _descriptor7, this);
 
 			_initDefineProp(this, 'step', _descriptor8, this);
 
@@ -82,18 +81,29 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 			_initDefineProp(this, 'max', _descriptor10, this);
 
+			_initDefineProp(this, 'notched', _descriptor11, this);
+
 			this.element = element;
 			this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 		}
 
 		MdcTextField.prototype.bind = function bind() {
-			this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
+			this.myMdcTextfield = new _mdc.MDCTextField(this.element.firstElementChild);
+
+			this.checkNotched();
+
 			this.myMdcTextfield.disabled = this.disabled;
 			this.myMdcTextfield.required = this.required;
 
 			this.step ? this.stepChanged(this.step) : '';
 			this.min ? this.minChanged(this.min) : '';
 			this.max ? this.maxChanged(this.max) : '';
+		};
+
+		MdcTextField.prototype.checkNotched = function checkNotched() {
+			if (this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
+				new _mdc2.MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
+			}
 		};
 
 		MdcTextField.prototype.disabledChanged = function disabledChanged(newvalue) {
@@ -122,6 +132,12 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 			} else {
 				this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
 			}
+		};
+
+		MdcTextField.prototype.modifierChanged = function modifierChanged(newvalue) {
+			this.modifier = newvalue;
+
+			this.checkNotched();
 		};
 
 		MdcTextField.prototype.detached = function detached() {
@@ -155,10 +171,10 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		initializer: function initializer() {
 			return null;
 		}
-	}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'dense', [_aureliaFramework.bindable], {
+	}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'modifier', [_aureliaFramework.bindable], {
 		enumerable: true,
 		initializer: function initializer() {
-			return false;
+			return null;
 		}
 	}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'step', [_aureliaFramework.bindable], {
 		enumerable: true,
@@ -167,6 +183,9 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		enumerable: true,
 		initializer: null
 	}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'max', [_aureliaFramework.bindable], {
+		enumerable: true,
+		initializer: null
+	}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'notched', [_aureliaFramework.bindable], {
 		enumerable: true,
 		initializer: null
 	})), _class2)) || _class) || _class);

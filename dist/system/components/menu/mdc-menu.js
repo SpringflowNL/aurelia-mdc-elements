@@ -3,7 +3,7 @@
 System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
 	"use strict";
 
-	var bindable, customElement, inject, DOM, mdcMenu, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, MDCMenu, MDCMenuFoundation, MdcMenu;
+	var bindable, customElement, inject, DOM, mdcMenu, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, MDCMenu, MdcMenu;
 
 	function _initDefineProp(target, property, descriptor, context) {
 		if (!descriptor) return;
@@ -65,7 +65,6 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 		}],
 		execute: function () {
 			MDCMenu = mdcMenu.MDCMenu;
-			MDCMenuFoundation = mdcMenu.MDCMenuFoundation;
 
 			_export('MdcMenu', MdcMenu = (_dec = customElement('mdc-menu'), _dec2 = inject(Element), _dec(_class = _dec2(_class = (_class2 = function () {
 				function MdcMenu(element) {

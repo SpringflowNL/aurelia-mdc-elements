@@ -1,6 +1,6 @@
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { textField as mdcTextField } from 'material-components-web/dist/material-components-web';
-const { MDCTextField } = mdcTextField;
+import { MDCTextField } from '@material/textfield/dist/mdc.textfield';
+import { MDCNotchedOutline } from '@material/notched-outline/dist/mdc.notchedOutline';
 
 @customElement('mdc-text-field')
 @inject(Element)
@@ -11,11 +11,11 @@ export class MdcTextField {
 	@bindable required = false;
 	@bindable type = 'text';
 	@bindable secondarylabel = null;
-	@bindable dense = false;
+	@bindable modifier = null;
 	@bindable step;
 	@bindable min;
 	@bindable max;
-    myMdcTextfield;
+	@bindable notched;
 
     constructor ( element) 
     {
@@ -26,12 +26,21 @@ export class MdcTextField {
     bind() 
 	{
 		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
+
+		this.checkNotched();
+
 		this.myMdcTextfield.disabled = this.disabled;
 		this.myMdcTextfield.required = this.required;
 		
 		this.step ? this.stepChanged(this.step) : '';
 		this.min ? this.minChanged(this.min) : '';
 		this.max ? this.maxChanged(this.max) : '';
+	}
+
+	checkNotched() {
+		if(this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
+			new MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
+		}
 	}
 
 	disabledChanged(newvalue) {
@@ -60,6 +69,12 @@ export class MdcTextField {
 		} else {
 			this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
 		}
+	}
+
+	modifierChanged(newvalue) {
+		this.modifier = newvalue;
+
+		this.checkNotched();
 	}
 
     detached() 

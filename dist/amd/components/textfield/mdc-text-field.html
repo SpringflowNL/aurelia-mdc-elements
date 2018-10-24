@@ -1,8 +1,14 @@
 <template>
-	<div class="mdc-text-field ${dense ? 'mdc-text-field--dense' : ''}">
+	<div class="mdc-text-field ${modifier ? modifier : ''}">
 		<input type="${type}" id="text-field--${unique}" class="mdc-text-field__input" value.bind="value">
 		<label for="text-field--${unique}" class="mdc-floating-label">${label}</label>
-		<div class="mdc-line-ripple"></div>
+		<div if.bind="modifier.indexOf('mdc-text-field--outlined') === -1" class="mdc-line-ripple"></div>
+		<div if.bind="modifier.indexOf('mdc-text-field--outlined') > -1" class="mdc-notched-outline" ref="notched">
+			<svg>
+			  <path class="mdc-notched-outline__path"/>
+			</svg>
+		</div>
+		<div if.bind="modifier.indexOf('mdc-text-field--outlined') > -1" class="mdc-notched-outline__idle"></div>
 	</div>
 	<p if.bind="secondarylabel" class="mdc-text-field-helper-text" aria-hidden="true">
 		${secondarylabel}

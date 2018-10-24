@@ -1,3 +1,8 @@
 ﻿.mdc-menu {
 	cursor: pointer;
+
+	&-surface--anchor {
+		position: absolute;
+		bottom: 0;
+	};
 }

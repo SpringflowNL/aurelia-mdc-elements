@@ -56,8 +56,7 @@ function _initializerWarningHelper(descriptor, context) {
 	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var MDCMenu = _materialComponentsWeb.menu.MDCMenu,
-    MDCMenuFoundation = _materialComponentsWeb.menu.MDCMenuFoundation;
+var MDCMenu = _materialComponentsWeb.menu.MDCMenu;
 var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('mdc-menu'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec(_class = _dec2(_class = (_class2 = function () {
 	function MdcMenu(element) {
 		_classCallCheck(this, MdcMenu);
