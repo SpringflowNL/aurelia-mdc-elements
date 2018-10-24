@@ -57,8 +57,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 	var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
-	var MDCMenu = _materialComponentsWeb.menu.MDCMenu,
-	    MDCMenuFoundation = _materialComponentsWeb.menu.MDCMenuFoundation;
+	var MDCMenu = _materialComponentsWeb.menu.MDCMenu;
 	var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('mdc-menu'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec(_class = _dec2(_class = (_class2 = function () {
 		function MdcMenu(element) {
 			_classCallCheck(this, MdcMenu);

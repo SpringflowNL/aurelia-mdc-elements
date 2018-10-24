@@ -15,7 +15,7 @@ Parameters that can be given to the message are:
 | disabled | Option to disable the textfield.	| |	false |
 | required | Option to require the textfield. | | false |
 | type | Option to set the type of the textfield. | | 'text' |
-| dense | Option to set the densetype of the textfield. | | false |
+| modifier | Option to set the modifier of the textfield. | | null |
 | secondarylabel | Used for showing a helpertext under the textfield.	| | null |
 | step | Used for steps in type = 'number'	| | |
 | min | Used for min in number, and minlength in text	| | |
