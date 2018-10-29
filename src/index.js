@@ -3,6 +3,7 @@ import {PLATFORM} from 'aurelia-framework';
 export function configure(config) {
 	const components = [
 		PLATFORM.moduleName('./components/checkbox/mdc-checkbox'),
+		PLATFORM.moduleName('./components/chip/mdc-chip'),
 		PLATFORM.moduleName('./components/details/details'),
 		PLATFORM.moduleName('./components/menu/mdc-menu'),
 		PLATFORM.moduleName('./components/progress/mdc-progress'),

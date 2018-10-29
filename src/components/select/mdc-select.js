@@ -1,6 +1,5 @@
 ﻿import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { select as mdcSelect } from 'material-components-web/dist/material-components-web';
-const { MDCSelect } = mdcSelect;
+import { MDCSelect } from '@material/select/dist/mdc.select.min';
 
 @customElement('mdc-select')
 @inject(Element)

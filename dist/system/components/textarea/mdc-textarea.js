@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/textfield/dist/mdc.textfield.min'], function (_export, _context) {
 	"use strict";
 
-	var bindable, customElement, inject, DOM, bindingMode, mdcTextField, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, MDCTextField, MdcTextarea;
+	var bindable, customElement, inject, DOM, bindingMode, MDCTextField, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, MdcTextarea;
 
 	function _initDefineProp(target, property, descriptor, context) {
 		if (!descriptor) return;
@@ -61,12 +61,10 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 			inject = _aureliaFramework.inject;
 			DOM = _aureliaFramework.DOM;
 			bindingMode = _aureliaFramework.bindingMode;
-		}, function (_materialComponentsWebDistMaterialComponentsWeb) {
-			mdcTextField = _materialComponentsWebDistMaterialComponentsWeb.textField;
+		}, function (_materialTextfieldDistMdcTextfieldMin) {
+			MDCTextField = _materialTextfieldDistMdcTextfieldMin.MDCTextField;
 		}],
 		execute: function () {
-			MDCTextField = mdcTextField.MDCTextField;
-
 			_export('MdcTextarea', MdcTextarea = (_dec = customElement('mdc-textarea'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 				function MdcTextarea(element) {
 					_classCallCheck(this, MdcTextarea);

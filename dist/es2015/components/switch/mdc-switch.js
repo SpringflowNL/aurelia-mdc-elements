@@ -43,9 +43,8 @@ function _initializerWarningHelper(descriptor, context) {
 	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-import { inject, customElement, bindable, bindingMode, DOM } from 'aurelia-framework';
-import { switchControl as mdcSwitch } from 'material-components-web/dist/material-components-web';
-const { MDCSwitch } = mdcSwitch;
+import { inject, customElement, bindable, bindingMode } from 'aurelia-framework';
+import { MDCSwitch } from '@material/switch/dist/mdc.switch.min';
 
 export let MdcSwitch = (_dec = customElement('mdc-switch'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class MdcSwitch {
 

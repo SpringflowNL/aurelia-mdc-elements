@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/checkbox/dist/mdc.checkbox.min'], function (_export, _context) {
     "use strict";
 
-    var inject, bindable, bindingMode, DOM, mdcCheckbox, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, MDCCheckbox, MdcCheckbox;
+    var inject, bindable, bindingMode, DOM, MDCCheckbox, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, MdcCheckbox;
 
     function _initDefineProp(target, property, descriptor, context) {
         if (!descriptor) return;
@@ -60,12 +60,10 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
             bindable = _aureliaFramework.bindable;
             bindingMode = _aureliaFramework.bindingMode;
             DOM = _aureliaFramework.DOM;
-        }, function (_materialComponentsWebDistMaterialComponentsWeb) {
-            mdcCheckbox = _materialComponentsWebDistMaterialComponentsWeb.checkbox;
+        }, function (_materialCheckboxDistMdcCheckboxMin) {
+            MDCCheckbox = _materialCheckboxDistMdcCheckboxMin.MDCCheckbox;
         }],
         execute: function () {
-            MDCCheckbox = mdcCheckbox.MDCCheckbox;
-
             _export('MdcCheckbox', MdcCheckbox = (_dec = inject(Element), _dec2 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = (_class2 = function () {
                 function MdcCheckbox(element) {
                     _classCallCheck(this, MdcCheckbox);

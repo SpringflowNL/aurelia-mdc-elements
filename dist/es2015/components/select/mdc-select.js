@@ -44,8 +44,7 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { select as mdcSelect } from 'material-components-web/dist/material-components-web';
-const { MDCSelect } = mdcSelect;
+import { MDCSelect } from '@material/select/dist/mdc.select.min';
 
 export let MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class MdcSelect {
 

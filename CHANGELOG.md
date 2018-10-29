@@ -5,11 +5,13 @@
 - MDCMenu: Changed anchor
 - MDCMenu: Toggle only on title/icon
 - CHANGED all references to the @material folder
+- MDCChip ADDED. 
 
 ## Features
 - Material Design Components: UPDATED 0.38.0 > 0.40.1
 - MDCTextField: ADDED option for icons
 - MDCTextField: ADDED option for modifiers
+- CHANGED all paths to @material instead of material-components-web
 
 ## Breaking changes
 - MDCTextField: Dense option has been changed to modifiers

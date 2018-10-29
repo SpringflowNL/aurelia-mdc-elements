@@ -9,7 +9,7 @@ var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _des
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _materialComponentsWeb = require('material-components-web/dist/material-components-web');
+var _mdcRadio = require('@material/radio/dist/mdc.radio.min');
 
 function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -56,7 +56,6 @@ function _initializerWarningHelper(descriptor, context) {
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var MDCRadio = _materialComponentsWeb.radio.MDCRadio;
 var MdcRadio = exports.MdcRadio = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
     function MdcRadio(element) {
         _classCallCheck(this, MdcRadio);
@@ -79,7 +78,7 @@ var MdcRadio = exports.MdcRadio = (_dec = (0, _aureliaFramework.inject)(Element)
     }
 
     MdcRadio.prototype.bind = function bind() {
-        this.mdcRadio = new MDCRadio(this.element);
+        this.mdcRadio = new _mdcRadio.MDCRadio(this.element);
     };
 
     MdcRadio.prototype.handleChange = function handleChange(e) {

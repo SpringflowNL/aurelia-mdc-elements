@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['aurelia-framework', '@material/textfield/dist/mdc.textfield', '@material/notched-outline/dist/mdc.notchedOutline'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/textfield/dist/mdc.textfield.min', '@material/notched-outline/dist/mdc.notchedOutline.min'], function (_export, _context) {
 	"use strict";
 
 	var bindable, customElement, inject, DOM, bindingMode, MDCTextField, MDCNotchedOutline, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, MdcTextField;
@@ -61,10 +61,10 @@ System.register(['aurelia-framework', '@material/textfield/dist/mdc.textfield', 
 			inject = _aureliaFramework.inject;
 			DOM = _aureliaFramework.DOM;
 			bindingMode = _aureliaFramework.bindingMode;
-		}, function (_materialTextfieldDistMdcTextfield) {
-			MDCTextField = _materialTextfieldDistMdcTextfield.MDCTextField;
-		}, function (_materialNotchedOutlineDistMdcNotchedOutline) {
-			MDCNotchedOutline = _materialNotchedOutlineDistMdcNotchedOutline.MDCNotchedOutline;
+		}, function (_materialTextfieldDistMdcTextfieldMin) {
+			MDCTextField = _materialTextfieldDistMdcTextfieldMin.MDCTextField;
+		}, function (_materialNotchedOutlineDistMdcNotchedOutlineMin) {
+			MDCNotchedOutline = _materialNotchedOutlineDistMdcNotchedOutlineMin.MDCNotchedOutline;
 		}],
 		execute: function () {
 			_export('MdcTextField', MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {

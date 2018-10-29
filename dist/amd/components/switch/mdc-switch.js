@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'material-components-web/dist/material-components-web'], function (exports, _aureliaFramework, _materialComponentsWeb) {
+define(['exports', 'aurelia-framework', '@material/switch/dist/mdc.switch.min'], function (exports, _aureliaFramework, _mdcSwitch) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -57,7 +57,6 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 	var _dec, _dec2, _dec3, _dec4, _dec5, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
-	var MDCSwitch = _materialComponentsWeb.switchControl.MDCSwitch;
 	var MdcSwitch = exports.MdcSwitch = (_dec = (0, _aureliaFramework.customElement)('mdc-switch'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec5 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 		function MdcSwitch(element) {
 			_classCallCheck(this, MdcSwitch);
@@ -73,7 +72,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		}
 
 		MdcSwitch.prototype.bind = function bind() {
-			this.myMDCSwitch = new MDCSwitch(this.element.firstElementChild);
+			this.myMDCSwitch = new _mdcSwitch.MDCSwitch(this.element.firstElementChild);
 		};
 
 		MdcSwitch.prototype.disabledChanged = function disabledChanged(newvalue) {

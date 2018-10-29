@@ -9,9 +9,9 @@ var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _mdc = require('@material/textfield/dist/mdc.textfield');
+var _mdcTextfield = require('@material/textfield/dist/mdc.textfield.min');
 
-var _mdc2 = require('@material/notched-outline/dist/mdc.notchedOutline');
+var _mdcNotchedOutline = require('@material/notched-outline/dist/mdc.notchedOutline.min');
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -89,7 +89,7 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 	}
 
 	MdcTextField.prototype.bind = function bind() {
-		this.myMdcTextfield = new _mdc.MDCTextField(this.element.firstElementChild);
+		this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
 
 		this.checkNotched();
 
@@ -103,7 +103,7 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 
 	MdcTextField.prototype.checkNotched = function checkNotched() {
 		if (this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
-			new _mdc2.MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
+			new _mdcNotchedOutline.MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
 		}
 	};
 

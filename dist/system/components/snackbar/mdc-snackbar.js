@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'aurelia-event-aggregator', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', 'aurelia-event-aggregator', '@material/snackbar/dist/mdc.snackbar.min'], function (_export, _context) {
 	"use strict";
 
-	var customElement, bindable, inject, EventAggregator, mdcSnackbar, _dec, _dec2, _class, MDCSnackbar, MdcSnackbar;
+	var customElement, bindable, inject, EventAggregator, MDCSnackbar, _dec, _dec2, _class, MdcSnackbar;
 
 	function _classCallCheck(instance, Constructor) {
 		if (!(instance instanceof Constructor)) {
@@ -18,12 +18,10 @@ System.register(['aurelia-framework', 'aurelia-event-aggregator', 'material-comp
 			inject = _aureliaFramework.inject;
 		}, function (_aureliaEventAggregator) {
 			EventAggregator = _aureliaEventAggregator.EventAggregator;
-		}, function (_materialComponentsWebDistMaterialComponentsWeb) {
-			mdcSnackbar = _materialComponentsWebDistMaterialComponentsWeb.snackbar;
+		}, function (_materialSnackbarDistMdcSnackbarMin) {
+			MDCSnackbar = _materialSnackbarDistMdcSnackbarMin.MDCSnackbar;
 		}],
 		execute: function () {
-			MDCSnackbar = mdcSnackbar.MDCSnackbar;
-
 			_export('MdcSnackbar', MdcSnackbar = (_dec = customElement('mdc-snackbar'), _dec2 = inject(Element, EventAggregator), _dec(_class = _dec2(_class = function () {
 				function MdcSnackbar(element, ea) {
 					_classCallCheck(this, MdcSnackbar);

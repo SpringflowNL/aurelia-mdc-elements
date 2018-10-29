@@ -44,8 +44,7 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { textField as mdcTextField } from 'material-components-web/dist/material-components-web';
-const { MDCTextField } = mdcTextField;
+import { MDCTextField } from '@material/textfield/dist/mdc.textfield.min';
 
 export let MdcTextarea = (_dec = customElement('mdc-textarea'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class MdcTextarea {
 

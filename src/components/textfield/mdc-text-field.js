@@ -1,6 +1,6 @@
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { MDCTextField } from '@material/textfield/dist/mdc.textfield';
-import { MDCNotchedOutline } from '@material/notched-outline/dist/mdc.notchedOutline';
+import { MDCTextField } from '@material/textfield/dist/mdc.textfield.min';
+import { MDCNotchedOutline } from '@material/notched-outline/dist/mdc.notchedOutline.min';
 
 @customElement('mdc-text-field')
 @inject(Element)

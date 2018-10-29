@@ -44,8 +44,8 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { MDCTextField } from '@material/textfield/dist/mdc.textfield';
-import { MDCNotchedOutline } from '@material/notched-outline/dist/mdc.notchedOutline';
+import { MDCTextField } from '@material/textfield/dist/mdc.textfield.min';
+import { MDCNotchedOutline } from '@material/notched-outline/dist/mdc.notchedOutline.min';
 
 export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = class MdcTextField {
 

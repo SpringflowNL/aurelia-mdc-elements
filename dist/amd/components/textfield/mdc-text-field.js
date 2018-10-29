@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield', '@material/notched-outline/dist/mdc.notchedOutline'], function (exports, _aureliaFramework, _mdc, _mdc2) {
+define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield.min', '@material/notched-outline/dist/mdc.notchedOutline.min'], function (exports, _aureliaFramework, _mdcTextfield, _mdcNotchedOutline) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -88,7 +88,7 @@ define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield'
 		}
 
 		MdcTextField.prototype.bind = function bind() {
-			this.myMdcTextfield = new _mdc.MDCTextField(this.element.firstElementChild);
+			this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
 
 			this.checkNotched();
 
@@ -102,7 +102,7 @@ define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield'
 
 		MdcTextField.prototype.checkNotched = function checkNotched() {
 			if (this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
-				new _mdc2.MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
+				new _mdcNotchedOutline.MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
 			}
 		};
 

@@ -2,8 +2,7 @@ var _dec, _dec2, _class;
 
 import { customElement, bindable, inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { snackbar as mdcSnackbar } from 'material-components-web/dist/material-components-web';
-const { MDCSnackbar } = mdcSnackbar;
+import { MDCSnackbar } from '@material/snackbar/dist/mdc.snackbar.min';
 
 export let MdcSnackbar = (_dec = customElement('mdc-snackbar'), _dec2 = inject(Element, EventAggregator), _dec(_class = _dec2(_class = class MdcSnackbar {
 	constructor(element, ea) {

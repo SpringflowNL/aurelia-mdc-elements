@@ -44,8 +44,7 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 import { inject, bindable, bindingMode, DOM } from 'aurelia-framework';
-import { radio as mdcRadio } from 'material-components-web/dist/material-components-web';
-const { MDCRadio } = mdcRadio;
+import { MDCRadio } from '@material/radio/dist/mdc.radio.min';
 
 export let MdcRadio = (_dec = inject(Element), _dec2 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = (_class2 = class MdcRadio {
 

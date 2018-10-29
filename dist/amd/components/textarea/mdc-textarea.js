@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'material-components-web/dist/material-components-web'], function (exports, _aureliaFramework, _materialComponentsWeb) {
+define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield.min'], function (exports, _aureliaFramework, _mdcTextfield) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -57,7 +57,6 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 	var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
 
-	var MDCTextField = _materialComponentsWeb.textField.MDCTextField;
 	var MdcTextarea = exports.MdcTextarea = (_dec = (0, _aureliaFramework.customElement)('mdc-textarea'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 		function MdcTextarea(element) {
 			_classCallCheck(this, MdcTextarea);
@@ -77,7 +76,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		}
 
 		MdcTextarea.prototype.bind = function bind() {
-			this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
+			this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
 			this.myMdcTextfield.disabled = this.disabled;
 			this.myMdcTextfield.required = this.required;
 		};

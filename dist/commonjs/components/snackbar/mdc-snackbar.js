@@ -11,11 +11,10 @@ var _aureliaFramework = require('aurelia-framework');
 
 var _aureliaEventAggregator = require('aurelia-event-aggregator');
 
-var _materialComponentsWeb = require('material-components-web/dist/material-components-web');
+var _mdcSnackbar = require('@material/snackbar/dist/mdc.snackbar.min');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MDCSnackbar = _materialComponentsWeb.snackbar.MDCSnackbar;
 var MdcSnackbar = exports.MdcSnackbar = (_dec = (0, _aureliaFramework.customElement)('mdc-snackbar'), _dec2 = (0, _aureliaFramework.inject)(Element, _aureliaEventAggregator.EventAggregator), _dec(_class = _dec2(_class = function () {
 	function MdcSnackbar(element, ea) {
 		_classCallCheck(this, MdcSnackbar);
@@ -40,7 +39,7 @@ var MdcSnackbar = exports.MdcSnackbar = (_dec = (0, _aureliaFramework.customElem
 		var buttonLabel = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Cancel';
 		var dismissOnAction = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-		this.mdcSnackbar = new MDCSnackbar(this.element);
+		this.mdcSnackbar = new _mdcSnackbar.MDCSnackbar(this.element);
 
 		this.mdcSnackbar.dismissesOnAction = dismissOnAction;
 
