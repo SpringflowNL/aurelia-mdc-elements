@@ -1,4 +1,14 @@
-# [0.40.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.40.0) (2018-08-06)
+# [0.41.1] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.41.1) (2018-08-06)
+
+## Bugfixed
+- MDCTextfield: Init value label issue
+- MDCSelect: Select caret was missing
+
+## Features
+
+## Breaking changes
+
+# [0.41.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.41.0) (2018-08-06)
 
 ## Bugfixed
 - MDCMenu: Added surface class and aria-orientation
@@ -6,9 +16,10 @@
 - MDCMenu: Toggle only on title/icon
 - CHANGED all references to the @material folder
 - MDCChip ADDED. 
+- MDCExpansion styling fixed for iOS devices
 
 ## Features
-- Material Design Components: UPDATED 0.38.0 > 0.40.1
+- Material Design Components: UPDATED 0.38.0 > 0.41.0
 - MDCTextField: ADDED option for icons
 - MDCTextField: ADDED option for modifiers
 - CHANGED all paths to @material instead of material-components-web

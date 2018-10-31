@@ -76,17 +76,23 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 
 	bind() {
 		if (this.myMdcTextfield) {
-			this.step ? this.stepChanged(this.step) : '';
-			this.min ? this.minChanged(this.min) : '';
-			this.max ? this.maxChanged(this.max) : '';
-
-			this.myMdcTextfield.disabled = this.disabled;
-			this.myMdcTextfield.required = this.required;
+			this.refreshOptions();
 		}
 	}
 
 	attached() {
 		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
+		this.refreshOptions();
+	}
+
+	refreshOptions() {
+		this.step ? this.stepChanged(this.step) : '';
+		this.min ? this.minChanged(this.min) : '';
+		this.max ? this.maxChanged(this.max) : '';
+
+		this.myMdcTextfield.disabled = this.disabled;
+		this.myMdcTextfield.required = this.required;
+		this.myMdcTextfield.value = this.value;
 	}
 
 	disabledChanged(newvalue) {
