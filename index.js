@@ -3,6 +3,7 @@ import {PLATFORM} from 'aurelia-pal';
 export function configure(config) {
 	const components = [
 		PLATFORM.moduleName('./components/checkbox/mdc-checkbox'),
+		PLATFORM.moduleName('./components/chip/mdc-chip'),
 		PLATFORM.moduleName('./components/details/details'),
 		PLATFORM.moduleName('./components/menu/mdc-menu'),
 		PLATFORM.moduleName('./components/progress/mdc-progress'),
@@ -12,7 +13,6 @@ export function configure(config) {
 		PLATFORM.moduleName('./components/textfield/mdc-text-field'),
 		PLATFORM.moduleName('./components/radio/mdc-radio'),
 		PLATFORM.moduleName('./components/textarea/mdc-textarea')
-
 	];
 	config.globalResources(components);
 }

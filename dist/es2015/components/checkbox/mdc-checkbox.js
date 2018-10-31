@@ -44,8 +44,7 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 import { inject, bindable, bindingMode, DOM } from 'aurelia-framework';
-import { checkbox as mdcCheckbox } from 'material-components-web/dist/material-components-web';
-const { MDCCheckbox } = mdcCheckbox;
+import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min';
 
 export let MdcCheckbox = (_dec = inject(Element), _dec2 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = (_class2 = class MdcCheckbox {
 

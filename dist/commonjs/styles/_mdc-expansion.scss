@@ -10,6 +10,9 @@
 		display: flex;
 		outline: none;
 		cursor: pointer;
+		align-content: center;
+		position: relative;
+
 		&::-webkit-details-marker {
 			display: none;
 		}
@@ -26,6 +29,11 @@
 			transition: transform 200ms, color 200ms;
 			margin-left: auto;
 			color: rgba(0, 0, 0, .38);
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 48px;
+			line-height: 48px;
 		}
 		&:focus {
 			&::after {
@@ -40,8 +48,10 @@
 		font-size: 0.9375rem;
 		font-weight: 500;
 		min-width: 200px;
-		margin-right: 16px;
+		margin-right: 24px;
 		text-transform: uppercase;
+		flex-grow: 1;
+		height: 100%;
 	}
 	&__subheader {
 		font-size: .75rem;
@@ -90,6 +100,6 @@ details {
 		display: none;
 	}
 	> summary {
-		display: block;
+		display: flex;
 	}
 }

@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'material-components-web/dist/material-components-web'], function (exports, _aureliaFramework, _materialComponentsWeb) {
+define(['exports', 'aurelia-framework', '@material/checkbox/dist/mdc.checkbox.min'], function (exports, _aureliaFramework, _mdcCheckbox) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -57,7 +57,6 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
     var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
 
-    var MDCCheckbox = _materialComponentsWeb.checkbox.MDCCheckbox;
     var MdcCheckbox = exports.MdcCheckbox = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
         function MdcCheckbox(element) {
             _classCallCheck(this, MdcCheckbox);
@@ -80,7 +79,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
         }
 
         MdcCheckbox.prototype.bind = function bind() {
-            this.mdcCheckbox = new MDCCheckbox(this.element);
+            this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
             this.element.id = '_' + this.id;
         };
 

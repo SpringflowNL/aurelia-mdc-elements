@@ -9,7 +9,7 @@ var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _des
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _materialComponentsWeb = require('material-components-web/dist/material-components-web');
+var _mdcCheckbox = require('@material/checkbox/dist/mdc.checkbox.min');
 
 function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -56,7 +56,6 @@ function _initializerWarningHelper(descriptor, context) {
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var MDCCheckbox = _materialComponentsWeb.checkbox.MDCCheckbox;
 var MdcCheckbox = exports.MdcCheckbox = (_dec = (0, _aureliaFramework.inject)(Element), _dec2 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = (_class2 = function () {
     function MdcCheckbox(element) {
         _classCallCheck(this, MdcCheckbox);
@@ -79,7 +78,7 @@ var MdcCheckbox = exports.MdcCheckbox = (_dec = (0, _aureliaFramework.inject)(El
     }
 
     MdcCheckbox.prototype.bind = function bind() {
-        this.mdcCheckbox = new MDCCheckbox(this.element);
+        this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
         this.element.id = '_' + this.id;
     };
 

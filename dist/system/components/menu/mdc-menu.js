@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/menu/dist/mdc.menu.min'], function (_export, _context) {
 	"use strict";
 
-	var bindable, customElement, inject, DOM, mdcMenu, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, MDCMenu, MdcMenu;
+	var bindable, customElement, inject, DOM, MDCMenu, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, MdcMenu;
 
 	function _initDefineProp(target, property, descriptor, context) {
 		if (!descriptor) return;
@@ -60,12 +60,10 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 			customElement = _aureliaFramework.customElement;
 			inject = _aureliaFramework.inject;
 			DOM = _aureliaFramework.DOM;
-		}, function (_materialComponentsWebDistMaterialComponentsWeb) {
-			mdcMenu = _materialComponentsWebDistMaterialComponentsWeb.menu;
+		}, function (_materialMenuDistMdcMenuMin) {
+			MDCMenu = _materialMenuDistMdcMenuMin.MDCMenu;
 		}],
 		execute: function () {
-			MDCMenu = mdcMenu.MDCMenu;
-
 			_export('MdcMenu', MdcMenu = (_dec = customElement('mdc-menu'), _dec2 = inject(Element), _dec(_class = _dec2(_class = (_class2 = function () {
 				function MdcMenu(element) {
 					_classCallCheck(this, MdcMenu);

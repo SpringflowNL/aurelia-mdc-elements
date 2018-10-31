@@ -1,6 +1,5 @@
 import { bindable, customElement, inject, DOM, bindingMode } from 'aurelia-framework';
-import { textField as mdcTextField } from 'material-components-web/dist/material-components-web';
-const { MDCTextField } = mdcTextField;
+import { MDCTextField } from '@material/textfield/dist/mdc.textfield.min';
 
 @customElement('mdc-textarea')
 @inject(Element)

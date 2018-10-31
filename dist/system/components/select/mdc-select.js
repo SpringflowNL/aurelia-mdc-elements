@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/select/dist/mdc.select.min'], function (_export, _context) {
 	"use strict";
 
-	var bindable, customElement, inject, DOM, bindingMode, mdcSelect, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, MDCSelect, MdcSelect;
+	var bindable, customElement, inject, DOM, bindingMode, MDCSelect, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, MdcSelect;
 
 	function _initDefineProp(target, property, descriptor, context) {
 		if (!descriptor) return;
@@ -61,12 +61,10 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 			inject = _aureliaFramework.inject;
 			DOM = _aureliaFramework.DOM;
 			bindingMode = _aureliaFramework.bindingMode;
-		}, function (_materialComponentsWebDistMaterialComponentsWeb) {
-			mdcSelect = _materialComponentsWebDistMaterialComponentsWeb.select;
+		}, function (_materialSelectDistMdcSelectMin) {
+			MDCSelect = _materialSelectDistMdcSelectMin.MDCSelect;
 		}],
 		execute: function () {
-			MDCSelect = mdcSelect.MDCSelect;
-
 			_export('MdcSelect', MdcSelect = (_dec = customElement('mdc-select'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 				function MdcSelect(element) {
 					_classCallCheck(this, MdcSelect);

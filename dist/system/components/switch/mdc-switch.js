@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/switch/dist/mdc.switch.min'], function (_export, _context) {
 	"use strict";
 
-	var inject, customElement, bindable, bindingMode, DOM, mdcSwitch, _dec, _dec2, _dec3, _dec4, _dec5, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, MDCSwitch, MdcSwitch;
+	var inject, customElement, bindable, bindingMode, MDCSwitch, _dec, _dec2, _dec3, _dec4, _dec5, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, MdcSwitch;
 
 	function _initDefineProp(target, property, descriptor, context) {
 		if (!descriptor) return;
@@ -60,13 +60,10 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
 			customElement = _aureliaFramework.customElement;
 			bindable = _aureliaFramework.bindable;
 			bindingMode = _aureliaFramework.bindingMode;
-			DOM = _aureliaFramework.DOM;
-		}, function (_materialComponentsWebDistMaterialComponentsWeb) {
-			mdcSwitch = _materialComponentsWebDistMaterialComponentsWeb.switchControl;
+		}, function (_materialSwitchDistMdcSwitchMin) {
+			MDCSwitch = _materialSwitchDistMdcSwitchMin.MDCSwitch;
 		}],
 		execute: function () {
-			MDCSwitch = mdcSwitch.MDCSwitch;
-
 			_export('MdcSwitch', MdcSwitch = (_dec = customElement('mdc-switch'), _dec2 = inject(Element), _dec3 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec4 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec5 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 				function MdcSwitch(element) {
 					_classCallCheck(this, MdcSwitch);

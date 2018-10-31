@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'material-components-web/dist/material-components-web'], function (exports, _aureliaFramework, _materialComponentsWeb) {
+define(['exports', 'aurelia-framework', '@material/menu/dist/mdc.menu.min'], function (exports, _aureliaFramework, _mdcMenu) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -57,7 +57,6 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 	var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3;
 
-	var MDCMenu = _materialComponentsWeb.menu.MDCMenu;
 	var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('mdc-menu'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec(_class = _dec2(_class = (_class2 = function () {
 		function MdcMenu(element) {
 			_classCallCheck(this, MdcMenu);
@@ -76,7 +75,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		};
 
 		MdcMenu.prototype.bind = function bind() {
-			this.myMdcMenu = new MDCMenu(this.menuElement);
+			this.myMdcMenu = new _mdcMenu.MDCMenu(this.menuElement);
 		};
 
 		MdcMenu.prototype.detached = function detached() {

@@ -9,7 +9,7 @@ var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _des
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _materialComponentsWeb = require('material-components-web/dist/material-components-web');
+var _mdcMenu = require('@material/menu/dist/mdc.menu.min');
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -56,7 +56,6 @@ function _initializerWarningHelper(descriptor, context) {
 	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var MDCMenu = _materialComponentsWeb.menu.MDCMenu;
 var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('mdc-menu'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec(_class = _dec2(_class = (_class2 = function () {
 	function MdcMenu(element) {
 		_classCallCheck(this, MdcMenu);
@@ -75,7 +74,7 @@ var MdcMenu = exports.MdcMenu = (_dec = (0, _aureliaFramework.customElement)('md
 	};
 
 	MdcMenu.prototype.bind = function bind() {
-		this.myMdcMenu = new MDCMenu(this.menuElement);
+		this.myMdcMenu = new _mdcMenu.MDCMenu(this.menuElement);
 	};
 
 	MdcMenu.prototype.detached = function detached() {

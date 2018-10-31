@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['aurelia-framework', 'material-components-web/dist/material-components-web'], function (_export, _context) {
+System.register(['aurelia-framework', '@material/radio/dist/mdc.radio.min'], function (_export, _context) {
     "use strict";
 
-    var inject, bindable, bindingMode, DOM, mdcRadio, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, MDCRadio, MdcRadio;
+    var inject, bindable, bindingMode, DOM, MDCRadio, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, MdcRadio;
 
     function _initDefineProp(target, property, descriptor, context) {
         if (!descriptor) return;
@@ -60,12 +60,10 @@ System.register(['aurelia-framework', 'material-components-web/dist/material-com
             bindable = _aureliaFramework.bindable;
             bindingMode = _aureliaFramework.bindingMode;
             DOM = _aureliaFramework.DOM;
-        }, function (_materialComponentsWebDistMaterialComponentsWeb) {
-            mdcRadio = _materialComponentsWebDistMaterialComponentsWeb.radio;
+        }, function (_materialRadioDistMdcRadioMin) {
+            MDCRadio = _materialRadioDistMdcRadioMin.MDCRadio;
         }],
         execute: function () {
-            MDCRadio = mdcRadio.MDCRadio;
-
             _export('MdcRadio', MdcRadio = (_dec = inject(Element), _dec2 = bindable({ defaultBindingMode: bindingMode.twoWay }), _dec(_class = (_class2 = function () {
                 function MdcRadio(element) {
                     _classCallCheck(this, MdcRadio);

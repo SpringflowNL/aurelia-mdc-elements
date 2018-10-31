@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'material-components-web/dist/material-components-web'], function (exports, _aureliaFramework, _materialComponentsWeb) {
+define(['exports', 'aurelia-framework', '@material/select/dist/mdc.select.min'], function (exports, _aureliaFramework, _mdcSelect) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -57,7 +57,6 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 
 	var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
 
-	var MDCSelect = _materialComponentsWeb.select.MDCSelect;
 	var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)('mdc-select'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 		function MdcSelect(element) {
 			_classCallCheck(this, MdcSelect);
@@ -84,7 +83,7 @@ define(['exports', 'aurelia-framework', 'material-components-web/dist/material-c
 		}
 
 		MdcSelect.prototype.bind = function bind() {
-			this.myMdcSelect = new MDCSelect(this.element);
+			this.myMdcSelect = new _mdcSelect.MDCSelect(this.element);
 			this.myMdcSelect.disabled = this.disabled;
 
 			if (this.selected) {

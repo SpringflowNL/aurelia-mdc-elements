@@ -9,7 +9,7 @@ var _dec, _dec2, _dec3, _dec4, _dec5, _class, _desc, _value, _class2, _descripto
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _materialComponentsWeb = require('material-components-web/dist/material-components-web');
+var _mdcSwitch = require('@material/switch/dist/mdc.switch.min');
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -56,7 +56,6 @@ function _initializerWarningHelper(descriptor, context) {
 	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var MDCSwitch = _materialComponentsWeb.switchControl.MDCSwitch;
 var MdcSwitch = exports.MdcSwitch = (_dec = (0, _aureliaFramework.customElement)('mdc-switch'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec4 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec5 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 	function MdcSwitch(element) {
 		_classCallCheck(this, MdcSwitch);
@@ -72,7 +71,7 @@ var MdcSwitch = exports.MdcSwitch = (_dec = (0, _aureliaFramework.customElement)
 	}
 
 	MdcSwitch.prototype.bind = function bind() {
-		this.myMDCSwitch = new MDCSwitch(this.element.firstElementChild);
+		this.myMDCSwitch = new _mdcSwitch.MDCSwitch(this.element.firstElementChild);
 	};
 
 	MdcSwitch.prototype.disabledChanged = function disabledChanged(newvalue) {

@@ -1,6 +1,6 @@
 {
   "name": "aurelia-mdc-elements",
-  "version": "0.38.0",
+  "version": "0.41.0",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "main": "dist/commonjs/index.js",
   "repository": {
@@ -22,7 +22,8 @@
   "dependencies": {
     "aurelia-event-aggregator": "^1.0.1",
     "aurelia-framework": "^1.3.0",
-    "aurelia-polyfills": "^1.3.0"
+    "aurelia-polyfills": "^1.3.0",
+    "orchestrator": "^0.3.8"
   },
   "devDependencies": {
     "aurelia-tools": "^2.0.0",

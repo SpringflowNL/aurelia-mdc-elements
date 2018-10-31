@@ -1,6 +1,6 @@
-﻿import { inject, customElement, bindable, bindingMode, DOM } from 'aurelia-framework';
-import { switchControl as mdcSwitch } from 'material-components-web/dist/material-components-web';
-const { MDCSwitch } = mdcSwitch;
+﻿import { inject, customElement, bindable, bindingMode } from 'aurelia-framework';
+import { MDCSwitch } from '@material/switch/dist/mdc.switch.min';
+
 
 @customElement('mdc-switch')
 @inject(Element)

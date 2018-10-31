@@ -9,7 +9,7 @@ var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _materialComponentsWeb = require('material-components-web/dist/material-components-web');
+var _mdcSelect = require('@material/select/dist/mdc.select.min');
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -56,7 +56,6 @@ function _initializerWarningHelper(descriptor, context) {
 	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var MDCSelect = _materialComponentsWeb.select.MDCSelect;
 var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)('mdc-select'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec3 = (0, _aureliaFramework.bindable)({ defaultBindingMode: _aureliaFramework.bindingMode.twoWay }), _dec(_class = _dec2(_class = (_class2 = function () {
 	function MdcSelect(element) {
 		_classCallCheck(this, MdcSelect);
@@ -83,7 +82,7 @@ var MdcSelect = exports.MdcSelect = (_dec = (0, _aureliaFramework.customElement)
 	}
 
 	MdcSelect.prototype.bind = function bind() {
-		this.myMdcSelect = new MDCSelect(this.element);
+		this.myMdcSelect = new _mdcSelect.MDCSelect(this.element);
 		this.myMdcSelect.disabled = this.disabled;
 
 		if (this.selected) {
