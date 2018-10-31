@@ -92,6 +92,7 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 
 		this.myMdcTextfield.disabled = this.disabled;
 		this.myMdcTextfield.required = this.required;
+		this.myMdcTextfield.value = this.value;
 	}
 
 	disabledChanged(newvalue) {

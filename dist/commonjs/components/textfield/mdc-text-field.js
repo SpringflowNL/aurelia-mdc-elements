@@ -104,6 +104,7 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 
 		this.myMdcTextfield.disabled = this.disabled;
 		this.myMdcTextfield.required = this.required;
+		this.myMdcTextfield.value = this.value;
 	};
 
 	MdcTextField.prototype.disabledChanged = function disabledChanged(newvalue) {

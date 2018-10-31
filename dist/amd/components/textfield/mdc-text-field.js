@@ -103,6 +103,7 @@ define(['exports', 'aurelia-framework', '@material/textfield/dist/mdc.textfield.
 
 			this.myMdcTextfield.disabled = this.disabled;
 			this.myMdcTextfield.required = this.required;
+			this.myMdcTextfield.value = this.value;
 		};
 
 		MdcTextField.prototype.disabledChanged = function disabledChanged(newvalue) {
