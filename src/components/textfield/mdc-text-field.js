@@ -15,32 +15,26 @@ export class MdcTextField {
 	@bindable step;
 	@bindable min;
 	@bindable max;
-	@bindable notched;
 
     constructor ( element) 
     {
 		this.element = element;
 		this.unique = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-    }
+	}
+	
+	bind() {
+		if(this.myMdcTextfield) {
+			this.step ? this.stepChanged(this.step) : '';
+			this.min ? this.minChanged(this.min) : '';
+			this.max ? this.maxChanged(this.max) : '';
 
-    bind() 
-	{
-		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
-
-		this.checkNotched();
-
-		this.myMdcTextfield.disabled = this.disabled;
-		this.myMdcTextfield.required = this.required;
-		
-		this.step ? this.stepChanged(this.step) : '';
-		this.min ? this.minChanged(this.min) : '';
-		this.max ? this.maxChanged(this.max) : '';
+			this.myMdcTextfield.disabled = this.disabled;
+			this.myMdcTextfield.required = this.required;
+		}
 	}
 
-	checkNotched() {
-		if(this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
-			new MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
-		}
+	attached() {
+		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
 	}
 
 	disabledChanged(newvalue) {
@@ -69,12 +63,6 @@ export class MdcTextField {
 		} else {
 			this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
 		}
-	}
-
-	modifierChanged(newvalue) {
-		this.modifier = newvalue;
-
-		this.checkNotched();
 	}
 
     detached() 

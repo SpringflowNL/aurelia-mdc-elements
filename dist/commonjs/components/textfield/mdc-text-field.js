@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MdcTextField = undefined;
 
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
 
 var _aureliaFramework = require('aurelia-framework');
 
@@ -82,29 +82,23 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 
 		_initDefineProp(this, 'max', _descriptor10, this);
 
-		_initDefineProp(this, 'notched', _descriptor11, this);
-
 		this.element = element;
 		this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 	}
 
 	MdcTextField.prototype.bind = function bind() {
-		this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
+		if (this.myMdcTextfield) {
+			this.step ? this.stepChanged(this.step) : '';
+			this.min ? this.minChanged(this.min) : '';
+			this.max ? this.maxChanged(this.max) : '';
 
-		this.checkNotched();
-
-		this.myMdcTextfield.disabled = this.disabled;
-		this.myMdcTextfield.required = this.required;
-
-		this.step ? this.stepChanged(this.step) : '';
-		this.min ? this.minChanged(this.min) : '';
-		this.max ? this.maxChanged(this.max) : '';
+			this.myMdcTextfield.disabled = this.disabled;
+			this.myMdcTextfield.required = this.required;
+		}
 	};
 
-	MdcTextField.prototype.checkNotched = function checkNotched() {
-		if (this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
-			new _mdcNotchedOutline.MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
-		}
+	MdcTextField.prototype.attached = function attached() {
+		this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
 	};
 
 	MdcTextField.prototype.disabledChanged = function disabledChanged(newvalue) {
@@ -133,12 +127,6 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 		} else {
 			this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
 		}
-	};
-
-	MdcTextField.prototype.modifierChanged = function modifierChanged(newvalue) {
-		this.modifier = newvalue;
-
-		this.checkNotched();
 	};
 
 	MdcTextField.prototype.detached = function detached() {
@@ -184,9 +172,6 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 	enumerable: true,
 	initializer: null
 }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'max', [_aureliaFramework.bindable], {
-	enumerable: true,
-	initializer: null
-}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'notched', [_aureliaFramework.bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);

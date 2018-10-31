@@ -1,4 +1,4 @@
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+var _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -70,29 +70,23 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 
 		_initDefineProp(this, 'max', _descriptor10, this);
 
-		_initDefineProp(this, 'notched', _descriptor11, this);
-
 		this.element = element;
 		this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 	}
 
 	bind() {
-		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
+		if (this.myMdcTextfield) {
+			this.step ? this.stepChanged(this.step) : '';
+			this.min ? this.minChanged(this.min) : '';
+			this.max ? this.maxChanged(this.max) : '';
 
-		this.checkNotched();
-
-		this.myMdcTextfield.disabled = this.disabled;
-		this.myMdcTextfield.required = this.required;
-
-		this.step ? this.stepChanged(this.step) : '';
-		this.min ? this.minChanged(this.min) : '';
-		this.max ? this.maxChanged(this.max) : '';
+			this.myMdcTextfield.disabled = this.disabled;
+			this.myMdcTextfield.required = this.required;
+		}
 	}
 
-	checkNotched() {
-		if (this.modifier && this.modifier.indexOf('mdc-text-field--outlined') > -1) {
-			new MDCNotchedOutline(document.querySelector('.mdc-notched-outline'));
-		}
+	attached() {
+		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
 	}
 
 	disabledChanged(newvalue) {
@@ -121,12 +115,6 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 		} else {
 			this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
 		}
-	}
-
-	modifierChanged(newvalue) {
-		this.modifier = newvalue;
-
-		this.checkNotched();
 	}
 
 	detached() {
@@ -170,9 +158,6 @@ export let MdcTextField = (_dec = customElement('mdc-text-field'), _dec2 = injec
 	enumerable: true,
 	initializer: null
 }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'max', [bindable], {
-	enumerable: true,
-	initializer: null
-}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'notched', [bindable], {
 	enumerable: true,
 	initializer: null
 })), _class2)) || _class) || _class);
