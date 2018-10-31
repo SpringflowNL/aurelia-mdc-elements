@@ -1,3 +1,13 @@
+# [0.41.1] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.41.1) (2018-08-06)
+
+## Bugfixed
+- MDCTextfield: Init value label issue
+- MDCSelect: Select caret was missing
+
+## Features
+
+## Breaking changes
+
 # [0.41.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.41.0) (2018-08-06)
 
 ## Bugfixed

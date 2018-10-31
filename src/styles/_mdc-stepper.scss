@@ -8,6 +8,10 @@
 		display: flex;
 		margin: 0 24px;
 
+		.mdc-dialog__content & {
+			margin: 0;
+		}
+
 		&__indicator {
 			position: relative;
 
@@ -20,7 +24,7 @@
 				right: 20px;
 				width: 1px;
 				background: rgba(0, 0, 0, .38);
-				background: var(--mdc-theme-text-hint-on-primary);
+				background: var(--mdc-theme-text-hint-on-background);
 			}
 		}
 
@@ -39,7 +43,7 @@
 			background: $mdc-theme-primary;
 			background: var(--mdc-theme-primary);
 			color: white;
-			color: var(--mdc-theme-text-primary-on-primary-dark);
+			color: var(--mdc-theme-text-primary-on-dark);
 
 			&--inactive {
 				background: lighten($mdc-theme-primary, 20%);
@@ -55,7 +59,7 @@
 		}
 
 		&__header {
-			margin: 8px 0;
+			margin: 6px 0;
 			cursor: pointer;
 
 			&--subtitle {
