@@ -88,17 +88,22 @@ var MdcTextField = exports.MdcTextField = (_dec = (0, _aureliaFramework.customEl
 
 	MdcTextField.prototype.bind = function bind() {
 		if (this.myMdcTextfield) {
-			this.step ? this.stepChanged(this.step) : '';
-			this.min ? this.minChanged(this.min) : '';
-			this.max ? this.maxChanged(this.max) : '';
-
-			this.myMdcTextfield.disabled = this.disabled;
-			this.myMdcTextfield.required = this.required;
+			this.refreshOptions();
 		}
 	};
 
 	MdcTextField.prototype.attached = function attached() {
 		this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
+		this.refreshOptions();
+	};
+
+	MdcTextField.prototype.refreshOptions = function refreshOptions() {
+		this.step ? this.stepChanged(this.step) : '';
+		this.min ? this.minChanged(this.min) : '';
+		this.max ? this.maxChanged(this.max) : '';
+
+		this.myMdcTextfield.disabled = this.disabled;
+		this.myMdcTextfield.required = this.required;
 	};
 
 	MdcTextField.prototype.disabledChanged = function disabledChanged(newvalue) {
