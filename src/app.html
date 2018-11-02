@@ -89,7 +89,8 @@
                         data.bind="testArray" selected.bind="boolvalue"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-chip label.bind="label" disabled.bind="disabled" required.bind="required" leading.bind="icon" trailing.bind="icon"></mdc-chip>
+                      <mdc-chip label.bind="label" disabled.bind="disabled" required.bind="required" leading.bind="icon"
+                        trailing.bind="icon"></mdc-chip>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-menu label.bind="label" icon.bind="icon">
@@ -106,41 +107,242 @@
                 </div>
               </details>
             </div>
+
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details open class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">TextField</span>
                 </summary>
                 <div class="mdc-expansion__content">
-                  <h3>Filled</h3>
+                  <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-text-field class="custom-element" label="Standard"></mdc-text-field>
+                      <mdc-text-field label="Standard"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-text-field class="custom-element" label="Dense" modifier="mdc-text-field--dense"></mdc-text-field>
+                      <mdc-text-field label="Dense" modifier="mdc-text-field--dense"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-text-field class="custom-element" label="Standard" secondarylabel="Helper Text"></mdc-text-field>
+                      <mdc-text-field label="Standard" secondarylabel="Helper Text"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"></mdc-text-field>
                     </div>
                   </div>
-                  <h3>Outlined</h3>
+                  <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-text-field class="custom-element" label="Standard" modifier="mdc-text-field--outlined"></mdc-text-field>
+                      <mdc-text-field label="Standard" disabled="true"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-text-field class="custom-element" label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense"></mdc-text-field>
+                      <mdc-text-field label="Dense" modifier="mdc-text-field--dense" disabled="true"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-text-field class="custom-element" label="Standard" modifier="mdc-text-field--outlined"
-                        secondarylabel="Helper Text"></mdc-text-field>
+                      <mdc-text-field label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" disabled="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense" disabled="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                        disabled="true"></mdc-text-field>
+                    </div>
+                  </div>
+                  <h3>Required</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Dense" modifier="mdc-text-field--dense" required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" secondarylabel="Helper Text" required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense" required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                        required="true"></mdc-text-field>
                     </div>
                   </div>
                 </div>
               </details>
             </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12"></div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">TextArea</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h3>Standard</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" dense="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard" secondarylabel="Helper Text"></mdc-textarea>
+                    </div>
+                  </div>
+                  <h3>Disabled</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard" disabled="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" dense="true" disabled="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-textarea>
+                    </div>
+                  </div>
+                  <h3>Required</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard" required="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" dense="true" required="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard" secondarylabel="Helper Text" required="true"></mdc-textarea>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Checkbox</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h3>Standard</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox1" label="Checked" checked.bind="true"></mdc-checkbox>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox2" label="Unchecked"></mdc-checkbox>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox3" label="Indeterminate" indeterminate="true"></mdc-checkbox>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox4" label="Standard" secondarylabel="Helper Text"></mdc-checkbox>
+                    </div>
+                  </div>
+                  <h3>Disabled</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox5" label="Checked" checked.bind="true" disabled="true"></mdc-checkbox>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox6" label="Unchecked" disabled="true"></mdc-checkbox>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox7" label="Indeterminate" disabled="true" indeterminate="true"></mdc-checkbox>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-checkbox id="checkbox8" label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-checkbox>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Radio</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h3>Standard</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio1" label="Checked" checked.bind="true"></mdc-radio>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio2" label="Unchecked"></mdc-radio>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio3" label="Standard" secondarylabel="Helper Text"></mdc-radio>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio4" label="Standard1" name="test"></mdc-radio>
+                      <mdc-radio id="radio5" label="Standard2" name="test"></mdc-radio>
+                      <mdc-radio id="radio6" label="Standard3" name="test"></mdc-radio>
+                    </div>
+                  </div>
+                  <h3>Disabled</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio7" label="Checked" checked.bind="true" disabled="true"></mdc-radio>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio8" label="Unchecked" disabled="true"></mdc-radio>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio9" label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-radio>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-radio id="radio10" label="Standard1" name="test" disabled="true"></mdc-radio>
+                      <mdc-radio id="radio11" label="Standard2" name="test" disabled="true"></mdc-radio>
+                      <mdc-radio id="radio12" label="Standard3" name="test" disabled="true"></mdc-radio>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Progress</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h3>Standard</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                      <mdc-progress></mdc-progress>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                      <mdc-progress min="0" max="10" value="5"></mdc-progress>
+                      Min = 0
+                      Max = 10
+                      Val = 5
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                      <mdc-progress max="20" min="10" value="15"></mdc-progress>
+                      Min = 10
+                      Max = 20
+                      Val = 10
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                      <mdc-progress buffer="true"></mdc-progress>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
           </div>
         </div>
       </div>
