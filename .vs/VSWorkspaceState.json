@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\build",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\checkbox",
+    "\\src\\components\\details",
+    "\\src\\components\\menu",
+    "\\src\\components\\progress",
+    "\\src\\components\\radio",
+    "\\src\\components\\select"
+  ],
+  "SelectedNode": "\\src\\components\\select\\mdc-select.js",
+  "PreviewInSolutionExplorer": false
+}

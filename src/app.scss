@@ -1,0 +1,47 @@
+$mdc-theme-primary: #009688 !default;
+$mdc-theme-secondary: #00adee !default;
+$mdc-theme-background: #fff !default;
+
+:root {
+	--mdc-theme-primary: #{$mdc-theme-primary} !important;
+	--mdc-theme-secondary: #{$mdc-theme-secondary} !important;
+	--mdc-theme-background: #{$mdc-theme-background} !important;
+}
+
+@import 'resources/styles/_aurelia-mdc-elements.scss';
+@import 'node_modules/material-components-web/dist/material-components-web.css';
+
+/*Drawer*/
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+.mdc-drawer {
+  width: 300px;
+}
+
+.mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content {
+  margin-left: 300px;
+}
+
+/*TextField*/
+.mdc-text-field, mdc-text-field {
+  width: 100%;
+}

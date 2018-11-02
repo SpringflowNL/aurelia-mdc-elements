@@ -3,5 +3,14 @@ jspm_packages
 bower_components
 .idea
 .DS_STORE
+Thumbs.db
 build/reports
-/.vs
+/coverage
+
+/yarn.lock
+/package-lock.json
+
+# Compiled files
+# can push /scripts up if want to serve the repo as gh-pages
+/scripts
+/src/environment.js
