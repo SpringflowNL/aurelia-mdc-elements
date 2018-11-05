@@ -1,6 +1,6 @@
 ﻿<template>
 	<div class="mdc-select ${disabled ? 'mdc-select--disabled' : ''} ${modifier ? modifier : ''} ${leading ? 'mdc-select--with-leading-icon' : ''}">
-		  <i if.bind="leading" class="material-icons mdc-select__icon" tabindex="0" role="button">${leading}</i>
+		  <i if.bind="leading" class="material-icons mdc-select__icon" role="button">${leading}</i>
 		<i class="mdc-select__dropdown-icon"></i>
 		<select class="mdc-select__native-control" required.bind="required">
 			<option value="" selected.bind="!selected"></option>
