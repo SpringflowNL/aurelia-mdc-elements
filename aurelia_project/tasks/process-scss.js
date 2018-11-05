@@ -4,10 +4,10 @@ import changedInPlace from 'gulp-changed-in-place';
 import project from '../aurelia.json';
 import {build} from 'aurelia-cli';
 
-export default function processSCSS() {debugger
+export default function processSCSS() {
   return gulp.src(project.scssProcessor.source)
+    .pipe(sass().on('error', sass.logError))    
     .pipe(changedInPlace({firstPass: true}))
-    .pipe(sass().on('error', sass.logError))
     .pipe(build.bundle());
 }
 
