@@ -43,6 +43,9 @@
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-switch active.bind="buffer" label="Buffer"></mdc-switch>
+          </div>          
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <mdc-text-field value.bind="modifier" label="Modifier"></mdc-text-field>
           </div>
         </div>
       </div>
@@ -72,10 +75,11 @@
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"
-                        secondarylabel.bind="secondary" type.bind="type"></mdc-text-field>
+                        secondarylabel.bind="secondary" type.bind="type" modifier.bind="modifier"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"></mdc-textarea>
+                      <mdc-textarea label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value" 
+                      secondarylabel.bind="secondary" modifier.bind="modifier"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-switch label.bind="label" disabled.bind="disabled" active.bind="boolvalue"></mdc-switch>
@@ -199,7 +203,7 @@
                       <mdc-textarea label="Standard"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" dense="true"></mdc-textarea>
+                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-textarea label="Standard" secondarylabel="Helper Text"></mdc-textarea>
@@ -211,7 +215,7 @@
                       <mdc-textarea label="Standard" disabled="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" dense="true" disabled="true"></mdc-textarea>
+                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" disabled="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-textarea label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-textarea>

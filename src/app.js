@@ -16,6 +16,7 @@ export class App {
     this.boolvalue = true;
     this.icon = 'tag_faces';
     this.secondary = 'Helper text';
+    this.modifier = null;
 
     this.testArray = [
       { key: true, value: 'True story' },

@@ -6,6 +6,7 @@ export class MdcCheckbox {
     @bindable({ defaultBindingMode: bindingMode.twoWay }) checked = false;
     @bindable disabled = false;
     @bindable required = false;
+    @bindable indeterminate = false;
 	@bindable id;
 	@bindable label;
 	@bindable model;
@@ -18,6 +19,12 @@ export class MdcCheckbox {
     bind() {
 		this.mdcCheckbox = new MDCCheckbox(this.element);
 		this.element.id = '_' + this.id; // anders heeft dit element zelfde id als input. Raakt label for="" in de war
+    }
+
+    attached() {
+        this.mdcCheckbox.required = this.required;
+        this.mdcCheckbox.disabled = this.disabled;
+        this.mdcCheckbox.indeterminate = this.indeterminate;
     }
 
     checkedChanged(newValue) {
@@ -42,6 +49,10 @@ export class MdcCheckbox {
     }
 
     disabledChanged(newValue) {
-        this.mdcCheckbox.disabled = !!newValue;
+        this.mdcCheckbox.disabled = newValue;
+    }
+
+    indeterminateChanged(newValue) {debugger
+        this.mdcCheckbox.indeterminate = newValue;
     }
 }
