@@ -1,15 +1,13 @@
-<template>
+<template class="mdc-menu-surface--anchor">
 	<div class="mdc-menu--action" click.delegate="toggleMenu()">
 		<i if.bind="leading" class="material-icons">${leading}</i>
 		<span if.bind="label">${label}</span>
 		<i if.bind="trailing" class="material-icons">${trailing}</i>
 	</div>
 
-	<div class="mdc-menu-surface--anchor">
-		<div ref="menuElement" class="mdc-menu mdc-menu-surface" tabindex="-1">
-			<ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-				<slot></slot>
-			</ul>
-		</div>
+	<div ref="menuElement" class="mdc-menu mdc-menu-surface" tabindex="-1">
+		<ul class="mdc-menu__items mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+			<slot></slot>
+		</ul>
 	</div>
 </template>
