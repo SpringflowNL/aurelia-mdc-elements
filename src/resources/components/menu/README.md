@@ -13,4 +13,5 @@ Parameters that can be given to the message are:
 | Option | Description | Required | Default |
 |--|--|:--:|:--:|
 | label	| The label of the menu. |  |  |
-| icon | Icon prefix (material-icons) |	 | 	|
+| leading | Leading icon prefix (material-icons) |	 | 	|
+| trailing | Trailing icon prefix (material-icons) |	 | 	|

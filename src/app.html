@@ -28,8 +28,10 @@
             <mdc-switch active.bind="required" label="Required"></mdc-switch>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-            <mdc-text-field value.bind="icon" label="Icon"></mdc-text-field>
-            <i class="material-icons">${icon}</i>
+            <mdc-text-field value.bind="leading" label="Leading" leading.bind="leading"></mdc-text-field>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <mdc-text-field value.bind="trailing" label="Trailing" trailing.bind="trailing"></mdc-text-field>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-text-field value.bind="secondary" label="Secondary text"></mdc-text-field>
@@ -43,7 +45,7 @@
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-switch active.bind="buffer" label="Buffer"></mdc-switch>
-          </div>          
+          </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-text-field value.bind="modifier" label="Modifier"></mdc-text-field>
           </div>
@@ -75,11 +77,12 @@
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"
-                        secondarylabel.bind="secondary" type.bind="type" modifier.bind="modifier"></mdc-text-field>
+                        secondarylabel.bind="secondary" type.bind="type" modifier.bind="modifier" leading.bind="leading"
+                        trailing.bind="trailing"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value" 
-                      secondarylabel.bind="secondary" modifier.bind="modifier"></mdc-textarea>
+                      <mdc-textarea label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"
+                        secondarylabel.bind="secondary" modifier.bind="modifier"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-switch label.bind="label" disabled.bind="disabled" active.bind="boolvalue"></mdc-switch>
@@ -94,14 +97,14 @@
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-select label.bind="label" disabled.bind="disabled" required.bind="required" key="key" value="value"
-                        data.bind="testArray" selected.bind="boolvalue"></mdc-select>
+                        data.bind="testArray" selected.bind="boolvalue" secondarylabel.bind="secondary" leading.bind="leading"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-chip label.bind="label" disabled.bind="disabled" required.bind="required" leading.bind="icon"
-                        trailing.bind="icon"></mdc-chip>
+                      <mdc-chip label.bind="label" disabled.bind="disabled" required.bind="required" leading.bind="leading"
+                        trailing.bind="trailing"></mdc-chip>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-menu label.bind="label" icon.bind="icon">
+                      <mdc-menu label.bind="label" leading.bind="leading">
                         <div class="mdc-list-item" repeat.for="data of testArray">${data.value}</div>
                       </mdc-menu>
                     </div>
@@ -124,67 +127,90 @@
                 <div class="mdc-expansion__content">
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Dense" modifier="mdc-text-field--dense"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" secondarylabel="Helper Text"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-text-field label="Standard" secondarylabel="Helper Text" leading="tag_faces" trailing="tag_faces"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" modifier="mdc-text-field--outlined"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                        leading="tag_faces" trailing="tag_faces"></mdc-text-field>
                     </div>
                   </div>
                   <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Dense" modifier="mdc-text-field--dense" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-text-field label="Standard" secondarylabel="Helper Text" leading="tag_faces" trailing="tag_faces"
+                        disabled="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
                         disabled="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                        leading="tag_faces" trailing="tag_faces" disabled="true"></mdc-text-field>
                     </div>
                   </div>
                   <h3>Required</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Dense" modifier="mdc-text-field--dense" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" secondarylabel="Helper Text" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-text-field label="Standard" secondarylabel="Helper Text" leading="tag_faces" trailing="tag_faces"
+                        required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
                         required="true"></mdc-text-field>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                        leading="tag_faces" trailing="tag_faces" required="true"></mdc-text-field>
                     </div>
                   </div>
                 </div>
@@ -245,59 +271,78 @@
                 <div class="mdc-expansion__content">
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Standard" key="key" value="value"
-                        data.bind="testArray"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Standard" key="key" value="value"
-                        data.bind="testArray" selected.bind="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Outlined" key="key" value="value"
-                        data.bind="testArray" modifier="mdc-select--outlined"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                        leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Outlined" key="key" value="value"
-                        data.bind="testArray" modifier="mdc-select--outlined" selected.bind="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"></mdc-select>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        selected.bind="true"></mdc-select>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        selected.bind="true" leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                   </div>
                   <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Standard" key="key" value="value"
-                        data.bind="testArray" disabled="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" disabled="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Standard" key="key" value="value"
-                        data.bind="testArray" selected.bind="true" disabled="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                        disabled="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Outlined" key="key" value="value"
-                        data.bind="testArray" modifier="mdc-select--outlined" disabled="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                        leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Outlined" key="key" value="value"
-                        data.bind="testArray" modifier="mdc-select--outlined" selected.bind="true" disabled="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        disabled="true"></mdc-select>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        selected.bind="true" disabled="true"></mdc-select>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        selected.bind="true" leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                   </div>
                   <h3>Required</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Standard" key="key" value="value"
-                        data.bind="testArray" required="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" required="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Standard" key="key" value="value"
-                        data.bind="testArray" selected.bind="true" required="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                        required="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Outlined" key="key" value="value"
-                        data.bind="testArray" modifier="mdc-select--outlined" required="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                        leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                        <mdc-select label="Outlined" key="key" value="value"
-                        data.bind="testArray" modifier="mdc-select--outlined" selected.bind="true" required="true"></mdc-select>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        required="true"></mdc-select>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        selected.bind="true" required="true"></mdc-select>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                        selected.bind="true" leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                   </div>
                 </div>
@@ -549,7 +594,8 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Discrete with Tickmarks</h3>
                       <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
-                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true" ref="sliderTickDisabled">
+                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true"
+                        ref="sliderTickDisabled">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                           <div class="mdc-slider__track-marker-container"></div>

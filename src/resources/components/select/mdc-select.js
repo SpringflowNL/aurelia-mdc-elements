@@ -12,7 +12,9 @@ export class MdcSelect {
 	@bindable disabled;
 	@bindable required;
 	@bindable selectLabel;
+	@bindable secondarylabel;
 	@bindable modifier = null;
+	@bindable leading;
 
 	constructor(element) {
 		this.element = element;

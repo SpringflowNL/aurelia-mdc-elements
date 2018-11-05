@@ -20,3 +20,5 @@ Parameters that can be given to the message are:
 | step | Used for steps in type = 'number'	| | |
 | min | Used for min in number, and minlength in text	| | |
 | max | Used for max in number, and maxlength in text	| | |
+| leading | Leading icon prefix (material-icons) |	 | 	|
+| trailing | Trailing icon prefix (material-icons) |	 | 	|

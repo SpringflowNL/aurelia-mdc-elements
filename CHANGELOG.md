@@ -2,15 +2,19 @@
 
 ## Bugfixed
 - Rebuild whole back-end of the project
+- MDCCheckbox/MDCRadio: Added unique id's when no id is given. For label purposes.
 
 ## Features
 - ADDED Demo page
 - MDCTextarea: ADDED option for modifiers
 - MDCTextarea: ADDED secondarylabel for helpertext
 - MDCSelect: ADDED option for modifiers
+- MDCSelect: ADDED secondarylabel for helpertext
+- ADDED global leading/trailing options
 
 ## Breaking changes
 - MDCTextarea: Dense option has been changed to modifiers
+- MDCMenu: Icon is removed and replaced by Leading/Trailing options
 
 # [0.41.1] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.41.1) (2018-08-06)
 

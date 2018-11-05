@@ -14,9 +14,10 @@ export class App {
     this.value = 'Value';
     this.type = 'text';
     this.boolvalue = true;
-    this.icon = 'tag_faces';
     this.secondary = 'Helper text';
     this.modifier = null;
+    this.leading = null;
+    this.trailing = null;
 
     this.testArray = [
       { key: true, value: 'True story' },
