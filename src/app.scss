@@ -11,11 +11,12 @@ $mdc-theme-background: #fff !default;
 @import 'resources/styles/_aurelia-mdc-elements.scss';
 @import 'node_modules/material-components-web/dist/material-components-web.css';
 
-/*Drawer*/
+/* Drawer - based on drawer in combination with mdc-top-app-bar */
 body {
   display: flex;
   height: 100vh;
   margin: 0;
+  padding: 0;
 }
 
 .mdc-drawer-app-content {
@@ -32,9 +33,15 @@ body {
 .app-bar {
   position: absolute;
 }
+/* end drawer styling */
 
 .mdc-drawer {
   width: 300px;
+  &__content {
+    .mdc-layout-grid {
+      padding: 0 12px;
+    }
+  }
 }
 
 .mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content {

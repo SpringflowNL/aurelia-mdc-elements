@@ -4,7 +4,7 @@
   <aside class="mdc-drawer mdc-drawer--dismissible">
     <div class="mdc-drawer__header">
       <h3 class="mdc-drawer__title">Opties</h3>
-      <h6 class="mdc-drawer__subtitle">ja</h6>
+      <h6 class="mdc-drawer__subtitle">custom</h6>
     </div>
     <div class="mdc-drawer__content">
       <div class="mdc-layout-grid">
@@ -16,10 +16,10 @@
             <mdc-text-field value.bind="value" label="Value"></mdc-text-field>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-            <mdc-text-field value.bind="type" label="Type"></mdc-text-field>
+            <mdc-text-field value.bind="secondary" label="Secondary text"></mdc-text-field>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-            <mdc-switch active.bind="boolvalue" label="Boolvalue"></mdc-switch>
+            <mdc-switch active.bind="boolvalue" label="Boolean value"></mdc-switch>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-switch active.bind="disabled" label="Disabled"></mdc-switch>
@@ -33,10 +33,10 @@
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-text-field value.bind="trailing" label="Trailing" trailing.bind="trailing"></mdc-text-field>
           </div>
-          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-            <mdc-text-field value.bind="secondary" label="Secondary text"></mdc-text-field>
-          </div>
           <hr />
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <mdc-text-field value.bind="type" label="Type"></mdc-text-field>
+          </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-text-field type="number" value.bind="min" label="Min"></mdc-text-field>
           </div>
