@@ -1,3 +1,16 @@
+# [1.41.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.1...v1.41.0) (2018-11-05)
+
+## Bugfixed
+- Rebuild whole back-end of the project
+
+## Features
+- ADDED Demo page
+- MDCTextarea: ADDED option for modifiers
+- MDCTextarea: ADDED secondarylabel for helpertext
+
+## Breaking changes
+- MDCTextarea: Dense option has been changed to modifiers
+
 # [0.41.1] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.38.0...v0.41.1) (2018-08-06)
 
 ## Bugfixed

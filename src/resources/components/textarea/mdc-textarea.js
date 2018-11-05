@@ -8,7 +8,8 @@ export class MdcTextarea {
 	@bindable({defaultBindingMode:bindingMode.twoWay}) value;
 	@bindable disabled = false;
 	@bindable required = false;
-	@bindable dense = false;
+	@bindable modifier = null;
+	@bindable secondarylabel = null;
 
     constructor ( element) 
     {

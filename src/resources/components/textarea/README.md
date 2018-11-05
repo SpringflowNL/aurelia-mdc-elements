@@ -14,4 +14,5 @@ Parameters that can be given to the message are:
 | value			|	The value of the textfield. Can be set on init. |	X	|	|
 | disabled | Option to disable the textfield.	| |	false |
 | required | Option to require the textfield. | | false |
-| dense | Option to set the densetype of the textfield. | | false |
+| modifier | Option to set the modifier of the textfield. | | null |
+| secondarylabel | Used for showing a helpertext under the textfield.	| | null |
