@@ -5,7 +5,8 @@ import { MDCMenu } from '@material/menu/dist/mdc.menu.min';
 @inject(Element)
 export class MdcMenu {
 	@bindable label;
-	@bindable icon;
+	@bindable leading;
+	@bindable trailing;
 	@bindable menuElement;
 
 	constructor(element) {

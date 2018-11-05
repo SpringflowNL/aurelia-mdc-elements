@@ -7,7 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcMenu = require("@material/menu/dist/mdc.menu.min");
 
-var _dec, _dec2, _class, _class2, _descriptor, _descriptor2, _descriptor3;
+var _dec, _dec2, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -21,9 +21,11 @@ function () {
   function MdcMenu(element) {
     _initializerDefineProperty(this, "label", _descriptor, this);
 
-    _initializerDefineProperty(this, "icon", _descriptor2, this);
+    _initializerDefineProperty(this, "leading", _descriptor2, this);
 
-    _initializerDefineProperty(this, "menuElement", _descriptor3, this);
+    _initializerDefineProperty(this, "trailing", _descriptor3, this);
+
+    _initializerDefineProperty(this, "menuElement", _descriptor4, this);
 
     this.element = element;
   }
@@ -48,12 +50,17 @@ function () {
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "icon", [_aureliaFramework.bindable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "leading", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "menuElement", [_aureliaFramework.bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "trailing", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "menuElement", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
