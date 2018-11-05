@@ -17,3 +17,4 @@ Paramters that can be given to the message are:
 | selected | The chosen key of the list.	| X |	|
 | disabled | Option to disable the component	| | false	|
 | required | Option to require the component	| | false	|
+| modifier | Option to set the modifier of the select. | | null |

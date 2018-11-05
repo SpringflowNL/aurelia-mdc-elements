@@ -13,7 +13,8 @@ export class MdcCheckbox {
 	@bindable secondarylabel;
 
     constructor( element) {
-    	this.element= element;
+        this.element= element;
+        this.unique = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
 
     bind() {
@@ -25,6 +26,10 @@ export class MdcCheckbox {
         this.mdcCheckbox.required = this.required;
         this.mdcCheckbox.disabled = this.disabled;
         this.mdcCheckbox.indeterminate = this.indeterminate;
+
+        if(!this.id) {
+            this.id = this.unique;
+        }
     }
 
     checkedChanged(newValue) {

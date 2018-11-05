@@ -12,11 +12,18 @@ export class MdcRadio {
 	@bindable model;
 
     constructor( element) {
-    	this.element= element;
+        this.element= element;
+        this.unique = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
 
     bind() {
 		this.mdcRadio = new MDCRadio(this.element);
+    }
+
+    attached() {
+        if(!this.id) {
+            this.id = this.unique;
+        }
     }
 
     handleChange(e) {

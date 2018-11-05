@@ -7,6 +7,7 @@
 - ADDED Demo page
 - MDCTextarea: ADDED option for modifiers
 - MDCTextarea: ADDED secondarylabel for helpertext
+- MDCSelect: ADDED option for modifiers
 
 ## Breaking changes
 - MDCTextarea: Dense option has been changed to modifiers

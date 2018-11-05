@@ -12,23 +12,21 @@ export class MdcSelect {
 	@bindable disabled;
 	@bindable required;
 	@bindable selectLabel;
-	@bindable myMdcSelect;
+	@bindable modifier = null;
 
 	constructor(element) {
 		this.element = element;
 	}
 
 	bind() {
-		this.myMdcSelect = new MDCSelect(this.element);
-		this.myMdcSelect.disabled = this.disabled;
-
-		//TODO: Change this by better implementation of MDC
-		if(this.selected) {
-			this.addFloatingLabel();
+		if(this.myMdcSelect) {
+			this.myMdcSelect.disabled = this.disabled;
 		}
 	}
 
 	attached() {
+		this.myMdcSelect = new MDCSelect(this.element);
+
 		this.myMdcSelect.listen('change', () => {
 			this.selected = this.myMdcSelect.value;
 
@@ -56,9 +54,5 @@ export class MdcSelect {
 		else {
 			this.element.classList.remove('mdc-select--invalid');
 		}
-	}
-
-	addFloatingLabel() {
-		this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
 	}
 }
