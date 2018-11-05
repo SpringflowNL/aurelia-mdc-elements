@@ -24,25 +24,44 @@ export class App {
   }
 
   attached() {
-    const topAppBar = new MDCTopAppBar(
+    this.topAppBar = new MDCTopAppBar(
       document.querySelector('.mdc-top-app-bar')
     );
-    const drawer = new MDCDrawer(document.querySelector('.mdc-drawer'));
+    this.drawer = new MDCDrawer(document.querySelector('.mdc-drawer'));
 
-    const sliders = [].map.call(document.querySelectorAll('.mdc-slider'), function(el) {
-      return new MDCSlider(el);
-    });
+    this.slider = new MDCSlider(this.slider);
+    this.sliderDisabled = new MDCSlider(this.sliderDisabled);
+    this.sliderDiscrete = new MDCSlider(this.sliderDiscrete);
+    this.sliderDiscreteDisabled = new MDCSlider(this.sliderDiscreteDisabled);
+    this.slidertick = new MDCSlider(this.sliderTick);
+    this.slidertickDisabled = new MDCSlider(this.sliderTickDisabled);
 
-    const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+    this.tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 
-    this.handleTopAppBarWithDrawer(topAppBar, drawer);
+    this.handleTopAppBarWithDrawer();
+    this.handleSliders();
   }
 
-  handleTopAppBarWithDrawer(topAppBar, drawer) {
-    topAppBar.setScrollTarget(document.getElementById('main-content'));
-    topAppBar.listen('MDCTopAppBar:nav', () => {
-      drawer.open = !drawer.open;
+  handleTopAppBarWithDrawer() {
+    this.topAppBar.setScrollTarget(document.getElementById('main-content'));
+    this.topAppBar.listen('MDCTopAppBar:nav', () => {
+      this.drawer.open = !this.drawer.open;
     });
+  }
+
+  handleSliders() {
+    const self = this; 
+
+    setTimeout(function() {
+      self.slider.layout();
+      self.sliderDisabled.layout();
+      self.sliderDiscrete.layout();
+      self.sliderDiscreteDisabled.layout();
+      self.slidertick.layout();
+      self.slidertickDisabled.layout();
+    }, 200);
+
+    return true;
   }
 
   triggerSnackbar() {

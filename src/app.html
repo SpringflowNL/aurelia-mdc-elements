@@ -379,7 +379,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie click.trigger="handleSliders()">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Sliders</span>
                 </summary>
@@ -389,7 +389,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Continuous</h3>
                       <div class="mdc-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100"
-                        aria-valuenow="0" aria-label="Select Value">
+                        aria-valuenow="0" aria-label="Select Value" ref="slider">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                         </div>
@@ -404,7 +404,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Discrete</h3>
                       <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider" aria-valuemin="0"
-                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value">
+                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" ref="sliderDiscrete">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                         </div>
@@ -422,7 +422,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Discrete with Tickmarks</h3>
                       <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
-                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value">
+                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" ref="sliderTick">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                           <div class="mdc-slider__track-marker-container"></div>
@@ -445,7 +445,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Continuous</h3>
                       <div class="mdc-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100"
-                        aria-valuenow="0" aria-label="Select Value" aria-disabled="true">
+                        aria-valuenow="0" aria-label="Select Value" aria-disabled="true" ref="sliderDisabled">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                         </div>
@@ -460,7 +460,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Discrete</h3>
                       <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider" aria-valuemin="0"
-                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true">
+                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true" ref="sliderDiscreteDisabled">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                         </div>
@@ -478,7 +478,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <h3>Discrete with Tickmarks</h3>
                       <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
-                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true">
+                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true" ref="sliderTickDisabled">
                         <div class="mdc-slider__track-container">
                           <div class="mdc-slider__track"></div>
                           <div class="mdc-slider__track-marker-container"></div>
