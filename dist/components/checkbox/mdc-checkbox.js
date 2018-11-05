@@ -7,7 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcCheckbox = require("@material/checkbox/dist/mdc.checkbox.min");
 
-var _dec, _dec2, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+var _dec, _dec2, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -27,16 +27,18 @@ function () {
 
     _initializerDefineProperty(this, "required", _descriptor3, this);
 
-    _initializerDefineProperty(this, "id", _descriptor4, this);
+    _initializerDefineProperty(this, "indeterminate", _descriptor4, this);
 
-    _initializerDefineProperty(this, "label", _descriptor5, this);
+    _initializerDefineProperty(this, "id", _descriptor5, this);
 
-    _initializerDefineProperty(this, "model", _descriptor6, this);
+    _initializerDefineProperty(this, "label", _descriptor6, this);
 
-    _initializerDefineProperty(this, "secondarylabel", _descriptor7, this);
+    _initializerDefineProperty(this, "model", _descriptor7, this);
 
-    this.mdcCheckbox = void 0;
+    _initializerDefineProperty(this, "secondarylabel", _descriptor8, this);
+
     this.element = element;
+    this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   }
 
   var _proto = MdcCheckbox.prototype;
@@ -44,6 +46,16 @@ function () {
   _proto.bind = function bind() {
     this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
     this.element.id = '_' + this.id; // anders heeft dit element zelfde id als input. Raakt label for="" in de war
+  };
+
+  _proto.attached = function attached() {
+    this.mdcCheckbox.required = this.required;
+    this.mdcCheckbox.disabled = this.disabled;
+    this.mdcCheckbox.indeterminate = this.indeterminate;
+
+    if (!this.id) {
+      this.id = this.unique;
+    }
   };
 
   _proto.checkedChanged = function checkedChanged(newValue) {
@@ -71,7 +83,12 @@ function () {
   };
 
   _proto.disabledChanged = function disabledChanged(newValue) {
-    this.mdcCheckbox.disabled = !!newValue;
+    this.mdcCheckbox.disabled = newValue;
+  };
+
+  _proto.indeterminateChanged = function indeterminateChanged(newValue) {
+    debugger;
+    this.mdcCheckbox.indeterminate = newValue;
   };
 
   return MdcCheckbox;
@@ -96,22 +113,29 @@ function () {
   initializer: function initializer() {
     return false;
   }
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "id", [_aureliaFramework.bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "indeterminate", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return false;
+  }
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "id", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "label", [_aureliaFramework.bindable], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "label", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "model", [_aureliaFramework.bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "model", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "secondarylabel", [_aureliaFramework.bindable], {
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "secondarylabel", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,

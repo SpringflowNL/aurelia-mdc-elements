@@ -35,14 +35,20 @@ function () {
 
     _initializerDefineProperty(this, "model", _descriptor7, this);
 
-    this.mdcRadio = void 0;
     this.element = element;
+    this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   }
 
   var _proto = MdcRadio.prototype;
 
   _proto.bind = function bind() {
     this.mdcRadio = new _mdcRadio.MDCRadio(this.element);
+  };
+
+  _proto.attached = function attached() {
+    if (!this.id) {
+      this.id = this.unique;
+    }
   };
 
   _proto.handleChange = function handleChange(e) {

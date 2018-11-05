@@ -7,7 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcTextfield = require("@material/textfield/dist/mdc.textfield.min");
 
-var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
+var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -29,7 +29,9 @@ function () {
 
     _initializerDefineProperty(this, "required", _descriptor4, this);
 
-    _initializerDefineProperty(this, "dense", _descriptor5, this);
+    _initializerDefineProperty(this, "modifier", _descriptor5, this);
+
+    _initializerDefineProperty(this, "secondarylabel", _descriptor6, this);
 
     this.element = element;
     this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
@@ -80,12 +82,19 @@ function () {
   initializer: function initializer() {
     return false;
   }
-}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "dense", [_aureliaFramework.bindable], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "modifier", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: function initializer() {
-    return false;
+    return null;
+  }
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "secondarylabel", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return null;
   }
 })), _class2)) || _class) || _class);
 exports.MdcTextarea = MdcTextarea;

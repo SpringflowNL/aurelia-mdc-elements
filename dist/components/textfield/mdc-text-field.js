@@ -7,9 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcTextfield = require("@material/textfield/dist/mdc.textfield.min");
 
-var _mdcNotchedOutline = require("@material/notched-outline/dist/mdc.notchedOutline.min");
-
-var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
+var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -42,6 +40,10 @@ function () {
     _initializerDefineProperty(this, "min", _descriptor9, this);
 
     _initializerDefineProperty(this, "max", _descriptor10, this);
+
+    _initializerDefineProperty(this, "leading", _descriptor11, this);
+
+    _initializerDefineProperty(this, "trailing", _descriptor12, this);
 
     this.element = element;
     this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
@@ -158,6 +160,16 @@ function () {
   writable: true,
   initializer: null
 }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "max", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "leading", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "trailing", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,

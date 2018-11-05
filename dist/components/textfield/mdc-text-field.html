@@ -1,11 +1,13 @@
 <template>
-	<div class="mdc-text-field ${modifier ? modifier : ''}">
+	<div class="mdc-text-field ${modifier ? modifier : ''} ${leading ? 'mdc-text-field--with-leading-icon' : ''} ${trailing ? 'mdc-text-field--with-trailing-icon' : ''}">
+		<i if.bind="leading" class="material-icons mdc-text-field__icon" role="button">${leading}</i>
 		<input type="${type}" id="text-field--${unique}" class="mdc-text-field__input" value.bind="value">
 		<label for="text-field--${unique}" class="mdc-floating-label">${label}</label>
+		<i if.bind="trailing" class="material-icons mdc-text-field__icon" role="button">${trailing}</i>
 		<div if.bind="modifier.indexOf('mdc-text-field--outlined') === -1" class="mdc-line-ripple"></div>
 		<div if.bind="modifier.indexOf('mdc-text-field--outlined') > -1" class="mdc-notched-outline">
 			<svg>
-			  <path class="mdc-notched-outline__path"/>
+				<path class="mdc-notched-outline__path" />
 			</svg>
 		</div>
 		<div if.bind="modifier.indexOf('mdc-text-field--outlined') > -1" class="mdc-notched-outline__idle"></div>

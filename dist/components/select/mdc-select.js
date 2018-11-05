@@ -7,7 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcSelect = require("@material/select/dist/mdc.select.min");
 
-var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
+var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -37,7 +37,11 @@ function () {
 
     _initializerDefineProperty(this, "selectLabel", _descriptor8, this);
 
-    _initializerDefineProperty(this, "myMdcSelect", _descriptor9, this);
+    _initializerDefineProperty(this, "secondarylabel", _descriptor9, this);
+
+    _initializerDefineProperty(this, "modifier", _descriptor10, this);
+
+    _initializerDefineProperty(this, "leading", _descriptor11, this);
 
     this.element = element;
   }
@@ -45,17 +49,15 @@ function () {
   var _proto = MdcSelect.prototype;
 
   _proto.bind = function bind() {
-    this.myMdcSelect = new _mdcSelect.MDCSelect(this.element);
-    this.myMdcSelect.disabled = this.disabled; //TODO: Change this by better implementation of MDC
-
-    if (this.selected) {
-      this.addFloatingLabel();
+    if (this.myMdcSelect) {
+      this.myMdcSelect.disabled = this.disabled;
     }
   };
 
   _proto.attached = function attached() {
     var _this = this;
 
+    this.myMdcSelect = new _mdcSelect.MDCSelect(this.element);
     this.myMdcSelect.listen('change', function () {
       _this.selected = _this.myMdcSelect.value; //Set invalid class after first change
 
@@ -81,10 +83,6 @@ function () {
     } else {
       this.element.classList.remove('mdc-select--invalid');
     }
-  };
-
-  _proto.addFloatingLabel = function addFloatingLabel() {
-    this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
   };
 
   return MdcSelect;
@@ -128,7 +126,19 @@ function () {
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "myMdcSelect", [_aureliaFramework.bindable], {
+}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "secondarylabel", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "modifier", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return null;
+  }
+}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "leading", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,

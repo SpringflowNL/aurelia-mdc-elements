@@ -1,11 +1,23 @@
-<template class="mdc-select ${disabled ? 'mdc-select--disabled' : ''}">
-	<i class="mdc-select__dropdown-icon"></i>
-	<select class="mdc-select__native-control" required.bind="required">
-	  <option value="" selected.bind="!selected"></option>
-	  <option value.bind="item[key]" repeat.for="item of data" selected.bind="item[key] === selected">
-		${item[value]}
-	  </option>
-	</select>
-	<div class="mdc-floating-label">${label}</div>
-	<div class="mdc-line-ripple"></div>
+<template>
+	<div class="mdc-select ${disabled ? 'mdc-select--disabled' : ''} ${modifier ? modifier : ''} ${leading ? 'mdc-select--with-leading-icon' : ''}">
+		  <i if.bind="leading" class="material-icons mdc-select__icon" role="button">${leading}</i>
+		<i class="mdc-select__dropdown-icon"></i>
+		<select class="mdc-select__native-control" required.bind="required">
+			<option value="" selected.bind="!selected"></option>
+			<option value.bind="item[key]" repeat.for="item of data" selected.bind="item[key] === selected">
+				${item[value]}
+			</option>
+		</select>
+		<div class="mdc-floating-label">${label}</div>
+		<div if.bind="modifier.indexOf('mdc-select--outlined') === -1" class="mdc-line-ripple"></div>
+		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline">
+			<svg>
+				<path class="mdc-notched-outline__path"></path>
+			</svg>
+		</div>
+		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline__idle"></div>
+	</div>
+	<p if.bind="secondarylabel" class="mdc-select-helper-text mdc-select-helper-text--persistent	" aria-hidden="true">
+		${secondarylabel}
+	</p>
 </template>
