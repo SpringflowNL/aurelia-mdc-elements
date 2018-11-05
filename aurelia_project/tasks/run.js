@@ -13,6 +13,7 @@ let serve = gulp.series(
       online: false,
       open: CLIOptions.hasFlag('open'),
       port: 9000,
+      ghostMode: false,
       logLevel: 'silent',
       server: {
         baseDir: [project.platform.baseDir],
