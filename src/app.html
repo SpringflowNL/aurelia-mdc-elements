@@ -16,6 +16,9 @@
             <mdc-text-field value.bind="value" label="Value"></mdc-text-field>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <mdc-text-field value.bind="type" label="Type"></mdc-text-field>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-switch active.bind="boolvalue" label="Boolvalue"></mdc-switch>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
@@ -69,7 +72,7 @@
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"
-                        secondarylabel.bind="secondary"></mdc-text-field>
+                        secondarylabel.bind="secondary" type.bind="type"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-textarea label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"></mdc-textarea>
@@ -78,7 +81,8 @@
                       <mdc-switch label.bind="label" disabled.bind="disabled" active.bind="boolvalue"></mdc-switch>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-radio label.bind="label" disabled.bind="disabled" required.bind="required" checked.bind="boolvalue"></mdc-radio>
+                      <mdc-radio label.bind="label" disabled.bind="disabled" required.bind="required" checked.bind="boolvalue"
+                        model.bind="true"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-checkbox label.bind="label" disabled.bind="disabled" required.bind="required" checked.bind="boolvalue"
@@ -278,7 +282,7 @@
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio1" label="Checked" checked.bind="true"></mdc-radio>
+                      <mdc-radio id="radio1" label="Checked" checked="true" model="true"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-radio id="radio2" label="Unchecked"></mdc-radio>
@@ -295,7 +299,7 @@
                   <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio7" label="Checked" checked.bind="true" disabled="true"></mdc-radio>
+                      <mdc-radio id="radio7" label="Checked" checked="true" disabled="true" model="true"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-radio id="radio8" label="Unchecked" disabled="true"></mdc-radio>
@@ -341,6 +345,417 @@
                     </div>
                   </div>
                 </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Chips</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h3>Standard</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-chip label="Standard"></mdc-chip>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-chip label="Standard" leading="tag_faces"></mdc-chip>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-chip label="Standard" trailing="tag_faces"></mdc-chip>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <div class="mdc-chip-set">
+                        <mdc-chip label="Paul" trailing="tag_faces"></mdc-chip>
+                        <mdc-chip label="Daniel" trailing="tag_faces"></mdc-chip>
+                        <mdc-chip label="Ricardo" trailing="tag_faces"></mdc-chip>
+                        <mdc-chip label="Samantha" trailing="tag_faces"></mdc-chip>
+                        <mdc-chip label="James" trailing="tag_faces"></mdc-chip>
+                      </div>
+                    </div>
+                  </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Sliders</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h2>Standard</h2>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <h3>Continuous</h3>
+                      <div class="mdc-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100"
+                        aria-valuenow="0" aria-label="Select Value">
+                        <div class="mdc-slider__track-container">
+                          <div class="mdc-slider__track"></div>
+                        </div>
+                        <div class="mdc-slider__thumb-container">
+                          <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                          </svg>
+                          <div class="mdc-slider__focus-ring"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <h3>Discrete</h3>
+                      <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider" aria-valuemin="0"
+                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value">
+                        <div class="mdc-slider__track-container">
+                          <div class="mdc-slider__track"></div>
+                        </div>
+                        <div class="mdc-slider__thumb-container">
+                          <div class="mdc-slider__pin">
+                            <span class="mdc-slider__pin-value-marker"></span>
+                          </div>
+                          <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                          </svg>
+                          <div class="mdc-slider__focus-ring"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <h3>Discrete with Tickmarks</h3>
+                      <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
+                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value">
+                        <div class="mdc-slider__track-container">
+                          <div class="mdc-slider__track"></div>
+                          <div class="mdc-slider__track-marker-container"></div>
+                        </div>
+                        <div class="mdc-slider__thumb-container">
+                          <div class="mdc-slider__pin">
+                            <span class="mdc-slider__pin-value-marker"></span>
+                          </div>
+                          <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                          </svg>
+                          <div class="mdc-slider__focus-ring"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h2>Disabled</h2>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <h3>Continuous</h3>
+                      <div class="mdc-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100"
+                        aria-valuenow="0" aria-label="Select Value" aria-disabled="true">
+                        <div class="mdc-slider__track-container">
+                          <div class="mdc-slider__track"></div>
+                        </div>
+                        <div class="mdc-slider__thumb-container">
+                          <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                          </svg>
+                          <div class="mdc-slider__focus-ring"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <h3>Discrete</h3>
+                      <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider" aria-valuemin="0"
+                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true">
+                        <div class="mdc-slider__track-container">
+                          <div class="mdc-slider__track"></div>
+                        </div>
+                        <div class="mdc-slider__thumb-container">
+                          <div class="mdc-slider__pin">
+                            <span class="mdc-slider__pin-value-marker"></span>
+                          </div>
+                          <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                          </svg>
+                          <div class="mdc-slider__focus-ring"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <h3>Discrete with Tickmarks</h3>
+                      <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
+                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true">
+                        <div class="mdc-slider__track-container">
+                          <div class="mdc-slider__track"></div>
+                          <div class="mdc-slider__track-marker-container"></div>
+                        </div>
+                        <div class="mdc-slider__thumb-container">
+                          <div class="mdc-slider__pin">
+                            <span class="mdc-slider__pin-value-marker"></span>
+                          </div>
+                          <svg class="mdc-slider__thumb" width="21" height="21">
+                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                          </svg>
+                          <div class="mdc-slider__focus-ring"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Tabs</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <div class="mdc-tab-bar" role="tablist">
+                        <div class="mdc-tab-scroller">
+                          <div class="mdc-tab-scroller__scroll-area">
+                            <div class="mdc-tab-scroller__scroll-content">
+                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
+                                  <span class="mdc-tab__text-label">Favorites</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                              </button>
+                              <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                                <span class="mdc-tab__content">
+                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">home</span>
+                                  <span class="mdc-tab__text-label">Home</span>
+                                </span>
+                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                              </button>
+                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
+                                  <span class="mdc-tab__text-label">Contact</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                              </button>
+                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
+                                  <span class="mdc-tab__text-label">Contact</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                              </button>
+                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
+                                  <span class="mdc-tab__text-label">Contact</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                              </button>
+                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
+                                  <span class="mdc-tab__text-label">Contact</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Cards</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <div class="mdc-card">
+                        <div class="mdc-card__primary-action" tabindex="0">
+                          <div class="mdc-card__media mdc-card__media--16-9" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);">
+                          </div>
+                          <div class="demo-card__primary">
+                            <h2 class="mdc-typography--headline6">Our Changing Planet</h2>
+                            <h3 class="mdc-typography--subtitle2">by Kurt Wagner</h3>
+                          </div>
+                          <div class="mdc-typography--body2">
+                            Visit ten places on our planet that are undergoing the biggest changes today.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <div class="mdc-card">
+                        <div class="mdc-card__primary-action" tabindex="0">
+                          <div class="demo-card__primary">
+                            <h2 class="mdc-typography--headline6">Our Changing Planet</h2>
+                            <h3 class="mdc-typography--subtitle2">by Kurt Wagner</h3>
+                          </div>
+                          <div class="mdc-typography--body2">
+                            Visit ten places on our planet that are undergoing the biggest changes today.
+                          </div>
+                        </div>
+                        <div class="mdc-card__actions">
+                          <div class="mdc-card__action-buttons">
+                            <button class="mdc-button mdc-card__action mdc-card__action--button">Read</button>
+                            <button class="mdc-button mdc-card__action mdc-card__action--button">Bookmark</button>
+                          </div>
+                          <div class="mdc-card__action-icons">
+                            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon" aria-pressed="false"
+                              aria-label="Add to favorites" title="Add to favorites">
+                              <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                              <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                            </button>
+                            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon"
+                              title="Share">share</button>
+                            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon"
+                              title="More options">more_vert</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Lists</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <h3>Single line</h3>
+                      <ul class="mdc-list">
+                        <li class="mdc-list-item" tabindex="0">Item</li>
+                        <li class="mdc-list-item" tabindex="-1">Item</li>
+                        <li class="mdc-list-item" tabindex="-1">Item</li>
+                      </ul>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <h3>Two-line</h3>
+                      <ul class="mdc-list mdc-list--two-line">
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <h3>Mixed dense</h3>
+                      <ul class="mdc-list mdc-list--two-line mdc-list--dense">
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                          </span>
+                        </li>
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <h3>Mixed with leading</h3>
+                      <ul class="mdc-list mdc-list--two-line">
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__graphic material-icons" aria-hidden="true">tag_faces</span>
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__graphic material-icons" aria-hidden="true">tag_faces</span>
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                          </span>
+                        </li>
+                        <li class="mdc-list-item" tabindex="0">
+                          <span class="mdc-list-item__graphic material-icons" aria-hidden="true">tag_faces</span>
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">Item</span>
+                            <span class="mdc-list-item__secondary-text">Secondary</span>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </details>
+            </div>
+
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+                <summary class="mdc-expansion__summary">
+                  <span class="mdc-expansion__header" t="type.type">Overig</span>
+                </summary>
+                <div class="mdc-expansion__content">
+                  <h3>Standard</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-switch label="Standard" active.bind="true"></mdc-switch>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-switch label="Standard" active.bind="false"></mdc-switch>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <mdc-menu label="Menu" icon="tag_faces">
+                        <div class="mdc-list-item">Option 1</div>
+                        <div class="mdc-list-item">Option 2</div>
+                        <div class="mdc-list-item">Option 3</div>
+                      </mdc-menu>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                      <div class="mdc-snackbar mdc-snackbar--active" aria-live="assertive" aria-atomic="true"
+                        aria-hidden="true">
+                        <div class="mdc-snackbar__text">Succesvolle test</div>
+                        <div class="mdc-snackbar__action-wrapper">
+                          <button type="button" class="mdc-snackbar__action-button">Sluiten</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </details>
             </div>
           </div>

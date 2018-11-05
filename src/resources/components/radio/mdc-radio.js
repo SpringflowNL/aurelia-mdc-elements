@@ -10,7 +10,6 @@ export class MdcRadio {
 	@bindable secondarylabel;
 	@bindable name;
 	@bindable model;
-    mdcRadio;
 
     constructor( element) {
     	this.element= element;

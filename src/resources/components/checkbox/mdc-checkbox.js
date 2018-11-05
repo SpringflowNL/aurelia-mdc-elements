@@ -10,7 +10,6 @@ export class MdcCheckbox {
 	@bindable label;
 	@bindable model;
 	@bindable secondarylabel;
-    mdcCheckbox;
 
     constructor( element) {
     	this.element= element;

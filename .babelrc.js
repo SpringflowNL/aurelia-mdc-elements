@@ -14,7 +14,7 @@ module.exports = (api) => {
           "targets": process.env.BABEL_TARGET === 'node' ? {
             "node": process.env.IN_PROTRACTOR ? '6' : 'current'
           } : {
-            "browsers": [ "last 2 versions" ]
+			"browsers": ['last 2 versions', 'not ie <= 11']
           },
           "loose": true,
           "modules": process.env.BABEL_TARGET === 'node' ? 'commonjs' : false
