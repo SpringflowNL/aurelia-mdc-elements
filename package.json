@@ -76,7 +76,6 @@
     "lint": "eslint src",
     "pretest": "npm run lint",
     "test": "au test",
-    "preversion": "npm test",
     "version": "standard-changelog && git add CHANGELOG.md",
     "prepare": "au build-plugin",
     "postversion": "git push && git push --tags && npm publish"
