@@ -1,6 +1,6 @@
 {
   "name": "aurelia-mdc-elements",
-  "version": "0.41.0",
+  "version": "1.41.0",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "keywords": [
     "aurelia",
@@ -64,7 +64,6 @@
     "minimatch": "^3.0.4",
     "phantomjs": "^2.1.7",
     "requirejs": "^2.3.6",
-    "standard-changelog": "^2.0.1",
     "text": "requirejs/text#latest",
     "through2": "^2.0.3",
     "vinyl-fs": "^3.0.3"
@@ -76,7 +75,6 @@
     "lint": "eslint src",
     "pretest": "npm run lint",
     "test": "au test",
-    "version": "standard-changelog && git add CHANGELOG.md",
     "prepare": "au build-plugin",
     "postversion": "git push && git push --tags && npm publish"
   }
