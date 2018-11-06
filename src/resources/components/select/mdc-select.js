@@ -22,7 +22,7 @@ export class MdcSelect {
 
 	bind() {
 		if(this.myMdcSelect) {
-			this.myMdcSelect.disabled = this.disabled;
+			this.refreshOptions();
 		}
 	}
 
@@ -39,6 +39,13 @@ export class MdcSelect {
 				this.requiredChanged(false);
 			}
 		});
+
+		this.refreshOptions();
+	}
+
+	refreshOptions() {
+		this.myMdcSelect.disabled = this.disabled;
+		this.myMdcSelect.value = this.value;
 	}
 
 	unbind() {
