@@ -6,3 +6,13 @@
 mdc-text-field {
 	display: block;
 }
+
+// Temp fix, should be picked up by MDC
+.mdc-text-field--focused {
+	&:not(.mdc-text-field--disabled) {
+		.mdc-floating-label {
+			color: $mdc-theme-primary;
+			color: var(--mdc-theme-primary, $mdc-theme-primary);
+		}
+	}
+}
