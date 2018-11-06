@@ -12,5 +12,4 @@ build/reports
 
 # Compiled files
 # can push /scripts up if want to serve the repo as gh-pages
-/scripts
 /src/environment.js
