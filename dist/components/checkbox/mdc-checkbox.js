@@ -87,7 +87,6 @@ function () {
   };
 
   _proto.indeterminateChanged = function indeterminateChanged(newValue) {
-    debugger;
     this.mdcCheckbox.indeterminate = newValue;
   };
 

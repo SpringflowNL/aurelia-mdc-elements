@@ -3,7 +3,7 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { MDCTopAppBar } from '@material/top-app-bar/dist/mdc.topAppBar';
 import { MDCDrawer } from '@material/drawer/dist/mdc.drawer';
 import { MDCSlider } from '@material/slider/dist/mdc.slider';
-import { MDCTabBar } from '@material/tab-bar/dist/mdc.tabBar'
+import { MDCTabBar } from '@material/tab-bar/dist/mdc.tabBar';
 
 @inject(EventAggregator)
 export class App {

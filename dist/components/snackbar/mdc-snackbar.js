@@ -11,7 +11,7 @@ var _mdcSnackbar = require("@material/snackbar/dist/mdc.snackbar.min");
 
 var _dec, _dec2, _class;
 
-var MdcSnackbar = (_dec = (0, _aureliaFramework.customElement)('mdc-snackbar'), _dec2 = (0, _aureliaFramework.inject)(Element, _aureliaEventAggregator.EventAggregator), _dec(_class = _dec2(_class =
+var MdcSnackbar = (_dec = (0, _aureliaFramework.customElement)("mdc-snackbar"), _dec2 = (0, _aureliaFramework.inject)(Element, _aureliaEventAggregator.EventAggregator), _dec(_class = _dec2(_class =
 /*#__PURE__*/
 function () {
   function MdcSnackbar(element, ea) {
@@ -24,7 +24,7 @@ function () {
   _proto.attached = function attached() {
     var _this = this;
 
-    this.subscriber = this.ea.subscribe('PostMessage.Snackbar', function (response) {
+    this.subscriber = this.ea.subscribe("PostMessage.Snackbar", function (response) {
       _this.showSnackbar(response.label, response.buttonlabel, response.dismissonaction);
     });
   };
@@ -35,7 +35,7 @@ function () {
 
   _proto.showSnackbar = function showSnackbar(label, buttonLabel, dismissOnAction) {
     if (buttonLabel === void 0) {
-      buttonLabel = 'Cancel';
+      buttonLabel = "Cancel";
     }
 
     if (dismissOnAction === void 0) {

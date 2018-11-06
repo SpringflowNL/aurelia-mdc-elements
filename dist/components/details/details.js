@@ -15,7 +15,7 @@ function () {
 
     this.element = element;
 
-    this.handleClick = function (e) {
+    this.handleClick = function () {
       if (_this.element.getAttribute("open") == "") {
         _this.element.removeAttribute("open");
       } else {

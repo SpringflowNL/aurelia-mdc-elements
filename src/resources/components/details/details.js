@@ -1,20 +1,18 @@
-import {bindable, customAttribute, inject, DOM} from 'aurelia-framework';
+import {customAttribute, inject} from 'aurelia-framework';
 
 @customAttribute('details-ie')
 @inject(Element)
 export class DetailsIe {
-   
-
     constructor ( element) {
         this.element= element;
         
-        this.handleClick = e => {
+        this.handleClick = () => {
             if (this.element.getAttribute("open")=="" ) {
                 this.element.removeAttribute("open");
             } else {
                 this.element.setAttribute("open","");
             }
-        }
+        };
     }
 
     attached() {

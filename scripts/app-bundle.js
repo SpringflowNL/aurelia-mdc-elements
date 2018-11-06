@@ -198,7 +198,6 @@ define('resources/components/checkbox/mdc-checkbox',["exports", "aurelia-framewo
     };
 
     _proto.indeterminateChanged = function indeterminateChanged(newValue) {
-      debugger;
       this.mdcCheckbox.indeterminate = newValue;
     };
 
@@ -326,7 +325,7 @@ define('resources/components/details/details',["exports", "aurelia-framework"], 
 
       this.element = element;
 
-      this.handleClick = function (e) {
+      this.handleClick = function () {
         if (_this.element.getAttribute("open") == "") {
           _this.element.removeAttribute("open");
         } else {
@@ -436,7 +435,7 @@ define('resources/components/progress/mdc-progress',["exports", "aurelia-framewo
 
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and set to use loose mode. ' + 'To use proposal-class-properties in spec mode with decorators, wait for ' + 'the next major version of decorators in stage 2.'); }
 
-  var MdcProgress = (_dec = (0, _aureliaFramework.customElement)('mdc-progress'), _dec2 = (0, _aureliaFramework.inject)(Element), _dec(_class = _dec2(_class = (_class2 = function MdcProgress(element) {
+  var MdcProgress = (_dec = (0, _aureliaFramework.customElement)("mdc-progress"), _dec2 = (0, _aureliaFramework.inject)(Element), _dec(_class = _dec2(_class = (_class2 = function MdcProgress(element) {
     _initializerDefineProperty(this, "value", _descriptor, this);
 
     _initializerDefineProperty(this, "min", _descriptor2, this);
@@ -534,7 +533,7 @@ define('resources/components/radio/mdc-radio',["exports", "aurelia-framework", "
     };
 
     _proto.checkedChanged = function checkedChanged(newValue) {
-      var event = new CustomEvent('change', {
+      var event = new CustomEvent("change", {
         bubbles: true,
         detail: {
           value: newValue
@@ -760,7 +759,7 @@ define('resources/components/snackbar/mdc-snackbar',["exports", "aurelia-framewo
 
   var _dec, _dec2, _class;
 
-  var MdcSnackbar = (_dec = (0, _aureliaFramework.customElement)('mdc-snackbar'), _dec2 = (0, _aureliaFramework.inject)(Element, _aureliaEventAggregator.EventAggregator), _dec(_class = _dec2(_class =
+  var MdcSnackbar = (_dec = (0, _aureliaFramework.customElement)("mdc-snackbar"), _dec2 = (0, _aureliaFramework.inject)(Element, _aureliaEventAggregator.EventAggregator), _dec(_class = _dec2(_class =
   /*#__PURE__*/
   function () {
     function MdcSnackbar(element, ea) {
@@ -773,7 +772,7 @@ define('resources/components/snackbar/mdc-snackbar',["exports", "aurelia-framewo
     _proto.attached = function attached() {
       var _this = this;
 
-      this.subscriber = this.ea.subscribe('PostMessage.Snackbar', function (response) {
+      this.subscriber = this.ea.subscribe("PostMessage.Snackbar", function (response) {
         _this.showSnackbar(response.label, response.buttonlabel, response.dismissonaction);
       });
     };
@@ -784,7 +783,7 @@ define('resources/components/snackbar/mdc-snackbar',["exports", "aurelia-framewo
 
     _proto.showSnackbar = function showSnackbar(label, buttonLabel, dismissOnAction) {
       if (buttonLabel === void 0) {
-        buttonLabel = 'Cancel';
+        buttonLabel = "Cancel";
       }
 
       if (dismissOnAction === void 0) {

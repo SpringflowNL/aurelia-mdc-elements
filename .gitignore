@@ -5,6 +5,7 @@ bower_components
 Thumbs.db
 build/reports
 /coverage
+.vs
 
 /yarn.lock
 /package-lock.json

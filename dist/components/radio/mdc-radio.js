@@ -57,7 +57,7 @@ function () {
   };
 
   _proto.checkedChanged = function checkedChanged(newValue) {
-    var event = new CustomEvent('change', {
+    var event = new CustomEvent("change", {
       bubbles: true,
       detail: {
         value: newValue

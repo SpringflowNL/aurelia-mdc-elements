@@ -1,4 +1,4 @@
-﻿import { bindable, customElement, inject, DOM } from 'aurelia-framework';
+﻿import { bindable, customElement, inject } from 'aurelia-framework';
 import { MDCMenu } from '@material/menu/dist/mdc.menu.min';
 
 @customElement('mdc-menu')

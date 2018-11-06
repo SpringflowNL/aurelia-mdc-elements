@@ -1,4 +1,4 @@
-import { inject, bindable, bindingMode, DOM } from 'aurelia-framework';
+import { inject, bindable, bindingMode } from 'aurelia-framework';
 import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min';
 
 @inject(Element)
@@ -57,7 +57,7 @@ export class MdcCheckbox {
         this.mdcCheckbox.disabled = newValue;
     }
 
-    indeterminateChanged(newValue) {debugger
+    indeterminateChanged(newValue) {
         this.mdcCheckbox.indeterminate = newValue;
     }
 }
