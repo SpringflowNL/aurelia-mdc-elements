@@ -14,6 +14,8 @@ The Aurelia Custom Elements we're using in the applications, won't be affected.
 
 Recent changes can be found [Here](./CHANGELOG.md)
 
+**Our new demo page is available [Here](https://springflownl.github.io/aurelia-mdc-elements/)**
+
 ## Installation
 You can use NPM to install this package. Install it with the following command:
 
