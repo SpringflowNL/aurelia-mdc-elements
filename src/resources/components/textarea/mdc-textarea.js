@@ -11,18 +11,18 @@ export class MdcTextarea {
 	@bindable modifier = null;
 	@bindable secondarylabel = null;
 
-    constructor ( element) 
-    {
+	constructor ( element)
+	{
 		this.element = element;
 		this.unique = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-    }
+	}
 
-    bind() 
+	bind()
 	{
 		this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
 		this.myMdcTextfield.disabled = this.disabled;
-	    this.myMdcTextfield.required = this.required;
-    }
+		this.myMdcTextfield.required = this.required;
+	}
 
 	disabledChanged(newvalue) {
 		this.myMdcTextfield.disabled = newvalue;
@@ -32,8 +32,8 @@ export class MdcTextarea {
 		this.myMdcTextfield.required = newvalue;
 	}
 
-    detached() 
-    {
-        this.myMdcTextfield.destroy();
-    }
+	detached()
+	{
+		this.myMdcTextfield.destroy();
+	}
 }
