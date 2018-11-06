@@ -25,18 +25,18 @@ npm install aurelia-mdc-elements
 
 ## Components
 
- - [Checkbox](src/components/checkbox)
- - [Chips (NEW)](src/components/chip)
- - [Details](src/components/details)
- - [Menu](src/components/menu)
- - [Progress](src/components/progress)
- - [Radio](src/components/radio)
- - [Select](src/components/select)
- - [Snackbar](src/components/snackbar)
- - [Switch](src/components/switch)
- - [Text-field](src/components/textfield)
- - [Textarea](src/components/textarea)
+ - [Checkbox](src/resources/components/checkbox)
+ - [Chips (NEW)](src/resources/components/chip)
+ - [Details](src/resources/components/details)
+ - [Menu](src/resources/components/menu)
+ - [Progress](src/resources/components/progress)
+ - [Radio](src/resources/components/radio)
+ - [Select](src/resources/components/select)
+ - [Snackbar](src/resources/components/snackbar)
+ - [Switch](src/resources/components/switch)
+ - [Text-field](src/resources/components/textfield)
+ - [Textarea](src/resources/components/textarea)
 
 ## Styling
 
- - [Styling](src/components/styles)
+ - [Styling](src/resources/components/styles)
