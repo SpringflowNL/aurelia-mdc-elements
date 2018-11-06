@@ -8,7 +8,7 @@
 				${item[value]}
 			</option>
 		</select>
-		<div class="mdc-floating-label">${label}</div>
+		<div class="mdc-floating-label ${selected ? 'mdc-floating-label--float-above' : ''}">${label}</div>
 		<div if.bind="modifier.indexOf('mdc-select--outlined') === -1" class="mdc-line-ripple"></div>
 		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline">
 			<svg>
@@ -17,7 +17,7 @@
 		</div>
 		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline__idle"></div>
 	</div>
-	<p if.bind="secondarylabel" class="mdc-select-helper-text mdc-select-helper-text--persistent	" aria-hidden="true">
+	<p if.bind="secondarylabel" class="mdc-select-helper-text mdc-select-helper-text--persistent" aria-hidden="true">
 		${secondarylabel}
 	</p>
 </template>

@@ -1,5 +1,8 @@
 .mdc-switch {
 	&+label {
 		margin-left: 10px;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }

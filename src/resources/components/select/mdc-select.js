@@ -45,7 +45,12 @@ export class MdcSelect {
 
 	refreshOptions() {
 		this.myMdcSelect.disabled = this.disabled;
-		this.myMdcSelect.value = this.value;
+		this.myMdcSelect.selectedIndex = this.selected;
+		this.myMdcSelect.required = this.required;
+
+		if(this.selected) {
+			this.addFloatingLabel();
+		}
 	}
 
 	unbind() {
@@ -63,5 +68,9 @@ export class MdcSelect {
 		else {
 			this.element.classList.remove('mdc-select--invalid');
 		}
+	}
+
+	addFloatingLabel() {
+		this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
 	}
 }

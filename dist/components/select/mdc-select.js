@@ -50,7 +50,7 @@ function () {
 
   _proto.bind = function bind() {
     if (this.myMdcSelect) {
-      this.myMdcSelect.disabled = this.disabled;
+      this.refreshOptions();
     }
   };
 
@@ -67,6 +67,17 @@ function () {
         _this.requiredChanged(false);
       }
     });
+    this.refreshOptions();
+  };
+
+  _proto.refreshOptions = function refreshOptions() {
+    this.myMdcSelect.disabled = this.disabled;
+    this.myMdcSelect.selectedIndex = this.selected;
+    this.myMdcSelect.required = this.required;
+
+    if (this.selected) {
+      this.addFloatingLabel();
+    }
   };
 
   _proto.unbind = function unbind() {
@@ -83,6 +94,10 @@ function () {
     } else {
       this.element.classList.remove('mdc-select--invalid');
     }
+  };
+
+  _proto.addFloatingLabel = function addFloatingLabel() {
+    this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
   };
 
   return MdcSelect;
