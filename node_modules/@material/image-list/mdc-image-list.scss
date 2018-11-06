@@ -1,0 +1,109 @@
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+@import "./mixins";
+@import "./variables";
+@import "@material/theme/mixins";
+@import "@material/typography/mixins";
+
+.mdc-image-list {
+  display: flex;
+  flex-wrap: wrap;
+  // Margin and padding are set to override default user agent styles for lists, and also to center the Image List
+  margin: 0 auto;
+  padding: 0;
+}
+
+.mdc-image-list__item,
+.mdc-image-list__image-aspect-container {
+  // Supports absolute positioning of protected supporting content for item, and image for image-aspect-container
+  position: relative;
+  box-sizing: border-box;
+}
+
+.mdc-image-list__item {
+  list-style-type: none;
+}
+
+.mdc-image-list__image {
+  width: 100%;
+}
+
+// Descendant selector allows image-aspect-container to be optional in DOM structure
+.mdc-image-list__image-aspect-container .mdc-image-list__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  // Background styles to support div instead of img
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@at-root {
+  @include mdc-image-list-aspect(1);
+  @include mdc-image-list-shape-radius(0);
+}
+
+.mdc-image-list__supporting {
+  @include mdc-theme-prop(color, text-primary-on-background);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 8px 0;
+  line-height: $mdc-image-list-icon-size;
+}
+
+.mdc-image-list__label {
+  @include mdc-typography(subtitle1);
+  @include mdc-typography-overflow-ellipsis;
+}
+
+// Modifier for labels/icons with text protection, overlaying images.
+
+.mdc-image-list--with-text-protection .mdc-image-list__supporting {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $mdc-image-list-text-protection-height;
+  padding: 0 $mdc-image-list-text-protection-horizontal-padding;
+  background: $mdc-image-list-text-protection-background-color;
+  color: #fff;
+}
+
+// Masonry Image List, using CSS columns (i.e. renders down then across)
+
+.mdc-image-list--masonry {
+  display: block; // Override flex
+
+  .mdc-image-list__item {
+    break-inside: avoid-column;
+  }
+
+  .mdc-image-list__image {
+    display: block;
+    height: auto;
+  }
+}

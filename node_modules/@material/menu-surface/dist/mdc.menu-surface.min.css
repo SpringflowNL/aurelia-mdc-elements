@@ -1,0 +1,8 @@
+/*!
+ Material Components for the Web
+ Copyright (c) 2018 Google Inc.
+ License: MIT
+*/
+.mdc-menu-surface{box-shadow:0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);background-color:#fff;background-color:var(--mdc-theme-surface, #fff);color:#000;color:var(--mdc-theme-on-surface, #000);transform-origin-left:top left;transform-origin-right:top right;border-radius:4px;display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:top left;transform-origin:top left;opacity:0;overflow:auto;will-change:transform, opacity;z-index:4}[dir="rtl"] .mdc-menu-surface,.mdc-menu-surface[dir="rtl"]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--animating-open{display:inline-block;-webkit-transform:scale(0.8);transform:scale(0.8);transition:opacity .03s linear,-webkit-transform .12s cubic-bezier(0, 0, 0.2, 1);transition:opacity .03s linear,transform .12s cubic-bezier(0, 0, 0.2, 1);transition:opacity .03s linear,transform .12s cubic-bezier(0, 0, 0.2, 1),-webkit-transform .12s cubic-bezier(0, 0, 0.2, 1);opacity:0}.mdc-menu-surface--open{display:inline-block;-webkit-transform:scale(1);transform:scale(1);opacity:1}.mdc-menu-surface--animating-closed{display:inline-block;transition:opacity .075s linear;opacity:0}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}
+
+/*# sourceMappingURL=mdc.menu-surface.min.css.map*/

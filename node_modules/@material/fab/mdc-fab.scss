@@ -1,0 +1,63 @@
+// Copyright 2016 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+@import "@material/ripple/common";
+@import "@material/ripple/mixins";
+@import "@material/ripple/variables";
+@import "@material/typography/mixins";
+@import "./mixins";
+
+// postcss-bem-linter: define fab
+
+.mdc-fab {
+  @include mdc-fab-base_;
+  @include mdc-fab-container-color(secondary);
+  @include mdc-fab-icon-size(24px);
+  @include mdc-fab-ink-color(on-secondary);
+  @include mdc-states(on-secondary);
+}
+
+.mdc-fab--mini {
+  @include mdc-fab--mini_;
+}
+
+.mdc-fab--extended {
+  @include mdc-fab--extended_;
+}
+
+.mdc-fab__label {
+  @include mdc-fab--label_;
+}
+
+.mdc-fab__icon {
+  @include mdc-fab__icon_;
+}
+
+// Increase specificity for FAB icon styles that need to override styles defined for .material-icons
+// (which is loaded separately so the order of CSS definitions is not guaranteed)
+.mdc-fab .mdc-fab__icon {
+  @include mdc-fab__icon-overrides_;
+}
+
+.mdc-fab--exited {
+  @include mdc-fab--exited_;
+}
+
+// postcss-bem-linter: end

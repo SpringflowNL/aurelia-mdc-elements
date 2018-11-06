@@ -1,4 +1,3 @@
-node_modules
 jspm_packages
 bower_components
 .idea
@@ -13,3 +12,9 @@ build/reports
 # Compiled files
 # can push /scripts up if want to serve the repo as gh-pages
 /src/environment.js
+
+!node_modules/
+
+node_modules/*
+!node_modules/@material/
+!node_modules/material-components-web/
