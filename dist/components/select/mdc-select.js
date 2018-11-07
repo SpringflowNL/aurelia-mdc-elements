@@ -57,7 +57,7 @@ function () {
   _proto.attached = function attached() {
     var _this = this;
 
-    this.myMdcSelect = new _mdcSelect.MDCSelect(this.element);
+    this.myMdcSelect = new _mdcSelect.MDCSelect(this.element.firstElementChild);
     this.myMdcSelect.listen('change', function () {
       _this.selected = _this.myMdcSelect.value; //Set invalid class after first change
 
@@ -80,7 +80,7 @@ function () {
     }
   };
 
-  _proto.unbind = function unbind() {
+  _proto.detached = function detached() {
     this.myMdcSelect.destroy();
   };
 

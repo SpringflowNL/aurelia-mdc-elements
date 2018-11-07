@@ -24,18 +24,4 @@
 			}
 		}
 	}
-
-	//Temp fix, should be picked up by MDC
-	&--focused {
-		&:not(.mdc-select--disabled) {
-			.mdc-floating-label {
-				color: $mdc-theme-primary;
-				color: var(--mdc-theme-primary, $mdc-theme-primary);
-			}
-			.mdc-line-ripple {
-				background-color: $mdc-theme-primary;
-				background-color: var(--mdc-theme-primary, $mdc-theme-primary);
-			}
-		}
-	}
 }

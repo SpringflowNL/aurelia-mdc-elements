@@ -27,7 +27,7 @@ export class MdcSelect {
 	}
 
 	attached() {
-		this.myMdcSelect = new MDCSelect(this.element);
+		this.myMdcSelect = new MDCSelect(this.element.firstElementChild);
 
 		this.myMdcSelect.listen('change', () => {
 			this.selected = this.myMdcSelect.value;
@@ -53,7 +53,7 @@ export class MdcSelect {
 		}
 	}
 
-	unbind() {
+	detached() {
 		this.myMdcSelect.destroy();
 	}
 
