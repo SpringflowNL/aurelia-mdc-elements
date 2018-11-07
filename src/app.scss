@@ -8,8 +8,8 @@ $mdc-theme-background: #fff !default;
 	--mdc-theme-background: #{$mdc-theme-background} !important;
 }
 
-@import 'resources/styles/_aurelia-mdc-elements.scss';
-@import 'node_modules/material-components-web/dist/material-components-web.css';
+@import 'resources/styles/_aurelia-mdc-elements';
+@import 'material-components-web/material-components-web';
 
 /* Drawer - based on drawer in combination with mdc-top-app-bar */
 body {
