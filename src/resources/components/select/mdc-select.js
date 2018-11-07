@@ -45,7 +45,6 @@ export class MdcSelect {
 
 	refreshOptions() {
 		this.myMdcSelect.disabled = this.disabled;
-		this.myMdcSelect.selectedIndex = this.selected;
 		this.myMdcSelect.required = this.required;
 
 		if(this.selected) {
@@ -63,10 +62,10 @@ export class MdcSelect {
 
 	requiredChanged(newvalue) {
 		if(newvalue) {
-			this.element.classList.add('mdc-select--invalid');
+			this.element.firstElementChild.classList.add('mdc-select--invalid');
 		}
 		else {
-			this.element.classList.remove('mdc-select--invalid');
+			this.element.firstElementChild.classList.remove('mdc-select--invalid');
 		}
 	}
 

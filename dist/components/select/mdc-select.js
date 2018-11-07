@@ -72,7 +72,6 @@ function () {
 
   _proto.refreshOptions = function refreshOptions() {
     this.myMdcSelect.disabled = this.disabled;
-    this.myMdcSelect.selectedIndex = this.selected;
     this.myMdcSelect.required = this.required;
 
     if (this.selected) {
@@ -90,9 +89,9 @@ function () {
 
   _proto.requiredChanged = function requiredChanged(newvalue) {
     if (newvalue) {
-      this.element.classList.add('mdc-select--invalid');
+      this.element.firstElementChild.classList.add('mdc-select--invalid');
     } else {
-      this.element.classList.remove('mdc-select--invalid');
+      this.element.firstElementChild.classList.remove('mdc-select--invalid');
     }
   };
 
