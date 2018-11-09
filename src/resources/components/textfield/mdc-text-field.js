@@ -41,7 +41,10 @@ export class MdcTextField {
 
 		this.myMdcTextfield.disabled = this.disabled;
 		this.myMdcTextfield.required = this.required;
-		this.myMdcTextfield.value = this.value;
+
+		if(this.value) {
+			this.myMdcTextfield.value = this.value;
+		}
 	}
 
 	disabledChanged(newvalue) {

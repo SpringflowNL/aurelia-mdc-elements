@@ -1,4 +1,14 @@
-# [1.41.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.1...v1.41.0) (2018-11-05)
+# [1.41.4] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.3...v1.41.4) (2018-11-05)
+
+## Bugfixed
+- MDCTextfield: Changed min-width
+- MDCTextfield: FIXED undefined error
+- MDCList: Item graphic fontsize (temp fix)
+
+## Features
+- ADDED Demo data for mdc-textfield / mdc-textarea (pre-selected)
+
+#[1.41.3] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.1...v1.41.3) (2018-11-05)
 
 ## Bugfixed
 - Rebuild whole back-end of the project
