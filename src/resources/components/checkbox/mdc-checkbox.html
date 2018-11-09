@@ -1,4 +1,4 @@
-<template class="mdc-form-field ${required && !model ? 'mdc-checkbox--required' : ''}">
+<template class="mdc-form-field ${disabled ? 'mdc-checkbox--disabled' : ''} ${required && !model ? 'mdc-checkbox--required' : ''}">
 	<div class="mdc-checkbox">
 		<input type="checkbox" id="checkbox--${id}" checked.bind="checked" model.bind="model" disabled.bind="disabled" required.bind="required && !model" class="mdc-checkbox__native-control">
 		<div class="mdc-checkbox__background">
