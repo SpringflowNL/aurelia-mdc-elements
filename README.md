@@ -1,6 +1,6 @@
 # MDC components as Aurelia Custom elements
 [![npm](https://img.shields.io/npm/v/aurelia-mdc-elements.svg?style=flat-square)](https://www.npmjs.com/package/aurelia-mdc-elements)
-[![codefactor](https://www.codefactor.io/repository/github/signalr/signalr/badge?style=flat-square)](https://github.com/SpringflowNL/aurelia-mdc-elements)
+[![CodeFactor](https://www.codefactor.io/repository/github/springflownl/aurelia-mdc-elements/badge?style=flat-square)](https://www.codefactor.io/repository/github/springflownl/aurelia-mdc-elements)
 [![David](https://img.shields.io/david/SpringflowNL/aurelia-mdc-elements.svg?style=flat-square)](https://www.npmjs.com/package/aurelia-mdc-elements)
 [![David](https://img.shields.io/david/dev/SpringflowNL/aurelia-mdc-elements.svg?style=flat-square)](https://www.npmjs.com/package/aurelia-mdc-elements)
 [![GitHub last commit](https://img.shields.io/github/last-commit/SpringflowNL/aurelia-mdc-elements.svg?style=flat-square)](https://github.com/SpringflowNL/aurelia-mdc-elements/commits/master)
