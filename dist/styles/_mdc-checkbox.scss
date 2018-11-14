@@ -12,3 +12,11 @@
 		}
 	} 
 }
+
+mdc-checkbox {
+	&:not(disabled) {
+		label:hover {
+			cursor: pointer;
+		}
+	}
+}
