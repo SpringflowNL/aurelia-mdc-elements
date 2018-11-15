@@ -18,4 +18,4 @@ export default gulp.series(
     pluginSCSS,
     transpilePlugin
   ),
-)
+);
