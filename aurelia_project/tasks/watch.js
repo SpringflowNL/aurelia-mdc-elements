@@ -59,7 +59,7 @@ let processChange = (vinyl) => {
     pendingRefreshPaths.push(pathToAdd);
     refresh();
   }
-}
+};
 
 let refresh = debounce(() => {
   if (isBuilding) {

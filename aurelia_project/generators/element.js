@@ -18,7 +18,7 @@ export default class ElementGenerator {
 
         this.project.elements.add(
           ProjectItem.text(`${fileName}.js`, this.generateJSSource(className)),
-          ProjectItem.text(`${fileName}.html`, this.generateHTMLSource(className))
+          ProjectItem.text(`${fileName}.html`, this.generateHTMLSource())
         );
 
         return this.project.commitChanges()
@@ -40,7 +40,7 @@ export class ${className} {
 `;
   }
 
-  generateHTMLSource(className) {
+  generateHTMLSource() {
     return `<template>
   <h1>\${value}</h1>
 </template>`;
