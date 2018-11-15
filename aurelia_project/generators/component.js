@@ -26,7 +26,7 @@ export default class ElementGenerator {
 
             self.project.root.add(
               ProjectItem.text(path.join(subFolders, fileName + ".js"), this.generateJSSource(className)),
-              ProjectItem.text(path.join(subFolders, fileName + ".html"), this.generateHTMLSource(className))
+              ProjectItem.text(path.join(subFolders, fileName + ".html"), this.generateHTMLSource())
             );
 
             return this.project.commitChanges()
@@ -40,12 +40,12 @@ export default class ElementGenerator {
   constructor() {
     this.message = 'Hello world';
   }
-}`
+}`;
   }
 
-  generateHTMLSource(className) {
+  generateHTMLSource() {
     return `<template>
   <h1>\${message}</h1>
-</template>`
+</template>`;
   }
 }
