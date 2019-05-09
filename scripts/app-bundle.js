@@ -771,7 +771,7 @@ define('resources/components/snackbar/mdc-snackbar',["exports", "aurelia-framewo
 
     var _proto = MdcSnackbar.prototype;
 
-    _proto.attached = function attached() {
+    _proto.bind = function bind() {
       var _this = this;
 
       this.subscriber = this.ea.subscribe("PostMessage.Snackbar", function (response) {
@@ -793,23 +793,17 @@ define('resources/components/snackbar/mdc-snackbar',["exports", "aurelia-framewo
       }
 
       this.mdcSnackbar = new _mdcSnackbar.MDCSnackbar(this.element);
-      this.mdcSnackbar.dismissesOnAction = dismissOnAction;
-      var data = {
-        message: label,
-        timout: 2750,
-        actionText: buttonLabel
-      };
-
-      data.actionHandler = function () {};
-
-      this.mdcSnackbar.show(data);
+      this.mdcSnackbar.closeOnEscape = dismissOnAction;
+      this.mdcSnackbar.labelText = label;
+      this.mdcSnackbar.actionButtonText = buttonLabel;
+      this.mdcSnackbar.open();
     };
 
     return MdcSnackbar;
   }()) || _class) || _class);
   _exports.MdcSnackbar = MdcSnackbar;
 });
-define('text!resources/components/snackbar/mdc-snackbar.html',[],function(){return "<template class=\"mdc-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-hidden=\"true\">\r\n\t\t<div class=\"mdc-snackbar__text\"></div>\r\n\t\t<div class=\"mdc-snackbar__action-wrapper\">\r\n\t\t\t<button type=\"button\" class=\"mdc-snackbar__action-button\"></button>\r\n\t\t</div>\r\n</template>";});
+define('text!resources/components/snackbar/mdc-snackbar.html',[],function(){return "<template class=\"mdc-snackbar\">\r\n\t<div class=\"mdc-snackbar__surface\">\r\n\t\t<div class=\"mdc-snackbar__label\" role=\"status\" aria-live=\"polite\">\r\n\t\t</div>\r\n\t\t<div class=\"mdc-snackbar__actions\">\r\n\t\t\t<button type=\"button\" class=\"mdc-button mdc-snackbar__action\"></button>\r\n\t\t</div>\r\n\t</div>\r\n</template>";});
 define('resources/components/switch/mdc-switch',["exports", "aurelia-framework", "@material/switch/dist/mdc.switch.min"], function (_exports, _aureliaFramework, _mdcSwitch) {
   "use strict";
 
