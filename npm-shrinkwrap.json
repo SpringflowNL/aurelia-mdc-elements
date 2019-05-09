@@ -820,235 +820,242 @@
       }
     },
     "@material/animation": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/animation/-/animation-0.41.0.tgz",
-      "integrity": "sha512-yYAwJbX3Q2AFd4dr6IYOsWLQy2HN8zWOFVl9AbUXunjzTfJCa/ecfXCriaT6qkmoNoHeTdJHRrsQJZC5GsPvzA==",
-      "dev": true
-    },
-    "@material/auto-init": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/auto-init/-/auto-init-0.41.0.tgz",
-      "integrity": "sha512-jp6L8MpYu7DudgDfA8iTyD9BwQrYPEDsIJGbqzN9vcCBl5FoBatkB8pcFXKr+1mRBk7T1Qmf6+H5nDtxyXjHEQ==",
-      "dev": true
-    },
-    "@material/base": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/base/-/base-0.41.0.tgz",
-      "integrity": "sha512-tEyzwBRu3d1H120SfKsDVYZHcqT5lKohh/7cWKR93aAaPDkSvjpKJIjyu2yuSkjpDduVZGzVocYbOvhUKhhzXQ==",
-      "dev": true
-    },
-    "@material/button": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/button/-/button-0.41.0.tgz",
-      "integrity": "sha512-9mA/7P8yD3YPJ8ijwu0oOiT65OCa8Km3M9OF6VAsBE+XJS9Wo5hWDMgkv16raeOFeXj+1ALsjvuTz31JdcSkgQ==",
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@material/animation/-/animation-1.0.0.tgz",
+      "integrity": "sha512-Ed5/vggn6ZhSJ87yn3ZS1d826VJNFz73jHF2bSsgRtHDoB8KCuOwQMfdgAgDa4lKDF6CDIPCKBZPKrs2ubehdw==",
       "dev": true,
       "requires": {
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "tslib": "^1.9.3"
+      }
+    },
+    "@material/auto-init": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@material/auto-init/-/auto-init-1.0.0.tgz",
+      "integrity": "sha512-xlWEjjyQquXMi9xz3RH7HW/5dsLGkVYQnm1WCYw2a6JIpIlipkkLEzBNc//agiQongIBbLndL07gO7WQeSohNA==",
+      "dev": true,
+      "requires": {
+        "@material/base": "^1.0.0",
+        "tslib": "^1.9.3"
+      }
+    },
+    "@material/base": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@material/base/-/base-1.0.0.tgz",
+      "integrity": "sha512-5dxFp46x5FA+Epg6YHLzN+5zRt9S2wR84UdvVAEJ1egea94m9UHUg7y9tAnNSN16aexRSywmzyLwPr+i8PGEYA==",
+      "dev": true,
+      "requires": {
+        "tslib": "^1.9.3"
+      }
+    },
+    "@material/button": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/button/-/button-2.0.0.tgz",
+      "integrity": "sha512-3qGywVbKUM34CDUihHPNpGh4PmKOmPgPYa8Y346mZg1wpOf7gW0vi+EZQOC98AqEKhIMe7l0axKuLfklUHOHjA==",
+      "dev": true,
+      "requires": {
+        "@material/elevation": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0"
       }
     },
     "@material/card": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/card/-/card-0.41.0.tgz",
-      "integrity": "sha512-6/NIHuUZkftHoNS/l3JpROrpvI0TqYv4Xq9O1iRnxPmw2hwqvQ70LucE4+bJ+YzVomqYarV2KrtUUPrwSa90Lw==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/card/-/card-2.0.0.tgz",
+      "integrity": "sha512-2tOWdauiBSm1IAgeX2w796Fw9uZBKfBlW1dBJqdHm9aMcjxa99897g+K2DbPe+FzeQoqOAwrPULv+VwTVCJBTw==",
       "dev": true,
       "requires": {
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/elevation": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0"
       }
     },
     "@material/checkbox": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/checkbox/-/checkbox-0.41.0.tgz",
-      "integrity": "sha512-Zz6e5WRpziO7Z+4rbEs8GHNNBf1UuttniLp6/RvwPSQRaD8G04sdg4HcP/aDCY1KGMwivkuDPc2Bsgs6j+rD7Q==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/checkbox/-/checkbox-2.1.0.tgz",
+      "integrity": "sha512-vDwzrEPxaeVvXtFGabJTweMQ8QteFuLvaGaLMasqdmz/S9DgR6QQGqgfXnfAcTx/AgzIAlvV2SzQpH4lUNdtiw==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/selection-control": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/chips": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/chips/-/chips-0.41.0.tgz",
-      "integrity": "sha512-Z2q01n4JdRR2f2fdYNCftmgu0M8wu8PZUeQTK3e3zVkQyRdmXcbqMbLHRawVWuXORC8/mIA6tuTtOEqle/Qj9w==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/chips/-/chips-2.1.0.tgz",
+      "integrity": "sha512-nK9xW/G1KDV2lX1GeociA6mHKJBvihUoA/5xr6Lgowv28h0R3b1rRbAojnOKcamvAiuiAKxL8VbXQzWiarNR4A==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/checkbox": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/checkbox": "^2.1.0",
+        "@material/elevation": "^1.1.0",
+        "@material/ripple": "^2.0.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/dialog": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/dialog/-/dialog-0.41.0.tgz",
-      "integrity": "sha512-IhRMGTr/41/D0lhagvshCtzI4d9+ynE7FFjpQXc6GU81pHHGt0eYt5vQl3Z/DsatOCdBd+Nc3YDTyJX8OA+8CQ==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/dialog/-/dialog-2.0.0.tgz",
+      "integrity": "sha512-BH1H71OWCx5Nzn9xYRFVwoXRtFyHydQKp5iPOSKnhzaP2T8Ni3XRGn/CHYvMpQrXHiFnjuwkmAeCW/9cW69j/g==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/dom": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0",
-        "focus-trap": "^2.3.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/elevation": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "focus-trap": "^5.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/dom": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/dom/-/dom-0.41.0.tgz",
-      "integrity": "sha512-wOJrMwjPddYXpQFZAIaCLWI3TO/6KU1lxESTBzunni8A4FHQVWhokml5Xt85GqZwmPFeIF2s+D0wfbWyrGBuKQ==",
-      "dev": true
-    },
-    "@material/drawer": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/drawer/-/drawer-0.41.0.tgz",
-      "integrity": "sha512-XMKrr9Ci7z69xwYsT1P/JH/BRccwB+HL9UiYzym8SAfZG/4XtP0b5qw+vYMrIZ/NeF0nOEaE8pNHq2XrUz0csA==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/dom/-/dom-1.1.0.tgz",
+      "integrity": "sha512-+HWW38ZaM2UBPu4+7QCusLDSf4tFT31rsEXHkTkxYSg/QpDivfPx6YDz4OmYtafmhPR1d1YjqB3MYysUHdodyw==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/list": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0",
-        "focus-trap": "^3.0.0"
-      },
-      "dependencies": {
-        "focus-trap": {
-          "version": "3.0.0",
-          "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-3.0.0.tgz",
-          "integrity": "sha512-jTFblf0tLWbleGjj2JZsAKbgtZTdL1uC48L8FcmSDl4c2vDoU4NycN1kgV5vJhuq1mxNFkw7uWZ1JAGlINWvyw==",
-          "dev": true,
-          "requires": {
-            "tabbable": "^3.1.0",
-            "xtend": "^4.0.1"
-          }
-        },
-        "tabbable": {
-          "version": "3.1.1",
-          "resolved": "https://registry.npmjs.org/tabbable/-/tabbable-3.1.1.tgz",
-          "integrity": "sha512-583MHIOwictf7+zbxqO/L5fBqMN6Li4SJ1XTKQA9WzHRA7c2BB+D+Ny7Y6kGqU2u+rHK59+oRzrBvMU53aZz+A==",
-          "dev": true
-        }
+        "tslib": "^1.9.3"
+      }
+    },
+    "@material/drawer": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/drawer/-/drawer-2.0.0.tgz",
+      "integrity": "sha512-1ZJFKYtxsB5ZLr5w3Q0joTz6Q9LM89fIiVl4ciMU3sdUN2UL2+T77wPekKFxycE7ll2n2JNzBKlmZHHI2NIA0g==",
+      "dev": true,
+      "requires": {
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/list": "^2.0.0",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "focus-trap": "^5.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/elevation": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/elevation/-/elevation-0.41.0.tgz",
-      "integrity": "sha512-ZtZS8z5ie9c7Cx5PVudgSorGYa0C3lu3dA+Nn6qJdhGUokl01msh54NfNuwk+EZsk65bNRRqw1Td/63TCbKIzg==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/elevation/-/elevation-1.1.0.tgz",
+      "integrity": "sha512-m4eATJvDhWK1BT+yA1iHz5mhAk8cV9olC4mjVzm4PTAqhDH2yya4WzjN1HPVHE/a65ObyZ7V4qopxu9MRocm3A==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/theme": "^1.1.0"
       }
     },
     "@material/fab": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/fab/-/fab-0.41.0.tgz",
-      "integrity": "sha512-SY/XhkFqlbT8byz0wVJF6vPoGQQRwcTpA7toK1WexW87tSme8KE17yAGJxsZYzIOOFZqW1xF+aDajWdaWyDZdQ==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/fab/-/fab-2.0.0.tgz",
+      "integrity": "sha512-uMdJwED1oAuAPKwB9uUEyrhctpswG7xcYY33+RGk8mb7Zz1zxp2egVje07cyIJwxkWNLsEFuL+lGb6HRD7fLlQ==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0"
       }
     },
+    "@material/feature-targeting": {
+      "version": "0.44.1",
+      "resolved": "https://registry.npmjs.org/@material/feature-targeting/-/feature-targeting-0.44.1.tgz",
+      "integrity": "sha512-90cc7njn4aHbH9UxY8qgZth1W5JgOgcEdWdubH1t7sFkwqFxS5g3zgxSBt46TygFBVIXNZNq35Xmg80wgqO7Pg==",
+      "dev": true
+    },
     "@material/floating-label": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/floating-label/-/floating-label-0.41.0.tgz",
-      "integrity": "sha512-qI6f1nZU3crXxWAI9fw3U5fHw2qOzEor49EvskbcaV5KSRW5qO+jtfUQ3ib/Vhki7lqhgwNHB/0n7KYhvhjRHQ==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/floating-label/-/floating-label-1.1.0.tgz",
+      "integrity": "sha512-7q7V+9o9XesgMnK11up9z+BcRFwtLIAIqVTCL3liKRARNHuzw9FGrGMKhTJUKvLZ3z0bM1+FmmVlA3q9FJWehQ==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/form-field": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/form-field/-/form-field-0.41.0.tgz",
-      "integrity": "sha512-vNduTfxS1KHCt/NATfX56m7iSXqcemrDq3NMX0txijUQyZ3Sr4xdUQdys+2ky/rBuQTVqBBsc9ixIyHehECaoQ==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/form-field/-/form-field-2.0.0.tgz",
+      "integrity": "sha512-p284isGnWffT1w6LQwkKs5i/Ft71a498nds9VQ2bQLMYOzomJ4z6kfZFd+QTUfpu6gBokWPc2XgB7LBi0bNL5Q==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/selection-control": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/base": "^1.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/grid-list": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/grid-list/-/grid-list-0.41.0.tgz",
-      "integrity": "sha512-vs0UyvfswW/nyPAoYLRIWEvMmfZUSKVOUSTnHC+PsZ5aXTwGCiCdUugMZdQVhPp9NkxW5mqmCCVroD5eH/yd4g==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/grid-list/-/grid-list-1.1.0.tgz",
+      "integrity": "sha512-YukGKO4EzJca5DktfcNKCcrE6B3j/0CznCS0yfAoYagGZxsmmxa1wY4BcObuocIP31/xksRMUCieRbWpKzBhBQ==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/base": "^1.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/icon-button": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/icon-button/-/icon-button-0.41.0.tgz",
-      "integrity": "sha512-RzGSH97aUcTW4he+uU8ahT75DEn6+29L0hH4PBKe03/R/qHFfOrWfjfd03PPiCkaT5SNkPkt1YnfEPqKolnH1Q==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/icon-button/-/icon-button-2.0.0.tgz",
+      "integrity": "sha512-SI+DgNzYft6r/H3nphzf2/AKsG6oQuBPZGSSvQLyyAeU10pcsHxNXm0iuyHBKiKWYXjokNtiYjpKnDpKb6ONkA==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/theme": "^0.41.0"
-      }
-    },
-    "@material/icon-toggle": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/icon-toggle/-/icon-toggle-0.41.0.tgz",
-      "integrity": "sha512-kNB5mRwCtppNYqcMWZM1vbCymjiWTaWFMGrVSMy++y0a6BU1YAJSnDyw+8Yr0PINGcU5+ecwEYdNsaY8K83enw==",
-      "dev": true,
-      "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/base": "^1.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/image-list": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/image-list/-/image-list-0.41.0.tgz",
-      "integrity": "sha512-j3V51PYdfhHB6CWfy076BYT4jHJMqQ86zOpv2OtsjexDc3JPQImB/v/+y018tyDCGOuwjWLoCUi+szTbtzCeQA==",
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@material/image-list/-/image-list-1.1.1.tgz",
+      "integrity": "sha512-Y4mUWiD6ODMzAPjcjNTB9O2KriQT7H+dStikRLCXp5lNIU46MwZtu5b67wzRAxq0dnIQ0kJyE9tIYhYRYYKW9w==",
       "dev": true,
       "requires": {
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/feature-targeting": "^0.44.1",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0"
       }
     },
     "@material/layout-grid": {
@@ -1058,295 +1065,328 @@
       "dev": true
     },
     "@material/line-ripple": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/line-ripple/-/line-ripple-0.41.0.tgz",
-      "integrity": "sha512-5DDIoC3d78fCLhNgle7DRFojT3D2SF+XVpUd3g6yLZmybHB7832p4bgl/qGpbIXwk1wAQA1dkUgKH5foxorjNQ==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/line-ripple/-/line-ripple-1.1.0.tgz",
+      "integrity": "sha512-XqCxDNfgkh9zq0IVlTEFVjmQV8hx8m4vxLFM5qwHDDqcKPlX/Lfc8M43fmm9uE1CaJBC6whMGPvOt/dIla+RUg==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/linear-progress": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/linear-progress/-/linear-progress-0.41.0.tgz",
-      "integrity": "sha512-yWnJK58QfovYNJXANGfKWcyC5k9IqBFvygYa2EYQSH/MZbIvd84+MIn0fJO9xsRza79BA8Xh2tFIdTFy4+2Ctg==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/linear-progress/-/linear-progress-1.1.0.tgz",
+      "integrity": "sha512-MIK0cD/o1rTLREtAfTK3v60h7A0/wAu8/3v9dPTMlAPe+Y5gOarAizYWM3r/bp88sGO4gU8nPK0X9/daD28pNw==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/list": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/list/-/list-0.41.0.tgz",
-      "integrity": "sha512-HhYN0I02CTT8j91c1eeeI+L2KXVKdfzj0Zuapp2SdeCmQZLJO2tu2NYj0W6REBDTVBWBccr12Sn8o71CodEScQ==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/list/-/list-2.0.0.tgz",
+      "integrity": "sha512-HwwfQehlRCftnYvcb9DX/vHDbH8Q+ofL3IkKNi5hUBPLW1gAzszE5yOkAgxVFCENushdKqNKPAlCgjAiXMSDyA==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/dom": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/menu": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/menu/-/menu-0.41.0.tgz",
-      "integrity": "sha512-w8UFEnTWzOWl1hRx06tFBqAY4I0vYmbDIVwxO8g1CIgQkfG2dIXjJUfVvlYf9NzZ0VOyyKMh69MmMA5KP+HgAw==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/menu/-/menu-2.0.0.tgz",
+      "integrity": "sha512-FIR1Xte5mYBJPeL+nwC/1RnAQD2yRWzhSIJ6fGV/zuTWtl1VwOtvrsuvhLlqtCTg/5rrlrisEYC0v0cKMjZclA==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/list": "^0.41.0",
-        "@material/menu-surface": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1"
+        "@material/base": "^1.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/list": "^2.0.0",
+        "@material/menu-surface": "^1.1.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/menu-surface": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/menu-surface/-/menu-surface-0.41.0.tgz",
-      "integrity": "sha512-HiGFrEIF8DCfEtS8mRtc6MCcK2CJNCh0U6KWWeSIXv+9nW2oiN09piuULXM7aU46wETvfweVcgvHNJvBAXnXjQ==",
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@material/menu-surface/-/menu-surface-1.1.1.tgz",
+      "integrity": "sha512-bOY3LsVamovl/yb4hMBDi3gh8UFEYyP3GHNpTt+X5KBPDehoFhXG9s21aNvGbHZbwURhhWiRzy/OUC3MLE/hKA==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/notched-outline": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/notched-outline/-/notched-outline-0.41.0.tgz",
-      "integrity": "sha512-nQBkOXvkd5G9FeJ9UuecZh88WRgTsnGVvfj7UFJZEkvkzZwLBGUiJS6fF9FYraih3ZFgmphdbJxXEd9af3cqyQ==",
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@material/notched-outline/-/notched-outline-1.1.1.tgz",
+      "integrity": "sha512-HekxMWgIEGlmmdiCATfEJPjAWz2jlyXnfGUiBOkAzI25/OyOgcCd3rLzcMT5DUqItbKoNk1M/9kOmzTSNSt/CA==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/floating-label": "^1.1.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/radio": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/radio/-/radio-0.41.0.tgz",
-      "integrity": "sha512-nJvVVu2x2lAttUNnJczpZzKWK+3lEw/BOYsSLVSYp1qUlIQsOfQ6aItI7URokbLkQDqDqlsNmvGP5JJv/Cpksw==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/radio/-/radio-2.0.0.tgz",
+      "integrity": "sha512-xk/mgTN7io3mIqpXXcKXLy8izYd8wqdLthB8OdpDQgz25zX8fZ1B2uSzlzwX4RqD2qR2Wzn4N4FC9jW8sm4tKg==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/selection-control": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/ripple": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/ripple/-/ripple-0.41.0.tgz",
-      "integrity": "sha512-rxEUVWM4AByDlTCH0kkthZQmUuY6eeN0X6cOHBoioFN2vUDk0D0Nfzz/N9FF2AlAf8C2lDDLrTuqnJPVIn+NHA==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/ripple/-/ripple-2.0.0.tgz",
+      "integrity": "sha512-VSWhYeJDvBU5WextcC/WH5t92UzxhErIB+xaSfDIU3bViK2s8/qi9pWcd52FkDoLZuLQFsXU22eYJkDav4p+pw==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/rtl": {
-      "version": "0.40.1",
-      "resolved": "https://registry.npmjs.org/@material/rtl/-/rtl-0.40.1.tgz",
-      "integrity": "sha512-Pk6Iw1/KrhWZoZtkDsPMDUW0bm7Z1zeXb3MTQRCFmjf1wU5cRxgOTtuoZLcJqlcKGppLAzJL/TJV3E7KEiuL0A==",
+      "version": "0.42.0",
+      "resolved": "https://registry.npmjs.org/@material/rtl/-/rtl-0.42.0.tgz",
+      "integrity": "sha512-VrnrKJzhmspsN8WXHuxxBZ69yM5IwhCUqWr1t1eNfw3ZEvEj7i1g3P31HGowKThIN1dc1Wh4LE14rCISWCtv5w==",
       "dev": true
     },
     "@material/select": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/select/-/select-0.41.0.tgz",
-      "integrity": "sha512-MAU/EHGT1QmBlDvvKI1X7M0ua9w8RqP0UjDMkFxhyfA9tv7ZBS7u/z2/GBb9DUzFu2rKu9DCQ5B+GLBglukfAg==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/select/-/select-2.0.0.tgz",
+      "integrity": "sha512-yzYdelLV3LU9vVqyJPRICND2Y4WvkmjuFucgYhRlTv57o0LDR9QMEoA0teextjyigsS34p6ezwSa6g2C1Zzedw==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/floating-label": "^0.41.0",
-        "@material/line-ripple": "^0.41.0",
-        "@material/menu": "^0.41.0",
-        "@material/menu-surface": "^0.41.0",
-        "@material/notched-outline": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
-      }
-    },
-    "@material/selection-control": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/selection-control/-/selection-control-0.41.0.tgz",
-      "integrity": "sha512-rRHGiZVPoP4nxAAoeqsgTsxz9GwInGs7HIlEhPfMFygmSZVUHHsuOJXSTpOKYi8GCoKHpB0RKZsAtxM0BYAelw==",
-      "dev": true,
-      "requires": {
-        "@material/ripple": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/floating-label": "^1.1.0",
+        "@material/line-ripple": "^1.1.0",
+        "@material/menu": "^2.0.0",
+        "@material/menu-surface": "^1.1.1",
+        "@material/notched-outline": "^1.1.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/shape": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/shape/-/shape-0.41.0.tgz",
-      "integrity": "sha512-k1K3CjOVxclfb/0r28cOa2oJpP7QMA2fP0SOS3Vh8ale5Q2jkaHTL60KX8VkHvV6rMqShpXW+60gPjoz5XRbDQ==",
-      "dev": true
-    },
-    "@material/slider": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/slider/-/slider-0.41.0.tgz",
-      "integrity": "sha512-u+riWFMeEiczu9bv+Am+28ICX6ba8S55Z+c5JUFtegZNILC76DAuYe++jy0huZw4j/RJXq8hDtj4wJQwvaFTyw==",
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/@material/shape/-/shape-1.1.1.tgz",
+      "integrity": "sha512-Jge/h1XBLjdLlam4QMSzVgM99e/N8+elQROPkltqVP7eyLc17BwM3aP5cLVfZDgrJgvsjUxbgAP1H1j8sqmUyg==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/feature-targeting": "^0.44.1"
+      }
+    },
+    "@material/slider": {
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/slider/-/slider-1.1.0.tgz",
+      "integrity": "sha512-JV/Phpt38LUVb2sQCr2pBsf0faw0E5LI7ag3dNF3hDq1f3F9Vcu+a8oNADi2M+TNlyelltAMKnc9guARwhDLKw==",
+      "dev": true,
+      "requires": {
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/snackbar": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/snackbar/-/snackbar-0.41.0.tgz",
-      "integrity": "sha512-z44BspVFD4B3p651sF0sHYCdQXNdPJR/MkHkrHT8bXnEql7B8qpBsGRKgnPzm1kbAjG5jPkdbbwhbH04WR/0IQ==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/snackbar/-/snackbar-2.0.0.tgz",
+      "integrity": "sha512-DHtvJ2x3qW1HJeMVROSMFmZlw/2AlpLhs3dNctMWAaZDihP/Ql6HPjS/RY4ShZip/rzCDnSiB0yOgg9tWuyv+g==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/button": "^2.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/icon-button": "^2.0.0",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/switch": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/switch/-/switch-0.41.0.tgz",
-      "integrity": "sha512-8YTrn1oisUhp6DlB1XAPeFWVr5nD88jlq9FoTVQOtGaUxaEybQD0nrsYI7OwaVm4HvSnepd2zmMvbjXKbQX4XQ==",
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/switch/-/switch-2.0.0.tgz",
+      "integrity": "sha512-mKaIna/JuoxxyirtP6ejQbdLrbbLke8lZadRWWbdR7hFi3QdCxKKNyp26uuilqaXwQcfQIEGzojd1S471q2SNg==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/selection-control": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/elevation": "^1.1.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/tab": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/tab/-/tab-0.41.0.tgz",
-      "integrity": "sha512-yM6eYD8Kgrk2cHa+zN3GYIK4Mt6EsSxDIpaArE6JopqRpalULjiOk83hWVPR1V95xphnzYAWM1YF6I6JexE9kw==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/tab/-/tab-2.1.0.tgz",
+      "integrity": "sha512-BpEC2QkUjmEbcWpQQqzc19zrYprQwFexkUAVU1E+XnDqTn68ynu0mU2KRzYPcXi5UIr07eELDB2F2+aa10RypA==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/tab-indicator": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/base": "^1.0.0",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/tab-indicator": "^2.1.0",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/tab-bar": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/tab-bar/-/tab-bar-0.41.0.tgz",
-      "integrity": "sha512-RL+0CA4ZeZAmhz3vlyFsm8h9sLim8JHTLkosfZSYRnx2o9iQHQHpV58jz76ZSWG+0iuDoHFnwZ2oNKNmImn0KQ==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/tab-bar/-/tab-bar-2.1.0.tgz",
+      "integrity": "sha512-UG31YVLJWZJKRi9vk0+YuyyFQz52jEl1uy3fy1a6qUZzw4AFgtc+oO0xbVwfw/6QLBmAl/3q0QIfUw4c37IAPA==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/tab": "^0.41.0",
-        "@material/tab-scroller": "^0.41.0"
+        "@material/base": "^1.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/tab": "^2.1.0",
+        "@material/tab-scroller": "^2.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/tab-indicator": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/tab-indicator/-/tab-indicator-0.41.0.tgz",
-      "integrity": "sha512-IBJEO+O8OnFVgRAn4CCGccpyNPF1bvTp5+1foD46S2u7XZLD7ejfxTQhqE5HYWtVLQ3zk1aYo3+N9+oSUkpM2w==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/tab-indicator/-/tab-indicator-2.1.0.tgz",
+      "integrity": "sha512-9A5lF187q5NbJB8uG76OuSZ5GpRdQtWFHj5oLcyhobnG6VMXNgHIt1512fqxBVHhBmDreASa2tfPlpx/rubm7Q==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/theme": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/theme": "^1.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/tab-scroller": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/tab-scroller/-/tab-scroller-0.41.0.tgz",
-      "integrity": "sha512-dyxaxLLSiDigIUVJ0BwqnKBtBseALrOhmPgvk6BQVDbynnRQ2bOvaNZ7cbpe3A0i8zOQGOoTZF4i9D38/iubcg==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/tab-scroller/-/tab-scroller-2.1.0.tgz",
+      "integrity": "sha512-RsojHqlxFlI32i+XjKrmJtnqQBZtuxGelbfwFL+TZprCDycCdW0WTXWe9TLY07UmODJ1XjpLB9M+m9c8QdKTvg==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/tab": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/tab": "^2.1.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/textfield": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/textfield/-/textfield-0.41.0.tgz",
-      "integrity": "sha512-kJ52W2gxOS2xfpreVhvHQ1u3UkiDl58duw9HkhEkK5Oi1bSDOtbnlWy0pGTOiAma5ZQgetPNgoa+T0zMBptfnw==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/textfield/-/textfield-2.1.0.tgz",
+      "integrity": "sha512-lzWuLwY07dLLhxdraQMsfop+jLUau4byaFfM8sa90RlkqqDV/TfkpQ+AF18S1rlTXX929Dkf0eYnJsHHtCBbEA==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/floating-label": "^0.41.0",
-        "@material/line-ripple": "^0.41.0",
-        "@material/notched-outline": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/floating-label": "^1.1.0",
+        "@material/line-ripple": "^1.1.0",
+        "@material/notched-outline": "^1.1.1",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/theme": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/theme/-/theme-0.41.0.tgz",
-      "integrity": "sha512-ohW2JxObKOWvP34EkIIcrEVtL3g0Gs/T3/MdOsM36euyshY8Jwl1f6fjVUQvVjSpixUtSb30/+ulblF8fTOwBg==",
-      "dev": true
-    },
-    "@material/toolbar": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/toolbar/-/toolbar-0.41.0.tgz",
-      "integrity": "sha512-fAZSGM9xyVNI8FI92kmmvNCV4fzEWJBd1q9qMOqbna5AVtbJRNlGSY5HNgEi0vHi/nmY3UXD+VvDbLgoTXtdGg==",
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/@material/theme/-/theme-1.1.0.tgz",
+      "integrity": "sha512-YYUV9Rhbx4r/EMb/zoOYJUWjhXChNaLlH1rqt3vpNVyxRcxGqoVMGp5u1XALBCFiD9dACPKLIkKyRYa928nmPQ==",
       "dev": true,
       "requires": {
-        "@material/base": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/feature-targeting": "^0.44.1"
+      }
+    },
+    "@material/toolbar": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/@material/toolbar/-/toolbar-2.0.0.tgz",
+      "integrity": "sha512-vudr9/3CWD2tOt5Nu/OHCDplWuiA+xuTiynW63A/oC3zicb2y4GxQOf7JoHe9DisOx4P4qxvbEA98FBmGkBsoQ==",
+      "dev": true,
+      "requires": {
+        "@material/base": "^1.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/top-app-bar": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/top-app-bar/-/top-app-bar-0.41.0.tgz",
-      "integrity": "sha512-U3MK6pdzyfXC3zttsrEYihzR7aRqnKM3w2MWRwI0iub/lFygVOSa4qQfaJhwjz9TTyxB8tdtZOXBpEVDsH+xmA==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/@material/top-app-bar/-/top-app-bar-2.1.0.tgz",
+      "integrity": "sha512-wr/x+CrdscOIznNJj/w65P8hyi3sLBv9pX0+Ia1LJKpBwK16h29xWZAWwBQD6yzdr42/QvU5OiMcYg0bPikHGA==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/shape": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/animation": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/shape": "^1.1.1",
+        "@material/theme": "^1.1.0",
+        "@material/typography": "^1.0.0",
+        "tslib": "^1.9.3"
       }
     },
     "@material/typography": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/@material/typography/-/typography-0.41.0.tgz",
-      "integrity": "sha512-15dlqSU+9uGcWdg4KXXcmDzTKJPb7/5Z9kmooONb2Laot1uiuntDXQS0yL+U2FYLW5Ros+WVMosDBKFruWx68A==",
-      "dev": true
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/@material/typography/-/typography-1.0.0.tgz",
+      "integrity": "sha512-Oeqbjci1cC7jTE8/n3dwnkqKe9ZeWiaE+rgMtRYtRFw1HvAw14SpGA5EEAS/Li2Hu2KZ50FYCe3HYqShfxtChA==",
+      "dev": true,
+      "requires": {
+        "@material/feature-targeting": "^0.44.1"
+      }
     },
     "abbrev": {
       "version": "1.1.1",
@@ -4678,12 +4718,13 @@
       }
     },
     "focus-trap": {
-      "version": "2.4.6",
-      "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-2.4.6.tgz",
-      "integrity": "sha512-vWZTPtBU6pBoyWZDRZJHkXsyP2ZCZBHE3DRVXnSVdQKH/mcDtu9S5Kz8CUDyIqpfZfLEyI9rjKJLnc4Y40BRBg==",
+      "version": "5.0.0",
+      "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-5.0.0.tgz",
+      "integrity": "sha512-ECigB+4yoFBIpzQ0uO+ReM1yU4I4pVxuRSe2W24ElcWo4nJLRCb6amo2wLYEaPXgZ/mt0sSAW0ZNYkgiMrz4fQ==",
       "dev": true,
       "requires": {
-        "tabbable": "^1.0.3"
+        "tabbable": "^4.0.0",
+        "xtend": "^4.0.1"
       }
     },
     "follow-redirects": {
@@ -7526,54 +7567,53 @@
       }
     },
     "material-components-web": {
-      "version": "0.41.0",
-      "resolved": "https://registry.npmjs.org/material-components-web/-/material-components-web-0.41.0.tgz",
-      "integrity": "sha512-Cw39oNXkFGsBhOKgWhJMvGpr5IR4l5pPO8lLKh86j5yeCfL9xkIdw9hiKqUXo0cmc5IVAyi1FwoJc+UYp4LFDw==",
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/material-components-web/-/material-components-web-2.1.0.tgz",
+      "integrity": "sha512-dcuCaFxWoncNk4L4H6qM2P0iQIPcYI38aea3YrnNMu54i68TvX0iualWFglu+k5SJvReBv4GLBkDUXYGfmf3pA==",
       "dev": true,
       "requires": {
-        "@material/animation": "^0.41.0",
-        "@material/auto-init": "^0.41.0",
-        "@material/base": "^0.41.0",
-        "@material/button": "^0.41.0",
-        "@material/card": "^0.41.0",
-        "@material/checkbox": "^0.41.0",
-        "@material/chips": "^0.41.0",
-        "@material/dialog": "^0.41.0",
-        "@material/dom": "^0.41.0",
-        "@material/drawer": "^0.41.0",
-        "@material/elevation": "^0.41.0",
-        "@material/fab": "^0.41.0",
-        "@material/floating-label": "^0.41.0",
-        "@material/form-field": "^0.41.0",
-        "@material/grid-list": "^0.41.0",
-        "@material/icon-button": "^0.41.0",
-        "@material/icon-toggle": "^0.41.0",
-        "@material/image-list": "^0.41.0",
+        "@material/animation": "^1.0.0",
+        "@material/auto-init": "^1.0.0",
+        "@material/base": "^1.0.0",
+        "@material/button": "^2.0.0",
+        "@material/card": "^2.0.0",
+        "@material/checkbox": "^2.1.0",
+        "@material/chips": "^2.1.0",
+        "@material/dialog": "^2.0.0",
+        "@material/dom": "^1.1.0",
+        "@material/drawer": "^2.0.0",
+        "@material/elevation": "^1.1.0",
+        "@material/fab": "^2.0.0",
+        "@material/feature-targeting": "^0.44.1",
+        "@material/floating-label": "^1.1.0",
+        "@material/form-field": "^2.0.0",
+        "@material/grid-list": "^1.1.0",
+        "@material/icon-button": "^2.0.0",
+        "@material/image-list": "^1.1.1",
         "@material/layout-grid": "^0.41.0",
-        "@material/line-ripple": "^0.41.0",
-        "@material/linear-progress": "^0.41.0",
-        "@material/list": "^0.41.0",
-        "@material/menu": "^0.41.0",
-        "@material/menu-surface": "^0.41.0",
-        "@material/notched-outline": "^0.41.0",
-        "@material/radio": "^0.41.0",
-        "@material/ripple": "^0.41.0",
-        "@material/rtl": "^0.40.1",
-        "@material/select": "^0.41.0",
-        "@material/selection-control": "^0.41.0",
-        "@material/shape": "^0.41.0",
-        "@material/slider": "^0.41.0",
-        "@material/snackbar": "^0.41.0",
-        "@material/switch": "^0.41.0",
-        "@material/tab": "^0.41.0",
-        "@material/tab-bar": "^0.41.0",
-        "@material/tab-indicator": "^0.41.0",
-        "@material/tab-scroller": "^0.41.0",
-        "@material/textfield": "^0.41.0",
-        "@material/theme": "^0.41.0",
-        "@material/toolbar": "^0.41.0",
-        "@material/top-app-bar": "^0.41.0",
-        "@material/typography": "^0.41.0"
+        "@material/line-ripple": "^1.1.0",
+        "@material/linear-progress": "^1.1.0",
+        "@material/list": "^2.0.0",
+        "@material/menu": "^2.0.0",
+        "@material/menu-surface": "^1.1.1",
+        "@material/notched-outline": "^1.1.1",
+        "@material/radio": "^2.0.0",
+        "@material/ripple": "^2.0.0",
+        "@material/rtl": "^0.42.0",
+        "@material/select": "^2.0.0",
+        "@material/shape": "^1.1.1",
+        "@material/slider": "^1.1.0",
+        "@material/snackbar": "^2.0.0",
+        "@material/switch": "^2.0.0",
+        "@material/tab": "^2.1.0",
+        "@material/tab-bar": "^2.1.0",
+        "@material/tab-indicator": "^2.1.0",
+        "@material/tab-scroller": "^2.1.0",
+        "@material/textfield": "^2.1.0",
+        "@material/theme": "^1.1.0",
+        "@material/toolbar": "^2.0.0",
+        "@material/top-app-bar": "^2.1.0",
+        "@material/typography": "^1.0.0"
       }
     },
     "math-random": {
@@ -10477,9 +10517,9 @@
       "dev": true
     },
     "tabbable": {
-      "version": "1.1.3",
-      "resolved": "https://registry.npmjs.org/tabbable/-/tabbable-1.1.3.tgz",
-      "integrity": "sha512-nOWwx35/JuDI4ONuF0ZTo6lYvI0fY0tZCH1ErzY2EXfu4az50ZyiUX8X073FLiZtmWUVlkRnuXsehjJgCw9tYg==",
+      "version": "4.0.0",
+      "resolved": "https://registry.npmjs.org/tabbable/-/tabbable-4.0.0.tgz",
+      "integrity": "sha512-H1XoH1URcBOa/rZZWxLxHCtOdVUEev+9vo5YdYhC9tCY4wnybX+VQrCYuy9ubkg69fCBxCONJOSLGfw0DWMffQ==",
       "dev": true
     },
     "table": {

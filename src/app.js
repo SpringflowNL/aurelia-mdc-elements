@@ -25,7 +25,7 @@ export class App {
     this.testArray = [
 		{ key: true, value: 'True story' },
 		{ key: false, value: 'Bad story' }
-	  ];
+	];
   }
 
   attached() {
