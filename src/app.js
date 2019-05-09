@@ -11,18 +11,21 @@ export class App {
     this.ea = ea;
 
     this.label = 'Custom';
-    this.value = 'Value';
     this.type = 'text';
-    this.boolvalue = true;
-    this.secondary = 'Helper text';
     this.modifier = null;
     this.leading = null;
     this.trailing = null;
+  }
+
+  prefillValues() {
+	this.value = 'Value';
+    this.boolvalue = true;
+    this.secondary = 'Helper text';
 
     this.testArray = [
-      { key: true, value: 'True story' },
-      { key: false, value: 'Bad story' }
-    ];
+		{ key: true, value: 'True story' },
+		{ key: false, value: 'Bad story' }
+	  ];
   }
 
   attached() {
