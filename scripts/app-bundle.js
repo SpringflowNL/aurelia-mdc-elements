@@ -1076,6 +1076,10 @@ define('resources/components/textfield/mdc-text-field',["exports", "aurelia-fram
       this.myMdcTextfield.input_.setAttribute("step", newvalue);
     };
 
+    _proto.valueChanged = function valueChanged(newvalue) {
+      this.myMdcTextfield.value = newvalue;
+    };
+
     _proto.minChanged = function minChanged(newvalue) {
       if (this.type === 'number') {
         this.myMdcTextfield.input_.setAttribute("min", newvalue);
@@ -1170,7 +1174,7 @@ define('resources/components/textfield/mdc-text-field',["exports", "aurelia-fram
   })), _class2)) || _class) || _class);
   _exports.MdcTextField = MdcTextField;
 });
-define('text!resources/components/textfield/mdc-text-field.html',[],function(){return "<template>\r\n\t<div class=\"mdc-text-field ${disabled ? 'mdc-text-field--disabled' : ''} ${modifier ? modifier : ''} ${leading ? 'mdc-text-field--with-leading-icon' : ''} ${trailing ? 'mdc-text-field--with-trailing-icon' : ''}\">\r\n\t\t<i if.bind=\"leading\" class=\"material-icons mdc-text-field__icon\" role=\"button\">${leading}</i>\r\n\t\t<input type=\"${type}\" id=\"text-field--${unique}\" class=\"mdc-text-field__input\" value.bind=\"value\">\r\n\t\t<label for=\"text-field--${unique}\" class=\"mdc-floating-label\">${label}</label>\r\n\t\t<i if.bind=\"trailing\" class=\"material-icons mdc-text-field__icon\" role=\"button\">${trailing}</i>\r\n\t\t<div if.bind=\"!modifier || modifier.indexOf('mdc-text-field--outlined') === -1\" class=\"mdc-line-ripple\"></div>\r\n\t\t<div if.bind=\"modifier.indexOf('mdc-text-field--outlined') > -1\" class=\"mdc-notched-outline\">\r\n\t\t\t<svg>\r\n\t\t\t\t<path class=\"mdc-notched-outline__path\" />\r\n\t\t\t</svg>\r\n\t\t</div>\r\n\t\t<div if.bind=\"modifier.indexOf('mdc-text-field--outlined') > -1\" class=\"mdc-notched-outline__idle\"></div>\r\n\t</div>\r\n\t<p if.bind=\"secondarylabel\" class=\"mdc-text-field-helper-text\" aria-hidden=\"true\">\r\n\t\t${secondarylabel}\r\n\t</p>\r\n</template>";});
+define('text!resources/components/textfield/mdc-text-field.html',[],function(){return "<template>\r\n\t<div class=\"mdc-text-field ${disabled ? 'mdc-text-field--disabled' : ''} ${modifier ? modifier : ''} ${leading ? 'mdc-text-field--with-leading-icon' : ''} ${trailing ? 'mdc-text-field--with-trailing-icon' : ''}\">\r\n\t\t<i if.bind=\"leading\" class=\"material-icons mdc-text-field__icon\" role=\"button\">${leading}</i>\r\n\t\t<input type=\"${type}\" id=\"text-field--${unique}\" class=\"mdc-text-field__input\" value.bind=\"value\">\r\n\t\t<label for=\"text-field--${unique}\" class=\"mdc-floating-label ${value ? 'mdc-floating-label--float-above' : ''}\">${label}</label>\r\n\t\t<i if.bind=\"trailing\" class=\"material-icons mdc-text-field__icon\" role=\"button\">${trailing}</i>\r\n\t\t<div if.bind=\"!modifier || modifier.indexOf('mdc-text-field--outlined') === -1\" class=\"mdc-line-ripple\"></div>\r\n\t\t<div if.bind=\"modifier.indexOf('mdc-text-field--outlined') > -1\" class=\"mdc-notched-outline\">\r\n\t\t\t<svg>\r\n\t\t\t\t<path class=\"mdc-notched-outline__path\" />\r\n\t\t\t</svg>\r\n\t\t</div>\r\n\t\t<div if.bind=\"modifier.indexOf('mdc-text-field--outlined') > -1\" class=\"mdc-notched-outline__idle\"></div>\r\n\t</div>\r\n\t<p if.bind=\"secondarylabel\" class=\"mdc-text-field-helper-text\" aria-hidden=\"true\">\r\n\t\t${secondarylabel}\r\n\t</p>\r\n</template>";});
 define('resources/index',["exports", "aurelia-framework"], function (_exports, _aureliaFramework) {
   "use strict";
 
