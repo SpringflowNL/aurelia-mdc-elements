@@ -159,7 +159,7 @@ define('resources/components/checkbox/mdc-checkbox',["exports", "aurelia-framewo
 
     _proto.bind = function bind() {
       this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
-      this.element.id = '_' + this.id; // anders heeft dit element zelfde id als input. Raakt label for="" in de war
+      this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
     };
 
     _proto.attached = function attached() {
@@ -256,7 +256,7 @@ define('resources/components/checkbox/mdc-checkbox',["exports", "aurelia-framewo
   })), _class2)) || _class);
   _exports.MdcCheckbox = MdcCheckbox;
 });
-define('text!resources/components/checkbox/mdc-checkbox.html',[],function(){return "<template class=\"mdc-form-field\">\t\r\n\t<div class=\"mdc-checkbox ${disabled ? 'mdc-checkbox--disabled' : ''} ${required && !model ? 'mdc-checkbox--required' : ''}\">\r\n\t\t<input type=\"checkbox\" id=\"checkbox--${id}\" checked.bind=\"checked\" model.bind=\"model\" disabled.bind=\"disabled\" required.bind=\"required && !model\" class=\"mdc-checkbox__native-control\"/>\r\n\t\t<div class=\"mdc-checkbox__background\">\r\n\t\t\t<svg class=\"mdc-checkbox__checkmark\" viewBox=\"0 0 24 24\">\r\n\t\t\t\t<path class=\"mdc-checkbox__checkmark-path\" fill=\"none\" d=\"M1.73,12.91 8.1,19.28 22.79,4.59\" />\r\n\t\t\t</svg>\r\n\t\t\t<div class=\"mdc-checkbox__mixedmark\"></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<label if.bind=\"secondarylabel && label\" class=\"mdc-list-item__text\" for=\"checkbox--${id}\">\r\n\t\t${label}\r\n\t\t<span class=\"mdc-list-item__secondary-text\">${secondarylabel}</span>\r\n\t</label>\r\n\t<label if.bind=\"!secondarylabel && label\" for=\"checkbox--${id}\">${label}</label>\r\n</template>";});
+define('text!resources/components/checkbox/mdc-checkbox.html',[],function(){return "<template class=\"mdc-form-field\">\t\r\n\t<div class=\"mdc-checkbox ${disabled ? 'mdc-checkbox--disabled' : ''} ${required && !model ? 'mdc-checkbox--required' : ''}\">\r\n\t\t<input type=\"checkbox\" id=\"checkbox--${unique}\" checked.bind=\"checked\" model.bind=\"model\" disabled.bind=\"disabled\" required.bind=\"required && !model\" class=\"mdc-checkbox__native-control\"/>\r\n\t\t<div class=\"mdc-checkbox__background\">\r\n\t\t\t<svg class=\"mdc-checkbox__checkmark\" viewBox=\"0 0 24 24\">\r\n\t\t\t\t<path class=\"mdc-checkbox__checkmark-path\" fill=\"none\" d=\"M1.73,12.91 8.1,19.28 22.79,4.59\" />\r\n\t\t\t</svg>\r\n\t\t\t<div class=\"mdc-checkbox__mixedmark\"></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<label if.bind=\"secondarylabel && label\" class=\"mdc-list-item__text\" for=\"checkbox--${unique}\">\r\n\t\t${label}\r\n\t\t<span class=\"mdc-list-item__secondary-text\">${secondarylabel}</span>\r\n\t</label>\r\n\t<label if.bind=\"!secondarylabel && label\" for=\"checkbox--${unique}\">${label}</label>\r\n</template>";});
 define('resources/components/chip/mdc-chip',["exports", "aurelia-framework", "@material/chips/dist/mdc.chips.min"], function (_exports, _aureliaFramework, _mdcChips) {
   "use strict";
 
