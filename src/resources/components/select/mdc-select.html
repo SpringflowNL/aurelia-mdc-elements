@@ -8,7 +8,7 @@
 				${item[value]}
 			</option>
 		</select>
-		<label if.bind="!modifier || modifier.indexOf('mdc-select--outlined') === -1" class="mdc-floating-label ${selected ? 'mdc-floating-label--float-above' : ''}" for="select--${unique}">${label}</div>
+		<label if.bind="!modifier || modifier.indexOf('mdc-select--outlined') === -1" class="mdc-floating-label ${selected ? 'mdc-floating-label--float-above' : ''}" for="select--${unique}">${label}</label>
 		<div if.bind="!modifier || modifier.indexOf('mdc-select--outlined') === -1" class="mdc-line-ripple"></div>
 		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline">
 			<div class="mdc-notched-outline__leading"></div>
