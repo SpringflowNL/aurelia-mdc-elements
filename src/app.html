@@ -98,7 +98,7 @@
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-select label.bind="label" disabled.bind="disabled" required.bind="required" key="key" value="value"
-                        data.bind="testArray" selected.bind="boolvalue" secondarylabel.bind="secondary" leading.bind="leading"></mdc-select>
+                        data.bind="dynamicArray" selected.bind="boolvalue" secondarylabel.bind="secondary" leading.bind="leading"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-chip label.bind="label" disabled.bind="disabled" required.bind="required" leading.bind="leading"
@@ -106,7 +106,7 @@
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-menu label.bind="label" leading.bind="leading">
-                        <div class="mdc-list-item" repeat.for="data of testArray">${data.value}</div>
+                        <div class="mdc-list-item" repeat.for="data of dynamicArray">${data.value}</div>
                       </mdc-menu>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
@@ -273,76 +273,76 @@
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected="true"
                         leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"></mdc-select>
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                   </div>
                   <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" disabled="true"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected="true"
                         disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected="true"
                         leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                   </div>
                   <h3>Required</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" required="true"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected="true"
                         required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected="true"
                         leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                   </div>
