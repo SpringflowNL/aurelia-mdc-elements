@@ -12,14 +12,14 @@ export class MdcCheckbox {
 	@bindable model;
 	@bindable secondarylabel;
 
-    constructor( element) {
+    constructor(element) {
         this.element= element;
         this.unique = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
 
     bind() {
 		this.mdcCheckbox = new MDCCheckbox(this.element);
-		this.element.id = '_' + this.id; // anders heeft dit element zelfde id als input. Raakt label for="" in de war
+        this.unique = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
     }
 
     attached() {
