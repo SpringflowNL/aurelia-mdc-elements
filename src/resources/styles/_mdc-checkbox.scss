@@ -1,8 +1,14 @@
 ﻿.mdc-checkbox {
 	&--required {
-		+ label::after {
+		label::after {
 			margin-left: 1px;
 			content: "*";
+		}
+	}
+	
+	&--invalid {
+		&:not(.mdc-checkbox--disabled) label {
+			color: #d50000;
 		}
 	}
 }
