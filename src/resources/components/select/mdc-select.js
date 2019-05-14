@@ -32,6 +32,7 @@ export class MdcSelect {
         this.myMdcSelect = new MDCSelect(this.element.firstElementChild);
 
         this.myMdcSelect.listen('change', () => {
+            this.changedEvent = true;
             this.selected = this.myMdcSelect.value;
 
             //Set invalid class after first change
@@ -40,13 +41,15 @@ export class MdcSelect {
             } else {
                 this.requiredChanged(false);
             }
+
+            this.changedEvent = false;
         });
 
         this.refreshOptions();
     }
 
-    selectedChanged(newvalue, oldvalue) {
-        if (typeof oldvalue === 'undefined') {
+    selectedChanged(newvalue) {
+        if (!this.changedEvent) {
             this.selectedValue = newvalue;
         }
     }

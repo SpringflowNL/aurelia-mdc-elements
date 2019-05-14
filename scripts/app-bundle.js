@@ -655,6 +655,7 @@ define('resources/components/select/mdc-select',["exports", "aurelia-framework",
 
       this.myMdcSelect = new _mdcSelect.MDCSelect(this.element.firstElementChild);
       this.myMdcSelect.listen('change', function () {
+        _this.changedEvent = true;
         _this.selected = _this.myMdcSelect.value; //Set invalid class after first change
 
         if (!_this.myMdcSelect.value && _this.required) {
@@ -662,12 +663,14 @@ define('resources/components/select/mdc-select',["exports", "aurelia-framework",
         } else {
           _this.requiredChanged(false);
         }
+
+        _this.changedEvent = false;
       });
       this.refreshOptions();
     };
 
-    _proto.selectedChanged = function selectedChanged(newvalue, oldvalue) {
-      if (typeof oldvalue === 'undefined') {
+    _proto.selectedChanged = function selectedChanged(newvalue) {
+      if (!this.changedEvent) {
         this.selectedValue = newvalue;
       }
     };
