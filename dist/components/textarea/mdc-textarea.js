@@ -40,6 +40,10 @@ function () {
   var _proto = MdcTextarea.prototype;
 
   _proto.bind = function bind() {
+    this.myMdcTextfield = null;
+  };
+
+  _proto.attached = function attached() {
     this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
     this.myMdcTextfield.disabled = this.disabled;
     this.myMdcTextfield.required = this.required;

@@ -17,6 +17,10 @@ export class MdcTextarea {
     }
 
     bind() {
+        this.myMdcTextfield = null;
+    }
+
+    attached() {
         this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
         this.myMdcTextfield.disabled = this.disabled;
         this.myMdcTextfield.required = this.required;
