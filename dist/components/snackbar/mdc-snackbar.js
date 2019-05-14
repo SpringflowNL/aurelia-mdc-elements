@@ -21,7 +21,7 @@ function () {
 
   var _proto = MdcSnackbar.prototype;
 
-  _proto.attached = function attached() {
+  _proto.bind = function bind() {
     var _this = this;
 
     this.subscriber = this.ea.subscribe("PostMessage.Snackbar", function (response) {
@@ -43,16 +43,10 @@ function () {
     }
 
     this.mdcSnackbar = new _mdcSnackbar.MDCSnackbar(this.element);
-    this.mdcSnackbar.dismissesOnAction = dismissOnAction;
-    var data = {
-      message: label,
-      timout: 2750,
-      actionText: buttonLabel
-    };
-
-    data.actionHandler = function () {};
-
-    this.mdcSnackbar.show(data);
+    this.mdcSnackbar.closeOnEscape = dismissOnAction;
+    this.mdcSnackbar.labelText = label;
+    this.mdcSnackbar.actionButtonText = buttonLabel;
+    this.mdcSnackbar.open();
   };
 
   return MdcSnackbar;

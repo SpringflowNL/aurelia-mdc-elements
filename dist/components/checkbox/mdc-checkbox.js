@@ -45,7 +45,7 @@ function () {
 
   _proto.bind = function bind() {
     this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
-    this.element.id = '_' + this.id; // anders heeft dit element zelfde id als input. Raakt label for="" in de war
+    this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   };
 
   _proto.attached = function attached() {

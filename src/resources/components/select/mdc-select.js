@@ -4,73 +4,72 @@ import { MDCSelect } from '@material/select/dist/mdc.select.min';
 @customElement('mdc-select')
 @inject(Element)
 export class MdcSelect {
-	@bindable label;
-	@bindable data;
-	@bindable value;
-	@bindable key;
-	@bindable({ defaultBindingMode: bindingMode.twoWay }) selected;
-	@bindable disabled;
-	@bindable required;
-	@bindable selectLabel;
-	@bindable secondarylabel;
-	@bindable modifier = null;
-	@bindable leading;
+    @bindable label;
+    @bindable data;
+    @bindable value;
+    @bindable key;
+    @bindable({ defaultBindingMode: bindingMode.twoWay }) selected;
+    @bindable selectedValue;
+    @bindable disabled;
+    @bindable required;
+    @bindable selectLabel;
+    @bindable secondarylabel;
+    @bindable modifier = null;
+    @bindable leading;
 
-	constructor(element) {
-		this.element = element;
+    constructor(element) {
+        this.element = element;
         this.unique = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-	}
+    }
 
-	bind() {
-		if(this.myMdcSelect) {
-			this.refreshOptions();
-		}
-	}
+    bind() {
+        if (this.myMdcSelect) {
+            this.refreshOptions();
+        }
+    }
 
-	attached() {
-		this.myMdcSelect = new MDCSelect(this.element.firstElementChild);
+    attached() {
+        this.myMdcSelect = new MDCSelect(this.element.firstElementChild);
 
-		this.myMdcSelect.listen('change', () => {
-			this.selected = this.myMdcSelect.value;
+        this.myMdcSelect.listen('change', () => {
+            this.selected = this.myMdcSelect.value;
 
-			//Set invalid class after first change
-			if(!this.myMdcSelect.value && this.required) {
-				this.requiredChanged(true);
-			} else {
-				this.requiredChanged(false);
-			}
-		});
+            //Set invalid class after first change
+            if (!this.myMdcSelect.value && this.required) {
+                this.requiredChanged(true);
+            } else {
+                this.requiredChanged(false);
+            }
+        });
 
-		this.refreshOptions();
-	}
+        this.refreshOptions();
+    }
 
-	refreshOptions() {
-		this.myMdcSelect.disabled = this.disabled;
-		this.myMdcSelect.required = this.required;
+    selectedChanged(newvalue, oldvalue) {
+        if (typeof oldvalue === 'undefined') {
+            this.selectedValue = newvalue;
+        }
+    }
 
-		if(this.selected) {
-			this.addFloatingLabel();
-		}
-	}
+    refreshOptions() {
+        this.myMdcSelect.disabled = this.disabled;
+        this.myMdcSelect.required = this.required;
+        this.selectedValue = this.selected;
+    }
 
-	detached() {
-		this.myMdcSelect.destroy();
-	}
+    detached() {
+        this.myMdcSelect.destroy();
+    }
 
-	disabledChanged(newvalue) {
-		this.myMdcSelect.disabled = newvalue;
-	}
+    disabledChanged(newvalue) {
+        this.myMdcSelect.disabled = newvalue;
+    }
 
-	requiredChanged(newvalue) {
-		if(newvalue) {
-			this.element.firstElementChild.classList.add('mdc-select--invalid');
-		}
-		else {
-			this.element.firstElementChild.classList.remove('mdc-select--invalid');
-		}
-	}
-
-	addFloatingLabel() {
-		this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
-	}
+    requiredChanged(newvalue) {
+        if (newvalue) {
+            this.element.firstElementChild.classList.add('mdc-select--invalid');
+        } else {
+            this.element.firstElementChild.classList.remove('mdc-select--invalid');
+        }
+    }
 }

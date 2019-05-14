@@ -30,7 +30,6 @@ export class MdcTextField {
 
     attached() {
         this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
-        this.refreshOptions();
     }
 
     refreshOptions() {

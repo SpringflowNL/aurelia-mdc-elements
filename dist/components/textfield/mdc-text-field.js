@@ -59,7 +59,6 @@ function () {
 
   _proto.attached = function attached() {
     this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
-    this.refreshOptions();
   };
 
   _proto.refreshOptions = function refreshOptions() {
@@ -84,6 +83,10 @@ function () {
 
   _proto.stepChanged = function stepChanged(newvalue) {
     this.myMdcTextfield.input_.setAttribute("step", newvalue);
+  };
+
+  _proto.valueChanged = function valueChanged(newvalue) {
+    this.myMdcTextfield.value = newvalue;
   };
 
   _proto.minChanged = function minChanged(newvalue) {
