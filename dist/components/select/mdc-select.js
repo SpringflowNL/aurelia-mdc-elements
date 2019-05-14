@@ -44,6 +44,7 @@ function () {
     _initializerDefineProperty(this, "leading", _descriptor11, this);
 
     this.element = element;
+    this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   }
 
   var _proto = MdcSelect.prototype;

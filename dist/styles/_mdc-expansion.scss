@@ -1,14 +1,13 @@
 .mdc-expansion {
 	width: 100%;
 	box-sizing: border-box;
-	outline: none;
+
 	&:last-of-type {
 		border-bottom: 0;
 	}
 	&__summary {
 		height: 48px;
 		display: flex;
-		outline: none;
 		cursor: pointer;
 		align-content: center;
 		position: relative;
@@ -28,7 +27,7 @@
 			justify-content: center;
 			transition: transform 200ms, color 200ms;
 			margin-left: auto;
-			color: rgba(0, 0, 0, .38);
+			color: rgba(0, 0, 0, .54);
 			position: absolute;
 			top: 0;
 			right: 0;

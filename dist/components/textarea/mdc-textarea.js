@@ -43,6 +43,14 @@ function () {
     this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
     this.myMdcTextfield.disabled = this.disabled;
     this.myMdcTextfield.required = this.required;
+
+    if (this.value) {
+      this.myMdcTextfield.value = this.value;
+    }
+  };
+
+  _proto.valueChanged = function valueChanged(newvalue) {
+    this.myMdcTextfield.value = newvalue;
   };
 
   _proto.disabledChanged = function disabledChanged(newvalue) {
