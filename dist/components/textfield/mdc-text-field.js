@@ -59,6 +59,7 @@ function () {
 
   _proto.attached = function attached() {
     this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
+    this.refreshOptions();
   };
 
   _proto.refreshOptions = function refreshOptions() {

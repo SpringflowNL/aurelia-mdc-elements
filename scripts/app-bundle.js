@@ -158,11 +158,12 @@ define('resources/components/checkbox/mdc-checkbox',["exports", "aurelia-framewo
     var _proto = MdcCheckbox.prototype;
 
     _proto.bind = function bind() {
-      this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
+      this.mdcCheckbox = null;
       this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
     };
 
     _proto.attached = function attached() {
+      this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element.firstElementChild);
       this.mdcCheckbox.required = this.required;
       this.mdcCheckbox.disabled = this.disabled;
       this.mdcCheckbox.indeterminate = this.indeterminate;
@@ -848,6 +849,10 @@ define('resources/components/switch/mdc-switch',["exports", "aurelia-framework",
     var _proto = MdcSwitch.prototype;
 
     _proto.bind = function bind() {
+      this.myMDCSwitch = null;
+    };
+
+    _proto.attached = function attached() {
       this.myMDCSwitch = new _mdcSwitch.MDCSwitch(this.element.firstElementChild);
     };
 
@@ -1054,6 +1059,7 @@ define('resources/components/textfield/mdc-text-field',["exports", "aurelia-fram
 
     _proto.attached = function attached() {
       this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
+      this.refreshOptions();
     };
 
     _proto.refreshOptions = function refreshOptions() {

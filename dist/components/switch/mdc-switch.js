@@ -38,6 +38,10 @@ function () {
   var _proto = MdcSwitch.prototype;
 
   _proto.bind = function bind() {
+    this.myMDCSwitch = null;
+  };
+
+  _proto.attached = function attached() {
     this.myMDCSwitch = new _mdcSwitch.MDCSwitch(this.element.firstElementChild);
   };
 

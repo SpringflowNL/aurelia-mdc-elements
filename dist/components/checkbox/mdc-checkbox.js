@@ -44,11 +44,12 @@ function () {
   var _proto = MdcCheckbox.prototype;
 
   _proto.bind = function bind() {
-    this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element);
+    this.mdcCheckbox = null;
     this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   };
 
   _proto.attached = function attached() {
+    this.mdcCheckbox = new _mdcCheckbox.MDCCheckbox(this.element.firstElementChild);
     this.mdcCheckbox.required = this.required;
     this.mdcCheckbox.disabled = this.disabled;
     this.mdcCheckbox.indeterminate = this.indeterminate;
