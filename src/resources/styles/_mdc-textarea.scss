@@ -4,5 +4,47 @@ mdc-textarea,
 	
 	.mdc-text-field {
 		width: 100%;
+		&__input {
+			resize: vertical;
+		}
+	}
+}
+
+.mdc-text-field--readonly {
+	&.mdc-text-field:not(.mdc-text-field--disabled) {
+		border-bottom: none;
+
+		.mdc-floating-label {
+			cursor: default;
+			color: rgba(0, 0, 0, 0.37);
+		}
+	}
+
+	&.mdc-text-field--textarea:not(.mdc-text-field--disabled) {
+		background-color: #f9f9f9;
+
+		.mdc-text-field__input {
+			color: rgba(0, 0, 0, .37);
+			border-bottom: none;
+			cursor: default;
+		}
+
+		.mdc-notched-outline {
+			&__leading,
+			&__notch,
+			&__trailing {
+				border-color: rgba(0, 0, 0, .06) !important;
+			}
+		}
+
+		&.mdc-text-field--focused {
+			.mdc-notched-outline {
+				&__leading,
+				&__notch,
+				&__trailing {
+					border-width: 1px;
+				}
+			}
+		}
 	}
 }
