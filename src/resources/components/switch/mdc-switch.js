@@ -15,10 +15,6 @@ export class MdcSwitch {
     }
 
     bind() {
-        this.myMDCSwitch = null;
-    }
-
-    attached() {
         this.myMDCSwitch = new MDCSwitch(this.element.firstElementChild);
     }
 
