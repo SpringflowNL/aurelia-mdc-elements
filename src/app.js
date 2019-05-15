@@ -15,6 +15,11 @@ export class App {
     this.modifier = null;
     this.leading = null;
     this.trailing = null;
+
+    this.staticArray = [
+      { key: true, value: 'True story' },
+      { key: false, value: 'Bad story' }
+    ];
   }
 
   prefillValues() {
@@ -22,7 +27,7 @@ export class App {
     this.boolvalue = true;
     this.secondary = 'Helper text';
 
-    this.testArray = [
+    this.dynamicArray = [
 		{ key: true, value: 'True story' },
 		{ key: false, value: 'Bad story' }
 	];

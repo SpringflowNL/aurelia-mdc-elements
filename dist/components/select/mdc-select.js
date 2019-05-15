@@ -70,8 +70,6 @@ function () {
       } else {
         _this.requiredChanged(false);
       }
-
-      _this.changedEvent = false;
     });
     this.refreshOptions();
   };
@@ -80,6 +78,8 @@ function () {
     if (!this.changedEvent) {
       this.selectedValue = newvalue;
     }
+
+    this.changedEvent = false;
   };
 
   _proto.refreshOptions = function refreshOptions() {

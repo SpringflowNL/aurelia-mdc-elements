@@ -42,7 +42,6 @@ export class MdcSelect {
                 this.requiredChanged(false);
             }
 
-            this.changedEvent = false;
         });
 
         this.refreshOptions();
@@ -50,8 +49,10 @@ export class MdcSelect {
 
     selectedChanged(newvalue) {
         if (!this.changedEvent) {
-            this.selectedValue = newvalue;
-        }
+            this.selectedValue = newvalue;            
+        }            
+        
+        this.changedEvent = false;
     }
 
     refreshOptions() {
