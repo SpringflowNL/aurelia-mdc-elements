@@ -15,7 +15,7 @@ The Aurelia Custom Elements we're using in the applications, won't be affected.
 
 Recent changes can be found [Here](./CHANGELOG.md)
 
-**Our new demo page is available [Here](https://springflownl.github.io/aurelia-mdc-elements/)**
+**Our demo page is available [Here](https://springflownl.github.io/aurelia-mdc-elements/)**
 
 ## Installation
 You can use NPM to install this package. Install it with the following command:
@@ -27,7 +27,7 @@ npm install aurelia-mdc-elements
 ## Components
 
  - [Checkbox](src/resources/components/checkbox)
- - [Chips (NEW)](src/resources/components/chip)
+ - [Chips](src/resources/components/chip)
  - [Details](src/resources/components/details)
  - [Menu](src/resources/components/menu)
  - [Progress](src/resources/components/progress)
