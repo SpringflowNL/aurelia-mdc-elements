@@ -69,9 +69,10 @@
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details open class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details open class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
-                  <span class="mdc-expansion__header" t="type.type">Custom</span>
+				  <span class="mdc-expansion__header" t="type.type">Custom</span>
+				  <button class="mdc-button mdc-button--raised" click.delegate="prefillValues()">Prefill values</button>
                 </summary>
                 <div class="mdc-expansion__content">
                   <div class="mdc-layout-grid__inner">
@@ -89,15 +90,15 @@
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-radio label.bind="label" disabled.bind="disabled" required.bind="required" checked.bind="boolvalue"
-                        model.bind="true"></mdc-radio>
+                        model.bind="true" name="custom-radio-name"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-checkbox label.bind="label" disabled.bind="disabled" required.bind="required" checked.bind="boolvalue"
-                        secondarylabel.bind="secondary"></mdc-checkbox>
+						secondarylabel.bind="secondary"></mdc-checkbox>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-select label.bind="label" disabled.bind="disabled" required.bind="required" key="key" value="value"
-                        data.bind="testArray" selected.bind="boolvalue" secondarylabel.bind="secondary" leading.bind="leading"></mdc-select>
+                        data.bind="dynamicArray" selected.bind="boolvalue" secondarylabel.bind="secondary" leading.bind="leading"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-chip label.bind="label" disabled.bind="disabled" required.bind="required" leading.bind="leading"
@@ -105,7 +106,7 @@
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-menu label.bind="label" leading.bind="leading">
-                        <div class="mdc-list-item" repeat.for="data of testArray">${data.value}</div>
+                        <div class="mdc-list-item" repeat.for="data of dynamicArray">${data.value}</div>
                       </mdc-menu>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
@@ -120,7 +121,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">TextField</span>
                 </summary>
@@ -218,7 +219,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">TextArea</span>
                 </summary>
@@ -259,12 +260,24 @@
                       <mdc-textarea label="Standard pre-selected" value="Value" secondarylabel="Helper Text" required="true"></mdc-textarea>
                     </div>
                   </div>
+                  <h3>Readonly</h3>
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard" modifier="mdc-text-field--readonly"></mdc-textarea>
+                </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense mdc-text-field--readonly" dense="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard pre-selected" value="Value" secondarylabel="Helper Text" modifier="mdc-text-field--readonly"></mdc-textarea>
+                    </div>
+                  </div>
                 </div>
               </details>
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Select</span>
                 </summary>
@@ -272,76 +285,76 @@
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected.bind="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected.bind="true"
                         leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"></mdc-select>
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                   </div>
                   <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" disabled="true"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected.bind="true"
                         disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected.bind="true"
                         leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                   </div>
                   <h3>Required</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" required="true"></mdc-select>
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected.bind="true"
                         required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Standard" key="key" value="value" data.bind="testArray" selected.bind="true"
+                      <mdc-select label="Standard" key="key" value="value" data.bind="staticArray" selected.bind="true"
                         leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="testArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                   </div>
@@ -350,7 +363,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Checkbox</span>
                 </summary>
@@ -390,7 +403,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Radio</span>
                 </summary>
@@ -398,18 +411,18 @@
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio1" label="Checked" checked="true" model="true"></mdc-radio>
+                      <mdc-radio id="radio1" label="Checked" checked="true" model="true" name="radio-checked"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio2" label="Unchecked"></mdc-radio>
+                      <mdc-radio id="radio2" label="Unchecked" name="radio-unchecked"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio3" label="Standard" secondarylabel="Helper Text"></mdc-radio>
+                      <mdc-radio id="radio3" label="Standard" secondarylabel="Helper Text" name="radio-helpertext"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio4" label="Standard1" name="test"></mdc-radio>
-                      <mdc-radio id="radio5" label="Standard2" name="test"></mdc-radio>
-                      <mdc-radio id="radio6" label="Standard3" name="test"></mdc-radio>
+                      <mdc-radio id="radio4" label="Standard1" name="radio-group"></mdc-radio>
+                      <mdc-radio id="radio5" label="Standard2" name="radio-group"></mdc-radio>
+                      <mdc-radio id="radio6" label="Standard3" name="radio-group"></mdc-radio>
                     </div>
                   </div>
                   <h3>Disabled</h3>
@@ -424,9 +437,9 @@
                       <mdc-radio id="radio9" label="Standard" secondarylabel="Helper Text" disabled="true"></mdc-radio>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-radio id="radio10" label="Standard1" name="test" disabled="true"></mdc-radio>
-                      <mdc-radio id="radio11" label="Standard2" name="test" disabled="true"></mdc-radio>
-                      <mdc-radio id="radio12" label="Standard3" name="test" disabled="true"></mdc-radio>
+                      <mdc-radio id="radio10" label="Standard1" name="radio-group-disabled" disabled="true"></mdc-radio>
+                      <mdc-radio id="radio11" label="Standard2" name="radio-group-disabled" disabled="true"></mdc-radio>
+                      <mdc-radio id="radio12" label="Standard3" name="radio-group-disabled" disabled="true"></mdc-radio>
                     </div>
                   </div>
                 </div>
@@ -434,7 +447,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Progress</span>
                 </summary>
@@ -465,7 +478,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Chips</span>
                 </summary>
@@ -495,7 +508,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie click.trigger="handleSliders()">
+              <details class="mdc-expansion" details-ie click.trigger="handleSliders()">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Sliders</span>
                 </summary>
@@ -617,7 +630,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Tabs</span>
                 </summary>
@@ -698,7 +711,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Cards</span>
                 </summary>
@@ -754,7 +767,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Lists</span>
                 </summary>
@@ -843,7 +856,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" role="menuitem" tabindex="0" details-ie>
+              <details class="mdc-expansion" details-ie>
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Overig</span>
                 </summary>

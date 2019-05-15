@@ -86,6 +86,10 @@ function () {
     this.myMdcTextfield.input_.setAttribute("step", newvalue);
   };
 
+  _proto.valueChanged = function valueChanged(newvalue) {
+    this.myMdcTextfield.value = newvalue;
+  };
+
   _proto.minChanged = function minChanged(newvalue) {
     if (this.type === 'number') {
       this.myMdcTextfield.input_.setAttribute("min", newvalue);

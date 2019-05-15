@@ -1,3 +1,15 @@
+# [2.1.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.5...v2.1.0) (2019-05-15)
+
+## Bugfixed
+- MDCTextfield: Floating label issues
+- ADDED correct tabindexes
+- MDCSelect: Selection issues solved
+- Demopage optimized
+
+## Features
+- Material Design Components: UPDATED 0.41.0 > 2.1.1
+- MDCTextArea: Readonly type added
+
 # [0.41.5] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.3...v0.41.5) (2018-11-09)
 
 ## Bugfixed

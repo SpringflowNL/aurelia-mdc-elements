@@ -7,7 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcSelect = require("@material/select/dist/mdc.select.min");
 
-var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -31,19 +31,22 @@ function () {
 
     _initializerDefineProperty(this, "selected", _descriptor5, this);
 
-    _initializerDefineProperty(this, "disabled", _descriptor6, this);
+    _initializerDefineProperty(this, "selectedValue", _descriptor6, this);
 
-    _initializerDefineProperty(this, "required", _descriptor7, this);
+    _initializerDefineProperty(this, "disabled", _descriptor7, this);
 
-    _initializerDefineProperty(this, "selectLabel", _descriptor8, this);
+    _initializerDefineProperty(this, "required", _descriptor8, this);
 
-    _initializerDefineProperty(this, "secondarylabel", _descriptor9, this);
+    _initializerDefineProperty(this, "selectLabel", _descriptor9, this);
 
-    _initializerDefineProperty(this, "modifier", _descriptor10, this);
+    _initializerDefineProperty(this, "secondarylabel", _descriptor10, this);
 
-    _initializerDefineProperty(this, "leading", _descriptor11, this);
+    _initializerDefineProperty(this, "modifier", _descriptor11, this);
+
+    _initializerDefineProperty(this, "leading", _descriptor12, this);
 
     this.element = element;
+    this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   }
 
   var _proto = MdcSelect.prototype;
@@ -59,6 +62,7 @@ function () {
 
     this.myMdcSelect = new _mdcSelect.MDCSelect(this.element.firstElementChild);
     this.myMdcSelect.listen('change', function () {
+      _this.changedEvent = true;
       _this.selected = _this.myMdcSelect.value; //Set invalid class after first change
 
       if (!_this.myMdcSelect.value && _this.required) {
@@ -70,13 +74,18 @@ function () {
     this.refreshOptions();
   };
 
+  _proto.selectedChanged = function selectedChanged(newvalue) {
+    if (!this.changedEvent) {
+      this.selectedValue = newvalue;
+    }
+
+    this.changedEvent = false;
+  };
+
   _proto.refreshOptions = function refreshOptions() {
     this.myMdcSelect.disabled = this.disabled;
     this.myMdcSelect.required = this.required;
-
-    if (this.selected) {
-      this.addFloatingLabel();
-    }
+    this.selectedValue = this.selected;
   };
 
   _proto.detached = function detached() {
@@ -93,10 +102,6 @@ function () {
     } else {
       this.element.firstElementChild.classList.remove('mdc-select--invalid');
     }
-  };
-
-  _proto.addFloatingLabel = function addFloatingLabel() {
-    this.myMdcSelect.label_.root_.classList.add('mdc-floating-label--float-above');
   };
 
   return MdcSelect;
@@ -125,34 +130,39 @@ function () {
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "disabled", [_aureliaFramework.bindable], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "selectedValue", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "required", [_aureliaFramework.bindable], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "disabled", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "selectLabel", [_aureliaFramework.bindable], {
+}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "required", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "secondarylabel", [_aureliaFramework.bindable], {
+}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "selectLabel", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: null
-}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "modifier", [_aureliaFramework.bindable], {
+}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "secondarylabel", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "modifier", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
   initializer: function initializer() {
     return null;
   }
-}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "leading", [_aureliaFramework.bindable], {
+}), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "leading", [_aureliaFramework.bindable], {
   configurable: true,
   enumerable: true,
   writable: true,
