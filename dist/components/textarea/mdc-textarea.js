@@ -7,7 +7,7 @@ var _aureliaFramework = require("aurelia-framework");
 
 var _mdcTextfield = require("@material/textfield/dist/mdc.textfield.min");
 
-var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
 
 function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -33,15 +33,13 @@ function () {
 
     _initializerDefineProperty(this, "secondarylabel", _descriptor6, this);
 
+    _initializerDefineProperty(this, "myMdcTextfield", _descriptor7, this);
+
     this.element = element;
     this.unique = ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   }
 
   var _proto = MdcTextarea.prototype;
-
-  _proto.bind = function bind() {
-    this.myMdcTextfield = null;
-  };
 
   _proto.attached = function attached() {
     this.myMdcTextfield = new _mdcTextfield.MDCTextField(this.element.firstElementChild);
@@ -54,19 +52,15 @@ function () {
   };
 
   _proto.valueChanged = function valueChanged(newvalue) {
-    this.myMdcTextfield.value = newvalue;
+    if (this.myMdcTextfield) this.myMdcTextfield.value = newvalue;
   };
 
   _proto.disabledChanged = function disabledChanged(newvalue) {
-    this.myMdcTextfield.disabled = newvalue;
+    if (this.myMdcTextfield) this.myMdcTextfield.disabled = newvalue;
   };
 
   _proto.requiredChanged = function requiredChanged(newvalue) {
-    this.myMdcTextfield.required = newvalue;
-  };
-
-  _proto.detached = function detached() {
-    this.myMdcTextfield.destroy();
+    if (this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
   };
 
   return MdcTextarea;
@@ -108,5 +102,10 @@ function () {
   initializer: function initializer() {
     return null;
   }
+}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "myMdcTextfield", [_aureliaFramework.bindable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
 })), _class2)) || _class) || _class);
 exports.MdcTextarea = MdcTextarea;

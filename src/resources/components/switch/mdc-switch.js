@@ -14,15 +14,15 @@ export class MdcSwitch {
         this.unique = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
     }
 
-    bind() {
+    attached() {
         this.myMDCSwitch = new MDCSwitch(this.element.firstElementChild);
     }
 
     disabledChanged(newvalue) {
-        this.myMDCSwitch.disabled = newvalue;
+        if(this.myMDCSwitch) this.myMDCSwitch.disabled = newvalue;
     }
 
     activeChanged(newvalue) {
-        this.myMDCSwitch.checked = newvalue;
+        if(this.myMDCSwitch) this.myMDCSwitch.checked = newvalue;
     }
 }
