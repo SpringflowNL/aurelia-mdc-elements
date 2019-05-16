@@ -75,34 +75,34 @@ function () {
   };
 
   _proto.disabledChanged = function disabledChanged(newvalue) {
-    this.myMdcTextfield.disabled = newvalue;
+    if (this.myMdcTextfield) this.myMdcTextfield.disabled = newvalue;
   };
 
   _proto.requiredChanged = function requiredChanged(newvalue) {
-    this.myMdcTextfield.required = newvalue;
+    if (this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
   };
 
   _proto.stepChanged = function stepChanged(newvalue) {
-    this.myMdcTextfield.input_.setAttribute("step", newvalue);
+    if (this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("step", newvalue);
   };
 
   _proto.valueChanged = function valueChanged(newvalue) {
-    this.myMdcTextfield.value = newvalue;
+    if (this.myMdcTextfield) this.myMdcTextfield.value = newvalue;
   };
 
   _proto.minChanged = function minChanged(newvalue) {
     if (this.type === 'number') {
-      this.myMdcTextfield.input_.setAttribute("min", newvalue);
+      if (this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("min", newvalue);
     } else {
-      this.myMdcTextfield.input_.setAttribute("minlength", newvalue);
+      if (this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("minlength", newvalue);
     }
   };
 
   _proto.maxChanged = function maxChanged(newvalue) {
     if (this.type === 'number') {
-      this.myMdcTextfield.input_.setAttribute("max", newvalue);
+      if (this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("max", newvalue);
     } else {
-      this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
+      if (this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
     }
   };
 

@@ -10,14 +10,11 @@ export class MdcTextarea {
     @bindable required = false;
     @bindable modifier = null;
     @bindable secondarylabel = null;
+    @bindable myMdcTextfield; 
 
     constructor(element) {
         this.element = element;
         this.unique = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-    }
-
-    bind() {
-        this.myMdcTextfield = null;
     }
 
     attached() {
@@ -31,18 +28,14 @@ export class MdcTextarea {
     }
 
     valueChanged(newvalue) {
-        this.myMdcTextfield.value = newvalue;
+        if(this.myMdcTextfield) this.myMdcTextfield.value = newvalue;
     }
 
     disabledChanged(newvalue) {
-        this.myMdcTextfield.disabled = newvalue;
+        if(this.myMdcTextfield) this.myMdcTextfield.disabled = newvalue;
     }
 
     requiredChanged(newvalue) {
-        this.myMdcTextfield.required = newvalue;
-    }
-
-    detached() {
-        this.myMdcTextfield.destroy();
+        if(this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
     }
 }

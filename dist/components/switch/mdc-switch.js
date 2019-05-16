@@ -37,16 +37,16 @@ function () {
 
   var _proto = MdcSwitch.prototype;
 
-  _proto.bind = function bind() {
+  _proto.attached = function attached() {
     this.myMDCSwitch = new _mdcSwitch.MDCSwitch(this.element.firstElementChild);
   };
 
   _proto.disabledChanged = function disabledChanged(newvalue) {
-    this.myMDCSwitch.disabled = newvalue;
+    if (this.myMDCSwitch) this.myMDCSwitch.disabled = newvalue;
   };
 
   _proto.activeChanged = function activeChanged(newvalue) {
-    this.myMDCSwitch.checked = newvalue;
+    if (this.myMDCSwitch) this.myMDCSwitch.checked = newvalue;
   };
 
   return MdcSwitch;
