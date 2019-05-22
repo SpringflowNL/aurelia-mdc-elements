@@ -52,7 +52,7 @@ function () {
   };
 
   _proto.valueChanged = function valueChanged(newvalue) {
-    if (this.myMdcTextfield) this.myMdcTextfield.value = newvalue;
+    if (this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
   };
 
   _proto.disabledChanged = function disabledChanged(newvalue) {

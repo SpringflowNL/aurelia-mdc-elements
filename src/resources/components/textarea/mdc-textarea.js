@@ -28,7 +28,7 @@ export class MdcTextarea {
     }
 
     valueChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.value = newvalue;
+        if(this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
     }
 
     disabledChanged(newvalue) {
