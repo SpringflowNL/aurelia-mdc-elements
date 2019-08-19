@@ -24,7 +24,7 @@ export class MdcSnackbar {
         this.subscripter.dispose();
     }
 
-    showSnackbar(label, buttonLabel = "Cancel", dismissOnAction = true) {
+    showSnackbar(label, buttonLabel = "Close", dismissOnAction = true) {
         this.mdcSnackbar = new MDCSnackbar(this.element);
 
         this.mdcSnackbar.closeOnEscape = dismissOnAction;
