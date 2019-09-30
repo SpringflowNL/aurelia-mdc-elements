@@ -35,7 +35,7 @@ function () {
 
   _proto.showSnackbar = function showSnackbar(label, buttonLabel, dismissOnAction) {
     if (buttonLabel === void 0) {
-      buttonLabel = "Cancel";
+      buttonLabel = "Close";
     }
 
     if (dismissOnAction === void 0) {
