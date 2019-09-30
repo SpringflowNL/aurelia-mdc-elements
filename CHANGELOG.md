@@ -1,3 +1,11 @@
+# [3.2.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v2.1.0...v3.2.0) (2019-09-30)
+
+## Bugfixed
+- MDCTopAppBar: mdc-top-app-bar__navigation-icon changed to match new specs.
+
+## Features
+- Material Design Components: UPDATED 2.1.1 > 3.2.0
+
 # [2.1.0] (https://github.com/SpringflowNL/aurelia-mdc-elements/compare/v0.41.5...v2.1.0) (2019-05-15)
 
 ## Bugfixed
