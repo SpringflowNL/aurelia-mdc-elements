@@ -75,6 +75,7 @@
   "scripts": {
     "lint": "eslint src",
     "pretest": "npm run lint",
+    "watch": "au run",
     "test": "au test",
     "prepare": "au build-plugin",
     "postversion": "git push && git push --tags && npm publish"
