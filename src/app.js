@@ -2,8 +2,8 @@ import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { MDCTopAppBar } from '@material/top-app-bar';
 import { MDCDrawer } from '@material/drawer';
-import { MDCSlider } from '@material/slider';
-import { MDCTabBar } from '@material/tab-bar';
+//import { MDCSlider } from '@material/slider';
+//import { MDCTabBar } from '@material/tab-bar';
 
 @inject(EventAggregator)
 export class App {
@@ -39,17 +39,17 @@ export class App {
     );
     this.drawer = new MDCDrawer(document.querySelector('.mdc-drawer'));
 
-    this.slider = new MDCSlider(this.slider);
-    this.sliderDisabled = new MDCSlider(this.sliderDisabled);
-    this.sliderDiscrete = new MDCSlider(this.sliderDiscrete);
-    this.sliderDiscreteDisabled = new MDCSlider(this.sliderDiscreteDisabled);
-    this.slidertick = new MDCSlider(this.sliderTick);
-    this.slidertickDisabled = new MDCSlider(this.sliderTickDisabled);
+    // this.slider = new MDCSlider(this.slider);
+    // this.sliderDisabled = new MDCSlider(this.sliderDisabled);
+    // this.sliderDiscrete = new MDCSlider(this.sliderDiscrete);
+    // this.sliderDiscreteDisabled = new MDCSlider(this.sliderDiscreteDisabled);
+    // this.slidertick = new MDCSlider(this.sliderTick);
+    // this.slidertickDisabled = new MDCSlider(this.sliderTickDisabled);
 
-    this.tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+    //this.tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 
     this.handleTopAppBarWithDrawer();
-    this.handleSliders();
+    //this.handleSliders();
   }
 
   handleTopAppBarWithDrawer() {
@@ -59,20 +59,20 @@ export class App {
     });
   }
 
-  handleSliders() {
-    const self = this; 
+  // handleSliders() {
+  //   const self = this; 
 
-    setTimeout(function() {
-      self.slider.layout();
-      self.sliderDisabled.layout();
-      self.sliderDiscrete.layout();
-      self.sliderDiscreteDisabled.layout();
-      self.slidertick.layout();
-      self.slidertickDisabled.layout();
-    }, 200);
+  //   setTimeout(function() {
+  //     self.slider.layout();
+  //     self.sliderDisabled.layout();
+  //     self.sliderDiscrete.layout();
+  //     self.sliderDiscreteDisabled.layout();
+  //     self.slidertick.layout();
+  //     self.slidertickDisabled.layout();
+  //   }, 200);
 
-    return true;
-  }
+  //   return true;
+  // }
 
   triggerSnackbar() {
     this.ea.publish('PostMessage.Snackbar', {

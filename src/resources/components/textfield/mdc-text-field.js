@@ -65,7 +65,7 @@ export class MdcTextField {
     }
 
     outlinedChanged(newvalue) {
-        if(this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
+        if(this.myMdcTextfield) this.myMdcTextfield.outlined = newvalue;
     }
 
     minChanged(newvalue) {

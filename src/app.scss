@@ -4,6 +4,11 @@
   $on-primary: #442b2d,
   $on-secondary: #442b2d,
 );
+
+:root {
+  --mdc-theme-primary: #3CC69E;
+  --mdc-theme-secondary: #c63c63;
+}
 //@use 'resources/styles/_aurelia-mdc-elements';
 //@use 'material-components-web/material-components-web';
 
