@@ -1,5 +1,5 @@
 <!--docs:
-title: "Select Helper Text"
+title: "Select helper text"
 layout: detail
 section: components
 excerpt: "The helper text provides supplemental information and/or validation messages to users"
@@ -7,25 +7,13 @@ iconId: menu
 path: /catalog/input-controls/select-menus/helper-text/
 -->
 
-# Select Helper Text
+# Select helper text
 
-Helper text gives context about a select, such as how the selection will be used. It should be visible either persistently or only on focus.
+Helper text gives context about a select, such as how the selection will be used. It should be visible either persistently or only on invalid state.
 
-## Design & API Documentation
+## Basic usage
 
-<ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec">
-    <a href="https://material.io/go/design-text-fields">Material Design guidelines: Text Fields</a>
-  </li>
-  <li class="icon-list-item icon-list-item--link">
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/select">Demo</a>
-  </li>
-</ul>
-
-
-## Basic Usage
-
-### HTML Structure
+### HTML structure
 
 ```html
 <p class="mdc-select-helper-text" aria-hidden="true">
@@ -33,17 +21,10 @@ Helper text gives context about a select, such as how the selection will be used
 
 > NOTE: Make sure there are no white-space characters before helper text content.
 
-### Styles
-
-```scss
-@import "@material/select/helper-text/mdc-select-helper-text";
-```
-
-### JavaScript Instantiation
+### JavaScript instantiation
 
 ```js
 import {MDCSelectHelperText} from '@material/select/helper-text';
-
 const helperText = new MDCSelectHelperText(document.querySelector('.mdc-select-helper-text'));
 ```
 
@@ -51,31 +32,21 @@ const helperText = new MDCSelectHelperText(document.querySelector('.mdc-select-h
 
 Note that in every example where the helper text is dependent on the state of the `select` element, we
 assign an id to the `mdc-select-helper-text` element and set that id to the value of the
-`aria-controls` and `aria-describedby` attributes on the element with either the `mdc-select__native-control` or
-`mdc-select__selected-text` class. We recommend doing this as well as it will help indicate to assistive devices that
+`aria-controls` and `aria-describedby` attributes on the element with the `mdc-select__selected-text` class.
+We recommend doing this as well as it will help indicate to assistive devices that
 the display of the helper text is dependent on the interaction with the MDCSelect component.
 
 ```html
-<div class="mdc-select">
-  <i class="mdc-select__dropdown-icon"></i>
-  <select id="native-select-control" class="mdc-select__native-control" aria-controls="username-helper-text" aria-describedby="username-helper-text">
-    <option value="" disabled selected></option>
-    <option value="grains">
-      Bread, Cereal, Rice, and Pasta
-    </option>
-    <option value="vegetables">
-      Vegetables
-    </option>
-    <option value="fruit">
-      Fruit
-    </option>
-  </select>
-  <label class="mdc-floating-label">Pick a Food Group</label>
-  <div class="mdc-line-ripple"></div>
+<div class="mdc-select mdc-select--filled">
+  <div class="mdc-select__anchor"
+       role="button"
+       aria-haspopup="listbox"
+       aria-labelledby="demo-label demo-selected-text"
+       aria-controls="my-helper-text"
+       aria-describedby="my-helper-text">
+   <!-- rest of main component -->
 </div>
-<p id="username-helper-text" class="mdc-select-helper-text" aria-hidden="true">
-  This will be displayed on your public profile
-</p>
+<p id="my-helper-text" class="mdc-select-helper-text">Helper text</p>
 ```
 
 When using our JS component, if the browser sees that the input element has an `aria-controls`
@@ -84,30 +55,32 @@ text element, taking care of adding/removing `aria-hidden` and other accessibili
 and removing classes and attributes to the helper text element can also be done using the
 MDCSelectHelperText API, which is described below.
 
-## Style Customization
+## API
 
-### CSS Classes
+### CSS classes
 
 CSS Class | Description
 --- | ---
-`mdc-select-helper-text` | Mandatory.
-`mdc-select-helper-text--persistent` | Makes the helper text permanently visible.
-`mdc-select-helper-text--validation-msg` | Indicates the helper text is a validation message.
+`mdc-select-helper-text` | Mandatory. By default non-validation helper text is always visible.
+`mdc-select-helper-text--validation-msg` | Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
+`mdc-select-helper-text--validation-msg-persistent` | When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
 
-### Sass Mixins
+### Sass mixins
 
 Mixin | Description
 --- | ---
-`mdc-select-helper-text-color($color)` | Customizes the color of the helper text following a select.
-`mdc-select-helper-text-validation-color($color)` | Customizes the color of the helper text when it's used as a validation message.
+`helper-text-color($color)` | Customizes the color of the helper text following a select.
+`disabled-helper-text-color($color)` | Customizes the color of the helper text following a select when disabled.
+`helper-text-validation-color($color)` | Customizes the color of the helper text validation message when the select is invalid.
+`hover-helper-text-validation-color($color)` | Customizes the color of the helper text validation message when the select is invalid and hovered.
 
-## `MDCSelectHelperText` Properties and Methods
+## `MDCSelectHelperText` properties and methods
 
 Property | Value Type | Description
 --- | --- | ---
 `foundation` | `MDCSelectHelperTextFoundation` | Returns the helper text's foundation. This allows the parent `MDCSelect` component to access the public methods on the `MDCSelectHelperTextFoundation` class.
 
-## Usage Within Frameworks
+## Usage within frameworks
 
 If you are using a JavaScript framework, such as React or Angular, you can create a Helper Text for your framework. Depending on your needs, you can use the _Simple Approach: Wrapping MDC Web Components_, or the _Advanced Approach: Using Foundations and Adapters_. Please follow the instructions [here](../../../docs/integrating-into-frameworks.md).
 
@@ -126,8 +99,9 @@ Method Signature | Description
 
 Method Signature | Description
 --- | ---
+`getId() => string|null` | Gets the ID of the helper text.
+`isVisible() => boolean` | Returns whether the helper text is visible.
 `setContent(content: string) => void` | Sets the content of the helper text.
-`setPersistent(isPersistent: boolean) => void` | Sets the helper text as persistent.
-`setValidation(isValidation: boolean) => void` | Sets the helper text as a validation message.
-`showToScreenReader() => void` | Makes the helper text visible to the screen reader.
+`setValidation(isValidation: boolean) => void` | Sets the helper text as a validation message. By default, validation messages are hidden when the select is valid and visible when the select is invalid.
+`setValidationMsgPersistent(isPersistent: boolean) => void` | This keeps the validation message visible even if the select is valid, though it will be displayed in the normal (grey) color.
 `setValidity(inputIsValid: boolean) => void` | Sets the validity of the helper text based on the input validity.

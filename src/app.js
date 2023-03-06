@@ -1,9 +1,9 @@
 import { inject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { MDCTopAppBar } from '@material/top-app-bar/dist/mdc.topAppBar';
-import { MDCDrawer } from '@material/drawer/dist/mdc.drawer';
-import { MDCSlider } from '@material/slider/dist/mdc.slider';
-import { MDCTabBar } from '@material/tab-bar/dist/mdc.tabBar';
+import { MDCTopAppBar } from '@material/top-app-bar';
+import { MDCDrawer } from '@material/drawer';
+import { MDCSlider } from '@material/slider';
+import { MDCTabBar } from '@material/tab-bar';
 
 @inject(EventAggregator)
 export class App {

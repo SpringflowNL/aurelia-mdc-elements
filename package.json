@@ -23,7 +23,7 @@
     "url": "git+https://github.com/SpringflowNL/aurelia-mdc-elements.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^7.21.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.2",
     "@babel/polyfill": "^7.0.0",
@@ -37,10 +37,13 @@
     "aurelia-tools": "^2.0.0",
     "babel-eslint": "^10.0.1",
     "bluebird": "^3.5.2",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.28.3",
     "connect-history-api-fallback": "^1.5.0",
+    "css-loader": "^6.7.3",
     "debounce": "^1.2.0",
     "del": "^3.0.0",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-babel": "^8.0.0",
@@ -54,23 +57,28 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.1",
     "jasmine-core": "^3.2.1",
-    "jquery": "^3.3.1",
     "karma": "^3.0.0",
     "karma-babel-preprocessor": "^8.0.0-beta.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
-    "material-components-web": "^3.2.0",
-    "minimatch": "^3.0.4",
+    "material-components-web": "^14.0.0",
+    "minimatch": "^3.1.2",
     "phantomjs": "^2.1.7",
     "requirejs": "^2.3.6",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.0",
     "text": "requirejs/text#latest",
     "through2": "^2.0.3",
-    "vinyl-fs": "^3.0.3"
+    "vinyl-fs": "^3.0.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "aurelia-event-aggregator": "^1.0.1"
+    "aurelia-event-aggregator": "^1.0.1",
+    "jquery": "^3.6.3"
   },
   "scripts": {
     "lint": "eslint src",

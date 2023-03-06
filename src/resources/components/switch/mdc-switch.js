@@ -1,5 +1,5 @@
 ﻿import { inject, customElement, bindable, bindingMode } from 'aurelia-framework';
-import { MDCSwitch } from '@material/switch/dist/mdc.switch.min';
+import { MDCSwitch } from '@material/switch';
 
 
 @customElement('mdc-switch')

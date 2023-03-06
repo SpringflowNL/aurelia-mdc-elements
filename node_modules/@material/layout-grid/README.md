@@ -9,13 +9,6 @@ path: /catalog/layout-grid/
 
 # Layout Grid
 
-<!--<div class="article__asset">
-  <a class="article__asset-link"
-     href="https://material-components.github.io/material-components-web-catalog/#/component/layout-grid">
-    <img src="{{ site.rootpath }}/images/mdc_web_screenshots/layout.png" width="256" alt="Layout grid screenshot">
-  </a>
-</div>-->
-
 Material design’s responsive UI is based on a column-variate grid layout. It has 12 columns on desktop, 8 columns on tablet and 4 columns on phone.
 
 
@@ -76,7 +69,7 @@ However, the Material Design guidelines do not recommend having a deeply nested 
 ### Styles
 
 ```scss
-@import "@material/layout-grid/mdc-layout-grid";
+@use "@material/layout-grid/mdc-layout-grid";
 ```
 
 ### CSS Classes
@@ -149,7 +142,7 @@ Generates CSS for a grid container on certain device type. The mixin takes three
 - `$margin`: the size of the grid margin.
 - `$max-width` (optional): the maximum width of the grid, at which point space stops being distributed by the columns.
 
-#### `mdc-layout-grid-inner($size, $margin, $max-width)`
+#### `mdc-layout-grid-inner($size, $margin, $gutter)`
 
 Generates CSS for a grid cell wrapper on certain device type. The mixin takes three parameters:
 - `$size`: the target platform: `desktop`, `tablet` or `phone`.

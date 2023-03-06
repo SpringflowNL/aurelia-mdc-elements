@@ -7,38 +7,98 @@ iconId: selection_control
 path: /catalog/input-controls/checkboxes/
 -->
 
-# Checkboxes
+# Selection controls: checkboxes
 
-<!--<div class="article__asset">
-  <a class="article__asset-link"
-     href="https://material-components.github.io/material-components-web-catalog/#/component/checkbox">
-    <img src="{{ site.rootpath }}/images/mdc_web_screenshots/checkboxes.png"
-    width="99" alt="Checkbox screenshot">
-  </a>
-</div>-->
+[Selection controls](https://material.io/components/selection-controls#usage) allow the user to select options.
 
-Checkboxes allow the user to select one or more items from a set.
+Use checkboxes to:
 
-## Design & API Documentation
+* Select one or more options from a list
+* Present a list containing sub-selections
+* Turn an item on or off in a desktop environment
 
-<ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec">
-    <a href="https://material.io/go/design-checkboxes">Material Design guidelines: Selection Controls – Checkbox</a>
-  </li>
-  <li class="icon-list-item icon-list-item--link">
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/checkbox">Demo</a>
-  </li>
-</ul>
+![Checkbox hero example for menu options](images/checkbox-hero.png)
 
-## Installation
+**Contents**
+
+* [Using checkboxes](#using-checkboxes)
+* [Checkboxes](#checkboxes)
+* [Other variants](#other-variants)
+* [API](#api)
+* [Usage within web frameworks](#usage-within-web-frameworks)
+
+## Using checkboxes
+
+Checkboxes allow the user to select one or more items from a set. Checkboxes can be used to turn an option on or off.
+
+### Installing checkboxes
 
 ```
 npm install @material/checkbox
 ```
 
-## Basic Usage
+### Styles
+
+```scss
+@use "@material/checkbox";
+@use "@material/form-field";
+
+@include checkbox.core-styles;
+@include form-field.core-styles;
+```
+
+**Note: The form field styles are only required when the checkbox is used with the form field.**
+
+### JavaScript instantiation
+
+The checkbox will work without JavaScript, but you can enhance it with a ripple interaction effect by instantiating `MDCCheckbox` on the `mdc-checkbox` element. To activate the ripple effect upon interacting with the label, you must also instantiate `MDCFormField` on the `mdc-form-field` element and set the `MDCCheckbox` instance as its `input`.
+
+```js
+import {MDCFormField} from '@material/form-field';
+import {MDCCheckbox} from '@material/checkbox';
+
+const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
+const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+formField.input = checkbox;
+```
+
+> See [Importing the JS component](../../docs/importing-js.md) for more information on how to import JavaScript.
+
+### Making checkboxes accessible
+
+Material Design spec advises that touch targets should be at least 48px x 48px.
+To meet this requirement, add the `mdc-checkbox--touch` class to your checkbox as follows:
+
+```html
+<div class="mdc-touch-target-wrapper">
+  <div class="mdc-checkbox mdc-checkbox--touch">
+    <input type="checkbox"
+           class="mdc-checkbox__native-control"
+           id="checkbox-1"/>
+    <div class="mdc-checkbox__background">
+      <svg class="mdc-checkbox__checkmark"
+           viewBox="0 0 24 24">
+        <path class="mdc-checkbox__checkmark-path"
+              fill="none"
+              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+      </svg>
+      <div class="mdc-checkbox__mixedmark"></div>
+    </div>
+    <div class="mdc-checkbox__ripple"></div>
+    <div class="mdc-checkbox__focus-ring"></div>
+  </div>
+</div>
+```
+
+Note that the outer `mdc-touch-target-wrapper` element is only necessary if you want to avoid potentially overlapping touch targets on adjacent elements (due to collapsing margins).
+
+The `mdc-checkbox__focus-ring` element ensures that a focus indicator is displayed in high contrast mode around the active/focused checkbox.
+
+## Checkboxes
 
 We recommend using MDC Checkbox with [MDC Form Field](../mdc-form-field) for enhancements such as label alignment, label activation of the ripple interaction effect, and RTL-awareness.
+
+### Checkbox example
 
 ```html
 <div class="mdc-form-field">
@@ -55,38 +115,24 @@ We recommend using MDC Checkbox with [MDC Form Field](../mdc-form-field) for enh
       </svg>
       <div class="mdc-checkbox__mixedmark"></div>
     </div>
+    <div class="mdc-checkbox__ripple"></div>
+    <div class="mdc-checkbox__focus-ring"></div>
   </div>
   <label for="checkbox-1">Checkbox 1</label>
 </div>
 ```
 
-> **Note**: If you are using IE, you need to include a closing `</path>` tag if you wish to avoid console warnings.
+**Note: If you are using IE, you need to include a closing `</path>` tag if you wish to avoid console warnings.**
 
-### Styles
+### Checkbox states
 
-```scss
-@import "@material/form-field/mdc-form-field";
-@import "@material/checkbox/mdc-checkbox";
-```
+Checkboxes can be selected, unselected, or indeterminate. Checkboxes have enabled, disabled, hover, focused, and pressed states.
 
-### JavaScript Instantiation
+![Checkbox states in a table. Columns are enabled, disabled, hover, focused, pressed. Rows are selected, unselected, or indeterminite](images/checkbox-states.png)
 
-The checkbox will work without JavaScript, but you can enhance it with a ripple interaction effect by instantiating `MDCCheckbox` on the `mdc-checkbox` element. To activate the ripple effect upon interacting with the label, you must also instantiate `MDCFormField` on the `mdc-form-field` element and set the `MDCCheckbox` instance as its `input`.
+## Other variants
 
-```js
-import {MDCFormField} from '@material/form-field';
-import {MDCCheckbox} from '@material/checkbox';
-
-const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
-const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
-formField.input = checkbox;
-```
-
-> See [Importing the JS component](../../docs/importing-js.md) for more information on how to import JavaScript.
-
-## Variants
-
-### Disabled
+### Disabled checkboxes
 
 Note that `mdc-checkbox--disabled` is necessary on the root element of CSS-only checkboxes to prevent hover states from activating. Checkboxes that use the JavaScript component do not need this class; a `disabled` attribute on the `<input>` element is sufficient.
 
@@ -105,42 +151,56 @@ Note that `mdc-checkbox--disabled` is necessary on the root element of CSS-only 
     </svg>
     <div class="mdc-checkbox__mixedmark"></div>
   </div>
+  <div class="mdc-checkbox__ripple"></div>
+  <div class="mdc-checkbox__focus-ring"></div>
 </div>
 <label for="basic-disabled-checkbox" id="basic-disabled-checkbox-label">This is my disabled checkbox</label>
 ```
 
-## Style Customization
+### Indeterminate checkboxes
+
+Note that `data-indeterminate="true"` is necessary on the input element for initial render, or in a CSS-only mode. Checkboxes that use the Javascript component can modify the `indeterminate` property at runtime.
+
+```html
+<div class="mdc-checkbox">
+  <input type="checkbox"
+         id="basic-indeterminate-checkbox"
+         class="mdc-checkbox__native-control"
+         data-indeterminate="true"/>
+  <div class="mdc-checkbox__background">
+    <svg class="mdc-checkbox__checkmark"
+         viewBox="0 0 24 24">
+      <path class="mdc-checkbox__checkmark-path"
+            fill="none"
+            d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+    </svg>
+    <div class="mdc-checkbox__mixedmark"></div>
+  </div>
+  <div class="mdc-checkbox__ripple"></div>
+  <div class="mdc-checkbox__focus-ring"></div>
+</div>
+<label for="basic-indeterminate-checkbox" id="basic-indeterminate-checkbox-label">This is my indeterminate checkbox</label>
+```
+
+## API
+
+### Sass mixins
 
 MDC Checkbox uses [MDC Theme](../mdc-theme)'s `secondary` color by default for "marked" states (i.e., checked or indeterminate).
 
-### Sass Mixins
-
-The following mixins apply only to _enabled_ checkboxes. It is not currently possible to customize the color of a _disabled_ checkbox.
-
 Mixin | Description
 --- | ---
-`mdc-checkbox-container-colors($unmarked-stroke-color, $unmarked-fill-color, $marked-stroke-color, $marked-fill-color, $generate-keyframes)` | Generates CSS classes to set and animate the stroke color and/or container fill color of a checkbox
-`mdc-checkbox-ink-color($color)` | Sets the ink color of the checked and indeterminate icons
-`mdc-checkbox-focus-indicator-color($color)` | Sets the color of the focus indicator (ripple) when checkbox is selected or is in indeterminate state.
-`mdc-checkbox-touch-dimension($touch-dimension)` | Sets the touch dimension of the checkbox.
+`container-colors($unmarked-stroke-color, $unmarked-fill-color, $marked-stroke-color, $marked-fill-color, $generate-keyframes)` | Sets stroke & fill colors for both marked and unmarked state of enabled checkbox. Set $generate-keyframes to false to prevent the mixin from generating @keyframes.
+`disabled-container-colors($unmarked-stroke-color, $unmarked-fill-color, $marked-stroke-color, $marked-fill-color)` | Sets stroke & fill colors for both marked and unmarked state of disabled checkbox.
+`ink-color($color)` | Sets the ink color of the checked and indeterminate icons for an enabled checkbox
+`disabled-ink-color($color)` | Sets the ink color of the checked and indeterminate icons for a disabled checkbox
+`focus-indicator-color($color)` | Sets the color of the focus indicator (ripple) when checkbox is selected or is in indeterminate state.
+`ripple-size($ripple-size)` | Sets the ripple size of the checkbox.
+`density($density-scale)` | Sets density scale for checkbox, Supported density scales are `-3`, `-2`, `-1`, and `0` (default).
 
 The ripple effect for the Checkbox component is styled using [MDC Ripple](../mdc-ripple) mixins.
 
-#### `mdc-checkbox-container-colors($unmarked-stroke-color, $unmarked-fill-color, $marked-stroke-color, $marked-fill-color, $generate-keyframes)`
-
-Stroke and fill color may be customized independently in both the marked and unmarked state.
-
-All parameters are optional, and if left unspecified will use their default values.
-
-If you plan to use CSS-only checkboxes, set `$generate-keyframes` to `false` to prevent the mixin from generating `@keyframes` and CSS classes used by the JavaScript component.
-
-#### Caveat: Edge and CSS Variables
-
-In browsers that fully support CSS variables, MDC Checkbox references CSS variables wherever theme properties are used.
-However, due to Edge's buggy CSS variable support, the `background-color` for `.mdc-checkbox__background::before` will not honor CSS variables in Edge.
-This means you will need to override this style manually for Edge if you alter the CSS variable for the primary color.
-
-## `MDCCheckbox` Properties and Methods
+### `MDCCheckbox` properties and methods
 
 Property Name | Type | Description
 --- | --- | ---
@@ -149,7 +209,7 @@ Property Name | Type | Description
 `disabled` | `boolean` | Setter/getter for the checkbox's disabled state
 `value` | `string` | Setter/getter for the checkbox's
 
-## Usage within Web Frameworks
+## Usage within web frameworks
 
 If you are using a JavaScript framework, such as React or Angular, you can create a Checkbox for your framework. Depending on your needs, you can use the _Simple Approach: Wrapping MDC Web Vanilla Components_, or the _Advanced Approach: Using Foundations and Adapters_. Please follow the instructions [here](../../docs/integrating-into-frameworks.md).
 

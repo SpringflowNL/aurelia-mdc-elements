@@ -1,15 +1,11 @@
-$mdc-theme-primary: darken(#009688, 5%) !default;
-$mdc-theme-secondary: #00adee !default;
-$mdc-theme-background: #fff !default;
-
-:root {
-	--mdc-theme-primary: #{$mdc-theme-primary} !important;
-	--mdc-theme-secondary: #{$mdc-theme-secondary} !important;
-	--mdc-theme-background: #{$mdc-theme-background} !important;
-}
-
-@import 'resources/styles/_aurelia-mdc-elements';
-@import 'material-components-web/material-components-web';
+@use "@material/theme" with (
+  $primary: #fcb8ab,
+  $secondary: #feeae6,
+  $on-primary: #442b2d,
+  $on-secondary: #442b2d,
+);
+//@use 'resources/styles/_aurelia-mdc-elements';
+//@use 'material-components-web/material-components-web';
 
 /* Drawer - based on drawer in combination with mdc-top-app-bar */
 body {
