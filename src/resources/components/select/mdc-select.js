@@ -29,7 +29,7 @@ export class MdcSelect {
         }
     }
 
-    attached() { debugger
+    attached() {
         this.myMdcSelect = new MDCSelect(this.element.firstElementChild);
 
         this.myMdcSelect.listen('MDCSelect:change', () => {
