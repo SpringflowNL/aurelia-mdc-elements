@@ -20,4 +20,5 @@
 // THE SOFTWARE.
 //
 
-$mdc-icon-button-size: 24px !default;
+/// @deprecated Import './icon-button-theme' module instead.
+@forward './icon-button-theme' show $icon-size, $size, $minimum-height, $maximum-height, $density-scale, $density-config;

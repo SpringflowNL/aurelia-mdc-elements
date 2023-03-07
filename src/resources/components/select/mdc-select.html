@@ -1,4 +1,4 @@
-﻿<template>
+﻿<!-- <template>
 	<div class="mdc-select ${disabled ? 'mdc-select--disabled' : ''} ${modifier ? modifier : ''} ${leading ? 'mdc-select--with-leading-icon' : ''}">
 		<i if.bind="leading" class="material-icons mdc-select__icon" role="button">${leading}</i>
 		<i class="mdc-select__dropdown-icon"></i>
@@ -22,4 +22,76 @@
 	<p if.bind="secondarylabel" class="mdc-select-helper-text mdc-select-helper-text--persistent" aria-hidden="true">
 		${secondarylabel}
 	</p>
+</template> -->
+
+
+<template>
+	<template if.bind="outlined">
+		<div class="mdc-select mdc-select--outlined ${disabled ? 'mdc-select--disabled' : ''}">
+		<div class="mdc-select__anchor" aria-labelledby="select--${unique}">
+		  <span class="mdc-notched-outline">
+			<span class="mdc-notched-outline__leading"></span>
+			<span class="mdc-notched-outline__notch">
+			  <span id="select--${unique}" class="mdc-floating-label ${selectedValue || selectedValue == 'false' ? 'mdc-floating-label--float-above' : ''}">${label}</span>
+			</span>
+			<span class="mdc-notched-outline__trailing"></span>
+		  </span>
+		  <span class="mdc-select__selected-text-container">
+			<span id="demo-selected-text" class="mdc-select__selected-text"></span>
+		  </span>
+		  <span class="mdc-select__dropdown-icon">
+			<svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+			  <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+			  <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+			</svg>
+		  </span>
+		</div>
+	  
+		<div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+			<ul class="mdc-deprecated-list" role="listbox" aria-label="Food picker listbox">
+			  <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" aria-selected="true" data-value="" role="option">
+				<span class="mdc-deprecated-list-item__ripple"></span>
+			  </li>
+			  <li class="mdc-deprecated-list-item" aria-selected="false" data-value="grains" role="option" value.bind="item[key]" repeat.for="item of data" selected.bind="item[key] == selectedValue">
+				<span class="mdc-deprecated-list-item__ripple"></span>
+				<span class="mdc-deprecated-list-item__text">
+				  Bread, Cereal, Rice, and Pasta
+				</span>
+			  </li>
+			</ul>
+		  </div>
+	  </div>
+	</template>
+	<template else>
+		<div class="mdc-select mdc-select--filled ${disabled ? 'mdc-select--disabled' : ''}">
+			<div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="select--${unique}">
+			  <span class="mdc-select__ripple"></span>
+			  <span id="select--${unique}" class="mdc-floating-label ${selectedValue || selectedValue == 'false' ? 'mdc-floating-label--float-above' : ''}">${label}</span>
+			  <span class="mdc-select__selected-text-container">
+				<span id="demo-selected-text" class="mdc-select__selected-text"></span>
+			  </span>
+			  <span class="mdc-select__dropdown-icon">
+				<svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+				  <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+				  <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+				</svg>
+			  </span>
+			  <span class="mdc-line-ripple"></span>
+			</div>
+		  
+			<div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+			  <ul class="mdc-deprecated-list" role="listbox" aria-label="${label}">
+				<li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" aria-selected="true" data-value="" role="option">
+				  <span class="mdc-deprecated-list-item__ripple"></span>
+				</li>
+				<li class="mdc-deprecated-list-item" aria-selected="false" data-value="${item[value]}" role="option" value.bind="item[key]" repeat.for="item of data" selected.bind="item[key] == selectedValue">
+				  <span class="mdc-deprecated-list-item__ripple"></span>
+				  <span class="mdc-deprecated-list-item__text">
+					${item[value]}
+				  </span>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+	</template>
 </template>

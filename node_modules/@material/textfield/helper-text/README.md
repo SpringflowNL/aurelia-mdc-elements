@@ -1,5 +1,5 @@
 <!--docs:
-title: "Text Field Helper Text"
+title: "Text field helper text"
 layout: detail
 section: components
 excerpt: "The helper text provides supplemental information and/or validation messages to users"
@@ -7,21 +7,13 @@ iconId: text_field
 path: /catalog/input-controls/text-field/helper-text/
 -->
 
-# Text Field Helper Text
+# Text field helper text
 
 Helper text gives context about a field’s input, such as how the input will be used. It should be visible either persistently or only on focus.
 
-## Design & API Documentation
+## Basic usage
 
-<ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec">
-    <a href="https://material.io/go/design-text-fields#text-fields-layout">Material Design guidelines: Text Fields Layout</a>
-  </li>
-</ul>
-
-## Basic Usage
-
-### HTML Structure
+### HTML structure
 
 ```html
 <div class="mdc-text-field-helper-text" aria-hidden="true">helper text</div>
@@ -32,10 +24,12 @@ Helper text gives context about a field’s input, such as how the input will be
 ### Styles
 
 ```scss
-@import "@material/textfield/helper-text/mdc-text-field-helper-text";
+@use "@material/textfield/helper-text";
+
+@include helper-text.helper-text-core-styles;
 ```
 
-### JavaScript Instantiation
+### JavaScript instantiation
 
 ```js
 import {MDCTextFieldHelperText} from '@material/textfield/helper-text';
@@ -52,13 +46,15 @@ indicate to assistive devices that the display of the helper text is dependent o
 the input element.
 
 ```html
-<div class="mdc-text-field">
-  <input type="text" id="username" class="mdc-text-field__input"
+<label class="mdc-text-field mdc-text-field--filled">
+  <span class="mdc-text-field__ripple"></span>
+  <span class="mdc-floating-label" id="my-label-id">Username</span>
+  <input class="mdc-text-field__input" type="text"
+         aria-labelledby="my-label-id"
          aria-controls="username-helper-text"
          aria-describedby="username-helper-text">
-  <label for="username" class="mdc-floating-label">Username</label>
-  <div class="mdc-line-ripple"></div>
-</div>
+  <span class="mdc-line-ripple"></span>
+</label>
 <div class="mdc-text-field-helper-line">
   <div id="username-helper-text" class="mdc-text-field-helper-text" aria-hidden="true">
     This will be displayed on your public profile
@@ -66,9 +62,9 @@ the input element.
 </div>
 ```
 
-## Style Customization
+## API
 
-### CSS Classes
+### CSS classes
 
 CSS Class | Description
 --- | ---
@@ -76,20 +72,21 @@ CSS Class | Description
 `mdc-text-field-helper-text--persistent` | Makes the helper text permanently visible.
 `mdc-text-field-helper-text--validation-msg` | Indicates the helper text is a validation message.
 
-### Sass Mixins
+### Sass mixins
 
 Mixin | Description
 --- | ---
-`mdc-text-field-helper-text-color($color)` | Customizes the color of the helper text following a text-field.
-`mdc-text-field-helper-text-validation-color($color)` | Customizes the color of the helper text when it's used as a validation message.
+`helper-text-color($color)` | Customizes the color of the helper text following an enabled text-field.
+`disabled-helper-text-color($color)` | Customizes the color of the helper text following a disabled text-field.
+`helper-text-validation-color($color)` | Customizes the color of the helper text when it's used as a validation message.
 
-## `MDCTextFieldHelperText` Properties and Methods
+## `MDCTextFieldHelperText` properties and methods
 
 Property | Value Type | Description
 --- | --- | ---
 `foundation` | `MDCTextFieldHelperTextFoundation` | Returns the helper text's foundation. This allows the parent `MDCTextField` component to access the public methods on the `MDCTextFieldHelperTextFoundation` class.
 
-## Usage Within Frameworks
+## Usage within frameworks
 
 If you are using a JavaScript framework, such as React or Angular, you can create a Helper Text for your framework. Depending on your needs, you can use the _Simple Approach: Wrapping MDC Web Vanilla Components_, or the _Advanced Approach: Using Foundations and Adapters_. Please follow the instructions [here](../../../docs/integrating-into-frameworks.md).
 

@@ -1,5 +1,5 @@
 import { bindable, customElement, inject, bindingMode } from 'aurelia-framework';
-import { MDCTextField } from '@material/textfield/dist/mdc.textfield.min';
+import { MDCTextField } from '@material/textfield';
 
 @customElement('mdc-textarea')
 @inject(Element)
@@ -11,6 +11,7 @@ export class MdcTextarea {
     @bindable modifier = null;
     @bindable secondarylabel = null;
     @bindable myMdcTextfield; 
+    @bindable outlined = true;
 
     constructor(element) {
         this.element = element;
@@ -21,6 +22,7 @@ export class MdcTextarea {
         this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
         this.myMdcTextfield.disabled = this.disabled;
         this.myMdcTextfield.required = this.required;
+        this.myMdcTextfield.outlined = this.outlined;
 
         if (this.value) {
             this.myMdcTextfield.value = this.value;
@@ -37,5 +39,9 @@ export class MdcTextarea {
 
     requiredChanged(newvalue) {
         if(this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
+    }
+
+    outlinedChanged(newvalue) {
+        if(this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
     }
 }

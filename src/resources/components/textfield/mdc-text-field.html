@@ -1,4 +1,4 @@
-﻿<template>
+﻿<!-- <template>
 	<div class="mdc-text-field ${disabled ? 'mdc-text-field--disabled' : ''} ${label ? '' : 'mdc-text-field--no-label'} ${modifier ? modifier : ''} ${leading ? 'mdc-text-field--with-leading-icon' : ''} ${trailing ? 'mdc-text-field--with-trailing-icon' : ''}">
 		<i if.bind="leading" class="material-icons mdc-text-field__icon" role="button">${leading}</i>
 		<input type="${type}" id="text-field--${unique}" class="mdc-text-field__input" value.bind="value">
@@ -18,4 +18,32 @@
 	<div if.bind="secondarylabel" class="mdc-text-field-helper-line">
 		<div class="mdc-text-field-helper-text">${secondarylabel}</div>
 	</div>
+</template> -->
+
+<template>
+	<template if.bind="outlined">
+		<label class="mdc-text-field mdc-text-field--outlined ${disabled ? 'mdc-text-field--disabled' : ''} ${value || value == '0' || value == 'false' ? 'mdc-text-field--label-floating' : ''} ${leading ? 'mdc-text-field--with-leading-icon' : ''} ${trailing ? 'mdc-text-field--with-trailing-icon' : ''}">
+			<span class="mdc-notched-outline">
+			  <span class="mdc-notched-outline__leading"></span>
+			  <span if.bind="label" class="mdc-notched-outline__notch">
+				<span class="mdc-floating-label ${value || value == '0' || value == 'false' ? 'mdc-floating-label--float-above' : ''}" id="text-field--${unique}">${label}</span>
+			  </span>
+			  <span class="mdc-notched-outline__trailing"></span>
+			</span>
+			<i if.bind="leading" class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">${leading}</i>
+			<input type="text" class="mdc-text-field__input" aria-labelledby="text-field--${unique}" value.bind="value" required.bind="required">  
+			<i if.bind="trailing" class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">${trailing}</i>
+		  </label>
+	</template>
+
+	<template else>
+		<label class="mdc-text-field mdc-text-field--filled ${disabled ? 'mdc-text-field--disabled' : ''} ${value || value == '0' || value == 'false' ? 'mdc-text-field--label-floating' : ''} ${leading ? 'mdc-text-field--with-leading-icon' : ''} ${trailing ? 'mdc-text-field--with-trailing-icon' : ''}">
+			<span class="mdc-text-field__ripple"></span>
+			<span if.bind="label" class="mdc-floating-label ${value || value == '0' || value == 'false' ? 'mdc-floating-label--float-above' : ''}" id="text-field--${unique}">${label}</span>
+			<i if.bind="leading" class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">${leading}</i>
+			<input class="mdc-text-field__input" type="text" aria-labelledby="text-field--${unique}" value.bind="value" required.bind="required">
+			<i if.bind="trailing" class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">${trailing}</i>
+			<span class="mdc-line-ripple"></span>
+		</label>
+	</template>
 </template>

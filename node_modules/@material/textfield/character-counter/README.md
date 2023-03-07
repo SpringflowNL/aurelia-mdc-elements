@@ -1,5 +1,5 @@
 <!--docs:
-title: "Text Field Character Counter"
+title: "Text field character counter"
 layout: detail
 section: components
 excerpt: "Character counter displays the ratio of characters used and the total character limit"
@@ -7,21 +7,13 @@ iconId: text_field
 path: /catalog/input-controls/text-field/character-counter/
 -->
 
-# Text Field Character Counter
+# Text field character counter
 
 Character counter is used if there is a character limit. It displays the ratio of characters used and the total character limit.
 
-## Design & API Documentation
+## Basic usage
 
-<ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec">
-    <a href="https://material.io/go/design-text-fields#text-fields-layout">Material Design guidelines: Text Fields Layout</a>
-  </li>
-</ul>
-
-## Basic Usage
-
-### HTML Structure
+### HTML structure
 
 ```html
 <div class="mdc-text-field-character-counter">0 / 140</div>
@@ -33,10 +25,12 @@ Character counter is used if there is a character limit. It displays the ratio o
 ### Styles
 
 ```scss
-@import "@material/textfield/character-counter/mdc-text-field-character-counter";
+@use "@material/textfield/character-counter";
+
+@include character-counter.character-counter-core-styles;
 ```
 
-### JavaScript Instantiation
+### JavaScript instantiation
 
 ```js
 import {MDCTextFieldCharacterCounter} from '@material/textfield/character-counter';
@@ -44,28 +38,29 @@ import {MDCTextFieldCharacterCounter} from '@material/textfield/character-counte
 const characterCounter = new MDCTextFieldCharacterCounter(document.querySelector('.mdc-text-field-character-counter'));
 ```
 
-## Style Customization
+## API
 
-### CSS Classes
+### CSS classes
 
 CSS Class | Description
 --- | ---
 `mdc-text-field-character-counter` | Mandatory.
 
-### Sass Mixins
+### Sass mixins
 
 Mixin | Description
 --- | ---
-`mdc-text-field-character-counter-color($color)` | Customizes the color of the character counter associated with text field.
+`mdc-text-field-character-counter-color($color)` | Customizes the color of the character counter associated with an enabled text field.
+`mdc-text-field-disabled-character-counter-color($color)` | Customizes the color of the character counter associated with a disabled text field.
 `mdc-text-field-character-counter-position($xOffset, $yOffset)` | Positions the character counter element inside text field. Used only for textarea variant.
 
-## `MDCTextFieldCharacterCounter` Properties and Methods
+## `MDCTextFieldCharacterCounter` properties and methods
 
 Property | Value Type | Description
 --- | --- | ---
 `foundation` | `MDCTextFieldCharacterCounterFoundation` | Returns the character counter's foundation. This allows the parent `MDCTextField` component to access the public methods on the `MDCTextFieldCharacterCounterFoundation` class.
 
-## Usage Within Frameworks
+## Usage within frameworks
 
 If you are using a JavaScript framework, such as React or Angular, you can create a Character Counter for your framework. Depending on your needs, you can use the _Simple Approach: Wrapping MDC Web Vanilla Components_, or the _Advanced Approach: Using Foundations and Adapters_. Please follow the instructions [here](../../../docs/integrating-into-frameworks.md).
 

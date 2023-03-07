@@ -9,13 +9,6 @@ path: /catalog/linear-progress/
 
 # Linear Progress
 
-<!--<div class="article__asset">
-  <a class="article__asset-link"
-      href="https://material-components.github.io/material-components-web-catalog/#/component/linear-progress-indicator">
-    <img src="{{ site.rootpath }}/images/mdc_web_screenshots/linear-progress.png" width="586" alt="Linear progress screenshot">
-  </a>
-</div>-->
-
 The MDC Linear Progress component is a spec-aligned linear progress indicator component adhering to the
 [Material Design progress & activity requirements](https://material.io/go/design-progress-indicators).
 
@@ -39,10 +32,13 @@ npm install @material/linear-progress
 ## Basic Usage
 
 ### HTML Structure
+
 ```html
-<div role="progressbar" class="mdc-linear-progress">
-  <div class="mdc-linear-progress__buffering-dots"></div>
-  <div class="mdc-linear-progress__buffer"></div>
+<div role="progressbar" class="mdc-linear-progress" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+  <div class="mdc-linear-progress__buffer">
+    <div class="mdc-linear-progress__buffer-bar"></div>
+    <div class="mdc-linear-progress__buffer-dots"></div>
+  </div>
   <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
     <span class="mdc-linear-progress__bar-inner"></span>
   </div>
@@ -52,9 +48,29 @@ npm install @material/linear-progress
 </div>
 ```
 
+### Accessibility
+
+Progress bars conform to the [WAI-ARIA Progressbar Specification](https://www.w3.org/TR/wai-aria/#progressbar). The supported ARIA attributes for this progress bar are:
+
+| Attribute | Description |
+| --------- | ----------- |
+| `aria-label` | Label indicating how the progress bar should be announced to the user. |
+| `aria-valuemin` | The minimum numeric value of the progress bar, which should always be `0`. |
+| `aria-valuemax` | The maximum numeric value of the progress bar, which should always be `1`. |
+| `aria-valuenow` | A numeric value between `aria-valuemin` and `aria-valuemax` indicating the progress value of the primary progress bar. This attribute is removed in indeterminate progress bars. |
+
+Note that `aria-label`, `aria-valuemin`, and `aria-valuemax` are static and must be configured in the HTML. `aria-valuenow` is updated dynamically by the foundation when the progress value is updated in determinate progress bars.
+
+### RTL Localization
+
+The direction of the progress bar follows the `dir` attribute on its nearest ancestor. For example, setting `dir="rtl"` on the progress root reverses the direction of the indicator.
+Where multiple `dir` attributes are specified in the tree, the one on the progress bar root takes precedence.
+
 ### Styles
 ```scss
-@import "@material/linear-progress/mdc-linear-progress";
+@use "@material/linear-progress";
+
+@include linear-progress.core-styles;
 ```
 
 ### JavaScript Instantiation
@@ -74,15 +90,14 @@ The provided modifiers are:
 | Class                 | Description                                             |
 | --------------------- | ------------------------------------------------------- |
 | `mdc-linear-progress--indeterminate`   | Puts the linear progress indicator in an indeterminate state. |
-| `mdc-linear-progress--reversed`  | Reverses the direction of the linear progress indicator.   |
 | `mdc-linear-progress--closed`  | Hides the linear progress indicator. |
 
 ### Sass Mixins
 
 Mixin | Description
 --- | ---
-`mdc-linear-progress-bar-color($color)` | Sets the color of the progress bar
-`mdc-linear-progress-buffer-color($color)` | Sets the color of the buffer bar and dots
+`bar-color($color)` | Sets the color of the progress bar
+`buffer-color($color)` | Sets the color of the buffer bar and dots
 
 ### Using the Foundation Class
 
@@ -93,11 +108,16 @@ The adapter for linear progress must provide the following functions, with corre
 | Method Signature | Description |
 | --- | --- |
 | `addClass(className: string) => void` | Adds a class to the root element. |
+| `removeAttribute(attributeName: string) => void` | Removes the specified attribute from the root element. |
 | `removeClass(className: string) => void` | Removes a class from the root element. |
 | `hasClass(className: string) => boolean` | Returns boolean indicating whether the root element has a given class. |
-| `getPrimaryBar() => Element` | Returns the primary bar element. |
-| `getBuffer() => Element` | Returns the buffer element. |
-| `setStyle(el: Element, styleProperty: string, value: string) => void` | Sets the inline style on the given element. |
+| `forceLayout() => void` | Force-trigger a layout on the root element. This is needed to restart animations correctly. |
+| `setAttribute(attributeName: string, value: string) => void` | Sets the specified attribute on the root element. |
+| `setBufferBarStyle(styleProperty: string, value: string) => void` | Sets the inline style on the buffer bar. |
+| `setPrimaryBarStyle(styleProperty: string, value: string) => void` | Sets the inline style on the primary bar. |
+| `attachResizeObserver(callback: ResizeObserverCallback) => ResizeObserver \| null` | Returns a `ResizeObserver` that has had `observe` called on the root with the given callback (for animation performance gains on modern browsers). `null` if `ResizeObserver` is not implemented or polyfilled. |
+| `setStyle(styleProperty: string, value: string) => void` | Sets the inline style on the root element. |
+| `getWidth() => number` | Returns the width of the root. |
 
 ### MDCLinearProgressFoundation API
 
@@ -106,12 +126,14 @@ MDC Linear Progress Foundation exposes the following methods:
 | Method Signature | Description |
 | --- | --- |
 | `setDeterminate(value: boolean) => void` | Toggles the component between the determinate and indeterminate state. |
+| `isDeterminate() => boolean` | Whether or not the component is in determinate state. |
 | `setProgress(value: number) => void` | Sets the progress bar to this value. Value should be between [0, 1]. |
+| `getProgress() => number` | The current progress value in the interval [0,1]. |
 | `setBuffer(value: number) => void` | Sets the buffer bar to this value. Value should be between [0, 1]. |
-| `setReverse(value: boolean) => void` | Reverses the direction of the linear progress indicator. |
+| `getBuffer() => number` | The current buffer value in the interval [0,1]. |
 | `open() => void` | Puts the component in the open state. |
 | `close() => void` | Puts the component in the closed state. |
-
+| `isClosed() => boolean` | Whether or not the progress indicator is closed. |
 ### MDCLinearProgress API
 
 MDC Linear Progress exposes the following methods:
@@ -121,6 +143,5 @@ MDC Linear Progress exposes the following methods:
 | `set determinate(value: boolean) => void` | Toggles the component between the determinate and indeterminate state. |
 | `set progress(value: number) => void` | Sets the progress bar to this value. Value should be between [0, 1]. |
 | `set buffer(value: number) => void` | Sets the buffer bar to this value. Value should be between [0, 1]. |
-| `set reverse(value: boolean) => void` | Reverses the direction of the linear progress indicator. |
 | `open() => void` | Puts the component in the open state. |
 | `close() => void` | Puts the component in the closed state. |

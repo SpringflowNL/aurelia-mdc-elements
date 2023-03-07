@@ -1,5 +1,7 @@
 import { inject, bindable, bindingMode } from 'aurelia-framework';
-import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min';
+//import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min';
+import {MDCFormField} from '@material/form-field';
+import {MDCCheckbox} from '@material/checkbox';
 
 @inject(Element)
 export class MdcCheckbox {
@@ -22,6 +24,7 @@ export class MdcCheckbox {
     }
 
     attached() {
+        this.mdcFormField = new MDCFormField(this.element.firstElementChild);
         this.mdcCheckbox = new MDCCheckbox(this.element.firstElementChild);
         this.mdcCheckbox.required = this.required;
         this.mdcCheckbox.disabled = this.disabled;

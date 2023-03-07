@@ -32,13 +32,13 @@ npm install @material/line-ripple
 ### HTML Structure
 
 ```html
-<div class="mdc-line-ripple"></div>
+<span class="mdc-line-ripple"></span>
 ```
 
 ### Styles
 
 ```scss
-@import "@material/line-ripple/mdc-line-ripple";
+@use "@material/line-ripple/mdc-line-ripple";
 ```
 
 ### JavaScript Instantiation
@@ -63,7 +63,8 @@ CSS Class | Description
 
 Mixin | Description
 --- | ---
-`mdc-line-ripple-color($color)` | Customizes the color of the line ripple when active.
+`active-color($color)` | Customizes the color of the line ripple when active.
+`inactive-color($color)` | Customizes the color of the line ripple when inactive.
 
 ## `MDCLineRipple` Properties and Methods
 

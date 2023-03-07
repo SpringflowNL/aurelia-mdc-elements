@@ -1,6 +1,6 @@
 ﻿import { customElement, inject } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { MDCSnackbar } from "@material/snackbar/dist/mdc.snackbar.min";
+import { MDCSnackbar } from "@material/snackbar";
 
 @customElement("mdc-snackbar")
 @inject(Element, EventAggregator)

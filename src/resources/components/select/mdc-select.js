@@ -1,5 +1,5 @@
 ﻿import { bindable, customElement, inject, bindingMode } from 'aurelia-framework';
-import { MDCSelect } from '@material/select/dist/mdc.select.min';
+import { MDCSelect } from '@material/select';
 
 @customElement('mdc-select')
 @inject(Element)
@@ -16,6 +16,7 @@ export class MdcSelect {
     @bindable secondarylabel;
     @bindable modifier = null;
     @bindable leading;
+    @bindable outlined = false;
 
     constructor(element) {
         this.element = element;
@@ -31,7 +32,7 @@ export class MdcSelect {
     attached() {
         this.myMdcSelect = new MDCSelect(this.element.firstElementChild);
 
-        this.myMdcSelect.listen('change', () => {
+        this.myMdcSelect.listen('MDCSelect:change', () => {
             this.changedEvent = true;
             this.selected = this.myMdcSelect.value;
 
@@ -59,6 +60,7 @@ export class MdcSelect {
         this.myMdcSelect.disabled = this.disabled;
         this.myMdcSelect.required = this.required;
         this.selectedValue = this.selected;
+        this.myMdcSelect.outlined = this.outlined;
     }
 
     detached() {
@@ -67,6 +69,10 @@ export class MdcSelect {
 
     disabledChanged(newvalue) {
         this.myMdcSelect.disabled = newvalue;
+    }
+
+    outlinedChanged(newvalue) {
+        if(this.myMdcSelect) this.myMdcSelect.outined = newvalue;
     }
 
     requiredChanged(newvalue) {
