@@ -1,5 +1,4 @@
 import { inject, bindable, bindingMode } from 'aurelia-framework';
-//import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min';
 import {MDCFormField} from '@material/form-field';
 import {MDCCheckbox} from '@material/checkbox';
 
@@ -11,6 +10,7 @@ export class MdcCheckbox {
     @bindable indeterminate = false;
     @bindable id;
     @bindable label;
+    @bindable matcher;
     @bindable model;
     @bindable secondarylabel;
 

@@ -1,38 +1,26 @@
-<!-- <template class="mdc-form-field">	
-	<div class="mdc-checkbox ${disabled ? 'mdc-checkbox--disabled' : ''} ${required && !model ? 'mdc-checkbox--required' : ''}">
-		<input type="checkbox" id="checkbox--${unique}" checked.bind="checked" model.bind="model" disabled.bind="disabled" required.bind="required && !model" class="mdc-checkbox__native-control"/>
-		<div class="mdc-checkbox__background">
-			<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-				<path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-			</svg>
-			<div class="mdc-checkbox__mixedmark"></div>
-		</div>
-	</div>
-	<label if.bind="secondarylabel && label" class="mdc-list-item__text" for="checkbox--${unique}">
-		${label}
-		<span class="mdc-list-item__secondary-text">${secondarylabel}</span>
-	</label>
-	<label if.bind="!secondarylabel && label" for="checkbox--${unique}">${label}</label>
-</template> -->
-
 <template>
 	<div class="mdc-form-field">
-		<div class="mdc-checkbox ${disabled ? 'mdc-checkbox--disabled' : ''}">
+		<div class="mdc-checkbox ${disabled ? 'mdc-checkbox--disabled' : ''} ${required && !model ? 'mdc-checkbox--required' : ''}">
 		  <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox--${unique}" 
 		  checked.bind="checked" 
 		  model.bind="model" 
 		  disabled.bind="disabled" 
+			matcher.bind="matcher"
 		  required.bind="required && !model"
 		  data-indeterminate.bind="indeterminate"/>
 		  <div class="mdc-checkbox__background">
-			<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-			  <path class="mdc-checkbox__checkmark-path" fill="none"	d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-			</svg>
-			<div class="mdc-checkbox__mixedmark"></div>
+				<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+					<path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+				</svg>
+				<div class="mdc-checkbox__mixedmark"></div>
 		  </div>
 		  <div class="mdc-checkbox__ripple"></div>
 		  <div class="mdc-checkbox__focus-ring"></div>
 		</div>
-		<label for="checkbox--${unique}">${label}</label>
-	  </div>
+		<label if.bind="secondarylabel && label" class="mdc-list-item__text" for="checkbox--${unique}">
+			${label}
+			<span class="mdc-list-item__secondary-text">${secondarylabel}</span>
+		</label>
+		<label if.bind="!secondarylabel && label" for="checkbox--${unique}">${label}</label>
+	</div>
 </template>

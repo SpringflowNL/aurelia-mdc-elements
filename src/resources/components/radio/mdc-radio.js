@@ -7,9 +7,10 @@ export class MdcRadio {
   @bindable disabled = false;
   @bindable id;
   @bindable label;
-  @bindable secondarylabel;
-  @bindable name;
+  @bindable matcher;
   @bindable model;
+  @bindable name;
+  @bindable secondarylabel;
 
   constructor(element) {
     this.element = element;

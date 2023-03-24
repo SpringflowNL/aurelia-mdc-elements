@@ -24210,6 +24210,465 @@ define('@material/line-ripple/foundation',["exports", "tslib", "@material/base/f
   var _default = MDCLineRippleFoundation;
   _exports.default = _default;
 });;
+define('@material/linear-progress/adapter',["exports"], function (_exports) {
+  "use strict";
+
+  _exports.__esModule = true;
+});;
+define('@material/linear-progress/component',["exports", "tslib", "@material/base/component", "./foundation"], function (_exports, _tslib, _component, _foundation) {
+  "use strict";
+
+  _exports.__esModule = true;
+  _exports.MDCLinearProgress = void 0;
+  /**
+   * @license
+   * Copyright 2017 Google Inc.
+   *
+   * Permission is hereby granted, free of charge, to any person obtaining a copy
+   * of this software and associated documentation files (the "Software"), to deal
+   * in the Software without restriction, including without limitation the rights
+   * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   * copies of the Software, and to permit persons to whom the Software is
+   * furnished to do so, subject to the following conditions:
+   *
+   * The above copyright notice and this permission notice shall be included in
+   * all copies or substantial portions of the Software.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   * THE SOFTWARE.
+   */
+
+  var MDCLinearProgress = /** @class */function (_super) {
+    (0, _tslib.__extends)(MDCLinearProgress, _super);
+    function MDCLinearProgress() {
+      return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MDCLinearProgress.attachTo = function (root) {
+      return new MDCLinearProgress(root);
+    };
+    Object.defineProperty(MDCLinearProgress.prototype, "determinate", {
+      set: function (value) {
+        this.foundation.setDeterminate(value);
+      },
+      enumerable: false,
+      configurable: true
+    });
+    Object.defineProperty(MDCLinearProgress.prototype, "progress", {
+      set: function (value) {
+        this.foundation.setProgress(value);
+      },
+      enumerable: false,
+      configurable: true
+    });
+    Object.defineProperty(MDCLinearProgress.prototype, "buffer", {
+      set: function (value) {
+        this.foundation.setBuffer(value);
+      },
+      enumerable: false,
+      configurable: true
+    });
+    MDCLinearProgress.prototype.open = function () {
+      this.foundation.open();
+    };
+    MDCLinearProgress.prototype.close = function () {
+      this.foundation.close();
+    };
+    MDCLinearProgress.prototype.initialSyncWithDOM = function () {
+      var _this = this;
+      this.root.addEventListener('transitionend', function () {
+        _this.foundation.handleTransitionEnd();
+      });
+    };
+    MDCLinearProgress.prototype.getDefaultFoundation = function () {
+      var _this = this;
+      // DO NOT INLINE this variable. For backward compatibility, foundations take
+      // a Partial<MDCFooAdapter>. To ensure we don't accidentally omit any
+      // methods, we need a separate, strongly typed adapter variable.
+      var adapter = {
+        addClass: function (className) {
+          _this.root.classList.add(className);
+        },
+        forceLayout: function () {
+          _this.root.getBoundingClientRect();
+        },
+        setBufferBarStyle: function (styleProperty, value) {
+          var bufferBar = _this.root.querySelector(_foundation.MDCLinearProgressFoundation.strings.BUFFER_BAR_SELECTOR);
+          if (bufferBar) {
+            bufferBar.style.setProperty(styleProperty, value);
+          }
+        },
+        setPrimaryBarStyle: function (styleProperty, value) {
+          var primaryBar = _this.root.querySelector(_foundation.MDCLinearProgressFoundation.strings.PRIMARY_BAR_SELECTOR);
+          if (primaryBar) {
+            primaryBar.style.setProperty(styleProperty, value);
+          }
+        },
+        hasClass: function (className) {
+          return _this.root.classList.contains(className);
+        },
+        removeAttribute: function (attributeName) {
+          _this.root.removeAttribute(attributeName);
+        },
+        removeClass: function (className) {
+          _this.root.classList.remove(className);
+        },
+        setAttribute: function (attributeName, value) {
+          _this.root.setAttribute(attributeName, value);
+        },
+        setStyle: function (name, value) {
+          _this.root.style.setProperty(name, value);
+        },
+        attachResizeObserver: function (callback) {
+          var RO = window.ResizeObserver;
+          if (RO) {
+            var ro = new RO(callback);
+            ro.observe(_this.root);
+            return ro;
+          }
+          return null;
+        },
+        getWidth: function () {
+          return _this.root.offsetWidth;
+        }
+      };
+      return new _foundation.MDCLinearProgressFoundation(adapter);
+    };
+    return MDCLinearProgress;
+  }(_component.MDCComponent);
+  _exports.MDCLinearProgress = MDCLinearProgress;
+});;
+define('@material/linear-progress/constants',["exports"], function (_exports) {
+  "use strict";
+
+  _exports.__esModule = true;
+  _exports.strings = _exports.cssClasses = _exports.animationDimensionPercentages = void 0;
+  /**
+   * @license
+   * Copyright 2017 Google Inc.
+   *
+   * Permission is hereby granted, free of charge, to any person obtaining a copy
+   * of this software and associated documentation files (the "Software"), to deal
+   * in the Software without restriction, including without limitation the rights
+   * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   * copies of the Software, and to permit persons to whom the Software is
+   * furnished to do so, subject to the following conditions:
+   *
+   * The above copyright notice and this permission notice shall be included in
+   * all copies or substantial portions of the Software.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   * THE SOFTWARE.
+   */
+  var cssClasses = {
+    CLOSED_CLASS: 'mdc-linear-progress--closed',
+    CLOSED_ANIMATION_OFF_CLASS: 'mdc-linear-progress--closed-animation-off',
+    INDETERMINATE_CLASS: 'mdc-linear-progress--indeterminate',
+    REVERSED_CLASS: 'mdc-linear-progress--reversed',
+    ANIMATION_READY_CLASS: 'mdc-linear-progress--animation-ready'
+  };
+  _exports.cssClasses = cssClasses;
+  var strings = {
+    ARIA_HIDDEN: 'aria-hidden',
+    ARIA_VALUEMAX: 'aria-valuemax',
+    ARIA_VALUEMIN: 'aria-valuemin',
+    ARIA_VALUENOW: 'aria-valuenow',
+    BUFFER_BAR_SELECTOR: '.mdc-linear-progress__buffer-bar',
+    FLEX_BASIS: 'flex-basis',
+    PRIMARY_BAR_SELECTOR: '.mdc-linear-progress__primary-bar'
+  };
+  // these are percentages pulled from keyframes.scss
+  _exports.strings = strings;
+  var animationDimensionPercentages = {
+    PRIMARY_HALF: .8367142,
+    PRIMARY_FULL: 2.00611057,
+    SECONDARY_QUARTER: .37651913,
+    SECONDARY_HALF: .84386165,
+    SECONDARY_FULL: 1.60277782
+  };
+  _exports.animationDimensionPercentages = animationDimensionPercentages;
+});;
+define('@material/linear-progress/foundation',["exports", "tslib", "@material/animation/util", "@material/base/foundation", "./constants"], function (_exports, _tslib, _util, _foundation, _constants) {
+  "use strict";
+
+  _exports.__esModule = true;
+  _exports.default = _exports.MDCLinearProgressFoundation = void 0;
+  /**
+   * @license
+   * Copyright 2017 Google Inc.
+   *
+   * Permission is hereby granted, free of charge, to any person obtaining a copy
+   * of this software and associated documentation files (the "Software"), to deal
+   * in the Software without restriction, including without limitation the rights
+   * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   * copies of the Software, and to permit persons to whom the Software is
+   * furnished to do so, subject to the following conditions:
+   *
+   * The above copyright notice and this permission notice shall be included in
+   * all copies or substantial portions of the Software.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   * THE SOFTWARE.
+   */
+
+  var MDCLinearProgressFoundation = /** @class */function (_super) {
+    (0, _tslib.__extends)(MDCLinearProgressFoundation, _super);
+    function MDCLinearProgressFoundation(adapter) {
+      var _this = _super.call(this, (0, _tslib.__assign)((0, _tslib.__assign)({}, MDCLinearProgressFoundation.defaultAdapter), adapter)) || this;
+      _this.observer = null;
+      return _this;
+    }
+    Object.defineProperty(MDCLinearProgressFoundation, "cssClasses", {
+      get: function () {
+        return _constants.cssClasses;
+      },
+      enumerable: false,
+      configurable: true
+    });
+    Object.defineProperty(MDCLinearProgressFoundation, "strings", {
+      get: function () {
+        return _constants.strings;
+      },
+      enumerable: false,
+      configurable: true
+    });
+    Object.defineProperty(MDCLinearProgressFoundation, "defaultAdapter", {
+      get: function () {
+        return {
+          addClass: function () {
+            return undefined;
+          },
+          attachResizeObserver: function () {
+            return null;
+          },
+          forceLayout: function () {
+            return undefined;
+          },
+          getWidth: function () {
+            return 0;
+          },
+          hasClass: function () {
+            return false;
+          },
+          setBufferBarStyle: function () {
+            return null;
+          },
+          setPrimaryBarStyle: function () {
+            return null;
+          },
+          setStyle: function () {
+            return undefined;
+          },
+          removeAttribute: function () {
+            return undefined;
+          },
+          removeClass: function () {
+            return undefined;
+          },
+          setAttribute: function () {
+            return undefined;
+          }
+        };
+      },
+      enumerable: false,
+      configurable: true
+    });
+    MDCLinearProgressFoundation.prototype.init = function () {
+      var _this = this;
+      this.determinate = !this.adapter.hasClass(_constants.cssClasses.INDETERMINATE_CLASS);
+      this.adapter.addClass(_constants.cssClasses.ANIMATION_READY_CLASS);
+      this.progress = 0;
+      this.buffer = 1;
+      this.observer = this.adapter.attachResizeObserver(function (entries) {
+        var e_1, _a;
+        if (_this.determinate) {
+          return;
+        }
+        try {
+          for (var entries_1 = (0, _tslib.__values)(entries), entries_1_1 = entries_1.next(); !entries_1_1.done; entries_1_1 = entries_1.next()) {
+            var entry = entries_1_1.value;
+            if (entry.contentRect) {
+              _this.calculateAndSetDimensions(entry.contentRect.width);
+            }
+          }
+        } catch (e_1_1) {
+          e_1 = {
+            error: e_1_1
+          };
+        } finally {
+          try {
+            if (entries_1_1 && !entries_1_1.done && (_a = entries_1.return)) _a.call(entries_1);
+          } finally {
+            if (e_1) throw e_1.error;
+          }
+        }
+      });
+      if (!this.determinate && this.observer) {
+        this.calculateAndSetDimensions(this.adapter.getWidth());
+      }
+    };
+    MDCLinearProgressFoundation.prototype.setDeterminate = function (isDeterminate) {
+      this.determinate = isDeterminate;
+      if (this.determinate) {
+        this.adapter.removeClass(_constants.cssClasses.INDETERMINATE_CLASS);
+        this.adapter.setAttribute(_constants.strings.ARIA_VALUENOW, this.progress.toString());
+        this.adapter.setAttribute(_constants.strings.ARIA_VALUEMAX, '1');
+        this.adapter.setAttribute(_constants.strings.ARIA_VALUEMIN, '0');
+        this.setPrimaryBarProgress(this.progress);
+        this.setBufferBarProgress(this.buffer);
+        return;
+      }
+      if (this.observer) {
+        this.calculateAndSetDimensions(this.adapter.getWidth());
+      }
+      this.adapter.addClass(_constants.cssClasses.INDETERMINATE_CLASS);
+      this.adapter.removeAttribute(_constants.strings.ARIA_VALUENOW);
+      this.adapter.removeAttribute(_constants.strings.ARIA_VALUEMAX);
+      this.adapter.removeAttribute(_constants.strings.ARIA_VALUEMIN);
+      this.setPrimaryBarProgress(1);
+      this.setBufferBarProgress(1);
+    };
+    MDCLinearProgressFoundation.prototype.isDeterminate = function () {
+      return this.determinate;
+    };
+    MDCLinearProgressFoundation.prototype.setProgress = function (value) {
+      this.progress = value;
+      if (this.determinate) {
+        this.setPrimaryBarProgress(value);
+        this.adapter.setAttribute(_constants.strings.ARIA_VALUENOW, value.toString());
+      }
+    };
+    MDCLinearProgressFoundation.prototype.getProgress = function () {
+      return this.progress;
+    };
+    MDCLinearProgressFoundation.prototype.setBuffer = function (value) {
+      this.buffer = value;
+      if (this.determinate) {
+        this.setBufferBarProgress(value);
+      }
+    };
+    MDCLinearProgressFoundation.prototype.getBuffer = function () {
+      return this.buffer;
+    };
+    MDCLinearProgressFoundation.prototype.open = function () {
+      this.adapter.removeClass(_constants.cssClasses.CLOSED_CLASS);
+      this.adapter.removeClass(_constants.cssClasses.CLOSED_ANIMATION_OFF_CLASS);
+      this.adapter.removeAttribute(_constants.strings.ARIA_HIDDEN);
+    };
+    MDCLinearProgressFoundation.prototype.close = function () {
+      this.adapter.addClass(_constants.cssClasses.CLOSED_CLASS);
+      this.adapter.setAttribute(_constants.strings.ARIA_HIDDEN, 'true');
+    };
+    MDCLinearProgressFoundation.prototype.isClosed = function () {
+      return this.adapter.hasClass(_constants.cssClasses.CLOSED_CLASS);
+    };
+    /**
+     * Handles the transitionend event emitted after `close()` is called and the
+     * opacity fades out. This is so that animations are removed only after the
+     * progress indicator is completely hidden.
+     */
+    MDCLinearProgressFoundation.prototype.handleTransitionEnd = function () {
+      if (this.adapter.hasClass(_constants.cssClasses.CLOSED_CLASS)) {
+        this.adapter.addClass(_constants.cssClasses.CLOSED_ANIMATION_OFF_CLASS);
+      }
+    };
+    MDCLinearProgressFoundation.prototype.destroy = function () {
+      _super.prototype.destroy.call(this);
+      if (this.observer) {
+        this.observer.disconnect();
+      }
+    };
+    MDCLinearProgressFoundation.prototype.restartAnimation = function () {
+      this.adapter.removeClass(_constants.cssClasses.ANIMATION_READY_CLASS);
+      this.adapter.forceLayout();
+      this.adapter.addClass(_constants.cssClasses.ANIMATION_READY_CLASS);
+    };
+    MDCLinearProgressFoundation.prototype.setPrimaryBarProgress = function (progressValue) {
+      var value = "scaleX(" + progressValue + ")";
+      // Accessing `window` without a `typeof` check will throw on Node
+      // environments.
+      var transformProp = typeof window !== 'undefined' ? (0, _util.getCorrectPropertyName)(window, 'transform') : 'transform';
+      this.adapter.setPrimaryBarStyle(transformProp, value);
+    };
+    MDCLinearProgressFoundation.prototype.setBufferBarProgress = function (progressValue) {
+      var value = progressValue * 100 + "%";
+      this.adapter.setBufferBarStyle(_constants.strings.FLEX_BASIS, value);
+    };
+    MDCLinearProgressFoundation.prototype.calculateAndSetDimensions = function (width) {
+      var primaryHalf = width * _constants.animationDimensionPercentages.PRIMARY_HALF;
+      var primaryFull = width * _constants.animationDimensionPercentages.PRIMARY_FULL;
+      var secondaryQuarter = width * _constants.animationDimensionPercentages.SECONDARY_QUARTER;
+      var secondaryHalf = width * _constants.animationDimensionPercentages.SECONDARY_HALF;
+      var secondaryFull = width * _constants.animationDimensionPercentages.SECONDARY_FULL;
+      this.adapter.setStyle('--mdc-linear-progress-primary-half', primaryHalf + "px");
+      this.adapter.setStyle('--mdc-linear-progress-primary-half-neg', -primaryHalf + "px");
+      this.adapter.setStyle('--mdc-linear-progress-primary-full', primaryFull + "px");
+      this.adapter.setStyle('--mdc-linear-progress-primary-full-neg', -primaryFull + "px");
+      this.adapter.setStyle('--mdc-linear-progress-secondary-quarter', secondaryQuarter + "px");
+      this.adapter.setStyle('--mdc-linear-progress-secondary-quarter-neg', -secondaryQuarter + "px");
+      this.adapter.setStyle('--mdc-linear-progress-secondary-half', secondaryHalf + "px");
+      this.adapter.setStyle('--mdc-linear-progress-secondary-half-neg', -secondaryHalf + "px");
+      this.adapter.setStyle('--mdc-linear-progress-secondary-full', secondaryFull + "px");
+      this.adapter.setStyle('--mdc-linear-progress-secondary-full-neg', -secondaryFull + "px");
+      // need to restart animation for custom props to apply to keyframes
+      this.restartAnimation();
+    };
+    return MDCLinearProgressFoundation;
+  }(_foundation.MDCFoundation);
+  _exports.MDCLinearProgressFoundation = MDCLinearProgressFoundation;
+  // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+  var _default = MDCLinearProgressFoundation;
+  _exports.default = _default;
+});;
+define('@material/linear-progress/index',["exports", "./adapter", "./component", "./constants", "./foundation", "./types"], function (_exports, _adapter, _component, _constants, _foundation, _types) {
+  "use strict";
+
+  _exports.__esModule = true;
+  Object.keys(_adapter).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (key in _exports && _exports[key] === _adapter[key]) return;
+    _exports[key] = _adapter[key];
+  });
+  Object.keys(_component).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (key in _exports && _exports[key] === _component[key]) return;
+    _exports[key] = _component[key];
+  });
+  Object.keys(_constants).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (key in _exports && _exports[key] === _constants[key]) return;
+    _exports[key] = _constants[key];
+  });
+  Object.keys(_foundation).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (key in _exports && _exports[key] === _foundation[key]) return;
+    _exports[key] = _foundation[key];
+  });
+  Object.keys(_types).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (key in _exports && _exports[key] === _types[key]) return;
+    _exports[key] = _types[key];
+  });
+});;
+define('@material/linear-progress/types',["exports"], function (_exports) {
+  "use strict";
+
+  _exports.__esModule = true;
+});;
 define('@material/list/component',["exports", "tslib", "@material/base/component", "@material/dom/ponyfill", "./constants", "./foundation"], function (_exports, _tslib, _component, _ponyfill, _constants, _foundation) {
   "use strict";
 
@@ -28114,6 +28573,11 @@ define('@material/radio/index',["exports", "./adapter", "./component", "./consta
     _exports[key] = _foundation[key];
   });
 });;
+define('@material/ripple/adapter',["exports"], function (_exports) {
+  "use strict";
+
+  _exports.__esModule = true;
+});;
 define('@material/ripple/component',["exports", "tslib", "@material/base/component", "@material/dom/events", "@material/dom/ponyfill", "./foundation", "./util"], function (_exports, _tslib, _component, _events, _ponyfill, _foundation, util) {
   "use strict";
 
@@ -28915,6 +29379,54 @@ define('@material/ripple/foundation',["exports", "tslib", "@material/base/founda
   // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
   var _default = MDCRippleFoundation;
   _exports.default = _default;
+});;
+define('@material/ripple/index',["exports", "./util", "./adapter", "./component", "./constants", "./foundation", "./types"], function (_exports, util, _adapter, _component, _constants, _foundation, _types) {
+  "use strict";
+
+  _exports.__esModule = true;
+  var _exportNames = {
+    util: true
+  };
+  _exports.util = void 0;
+  util = _interopRequireWildcard(util);
+  _exports.util = util;
+  Object.keys(_adapter).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    if (key in _exports && _exports[key] === _adapter[key]) return;
+    _exports[key] = _adapter[key];
+  });
+  Object.keys(_component).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    if (key in _exports && _exports[key] === _component[key]) return;
+    _exports[key] = _component[key];
+  });
+  Object.keys(_constants).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    if (key in _exports && _exports[key] === _constants[key]) return;
+    _exports[key] = _constants[key];
+  });
+  Object.keys(_foundation).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    if (key in _exports && _exports[key] === _foundation[key]) return;
+    _exports[key] = _foundation[key];
+  });
+  Object.keys(_types).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+    if (key in _exports && _exports[key] === _types[key]) return;
+    _exports[key] = _types[key];
+  });
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+});;
+define('@material/ripple/types',["exports"], function (_exports) {
+  "use strict";
+
+  _exports.__esModule = true;
 });;
 define('@material/ripple/util',["exports"], function (_exports) {
   "use strict";
@@ -56511,8 +57023,10 @@ define('@material/checkbox',['@material/checkbox/index'],function(m){return m;})
 define('@material/chips',['@material/chips/index'],function(m){return m;});
 define('@material/drawer',['@material/drawer/index'],function(m){return m;});
 define('@material/form-field',['@material/form-field/index'],function(m){return m;});
+define('@material/linear-progress',['@material/linear-progress/index'],function(m){return m;});
 define('@material/menu',['@material/menu/index'],function(m){return m;});
 define('@material/radio',['@material/radio/index'],function(m){return m;});
+define('@material/ripple',['@material/ripple/index'],function(m){return m;});
 define('@material/select',['@material/select/index'],function(m){return m;});
 define('@material/snackbar',['@material/snackbar/index'],function(m){return m;});
 define('@material/switch',['@material/switch/index'],function(m){return m;});
@@ -56574,7 +57088,6 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "text!resources/components/checkbox/mdc-checkbox.html",
       "resources/components/chip/mdc-chip",
       "text!resources/components/chip/mdc-chip.html",
-      "resources/components/details/details",
       "resources/components/menu/mdc-menu",
       "text!resources/components/menu/mdc-menu.html",
       "resources/components/progress/mdc-progress",

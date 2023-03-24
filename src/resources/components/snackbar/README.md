@@ -30,6 +30,8 @@ Paramters that can be given to the message are:
 
 | Option | Description | Required | Default |
 |--|--|:--:|:--:|
-| label		| The text inside the snackbar.					|	X	|				|
-| buttonlabel			|	The text inside the button of the snackbar. |		|		'Cancel'		|
-| dismissonaction | Should the snackbar close on click.	| |	true		|
+| label		        | The text inside the snackbar.					                    |	X	|				    |
+| buttonlabel			|	The text inside the button of the snackbar.               |		|	'Cancel'  |
+| dismissonaction | Should the snackbar close on click.       	              |   |	true		  |
+| leading         | Renders the snackbar on the leading edge of the screen.	  |   |	false		  |
+| stacked         | Renders the text stacked on the button.	                  |   |	false		  |

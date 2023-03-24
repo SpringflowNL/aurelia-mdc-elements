@@ -1,17 +1,5 @@
-﻿<!-- <template>
-	<div rel="switch" class="mdc-switch ${disabled ? 'mdc-switch--disabled' : ''}">
-		<div class="mdc-switch__track"></div>
-		<div class="mdc-switch__thumb-underlay">
-			<div class="mdc-switch__thumb">
-				<input type="checkbox" id="basic-switch--${unique}" class="mdc-switch__native-control" role="switch" checked.bind="active" disabled.bind="disabled" />
-			</div>
-		</div>
-	</div>
-	<label for="basic-switch--${unique}">${label}</label>
-</template> -->
-
-<template>
-	<button id="switch--${unique}" class="mdc-switch mdc-switch--unselected ${disabled ? 'mdc-switch--disabled' : ''}" type="button" role="switch" aria-checked="false">
+﻿<template>
+	<button id="switch--${unique}" class="mdc-switch ${active ? 'mdc-switch--selected' : 'mdc-switch--unselected'}" type="button" role="switch" aria-checked="${active}" disabled.bind="disabled">
 		<div class="mdc-switch__track"></div>
 		<div class="mdc-switch__handle-track">
 		  <div class="mdc-switch__handle">

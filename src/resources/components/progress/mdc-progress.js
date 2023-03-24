@@ -1,4 +1,5 @@
 import { inject, bindable, customElement } from "aurelia-framework";
+import { MDCLinearProgress } from '@material/linear-progress';
 
 @customElement("mdc-progress")
 @inject(Element)
@@ -10,5 +11,9 @@ export class MdcProgress {
 
   constructor(element) {
     this.element = element;
+  }
+
+  attached() {
+    this.myMdcProgress = new MDCLinearProgress(this.element.firstElementChild);
   }
 }

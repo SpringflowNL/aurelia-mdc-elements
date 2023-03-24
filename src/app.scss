@@ -1,13 +1,13 @@
 @use "@material/theme" with (
-  $primary: #fcb8ab,
-  $secondary: #feeae6,
-  $on-primary: #442b2d,
-  $on-secondary: #442b2d,
+  $primary: #007d71,
+  $secondary: #00adee,
+  // $on-primary: #442b2d,
+  // $on-secondary: #442b2d,
 );
 
 :root {
-  --mdc-theme-primary: #3CC69E;
-  --mdc-theme-secondary: #c63c63;
+  --mdc-theme-primary: #007d71;
+  --mdc-theme-secondary: #00adee;
 }
 //@use 'resources/styles/_aurelia-mdc-elements';
 //@use 'material-components-web/material-components-web';
@@ -48,7 +48,28 @@ body {
   margin-left: 300px;
 }
 
+/*mdc expansion*/
+.mdc-expansion__summary {
+  height: 48px;
+  display: flex;
+  cursor: pointer;
+  align-content: center;
+  position: relative;
+}
+
+.mdc-expansion__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  min-width: 200px;
+  margin-right: 24px;
+  text-transform: uppercase;
+  height: 100%;
+}
+
 /*TextField*/
-.mdc-text-field, mdc-text-field {
+.mdc-text-field {
   width: 100%;
 }

@@ -42,6 +42,7 @@ export class MdcTextField {
         this.myMdcTextfield.disabled = this.disabled;
         this.myMdcTextfield.required = this.required;
         this.myMdcTextfield.outlined = this.outlined;
+        this.myMdcTextfield.ripple = true;
 
         if (this.value) {
             this.myMdcTextfield.value = this.value;
@@ -49,42 +50,45 @@ export class MdcTextField {
     }
 
     disabledChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.disabled = newvalue;
+        if (this.myMdcTextfield) this.myMdcTextfield.disabled = newvalue;
     }
 
     requiredChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
+        if (this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
     }
 
     stepChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("step", newvalue);
+        if (this.myMdcTextfield) this.myMdcTextfield.step = newvalue;
     }
 
     valueChanged(newvalue) {
-        if(this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
+        if (this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
     }
 
     outlinedChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.outlined = newvalue;
+        if (this.myMdcTextfield) this.myMdcTextfield.outlined = newvalue;
     }
 
     minChanged(newvalue) {
         if (this.type === 'number') {
-            if(this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("min", newvalue);
+            if(this.myMdcTextfield) this.myMdcTextfield.input.min = newvalue;
         } else {
-            if(this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("minlength", newvalue);
+            if(this.myMdcTextfield) this.myMdcTextfield.input.minLength = newvalue;
         }
     }
 
     maxChanged(newvalue) {
         if (this.type === 'number') {
-            if(this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("max", newvalue);
+            if(this.myMdcTextfield) this.myMdcTextfield.input.max = newvalue;
         } else {
-            if(this.myMdcTextfield) this.myMdcTextfield.input_.setAttribute("maxlength", newvalue);
+            if(this.myMdcTextfield) this.myMdcTextfield.input.maxLength = newvalue;
         }
     }
 
-    detached() {
-        this.myMdcTextfield.destroy();
+    secondarylabelChanged(newvalue) {
+        if (this.myMdcTextfield && newvalue) {
+            this.myMdcTextfield.input.setAttribute('aria-controls', `text-field--${this.unique}`);
+            this.myMdcTextfield.input.setAttribute('aria-describedby', `text-field--${this.unique}`);
+        }
     }
 }
