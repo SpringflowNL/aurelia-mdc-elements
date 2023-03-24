@@ -1,13 +1,13 @@
 {
   "name": "aurelia-mdc-elements",
-  "version": "3.2.0",
+  "version": "14.0.0",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "keywords": [
     "aurelia",
     "mdc",
     "plugin",
     "material-components-web"
-  ],
+  ],  
   "homepage": "https://github.com/SpringflowNL/aurelia-mdc-elements#readme",
   "bugs": {
     "url": "https://github.com/SpringflowNL/aurelia-mdc-elements/issues"
@@ -71,10 +71,7 @@
     "sass-loader": "^13.2.0",
     "text": "requirejs/text#latest",
     "through2": "^2.0.3",
-    "vinyl-fs": "^3.0.3",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "vinyl-fs": "^3.0.3"
   },
   "dependencies": {
     "aurelia-event-aggregator": "^1.0.1",
