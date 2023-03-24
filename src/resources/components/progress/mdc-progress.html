@@ -1,10 +1,14 @@
-<template style="display: block" role="progressbar" class="mdc-linear-progress ${value > 0 || max > 0 ? '' : 'mdc-linear-progress--indeterminate'}">
-    <div class="mdc-linear-progress__buffering-dots"></div>
-    <div class="mdc-linear-progress__buffer" hide.bind="buffer"></div>
-    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar" hide.bind="buffer" css="transform: scaleX(${value / (max - min)})">
-        <span class="mdc-linear-progress__bar-inner"></span>
-    </div>
-    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-        <span class="mdc-linear-progress__bar-inner"></span>
-    </div>
+<template>
+    <div role="progressbar" class="mdc-linear-progress ${value > 0 || max > 0 ? '' : 'mdc-linear-progress--indeterminate'}">
+        <div class="mdc-linear-progress__buffer" >
+          <div class="mdc-linear-progress__buffer-bar" hide.bind="buffer"></div>
+          <div class="mdc-linear-progress__buffer-dots"></div>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar" hide.bind="buffer" css="transform: scaleX(${value / (max - min)})">
+          <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+          <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+      </div>
 </template>

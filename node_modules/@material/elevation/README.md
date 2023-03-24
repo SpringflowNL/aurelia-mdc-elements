@@ -9,13 +9,6 @@ path: /catalog/elevation/
 
 # Elevation
 
-<!--<div class="article__asset">
-  <a class="article__asset-link"
-     href="https://material-components.github.io/material-components-web-catalog/#/component/elevation">
-    <img src="{{ site.rootpath }}/images/mdc_web_screenshots/elevation.png" width="247" alt="Elevation screenshot">
-  </a>
-</div>-->
-
 Shadows provide important visual cues about objects’ depth and directional movement. They are the only visual cue indicating the amount of separation between surfaces. An object’s elevation determines the appearance of its shadow. The elevation values are mapped out in a "z-space" and range from `0` to `24`.
 
 > **A note about "z-space"**: Within the spec, elevation is normally referred to as having a `dp` value. In other words, how many "pixels" above the base material is a piece of material elevated. On a computer, this is normally represented by a 3-d coordinate system. We like `z-space` (or just "z" for short) because it aligns with the technical definition of, and nomenclature for, a 3-d coordinate system. Therefore, we feel it makes more sense than `dp`. However, when we refer to `z-space` (or `z`), that can be used interchangeably with the spec's `dp`.
@@ -51,10 +44,25 @@ However, you can also apply elevation to specific components using `mdc-elevatio
   </div>
 ```
 
+#### Elevation Overlay
+
+The elevation overlay should appear *above* the component container in the stacking context but *below* the ripple. To accomplish this, the `.mdc-elevation-overlay` element should appear *before* the `.mdc-<component>__ripple` element in the DOM context.  Here's sample markup for a button with a touch target.
+
+```html
+<button class="mdc-button mdc-button--raised">
+  <div class="mdc-elevation-overlay"></div>
+  <div class="mdc-button__ripple"></div>
+  <i class="material-icons mdc-button__icon" aria-hidden="true">favorite</i>
+  <span class="mdc-button__label">Font Icon</span>
+</button>
+```
+
+This ensures the ripple parts are rendered *above* the overlay.
+
 ### Styles
 
 ```scss
-@import "@material/elevation/mdc-elevation";
+@use "@material/elevation/mdc-elevation";
 ```
 
 ## Style Customization
@@ -71,32 +79,52 @@ CSS Class | Description
 `mdc-elevation--z<N>` | Sets the elevation to the (N)dp, where 1 <= N <= 24
 `mdc-elevation-transition` | Applies the correct css rules to transition an element between elevations
 
-### Sass Mixins, Variables, and Functions
+### Sass Mixins, Variables, Functions, and Custom Properties
 
 Mixin | Description
 --- | ---
-`mdc-elevation($z-value, $color, $opacity-boost)` | Sets the elevation to the z-space for that given elevation, and optionally sets the color and/or boosts the opacity of the shadow
+`elevation($z-value, $color, $opacity-boost)` | Sets the elevation to the z-space for that given elevation, and optionally sets the color and/or boosts the opacity of the shadow
+`overlay-common` | Called once per application to setup the universal elevation overlay styles
+`shadow($box-shadow)` | Sets the `box-shadow` of the closest parent selector
+`overlay-surface-position` | Sets the positioning of the overlay's surface element so that the overlay can be appropriately centered
+`overlay-dimensions($width, $height: $width, $has-content-sizing: true)` | Sets the dimensions of the elevation overlay
+`overlay-fill-color($color)` | Sets the color of the elevation overlay
+`overlay-opacity($opacity)` | Sets the opacity of the elevation overlay
+
 
 Function | Description
 --- | ---
-`mdc-elevation-transition-value($duration, $easing)` | Returns a value for the `transition` property to transition an element between elevations
+`transition-value($duration, $easing)` | Returns a value for the `transition` property to transition an element between elevations
+`overlay-transition-value($duration, $easing)` | Returns a value for the `transition` property to transition the elevation overlay between elevations
+`elevation-box-shadow($z-value, $color, $opacity-boost)` | Returns the box-shadow for the elevation z-space for that given elevation z-value, and optionally sets the color and/or boosts the opacity of the shadow
 
 Variable | Description
 --- | ---
-`$mdc-elevation-property` | Default property for elevation transitions
-`$mdc-elevation-transition-duration` | Default duration value for elevation transitions
-`$mdc-elevation-transition-timing-function` | Default easing value for elevation transitions
+`$property` | Default property for elevation transitions
+`$transition-duration` | Default duration value for elevation transitions
+`$transition-timing-function` | Default easing value for elevation transitions
+`$overlay-color` | Default color for the elevation overlay
+`$overlay-property` | Default property for the elevation overlay transitions
 
-If you need more configurability over your transitions, use the `mdc-elevation-transition-value` function in conjunction with the exported sass variables.
+If you need more configurability over your transitions, use the `transition-value` function in conjunction with the exported sass variables.
+
+Custom Property | Default value | Description
+--- | ---
+`--mdc-elevation-overlay-opacity` | `0` | The opacity of the elevation overlay.
+`--mdc-elevation-overlay-fill-color` | `#fff` | The color of the elevation overlay
+
+If you need more configurability over your transitions, use the `transition-value` function in conjunction with the exported sass variables.
 
 ```scss
+@use "@material/elevation";
+
 .my-component-with-custom-transitions {
 
   transition:
-    mdc-elevation-transition-value(),
+    elevation.transition-value(),
     /* Configure opacity to use same duration and easing values as elevation */
-    opacity $mdc-elevation-transition-duration $mdc-elevation-transition-timing-function;
+    opacity elevation.$transition-duration elevation.$transition-timing-function;
   opacity: .7;
-  will-change: $mdc-elevation-property, opacity;
+  will-change: elevation.$property, opacity;
 }
 ```

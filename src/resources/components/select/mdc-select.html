@@ -1,25 +1,55 @@
 ﻿<template>
-	<div class="mdc-select ${disabled ? 'mdc-select--disabled' : ''} ${modifier ? modifier : ''} ${leading ? 'mdc-select--with-leading-icon' : ''}">
-		<i if.bind="leading" class="material-icons mdc-select__icon" role="button">${leading}</i>
-		<i class="mdc-select__dropdown-icon"></i>
-		<select class="mdc-select__native-control" required.bind="required" id="select--${unique}">
-			<option value="" selected.bind="!selectedValue"></option>
-			<option value.bind="item[key]" repeat.for="item of data" selected.bind="item[key] == selectedValue">
-				${item[value]}
-			</option>
-		</select>
-		<label if.bind="label && (!modifier || modifier.indexOf('mdc-select--outlined') === -1)" class="mdc-floating-label ${selectedValue || selectedValue == 'false' ? 'mdc-floating-label--float-above' : ''}" for="select--${unique}">${label}</label>
-		<div if.bind="!modifier || modifier.indexOf('mdc-select--outlined') === -1" class="mdc-line-ripple"></div>
-		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline">
-			<div class="mdc-notched-outline__leading"></div>
-			<div show.bind="label" class="mdc-notched-outline__notch">
-				<label class="mdc-floating-label ${selectedValue || selectedValue == 'false' ? 'mdc-floating-label--float-above' : ''}" for="select--${unique}">${label}</label>
-			</div>
-			<div class="mdc-notched-outline__trailing"></div>
+	<div class="mdc-select ${outlined ? 'mdc-select--outlined' : 'mdc-select--filled'} ${disabled ? 'mdc-select--disabled' : ''} ${label ? '' : 'mdc-select--no-label'} ${leading ? 'mdc-select--with-leading-icon' : ''} ${required ? 'mdc-select--required' : ''}">
+		<div class="mdc-select__anchor" ref="anchorElement" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="select--${unique}" aria-disabled="${disabled ? disabled : false}" aria-required="${required ? required : false}">
+			<template if.bind="outlined">
+				<span class="mdc-notched-outline">
+					<span class="mdc-notched-outline__leading"></span>
+					<span class="mdc-notched-outline__notch">
+						<span id="select--${unique}" class="mdc-floating-label ${selectedValue || selectedValue == 'false' ? 'mdc-floating-label--float-above' : ''}" if.bind="label">${label}</span>
+					</span>
+					<span class="mdc-notched-outline__trailing"></span>
+				</span>
+				<i class="material-icons mdc-select__icon" tabindex="0" role="button" if.bind="leading">${leading}</i>
+				<span class="mdc-select__selected-text-container">
+					<span class="mdc-select__selected-text"></span>
+				</span>
+				<span class="mdc-select__dropdown-icon">
+					<svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+						<polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+						<polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+					</svg>
+				</span>
+			</template>
+			<template else>
+				<span class="mdc-select__ripple"></span>
+				<span id="select--${unique}" class="mdc-floating-label ${selectedValue || selectedValue == 'false' ? 'mdc-floating-label--float-above' : ''}" if.bind="label">${label}</span>
+				<i class="material-icons mdc-select__icon" tabindex="0" role="button" if.bind="leading">${leading}</i>
+				<span class="mdc-select__selected-text-container">
+					<span class="mdc-select__selected-text"></span>
+				</span>
+				<span class="mdc-select__dropdown-icon">
+					<svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+						<polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+						<polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+					</svg>
+				</span>
+				<span class="mdc-line-ripple"></span>
+			</template>
 		</div>
-		<div if.bind="modifier.indexOf('mdc-select--outlined') > -1" class="mdc-notched-outline__idle"></div>
+	  
+		<div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+		  <ul class="mdc-deprecated-list mdc-deprecated-list--dense" role="listbox" aria-label="${label} listbox">
+			<li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" aria-selected="true" data-value="" role="option" if.bind="emptyOption">
+			  <span class="mdc-deprecated-list-item__ripple"></span>
+			</li>
+			<li class="mdc-deprecated-list-item" aria-selected="false" data-value="${item[key]}" role="option" repeat.for="item of data">
+			  <span class="mdc-deprecated-list-item__ripple"></span>
+			  <span class="mdc-deprecated-list-item__text">
+				${item[value]}
+			  </span>
+			</li>
+		  </ul>
+		</div>
 	</div>
-	<p if.bind="secondarylabel" class="mdc-select-helper-text mdc-select-helper-text--persistent" aria-hidden="true">
-		${secondarylabel}
-	</p>
+	<div if.bind="secondarylabel" id="select-helper--${unique}" class="mdc-select-helper-text" aria-hidden="true">${secondarylabel}</div>
 </template>

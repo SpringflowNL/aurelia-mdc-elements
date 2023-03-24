@@ -1,5 +1,5 @@
 import { bindable, customElement, inject, bindingMode } from 'aurelia-framework';
-import { MDCTextField } from '@material/textfield/dist/mdc.textfield.min';
+import { MDCTextField } from '@material/textfield';
 
 @customElement('mdc-textarea')
 @inject(Element)
@@ -10,7 +10,9 @@ export class MdcTextarea {
     @bindable required = false;
     @bindable modifier = null;
     @bindable secondarylabel = null;
-    @bindable myMdcTextfield; 
+    @bindable outlined = false;
+    @bindable readonly = null;
+    @bindable maxlength = null;
 
     constructor(element) {
         this.element = element;
@@ -18,24 +20,53 @@ export class MdcTextarea {
     }
 
     attached() {
-        this.myMdcTextfield = new MDCTextField(this.element.firstElementChild);
-        this.myMdcTextfield.disabled = this.disabled;
-        this.myMdcTextfield.required = this.required;
+        this.myMdcTextarea = new MDCTextField(this.element.firstElementChild);
+        this.myMdcTextarea.disabled = this.disabled;
+        this.myMdcTextarea.required = this.required;
+        this.myMdcTextarea.outlined = this.outlined;
+        this.myMdcTextarea.input.readOnly = this.readonly;
 
         if (this.value) {
-            this.myMdcTextfield.value = this.value;
+            this.myMdcTextarea.value = this.value;
         }
     }
 
     valueChanged(newvalue) {
-        if(this.myMdcTextfield && newvalue) this.myMdcTextfield.value = newvalue;
+        if(this.myMdcTextarea && newvalue) this.myMdcTextarea.value = newvalue;
     }
 
     disabledChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.disabled = newvalue;
+        if(this.myMdcTextarea) this.myMdcTextarea.disabled = newvalue;
     }
 
     requiredChanged(newvalue) {
-        if(this.myMdcTextfield) this.myMdcTextfield.required = newvalue;
+        if(this.myMdcTextarea) this.myMdcTextarea.required = newvalue;
+    }
+
+    outlinedChanged(newvalue) {
+        if(this.myMdcTextarea) this.myMdcTextarea.outlined = newvalue;
+    }
+
+    readonlyChanged(newvalue) {
+        if (this.myMdcTextarea) this.myMdcTextarea.input.readOnly = newvalue;
+    }
+
+    secondarylabelChanged(newvalue) {
+        if (this.myMdcTextarea) {
+            this.myMdcTextarea.input.setAttribute('aria-controls', `textarea-helper--${this.unique}`);
+            this.myMdcTextarea.input.setAttribute('aria-describedby', `textarea-helper--${this.unique}`);
+        }
+    }
+
+    maxlengthChanged(newvalue) {
+        if (this.myMdcTextarea) { 
+            this.myMdcTextarea.input.maxLength = newvalue;
+            this.myMdcTextarea.input.setAttribute('aria-controls', `textarea-helper--${this.unique}`);
+            this.myMdcTextarea.input.setAttribute('aria-describedby', `textarea-helper--${this.unique}`);
+        }
+    }
+
+    detached() {
+        this.myMdcTextarea.destroy();
     }
 }

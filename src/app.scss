@@ -1,15 +1,16 @@
-$mdc-theme-primary: darken(#009688, 5%) !default;
-$mdc-theme-secondary: #00adee !default;
-$mdc-theme-background: #fff !default;
+@use "@material/theme" with (
+  $primary: #007d71,
+  $secondary: #00adee,
+  // $on-primary: #442b2d,
+  // $on-secondary: #442b2d,
+);
 
 :root {
-	--mdc-theme-primary: #{$mdc-theme-primary} !important;
-	--mdc-theme-secondary: #{$mdc-theme-secondary} !important;
-	--mdc-theme-background: #{$mdc-theme-background} !important;
+  --mdc-theme-primary: #007d71;
+  --mdc-theme-secondary: #00adee;
 }
-
-@import 'resources/styles/_aurelia-mdc-elements';
-@import 'material-components-web/material-components-web';
+//@use 'resources/styles/_aurelia-mdc-elements';
+//@use 'material-components-web/material-components-web';
 
 /* Drawer - based on drawer in combination with mdc-top-app-bar */
 body {
@@ -47,7 +48,28 @@ body {
   margin-left: 300px;
 }
 
+/*mdc expansion*/
+.mdc-expansion__summary {
+  height: 48px;
+  display: flex;
+  cursor: pointer;
+  align-content: center;
+  position: relative;
+}
+
+.mdc-expansion__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  min-width: 200px;
+  margin-right: 24px;
+  text-transform: uppercase;
+  height: 100%;
+}
+
 /*TextField*/
-.mdc-text-field, mdc-text-field {
+.mdc-text-field {
   width: 100%;
 }

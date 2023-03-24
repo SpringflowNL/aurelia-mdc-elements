@@ -28,6 +28,9 @@
             <mdc-switch active.bind="required" label="Required"></mdc-switch>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <mdc-switch active.bind="readonly" label="Readonly"></mdc-switch>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
             <mdc-text-field value.bind="leading" label="Leading" leading.bind="leading"></mdc-text-field>
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
@@ -69,21 +72,25 @@
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details open class="mdc-expansion" details-ie>
+              <details open class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
-				  <span class="mdc-expansion__header" t="type.type">Custom</span>
-				  <button class="mdc-button mdc-button--raised" click.delegate="prefillValues()">Prefill values</button>
+                  <span class="mdc-expansion__header" t="type.type">Custom</span>
+                  <button class="mdc-button mdc-button--raised" click.delegate="prefillValues()">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__focus-ring"></span>
+                    <span class="mdc-button__label">Prefill values</span>
+                  </button>
                 </summary>
                 <div class="mdc-expansion__content">
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"
                         secondarylabel.bind="secondary" type.bind="type" modifier.bind="modifier" leading.bind="leading"
-                        trailing.bind="trailing"></mdc-text-field>
+                        trailing.bind="trailing" max.bind="max" min.bind="min"></mdc-text-field>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-textarea label.bind="label" disabled.bind="disabled" required.bind="required" value.bind="value"
-                        secondarylabel.bind="secondary" modifier.bind="modifier"></mdc-textarea>
+                        secondarylabel.bind="secondary" modifier.bind="modifier" maxlength.bind="max" readonly.bind="readonly"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-switch label.bind="label" disabled.bind="disabled" active.bind="boolvalue"></mdc-switch>
@@ -106,7 +113,7 @@
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-menu label.bind="label" leading.bind="leading">
-                        <div class="mdc-list-item" repeat.for="data of dynamicArray">${data.value}</div>
+                        <li class="mdc-deprecated-list-item" repeat.for="data of dynamicArray">${data.value}</li>
                       </mdc-menu>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
@@ -121,96 +128,78 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">TextField</span>
                 </summary>
                 <div class="mdc-expansion__content">
                   <h3>Standard</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Dense" modifier="mdc-text-field--dense"></mdc-text-field>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard pre-selected" value="Value" secondarylabel="Helper Text"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard pre-selected" secondarylabel="Helper Text" value="Value" leading="tag_faces" trailing="tag_faces"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined"></mdc-text-field>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" outlined="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense"></mdc-text-field>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field class="mdc-notched-outline--notched" label="Standard pre-selected" value="Value" outlined="true" secondarylabel="Helper Text"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard pre-selected" value="Value" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"></mdc-text-field>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard pre-selected" value="Value" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field class="mdc-notched-outline--notched" label="Standard pre-selected" value="Value" outlined="true" secondarylabel="Helper Text"
                         leading="tag_faces" trailing="tag_faces"></mdc-text-field>
                     </div>
                   </div>
                   <h3>Disabled</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Dense" modifier="mdc-text-field--dense" disabled="true"></mdc-text-field>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard pre-selected" value="Value" secondarylabel="Helper Text" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard pre-selected" value="Value" secondarylabel="Helper Text" leading="tag_faces" trailing="tag_faces"
                         disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" disabled="true"></mdc-text-field>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" outlined="true" disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense" disabled="true"></mdc-text-field>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard pre-selected" value="Value" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field class="mdc-notched-outline--notched" label="Standard pre-selected" value="Value" outlined="true" secondarylabel="Helper Text"
                         disabled="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard pre-selected" value="Value" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field class="mdc-notched-outline--notched" label="Standard pre-selected" value="Value" outlined="true" secondarylabel="Helper Text"
                         leading="tag_faces" trailing="tag_faces" disabled="true"></mdc-text-field>
                     </div>
                   </div>
                   <h3>Required</h3>
                   <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Dense" modifier="mdc-text-field--dense" required="true"></mdc-text-field>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard pre-selected" value="Value" secondarylabel="Helper Text" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
                       <mdc-text-field label="Standard pre-selected" value="Value" secondarylabel="Helper Text" leading="tag_faces" trailing="tag_faces"
                         required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard" modifier="mdc-text-field--outlined" required="true"></mdc-text-field>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field label="Standard" outlined="true" required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Dense" modifier="mdc-text-field--outlined mdc-text-field--dense" required="true"></mdc-text-field>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard pre-selected" value="Value" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field class="mdc-notched-outline--notched" label="Standard pre-selected" value="Value" outlined="true" secondarylabel="Helper Text"
                         required="true"></mdc-text-field>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-text-field label="Standard pre-selected" value="Value" modifier="mdc-text-field--outlined" secondarylabel="Helper Text"
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-text-field class="mdc-notched-outline--notched" label="Standard pre-selected" value="Value" outlined="true" secondarylabel="Helper Text"
                         leading="tag_faces" trailing="tag_faces" required="true"></mdc-text-field>
                     </div>
                   </div>
@@ -219,7 +208,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">TextArea</span>
                 </summary>
@@ -230,10 +219,10 @@
                       <mdc-textarea label="Standard"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense"></mdc-textarea>
+                      <mdc-textarea outlined="true" label="Standard pre-selected" value="Value"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Standard pre-selected" value="Value" secondarylabel="Helper Text"></mdc-textarea>
+                      <mdc-textarea outlined="true" label="Standard pre-selected" value="Value" secondarylabel="Helper Text"></mdc-textarea>
                     </div>
                   </div>
                   <h3>Disabled</h3>
@@ -242,10 +231,10 @@
                       <mdc-textarea label="Standard" disabled="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" disabled="true"></mdc-textarea>
+                      <mdc-textarea outlined="true" label="Standard pre-selected" value="Value" disabled="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Standard pre-selected" value="Value" secondarylabel="Helper Text" disabled="true"></mdc-textarea>
+                      <mdc-textarea outlined="true" label="Standard pre-selected" value="Value" secondarylabel="Helper Text" disabled="true"></mdc-textarea>
                     </div>
                   </div>
                   <h3>Required</h3>
@@ -254,22 +243,22 @@
                       <mdc-textarea label="Standard" required="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense" dense="true" required="true"></mdc-textarea>
+                      <mdc-textarea outlined="true" label="Standard pre-selected" value="Value" required="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Standard pre-selected" value="Value" secondarylabel="Helper Text" required="true"></mdc-textarea>
+                      <mdc-textarea outlined="true" label="Standard pre-selected" value="Value" secondarylabel="Helper Text" required="true"></mdc-textarea>
                     </div>
                   </div>
                   <h3>Readonly</h3>
                   <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Standard" modifier="mdc-text-field--readonly"></mdc-textarea>
-                </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Dense" modifier="mdc-text-field--dense mdc-text-field--readonly" dense="true"></mdc-textarea>
+                      <mdc-textarea label="Standard" readonly.bind="true"></mdc-textarea>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <mdc-textarea label="Standard pre-selected" value="Value" secondarylabel="Helper Text" modifier="mdc-text-field--readonly"></mdc-textarea>
+                      <mdc-textarea label="Standard pre-selected" outlined="true" value="Value" readonly.bind="true"></mdc-textarea>
+                    </div>
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                      <mdc-textarea label="Standard pre-selected" outlined="true" value="Value" secondarylabel="Helper Text" readonly.bind="true"></mdc-textarea>
                     </div>
                   </div>
                 </div>
@@ -277,7 +266,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Select</span>
                 </summary>
@@ -295,14 +284,14 @@
                         leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"></mdc-select>
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select class="mdc-notched-outline--notched" label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         selected.bind="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select class="mdc-notched-outline--notched" label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text"></mdc-select>
                     </div>
                   </div>
@@ -320,15 +309,15 @@
                         leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select class="mdc-notched-outline--notched" label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         selected.bind="true" disabled="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select class="mdc-notched-outline--notched" label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text" disabled="true"></mdc-select>
                     </div>
                   </div>
@@ -346,15 +335,15 @@
                         leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select class="mdc-notched-outline--notched" label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         selected.bind="true" required="true"></mdc-select>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                      <mdc-select label="Outlined" key="key" value="value" data.bind="staticArray" modifier="mdc-select--outlined"
+                      <mdc-select class="mdc-notched-outline--notched" label="Outlined" key="key" value="value" data.bind="staticArray" outlined.bind="true"
                         selected.bind="true" leading="tag_faces" secondarylabel="Helper text" required="true"></mdc-select>
                     </div>
                   </div>
@@ -363,7 +352,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Checkbox</span>
                 </summary>
@@ -377,7 +366,7 @@
                       <mdc-checkbox id="checkbox2" label="Unchecked"></mdc-checkbox>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-checkbox id="checkbox3" label="Indeterminate" indeterminate="true"></mdc-checkbox>
+                      <mdc-checkbox id="checkbox3" label="Indeterminate" indeterminate="false"></mdc-checkbox>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
                       <mdc-checkbox id="checkbox4" label="Standard" secondarylabel="Helper Text"></mdc-checkbox>
@@ -403,7 +392,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Radio</span>
                 </summary>
@@ -447,7 +436,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Progress</span>
                 </summary>
@@ -458,16 +447,16 @@
                       <mdc-progress></mdc-progress>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                      <mdc-progress min="0" max="10" value="5"></mdc-progress>
+                      <mdc-progress min="0" max="10" value="5"></mdc-progress> 
                       Min = 0
                       Max = 10
                       Val = 5
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                      <mdc-progress max="20" min="10" value="15"></mdc-progress>
-                      Min = 10
+                      <mdc-progress min="0" max="20" value="15"></mdc-progress>
+                      Min = 0
                       Max = 20
-                      Val = 10
+                      Val = 15
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                       <mdc-progress buffer="true"></mdc-progress>
@@ -478,7 +467,7 @@
             </div>
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Chips</span>
                 </summary>
@@ -495,7 +484,7 @@
                       <mdc-chip label="Standard" trailing="tag_faces"></mdc-chip>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <div class="mdc-chip-set">
+                      <div class="mdc-chip-set" role="grid">
                         <mdc-chip label="Paul" trailing="tag_faces"></mdc-chip>
                         <mdc-chip label="Daniel" trailing="tag_faces"></mdc-chip>
                         <mdc-chip label="Ricardo" trailing="tag_faces"></mdc-chip>
@@ -504,359 +493,13 @@
                       </div>
                     </div>
                   </div>
-              </details>
-            </div>
-
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie click.trigger="handleSliders()">
-                <summary class="mdc-expansion__summary">
-                  <span class="mdc-expansion__header" t="type.type">Sliders</span>
-                </summary>
-                <div class="mdc-expansion__content">
-                  <h2>Standard</h2>
-                  <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <h3>Continuous</h3>
-                      <div class="mdc-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100"
-                        aria-valuenow="0" aria-label="Select Value" ref="slider">
-                        <div class="mdc-slider__track-container">
-                          <div class="mdc-slider__track"></div>
-                        </div>
-                        <div class="mdc-slider__thumb-container">
-                          <svg class="mdc-slider__thumb" width="21" height="21">
-                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                          </svg>
-                          <div class="mdc-slider__focus-ring"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <h3>Discrete</h3>
-                      <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider" aria-valuemin="0"
-                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" ref="sliderDiscrete">
-                        <div class="mdc-slider__track-container">
-                          <div class="mdc-slider__track"></div>
-                        </div>
-                        <div class="mdc-slider__thumb-container">
-                          <div class="mdc-slider__pin">
-                            <span class="mdc-slider__pin-value-marker"></span>
-                          </div>
-                          <svg class="mdc-slider__thumb" width="21" height="21">
-                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                          </svg>
-                          <div class="mdc-slider__focus-ring"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <h3>Discrete with Tickmarks</h3>
-                      <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
-                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" ref="sliderTick">
-                        <div class="mdc-slider__track-container">
-                          <div class="mdc-slider__track"></div>
-                          <div class="mdc-slider__track-marker-container"></div>
-                        </div>
-                        <div class="mdc-slider__thumb-container">
-                          <div class="mdc-slider__pin">
-                            <span class="mdc-slider__pin-value-marker"></span>
-                          </div>
-                          <svg class="mdc-slider__thumb" width="21" height="21">
-                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                          </svg>
-                          <div class="mdc-slider__focus-ring"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h2>Disabled</h2>
-                  <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <h3>Continuous</h3>
-                      <div class="mdc-slider" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100"
-                        aria-valuenow="0" aria-label="Select Value" aria-disabled="true" ref="sliderDisabled">
-                        <div class="mdc-slider__track-container">
-                          <div class="mdc-slider__track"></div>
-                        </div>
-                        <div class="mdc-slider__thumb-container">
-                          <svg class="mdc-slider__thumb" width="21" height="21">
-                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                          </svg>
-                          <div class="mdc-slider__focus-ring"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <h3>Discrete</h3>
-                      <div class="mdc-slider mdc-slider--discrete" tabindex="0" role="slider" aria-valuemin="0"
-                        aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true" ref="sliderDiscreteDisabled">
-                        <div class="mdc-slider__track-container">
-                          <div class="mdc-slider__track"></div>
-                        </div>
-                        <div class="mdc-slider__thumb-container">
-                          <div class="mdc-slider__pin">
-                            <span class="mdc-slider__pin-value-marker"></span>
-                          </div>
-                          <svg class="mdc-slider__thumb" width="21" height="21">
-                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                          </svg>
-                          <div class="mdc-slider__focus-ring"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <h3>Discrete with Tickmarks</h3>
-                      <div class="mdc-slider mdc-slider--discrete mdc-slider--display-markers" tabindex="0" role="slider"
-                        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Select Value" aria-disabled="true"
-                        ref="sliderTickDisabled">
-                        <div class="mdc-slider__track-container">
-                          <div class="mdc-slider__track"></div>
-                          <div class="mdc-slider__track-marker-container"></div>
-                        </div>
-                        <div class="mdc-slider__thumb-container">
-                          <div class="mdc-slider__pin">
-                            <span class="mdc-slider__pin-value-marker"></span>
-                          </div>
-                          <svg class="mdc-slider__thumb" width="21" height="21">
-                            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                          </svg>
-                          <div class="mdc-slider__focus-ring"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
-                <summary class="mdc-expansion__summary">
-                  <span class="mdc-expansion__header" t="type.type">Tabs</span>
-                </summary>
-                <div class="mdc-expansion__content">
-                  <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                      <div class="mdc-tab-bar" role="tablist">
-                        <div class="mdc-tab-scroller">
-                          <div class="mdc-tab-scroller__scroll-area">
-                            <div class="mdc-tab-scroller__scroll-content">
-                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
-                                <span class="mdc-tab__content">
-                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-                                  <span class="mdc-tab__text-label">Favorites</span>
-                                </span>
-                                <span class="mdc-tab-indicator">
-                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                              </button>
-                              <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-                                <span class="mdc-tab__content">
-                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">home</span>
-                                  <span class="mdc-tab__text-label">Home</span>
-                                </span>
-                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                              </button>
-                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
-                                <span class="mdc-tab__content">
-                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
-                                  <span class="mdc-tab__text-label">Contact</span>
-                                </span>
-                                <span class="mdc-tab-indicator">
-                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                              </button>
-                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
-                                <span class="mdc-tab__content">
-                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
-                                  <span class="mdc-tab__text-label">Contact</span>
-                                </span>
-                                <span class="mdc-tab-indicator">
-                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                              </button>
-                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
-                                <span class="mdc-tab__content">
-                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
-                                  <span class="mdc-tab__text-label">Contact</span>
-                                </span>
-                                <span class="mdc-tab-indicator">
-                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                              </button>
-                              <button class="mdc-tab mdc-tab" role="tab" aria-selected="false" tabindex="0">
-                                <span class="mdc-tab__content">
-                                  <span class="mdc-tab__icon material-icons" aria-hidden="true">tag_faces</span>
-                                  <span class="mdc-tab__text-label">Contact</span>
-                                </span>
-                                <span class="mdc-tab-indicator">
-                                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
               </details>
             </div>
+            
 
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
-                <summary class="mdc-expansion__summary">
-                  <span class="mdc-expansion__header" t="type.type">Cards</span>
-                </summary>
-                <div class="mdc-expansion__content">
-                  <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <div class="mdc-card">
-                        <div class="mdc-card__primary-action" tabindex="0">
-                          <div class="mdc-card__media mdc-card__media--16-9" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);">
-                          </div>
-                          <div class="demo-card__primary">
-                            <h2 class="mdc-typography--headline6">Our Changing Planet</h2>
-                            <h3 class="mdc-typography--subtitle2">by Kurt Wagner</h3>
-                          </div>
-                          <div class="mdc-typography--body2">
-                            Visit ten places on our planet that are undergoing the biggest changes today.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <div class="mdc-card">
-                        <div class="mdc-card__primary-action" tabindex="0">
-                          <div class="demo-card__primary">
-                            <h2 class="mdc-typography--headline6">Our Changing Planet</h2>
-                            <h3 class="mdc-typography--subtitle2">by Kurt Wagner</h3>
-                          </div>
-                          <div class="mdc-typography--body2">
-                            Visit ten places on our planet that are undergoing the biggest changes today.
-                          </div>
-                        </div>
-                        <div class="mdc-card__actions">
-                          <div class="mdc-card__action-buttons">
-                            <button class="mdc-button mdc-card__action mdc-card__action--button">Read</button>
-                            <button class="mdc-button mdc-card__action mdc-card__action--button">Bookmark</button>
-                          </div>
-                          <div class="mdc-card__action-icons">
-                            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon" aria-pressed="false"
-                              aria-label="Add to favorites" title="Add to favorites">
-                              <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-                              <i class="material-icons mdc-icon-button__icon">favorite_border</i>
-                            </button>
-                            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon"
-                              title="Share">share</button>
-                            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon"
-                              title="More options">more_vert</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </details>
-            </div>
-
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
-                <summary class="mdc-expansion__summary">
-                  <span class="mdc-expansion__header" t="type.type">Lists</span>
-                </summary>
-                <div class="mdc-expansion__content">
-                  <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <h3>Single line</h3>
-                      <ul class="mdc-list">
-                        <li class="mdc-list-item" tabindex="0">Item</li>
-                        <li class="mdc-list-item" tabindex="-1">Item</li>
-                        <li class="mdc-list-item" tabindex="-1">Item</li>
-                      </ul>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <h3>Two-line</h3>
-                      <ul class="mdc-list mdc-list--two-line">
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <h3>Mixed dense</h3>
-                      <ul class="mdc-list mdc-list--two-line mdc-list--dense">
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                          </span>
-                        </li>
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <h3>Mixed with leading</h3>
-                      <ul class="mdc-list mdc-list--two-line">
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__graphic material-icons" aria-hidden="true">tag_faces</span>
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__graphic material-icons" aria-hidden="true">tag_faces</span>
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                          </span>
-                        </li>
-                        <li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__graphic material-icons" aria-hidden="true">tag_faces</span>
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">Item</span>
-                            <span class="mdc-list-item__secondary-text">Secondary</span>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-              </details>
-            </div>
-
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-              <details class="mdc-expansion" details-ie>
+              <details class="mdc-expansion">
                 <summary class="mdc-expansion__summary">
                   <span class="mdc-expansion__header" t="type.type">Overig</span>
                 </summary>
@@ -870,21 +513,19 @@
                       <mdc-switch label="Standard" active.bind="false"></mdc-switch>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <mdc-menu label="Menu" icon="tag_faces">
-                        <div class="mdc-list-item">Option 1</div>
-                        <div class="mdc-list-item">Option 2</div>
-                        <div class="mdc-list-item">Option 3</div>
+                      <mdc-menu label="Menu" leading="tag_faces">
+                        <div class="mdc-deprecated-list-item" tabindex="0">
+                          <span class="mdc-deprecated-list-item__ripple"></span>
+                          <span class="mdc-deprecated-list-item__text">Single-line item 01</span></div>
+                        <div class="mdc-deprecated-list-item" tabindex="0">
+                          <span class="mdc-deprecated-list-item__ripple"></span>
+                          <span class="mdc-deprecated-list-item__text">Single-line item 02</span></div>
+                        <div class="mdc-deprecated-list-item" tabindex="0">
+                          <span class="mdc-deprecated-list-item__ripple"></span>
+                          <span class="mdc-deprecated-list-item__text">Single-line item 03</span></div>
                       </mdc-menu>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
-                      <div class="mdc-snackbar mdc-snackbar--active" aria-live="assertive" aria-atomic="true"
-                        aria-hidden="true">
-                        <div class="mdc-snackbar__text">Succesvolle test</div>
-                        <div class="mdc-snackbar__action-wrapper">
-                          <button type="button" class="mdc-snackbar__action-button">Sluiten</button>
-                        </div>
-                      </div>
-                    </div>
+                  </div>
                   </div>
               </details>
             </div>

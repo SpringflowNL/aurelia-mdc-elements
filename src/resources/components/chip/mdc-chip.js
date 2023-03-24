@@ -1,5 +1,5 @@
 import { inject, bindable, bindingMode } from "aurelia-framework";
-import { MDCChip } from "@material/chips/dist/mdc.chips.min";
+import { MDCChip } from "@material/chips";
 
 @inject(Element)
 export class MdcChip {

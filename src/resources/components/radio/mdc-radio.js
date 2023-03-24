@@ -1,5 +1,5 @@
 import { inject, bindable, bindingMode } from "aurelia-framework";
-import { MDCRadio } from "@material/radio/dist/mdc.radio.min";
+import { MDCRadio } from "@material/radio";
 
 @inject(Element)
 export class MdcRadio {
@@ -7,9 +7,10 @@ export class MdcRadio {
   @bindable disabled = false;
   @bindable id;
   @bindable label;
-  @bindable secondarylabel;
-  @bindable name;
+  @bindable matcher;
   @bindable model;
+  @bindable name;
+  @bindable secondarylabel;
 
   constructor(element) {
     this.element = element;

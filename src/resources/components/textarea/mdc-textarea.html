@@ -1,16 +1,29 @@
 ﻿<template>
-	<div class="mdc-text-field ${disabled ? 'mdc-text-field--disabled' : ''} ${label ? '' : 'mdc-text-field--no-label'} mdc-text-field--textarea ${modifier ? modifier : ''}">
-		<textarea id="textarea--${unique}" class="mdc-text-field__input" rows="8" cols="40" value.bind="value" if.bind="!modifier || modifier.indexOf('mdc-text-field--readonly') === -1"></textarea>
-		<textarea readonly id="textarea--${unique}" class="mdc-text-field__input" rows="8" cols="40" value.bind="value" if.bind="modifier && modifier.indexOf('mdc-text-field--readonly') > -1" ></textarea>
-		<div class="mdc-notched-outline">
-			<div class="mdc-notched-outline__leading"></div>
-			<div if.bind="label" class="mdc-notched-outline__notch">
-				<label for="textarea--${unique}" class="mdc-floating-label ${value || value == '0' || value == 'false' ? 'mdc-floating-label--float-above' : ''}">${label}</label>
-			</div>
-			<div class="mdc-notched-outline__trailing"></div>
-		</div>
+	<label class="mdc-text-field ${outlined ? 'mdc-text-field--outlined' : 'mdc-text-field--filled'} mdc-text-field--textarea ${label ? '' : 'mdc-text-field--no-label'} ${disabled ? 'mdc-text-field--disabled' : ''} ${value || value == '0' || value == 'false' ? 'mdc-text-field--label-floating' : ''} ${modifier ? modifier : ''}">
+		<template if.bind="outlined">
+			<span class="mdc-notched-outline">
+				<span class="mdc-notched-outline__leading"></span>
+				<span class="mdc-notched-outline__notch" if.bind="label">
+					<span class="mdc-floating-label ${value || value == '0' || value == 'false' ? 'mdc-floating-label--float-above' : ''}" id="textarea--${unique}">${label}</span>
+				</span>
+				<span class="mdc-notched-outline__trailing"></span>
+			</span>
+			<span class="mdc-text-field__resizer">
+				<textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="${label}" aria-labelledby="textarea--${unique}" value.bind="value" required.bind="required"></textarea>
+			</span>
+		</template>
+		<template else>
+			<span class="mdc-text-field__ripple"></span>
+			<span class="mdc-text-field__resizer">
+				<span class="mdc-floating-label ${value || value == '0' || value == 'false' ? 'mdc-floating-label--float-above' : ''}" id="textarea--${unique}" if.bind="label">${label}</span>
+				<textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="${label}" aria-labelledby="textarea--${unique}" value.bind="value" required.bind="required" id="textarea-input--${unique}"></textarea>
+			</span>
+			<span class="mdc-line-ripple"></span>
+		</template>
+	</label>
+
+	<div class="mdc-text-field-helper-line" if.bind="secondarylabel || maxlength">
+	  <div class="mdc-text-field-helper-text" id="textarea-helper--${unique}" aria-hidden="true" if.bind="secondarylabel">${secondarylabel}</div>
+	  <div class="mdc-text-field-character-counter" id="textarea-helper--${unique}" if.bind="maxlength">${value.length ? value.length : 0} / ${maxlength}</div>
 	</div>
-	<p if.bind="secondarylabel" class="mdc-text-field-helper-text" aria-hidden="true">
-		${secondarylabel}
-	</p>
 </template>
