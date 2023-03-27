@@ -7,7 +7,7 @@ import autoprefixer from 'gulp-autoprefixer';
 export default function processCSS() {
 	return gulp.src(project.cssProcessor.source)
 		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
+			overrideBrowserslist: ['last 2 versions'],
 			cascade: false
 		}))
 		.pipe(changedInPlace({ firstPass: true }))
