@@ -8,10 +8,10 @@ import autoprefixer from 'gulp-autoprefixer';
 export default function processSCSS() {
   return gulp.src(project.scssProcessor.source)
     .pipe(sass({
-		includePaths: ['node_modules']
+		includePaths: ['node_modules/material-components-web']
 	}).on('error', sass.logError))
 	.pipe(autoprefixer({
-		browsers: ['last 2 versions'],
+		overrideBrowserslist: ['last 2 versions'],
 		cascade: false
 	}))
     .pipe(changedInPlace({firstPass: true}))

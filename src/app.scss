@@ -9,8 +9,8 @@
   --mdc-theme-primary: #007d71;
   --mdc-theme-secondary: #00adee;
 }
-//@use 'resources/styles/_aurelia-mdc-elements';
-//@use 'material-components-web/material-components-web';
+
+@import 'node_modules/material-components-web/dist/material-components-web.css';
 
 /* Drawer - based on drawer in combination with mdc-top-app-bar */
 body {
