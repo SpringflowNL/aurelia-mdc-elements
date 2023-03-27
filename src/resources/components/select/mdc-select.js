@@ -69,6 +69,10 @@ export class MdcSelect {
                 self.mdcSelect.selectedIndex = self.getIndex(self.data, newvalue);
             });
         }
+
+        if (this.selectedValue && newvalue) {
+            this.mdcSelect.valid = true;
+        }
         
         this.changedEvent = false;
     }
