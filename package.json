@@ -1,13 +1,13 @@
 {
   "name": "aurelia-mdc-elements",
-  "version": "14.0.0",
+  "version": "14.0.1",
   "description": "This is a repository for simple integration of MDC Components into the Aurelia Custom elements.",
   "keywords": [
     "aurelia",
     "mdc",
     "plugin",
     "material-components-web"
-  ],  
+  ],
   "homepage": "https://github.com/SpringflowNL/aurelia-mdc-elements#readme",
   "bugs": {
     "url": "https://github.com/SpringflowNL/aurelia-mdc-elements/issues"
