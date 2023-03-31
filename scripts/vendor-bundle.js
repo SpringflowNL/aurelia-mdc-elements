@@ -6067,7 +6067,7 @@ var requirejs, require, define;
 ;
 var global = this; _aureliaConfigureModuleLoader();;
 /*!
- * jQuery JavaScript Library v3.6.3
+ * jQuery JavaScript Library v3.6.4
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -6077,7 +6077,7 @@ var global = this; _aureliaConfigureModuleLoader();;
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2022-12-20T21:28Z
+ * Date: 2023-03-08T15:28Z
  */
 ( function( global, factory ) {
 
@@ -6219,7 +6219,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.6.3",
+	version = "3.6.4",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -6590,14 +6590,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.9
+ * Sizzle CSS Selector Engine v2.3.10
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2022-12-19
+ * Date: 2023-02-14
  */
 ( function( window ) {
 var i,
@@ -6701,7 +6701,7 @@ var i,
 		whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
-	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
+	rleadingCombinator = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
 		"*" ),
 	rdescend = new RegExp( whitespace + "|>" ),
 
@@ -6918,7 +6918,7 @@ function Sizzle( selector, context, results, seed ) {
 				// as such selectors are not recognized by querySelectorAll.
 				// Thanks to Andrew Dupont for this technique.
 				if ( nodeType === 1 &&
-					( rdescend.test( selector ) || rcombinators.test( selector ) ) ) {
+					( rdescend.test( selector ) || rleadingCombinator.test( selector ) ) ) {
 
 					// Expand context for sibling selectors
 					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
@@ -6947,27 +6947,6 @@ function Sizzle( selector, context, results, seed ) {
 				}
 
 				try {
-
-					// `qSA` may not throw for unrecognized parts using forgiving parsing:
-					// https://drafts.csswg.org/selectors/#forgiving-selector
-					// like the `:has()` pseudo-class:
-					// https://drafts.csswg.org/selectors/#relational
-					// `CSS.supports` is still expected to return `false` then:
-					// https://drafts.csswg.org/css-conditional-4/#typedef-supports-selector-fn
-					// https://drafts.csswg.org/css-conditional-4/#dfn-support-selector
-					if ( support.cssSupportsSelector &&
-
-						// eslint-disable-next-line no-undef
-						!CSS.supports( "selector(:is(" + newSelector + "))" ) ) {
-
-						// Support: IE 11+
-						// Throw to get to the same code path as an error directly in qSA.
-						// Note: once we only support browser supporting
-						// `CSS.supports('selector(...)')`, we can most likely drop
-						// the `try-catch`. IE doesn't implement the API.
-						throw new Error();
-					}
-
 					push.apply( results,
 						newContext.querySelectorAll( newSelector )
 					);
@@ -7263,29 +7242,22 @@ setDocument = Sizzle.setDocument = function( node ) {
 			!el.querySelectorAll( ":scope fieldset div" ).length;
 	} );
 
-	// Support: Chrome 105+, Firefox 104+, Safari 15.4+
-	// Make sure forgiving mode is not used in `CSS.supports( "selector(...)" )`.
-	//
-	// `:is()` uses a forgiving selector list as an argument and is widely
-	// implemented, so it's a good one to test against.
-	support.cssSupportsSelector = assert( function() {
-		/* eslint-disable no-undef */
-
-		return CSS.supports( "selector(*)" ) &&
-
-			// Support: Firefox 78-81 only
-			// In old Firefox, `:is()` didn't use forgiving parsing. In that case,
-			// fail this test as there's no selector to test against that.
-			// `CSS.supports` uses unforgiving parsing
-			document.querySelectorAll( ":is(:jqfake)" ) &&
-
-			// `*` is needed as Safari & newer Chrome implemented something in between
-			// for `:has()` - it throws in `qSA` if it only contains an unsupported
-			// argument but multiple ones, one of which is supported, are fine.
-			// We want to play safe in case `:is()` gets the same treatment.
-			!CSS.supports( "selector(:is(*,:jqfake))" );
-
-		/* eslint-enable */
+	// Support: Chrome 105 - 110+, Safari 15.4 - 16.3+
+	// Make sure the the `:has()` argument is parsed unforgivingly.
+	// We include `*` in the test to detect buggy implementations that are
+	// _selectively_ forgiving (specifically when the list includes at least
+	// one valid selector).
+	// Note that we treat complete lack of support for `:has()` as if it were
+	// spec-compliant support, which is fine because use of `:has()` in such
+	// environments will fail in the qSA path and fall back to jQuery traversal
+	// anyway.
+	support.cssHas = assert( function() {
+		try {
+			document.querySelector( ":has(*,:jqfake)" );
+			return false;
+		} catch ( e ) {
+			return true;
+		}
 	} );
 
 	/* Attributes
@@ -7554,14 +7526,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 		} );
 	}
 
-	if ( !support.cssSupportsSelector ) {
+	if ( !support.cssHas ) {
 
-		// Support: Chrome 105+, Safari 15.4+
-		// `:has()` uses a forgiving selector list as an argument so our regular
-		// `try-catch` mechanism fails to catch `:has()` with arguments not supported
-		// natively like `:has(:contains("Foo"))`. Where supported & spec-compliant,
-		// we now use `CSS.supports("selector(:is(SELECTOR_TO_BE_TESTED))")`, but
-		// outside that we mark `:has` as buggy.
+		// Support: Chrome 105 - 110+, Safari 15.4 - 16.3+
+		// Our regular `try-catch` mechanism fails to detect natively-unsupported
+		// pseudo-classes inside `:has()` (such as `:has(:contains("Foo"))`)
+		// in browsers that parse the `:has()` argument as a forgiving selector list.
+		// https://drafts.csswg.org/selectors/#relational now requires the argument
+		// to be parsed unforgivingly, but browsers have not yet fully adjusted.
 		rbuggyQSA.push( ":has" );
 	}
 
@@ -8474,7 +8446,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		matched = false;
 
 		// Combinators
-		if ( ( match = rcombinators.exec( soFar ) ) ) {
+		if ( ( match = rleadingCombinator.exec( soFar ) ) ) {
 			matched = match.shift();
 			tokens.push( {
 				value: matched,
@@ -28573,11 +28545,6 @@ define('@material/radio/index',["exports", "./adapter", "./component", "./consta
     _exports[key] = _foundation[key];
   });
 });;
-define('@material/ripple/adapter',["exports"], function (_exports) {
-  "use strict";
-
-  _exports.__esModule = true;
-});;
 define('@material/ripple/component',["exports", "tslib", "@material/base/component", "@material/dom/events", "@material/dom/ponyfill", "./foundation", "./util"], function (_exports, _tslib, _component, _events, _ponyfill, _foundation, util) {
   "use strict";
 
@@ -29379,54 +29346,6 @@ define('@material/ripple/foundation',["exports", "tslib", "@material/base/founda
   // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
   var _default = MDCRippleFoundation;
   _exports.default = _default;
-});;
-define('@material/ripple/index',["exports", "./util", "./adapter", "./component", "./constants", "./foundation", "./types"], function (_exports, util, _adapter, _component, _constants, _foundation, _types) {
-  "use strict";
-
-  _exports.__esModule = true;
-  var _exportNames = {
-    util: true
-  };
-  _exports.util = void 0;
-  util = _interopRequireWildcard(util);
-  _exports.util = util;
-  Object.keys(_adapter).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-    if (key in _exports && _exports[key] === _adapter[key]) return;
-    _exports[key] = _adapter[key];
-  });
-  Object.keys(_component).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-    if (key in _exports && _exports[key] === _component[key]) return;
-    _exports[key] = _component[key];
-  });
-  Object.keys(_constants).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-    if (key in _exports && _exports[key] === _constants[key]) return;
-    _exports[key] = _constants[key];
-  });
-  Object.keys(_foundation).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-    if (key in _exports && _exports[key] === _foundation[key]) return;
-    _exports[key] = _foundation[key];
-  });
-  Object.keys(_types).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-    if (key in _exports && _exports[key] === _types[key]) return;
-    _exports[key] = _types[key];
-  });
-  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-});;
-define('@material/ripple/types',["exports"], function (_exports) {
-  "use strict";
-
-  _exports.__esModule = true;
 });;
 define('@material/ripple/util',["exports"], function (_exports) {
   "use strict";
@@ -56552,11 +56471,9 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
   _exports.__await = __await;
   _exports.__awaiter = __awaiter;
   _exports.__classPrivateFieldGet = __classPrivateFieldGet;
-  _exports.__classPrivateFieldIn = __classPrivateFieldIn;
   _exports.__classPrivateFieldSet = __classPrivateFieldSet;
-  _exports.__createBinding = void 0;
+  _exports.__createBinding = __createBinding;
   _exports.__decorate = __decorate;
-  _exports.__esDecorate = __esDecorate;
   _exports.__exportStar = __exportStar;
   _exports.__extends = __extends;
   _exports.__generator = __generator;
@@ -56565,16 +56482,12 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
   _exports.__makeTemplateObject = __makeTemplateObject;
   _exports.__metadata = __metadata;
   _exports.__param = __param;
-  _exports.__propKey = __propKey;
   _exports.__read = __read;
   _exports.__rest = __rest;
-  _exports.__runInitializers = __runInitializers;
-  _exports.__setFunctionName = __setFunctionName;
   _exports.__spread = __spread;
-  _exports.__spreadArray = __spreadArray;
   _exports.__spreadArrays = __spreadArrays;
   _exports.__values = __values;
-  /******************************************************************************
+  /*! *****************************************************************************
   Copyright (c) Microsoft Corporation.
   
   Permission to use, copy, modify, and/or distribute this software for any
@@ -56596,12 +56509,11 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
     } instanceof Array && function (d, b) {
       d.__proto__ = b;
     } || function (d, b) {
-      for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     };
     return extendStatics(d, b);
   };
   function __extends(d, b) {
-    if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
     extendStatics(d, b);
     function __() {
       this.constructor = d;
@@ -56639,63 +56551,6 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
       decorator(target, key, paramIndex);
     };
   }
-  function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-    function accept(f) {
-      if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
-      return f;
-    }
-    var kind = contextIn.kind,
-      key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-    var _,
-      done = false;
-    for (var i = decorators.length - 1; i >= 0; i--) {
-      var context = {};
-      for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-      for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-      context.addInitializer = function (f) {
-        if (done) throw new TypeError("Cannot add initializers after decoration has completed");
-        extraInitializers.push(accept(f || null));
-      };
-      var result = (0, decorators[i])(kind === "accessor" ? {
-        get: descriptor.get,
-        set: descriptor.set
-      } : descriptor[key], context);
-      if (kind === "accessor") {
-        if (result === void 0) continue;
-        if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-        if (_ = accept(result.get)) descriptor.get = _;
-        if (_ = accept(result.set)) descriptor.set = _;
-        if (_ = accept(result.init)) initializers.push(_);
-      } else if (_ = accept(result)) {
-        if (kind === "field") initializers.push(_);else descriptor[key] = _;
-      }
-    }
-    if (target) Object.defineProperty(target, contextIn.name, descriptor);
-    done = true;
-  }
-  ;
-  function __runInitializers(thisArg, initializers, value) {
-    var useValue = arguments.length > 2;
-    for (var i = 0; i < initializers.length; i++) {
-      value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
-    }
-    return useValue ? value : void 0;
-  }
-  ;
-  function __propKey(x) {
-    return typeof x === "symbol" ? x : "".concat(x);
-  }
-  ;
-  function __setFunctionName(f, name, prefix) {
-    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-    return Object.defineProperty(f, "name", {
-      configurable: true,
-      value: prefix ? "".concat(prefix, " ", name) : name
-    });
-  }
-  ;
   function __metadata(metadataKey, metadataValue) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
   }
@@ -56754,7 +56609,7 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
     }
     function step(op) {
       if (f) throw new TypeError("Generator is already executing.");
-      while (g && (g = 0, op[0] && (_ = 0)), _) try {
+      while (_) try {
         if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
         if (y = 0, t) op = [op[0] & 2, t.value];
         switch (op[0]) {
@@ -56814,25 +56669,12 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
       };
     }
   }
-  var __createBinding = Object.create ? function (o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = {
-        enumerable: true,
-        get: function () {
-          return m[k];
-        }
-      };
-    }
-    Object.defineProperty(o, k2, desc);
-  } : function (o, m, k, k2) {
+  function __createBinding(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
-  };
-  _exports.__createBinding = __createBinding;
-  function __exportStar(m, o) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+  }
+  function __exportStar(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
   }
   function __values(o) {
     var s = typeof Symbol === "function" && Symbol.iterator,
@@ -56872,28 +56714,16 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
     }
     return ar;
   }
-
-  /** @deprecated */
   function __spread() {
     for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
     return ar;
   }
-
-  /** @deprecated */
   function __spreadArrays() {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
     for (var r = Array(s), k = 0, i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) r[k] = a[j];
     return r;
   }
-  function __spreadArray(to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-      if (ar || !(i in from)) {
-        if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-        ar[i] = from[i];
-      }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-  }
+  ;
   function __await(v) {
     return this instanceof __await ? (this.v = v, this) : new __await(v);
   }
@@ -56943,7 +56773,7 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
       i[n] = o[n] ? function (v) {
         return (p = !p) ? {
           value: __await(o[n](v)),
-          done: false
+          done: n === "return"
         } : f ? f(v) : v;
       } : f;
     }
@@ -56982,19 +56812,11 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
     return cooked;
   }
   ;
-  var __setModuleDefault = Object.create ? function (o, v) {
-    Object.defineProperty(o, "default", {
-      enumerable: true,
-      value: v
-    });
-  } : function (o, v) {
-    o["default"] = v;
-  };
   function __importStar(mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result.default = mod;
     return result;
   }
   function __importDefault(mod) {
@@ -57002,20 +56824,18 @@ define('tslib/tslib.es6',["exports"], function (_exports) {
       default: mod
     };
   }
-  function __classPrivateFieldGet(receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+  function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+      throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
   }
-  function __classPrivateFieldSet(receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
-  }
-  function __classPrivateFieldIn(state, receiver) {
-    if (receiver === null || typeof receiver !== "object" && typeof receiver !== "function") throw new TypeError("Cannot use 'in' operator on non-object");
-    return typeof state === "function" ? receiver === state : state.has(receiver);
+  function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+      throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
   }
 });;
 define('text!tslib/tslib.es6.html',[],function(){return "<script src=\"tslib.es6.js\"></script>";});;
@@ -57026,7 +56846,6 @@ define('@material/form-field',['@material/form-field/index'],function(m){return 
 define('@material/linear-progress',['@material/linear-progress/index'],function(m){return m;});
 define('@material/menu',['@material/menu/index'],function(m){return m;});
 define('@material/radio',['@material/radio/index'],function(m){return m;});
-define('@material/ripple',['@material/ripple/index'],function(m){return m;});
 define('@material/select',['@material/select/index'],function(m){return m;});
 define('@material/snackbar',['@material/snackbar/index'],function(m){return m;});
 define('@material/switch',['@material/switch/index'],function(m){return m;});
