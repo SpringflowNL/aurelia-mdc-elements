@@ -19,6 +19,7 @@ export class MdcSelect {
     @bindable outlined = false;
     @bindable anchorElement;
     @bindable emptyOption = true;
+    @bindable fixedMenuPosition = false;
 
     constructor(element, taskQueue) {
         this.element = element;

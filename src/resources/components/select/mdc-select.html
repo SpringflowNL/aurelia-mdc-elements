@@ -37,7 +37,7 @@
 			</template>
 		</div>
 	  
-		<div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+		<div class="mdc-select__menu mdc-menu mdc-menu-surface ${fixedMenuPosition ? 'mdc-menu-surface--fixed' : 'mdc-menu-surface--fullwidth'}" css="width: ${element.firstElementChild.clientWidth}px;">
 		  <ul class="mdc-deprecated-list mdc-deprecated-list--dense" role="listbox" aria-label="${label} listbox">
 			<li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected" aria-selected="true" data-value="" role="option" if.bind="emptyOption">
 			  <span class="mdc-deprecated-list-item__ripple"></span>
